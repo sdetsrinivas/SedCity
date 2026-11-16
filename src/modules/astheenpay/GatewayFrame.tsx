@@ -3,12 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import { useT } from "@/i18n/client";
 import { Icon } from "@/components/ui/Icon";
 import { cancelPaySession, getPaySession, type GatewayMessage } from "@/mock/endpoints/astheenpay";
-import s from "./Payment.module.css";
+import s from "./GatewayFrame.module.css";
 
 export const checkoutUrl = (session: string, view: "frame" | "window") => `/pay/astheenpay/checkout?session=${session}&view=${view}`;
 
 /**
- * Hosts the AstheenPay checkout.
+ * Hosts the AstheenPay checkout on the paying page (water bill, property tax).
  * FRM-01: by default it runs in a same-origin <iframe id="astheenpay-frame">; everything inside (card fields,
  * OTP modal) belongs to the frame's document, so page-level locators do not see it.
  * DLG-15: "Open in a new window" moves the checkout to a `window.open` popup; this page then waits, polls
@@ -77,33 +77,33 @@ export function GatewayFrame({ session, onResult }: { session: string; onResult:
   };
 
   return (
-    <section ref={section} id="astheenpay" className={`card ${s.gateway}`} aria-labelledby="wt-gw-title">
+    <section ref={section} id="astheenpay" className={`card ${s.gateway}`} aria-labelledby="ap-host-title">
       <div className="card-title">
-        <h2 id="wt-gw-title"><Icon name="lock" size={18} /> {t("wt.gatewayTitle")}</h2>
+        <h2 id="ap-host-title"><Icon name="lock" size={18} /> {t("ap.hostTitle")}</h2>
         {mode === "frame" && (
           <button type="button" className="btn btn-ghost" onClick={openWindow}>
-            {t("wt.openWindow")} <Icon name="external" size={16} />
+            {t("ap.hostOpenWindow")} <Icon name="external" size={16} />
           </button>
         )}
       </div>
       <div className="card-body">
-        <p className="muted small">{t("wt.gatewayNote")}</p>
-        {blocked && <div className="alert alert-error" role="alert">{t("wt.popupBlocked")}</div>}
+        <p className="muted small">{t("ap.hostNote")}</p>
+        {blocked && <div className="alert alert-error" role="alert">{t("ap.hostBlocked")}</div>}
         {mode === "frame" ? (
           <iframe
             id="astheenpay-frame"
             className={s.frame}
-            title={t("wt.frameTitle")}
+            title={t("ap.hostFrameTitle")}
             src={checkoutUrl(session, "frame")}
             style={{ height }}
           />
         ) : (
           <div className={s.waiting} role="status">
             <span className={s.spinner} aria-hidden="true" />
-            <p>{t("wt.windowWaiting")}</p>
+            <p>{t("ap.hostWaiting")}</p>
             <div className={s.waitingActions}>
-              <button type="button" className="btn btn-primary" onClick={() => popup.current?.focus()}>{t("wt.windowFocus")}</button>
-              <button type="button" className="btn btn-outline" onClick={payHere}>{t("wt.payHere")}</button>
+              <button type="button" className="btn btn-primary" onClick={() => popup.current?.focus()}>{t("ap.hostFocus")}</button>
+              <button type="button" className="btn btn-outline" onClick={payHere}>{t("ap.hostPayHere")}</button>
             </div>
           </div>
         )}
