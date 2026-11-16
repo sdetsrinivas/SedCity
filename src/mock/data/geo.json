@@ -1,0 +1,2756 @@
+{
+ "zones": [
+  {
+   "id": "Z1",
+   "en": "Zone I – Thenmalai",
+   "ta": "மண்டலம் I – தேன்மலை"
+  },
+  {
+   "id": "Z2",
+   "en": "Zone II – Kalaivani",
+   "ta": "மண்டலம் II – கலைவாணி"
+  },
+  {
+   "id": "Z3",
+   "en": "Zone III – Ripon",
+   "ta": "மண்டலம் III – ரிப்பன்"
+  },
+  {
+   "id": "Z4",
+   "en": "Zone IV – Vellaiyur",
+   "ta": "மண்டலம் IV – வெள்ளையூர்"
+  },
+  {
+   "id": "Z5",
+   "en": "Zone V – Marudham",
+   "ta": "மண்டலம் V – மருதம்"
+  },
+  {
+   "id": "Z6",
+   "en": "Zone VI – Kadalkarai",
+   "ta": "மண்டலம் VI – கடற்கரை"
+  }
+ ],
+ "wards": [
+  {
+   "id": "W01",
+   "zoneId": "Z1",
+   "no": 1,
+   "en": "Ward 1 – Periyar Colony",
+   "ta": "வார்டு 1 – பெரியார் காலனி"
+  },
+  {
+   "id": "W02",
+   "zoneId": "Z1",
+   "no": 2,
+   "en": "Ward 2 – Malaiyadivaram",
+   "ta": "வார்டு 2 – மலையடிவாரம்"
+  },
+  {
+   "id": "W03",
+   "zoneId": "Z1",
+   "no": 3,
+   "en": "Ward 3 – Thenmalai",
+   "ta": "வார்டு 3 – தேன்மலை"
+  },
+  {
+   "id": "W04",
+   "zoneId": "Z1",
+   "no": 4,
+   "en": "Ward 4 – Kurinji Nagar",
+   "ta": "வார்டு 4 – குறிஞ்சி நகர்"
+  },
+  {
+   "id": "W05",
+   "zoneId": "Z1",
+   "no": 5,
+   "en": "Ward 5 – Pudhur",
+   "ta": "வார்டு 5 – புதூர்"
+  },
+  {
+   "id": "W06",
+   "zoneId": "Z1",
+   "no": 6,
+   "en": "Ward 6 – Arasampatti",
+   "ta": "வார்டு 6 – அரசம்பட்டி"
+  },
+  {
+   "id": "W07",
+   "zoneId": "Z1",
+   "no": 7,
+   "en": "Ward 7 – Vembu Thottam",
+   "ta": "வார்டு 7 – வேம்பு தோட்டம்"
+  },
+  {
+   "id": "W08",
+   "zoneId": "Z1",
+   "no": 8,
+   "en": "Ward 8 – Kondai Medu",
+   "ta": "வார்டு 8 – கொண்டை மேடு"
+  },
+  {
+   "id": "W09",
+   "zoneId": "Z2",
+   "no": 9,
+   "en": "Ward 9 – Kalaivani Square",
+   "ta": "வார்டு 9 – கலைவாணி சதுக்கம்"
+  },
+  {
+   "id": "W10",
+   "zoneId": "Z2",
+   "no": 10,
+   "en": "Ward 10 – Thamarai Pettai",
+   "ta": "வார்டு 10 – தாமரைப் பேட்டை"
+  },
+  {
+   "id": "W11",
+   "zoneId": "Z2",
+   "no": 11,
+   "en": "Ward 11 – Mullai Nagar",
+   "ta": "வார்டு 11 – முல்லை நகர்"
+  },
+  {
+   "id": "W12",
+   "zoneId": "Z2",
+   "no": 12,
+   "en": "Ward 12 – Sangam Street",
+   "ta": "வார்டு 12 – சங்கம் தெரு"
+  },
+  {
+   "id": "W13",
+   "zoneId": "Z2",
+   "no": 13,
+   "en": "Ward 13 – Natarajapuram",
+   "ta": "வார்டு 13 – நடராஜபுரம்"
+  },
+  {
+   "id": "W14",
+   "zoneId": "Z2",
+   "no": 14,
+   "en": "Ward 14 – Kalaivani Nagar",
+   "ta": "வார்டு 14 – கலைவாணி நகர்"
+  },
+  {
+   "id": "W15",
+   "zoneId": "Z2",
+   "no": 15,
+   "en": "Ward 15 – Ilanthoppu",
+   "ta": "வார்டு 15 – இலந்தோப்பு"
+  },
+  {
+   "id": "W16",
+   "zoneId": "Z2",
+   "no": 16,
+   "en": "Ward 16 – Chinna Bazaar",
+   "ta": "வார்டு 16 – சின்ன பஜார்"
+  },
+  {
+   "id": "W17",
+   "zoneId": "Z3",
+   "no": 17,
+   "en": "Ward 17 – Ripon Mahal",
+   "ta": "வார்டு 17 – ரிப்பன் மஹால்"
+  },
+  {
+   "id": "W18",
+   "zoneId": "Z3",
+   "no": 18,
+   "en": "Ward 18 – Kottai",
+   "ta": "வார்டு 18 – கோட்டை"
+  },
+  {
+   "id": "W19",
+   "zoneId": "Z3",
+   "no": 19,
+   "en": "Ward 19 – Thiruvalluvar Nagar",
+   "ta": "வார்டு 19 – திருவள்ளுவர் நகர்"
+  },
+  {
+   "id": "W20",
+   "zoneId": "Z3",
+   "no": 20,
+   "en": "Ward 20 – Mandapam",
+   "ta": "வார்டு 20 – மண்டபம்"
+  },
+  {
+   "id": "W21",
+   "zoneId": "Z3",
+   "no": 21,
+   "en": "Ward 21 – Kaveri Colony",
+   "ta": "வார்டு 21 – காவேரி காலனி"
+  },
+  {
+   "id": "W22",
+   "zoneId": "Z3",
+   "no": 22,
+   "en": "Ward 22 – Ther Mutti",
+   "ta": "வார்டு 22 – தேர் முட்டி"
+  },
+  {
+   "id": "W23",
+   "zoneId": "Z3",
+   "no": 23,
+   "en": "Ward 23 – Annai Nagar",
+   "ta": "வார்டு 23 – அன்னை நகர்"
+  },
+  {
+   "id": "W24",
+   "zoneId": "Z3",
+   "no": 24,
+   "en": "Ward 24 – Pallivasal",
+   "ta": "வார்டு 24 – பள்ளிவாசல்"
+  },
+  {
+   "id": "W25",
+   "zoneId": "Z4",
+   "no": 25,
+   "en": "Ward 25 – Vellaiyur",
+   "ta": "வார்டு 25 – வெள்ளையூர்"
+  },
+  {
+   "id": "W26",
+   "zoneId": "Z4",
+   "no": 26,
+   "en": "Ward 26 – Senthamarai Nagar",
+   "ta": "வார்டு 26 – செந்தாமரை நகர்"
+  },
+  {
+   "id": "W27",
+   "zoneId": "Z4",
+   "no": 27,
+   "en": "Ward 27 – Ayyanar Kovil",
+   "ta": "வார்டு 27 – ஐயனார் கோவில்"
+  },
+  {
+   "id": "W28",
+   "zoneId": "Z4",
+   "no": 28,
+   "en": "Ward 28 – Nesavalar Colony",
+   "ta": "வார்டு 28 – நெசவாளர் காலனி"
+  },
+  {
+   "id": "W29",
+   "zoneId": "Z4",
+   "no": 29,
+   "en": "Ward 29 – Pon Nagar",
+   "ta": "வார்டு 29 – பொன் நகர்"
+  },
+  {
+   "id": "W30",
+   "zoneId": "Z4",
+   "no": 30,
+   "en": "Ward 30 – Kulathur",
+   "ta": "வார்டு 30 – குளத்தூர்"
+  },
+  {
+   "id": "W31",
+   "zoneId": "Z4",
+   "no": 31,
+   "en": "Ward 31 – Melapalayam",
+   "ta": "வார்டு 31 – மேலப்பாளையம்"
+  },
+  {
+   "id": "W32",
+   "zoneId": "Z4",
+   "no": 32,
+   "en": "Ward 32 – Keezhapalayam",
+   "ta": "வார்டு 32 – கீழப்பாளையம்"
+  },
+  {
+   "id": "W33",
+   "zoneId": "Z5",
+   "no": 33,
+   "en": "Ward 33 – Marudham",
+   "ta": "வார்டு 33 – மருதம்"
+  },
+  {
+   "id": "W34",
+   "zoneId": "Z5",
+   "no": 34,
+   "en": "Ward 34 – Vayal Veli",
+   "ta": "வார்டு 34 – வயல்வெளி"
+  },
+  {
+   "id": "W35",
+   "zoneId": "Z5",
+   "no": 35,
+   "en": "Ward 35 – Thottiyam",
+   "ta": "வார்டு 35 – தொட்டியம்"
+  },
+  {
+   "id": "W36",
+   "zoneId": "Z5",
+   "no": 36,
+   "en": "Ward 36 – Neerthekkam",
+   "ta": "வார்டு 36 – நீர்த்தேக்கம்"
+  },
+  {
+   "id": "W37",
+   "zoneId": "Z5",
+   "no": 37,
+   "en": "Ward 37 – Pasumai Nagar",
+   "ta": "வார்டு 37 – பசுமை நகர்"
+  },
+  {
+   "id": "W38",
+   "zoneId": "Z5",
+   "no": 38,
+   "en": "Ward 38 – Ellai Nagar",
+   "ta": "வார்டு 38 – எல்லை நகர்"
+  },
+  {
+   "id": "W39",
+   "zoneId": "Z5",
+   "no": 39,
+   "en": "Ward 39 – Mangadu",
+   "ta": "வார்டு 39 – மாங்காடு"
+  },
+  {
+   "id": "W40",
+   "zoneId": "Z5",
+   "no": 40,
+   "en": "Ward 40 – Puliyampatti",
+   "ta": "வார்டு 40 – புளியம்பட்டி"
+  },
+  {
+   "id": "W41",
+   "zoneId": "Z6",
+   "no": 41,
+   "en": "Ward 41 – Kadalkarai",
+   "ta": "வார்டு 41 – கடற்கரை"
+  },
+  {
+   "id": "W42",
+   "zoneId": "Z6",
+   "no": 42,
+   "en": "Ward 42 – Meenavar Kuppam",
+   "ta": "வார்டு 42 – மீனவர் குப்பம்"
+  },
+  {
+   "id": "W43",
+   "zoneId": "Z6",
+   "no": 43,
+   "en": "Ward 43 – Kalangarai Vilakku",
+   "ta": "வார்டு 43 – கலங்கரை விளக்கு"
+  },
+  {
+   "id": "W44",
+   "zoneId": "Z6",
+   "no": 44,
+   "en": "Ward 44 – Uppalam",
+   "ta": "வார்டு 44 – உப்பளம்"
+  },
+  {
+   "id": "W45",
+   "zoneId": "Z6",
+   "no": 45,
+   "en": "Ward 45 – Thuraimugam",
+   "ta": "வார்டு 45 – துறைமுகம்"
+  },
+  {
+   "id": "W46",
+   "zoneId": "Z6",
+   "no": 46,
+   "en": "Ward 46 – Neithal Nagar",
+   "ta": "வார்டு 46 – நெய்தல் நகர்"
+  },
+  {
+   "id": "W47",
+   "zoneId": "Z6",
+   "no": 47,
+   "en": "Ward 47 – Alai Osai",
+   "ta": "வார்டு 47 – அலை ஓசை"
+  },
+  {
+   "id": "W48",
+   "zoneId": "Z6",
+   "no": 48,
+   "en": "Ward 48 – Pavala Nagar",
+   "ta": "வார்டு 48 – பவள நகர்"
+  }
+ ],
+ "streets": [
+  {
+   "id": "W01-S01",
+   "wardId": "W01",
+   "name": "Avvai 2nd Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W01-S02",
+   "wardId": "W01",
+   "name": "Ilango Cross Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W01-S03",
+   "wardId": "W01",
+   "name": "Kambar 1st Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W01-S04",
+   "wardId": "W01",
+   "name": "Mullai 1st Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W01-S05",
+   "wardId": "W01",
+   "name": "Sengol 2nd Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W01-S06",
+   "wardId": "W01",
+   "name": "Thoppu Cross Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W02-S01",
+   "wardId": "W02",
+   "name": "Arasu Road",
+   "pincode": "600910"
+  },
+  {
+   "id": "W02-S02",
+   "wardId": "W02",
+   "name": "Avvai Road",
+   "pincode": "600910"
+  },
+  {
+   "id": "W02-S03",
+   "wardId": "W02",
+   "name": "Elango Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W02-S04",
+   "wardId": "W02",
+   "name": "Kaveri 1st Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W02-S05",
+   "wardId": "W02",
+   "name": "Kulam 1st Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W02-S06",
+   "wardId": "W02",
+   "name": "Thoppu 2nd Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W02-S07",
+   "wardId": "W02",
+   "name": "Valluvar Lane",
+   "pincode": "600910"
+  },
+  {
+   "id": "W03-S01",
+   "wardId": "W03",
+   "name": "Ilango Lane",
+   "pincode": "600910"
+  },
+  {
+   "id": "W03-S02",
+   "wardId": "W03",
+   "name": "Kambar 1st Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W03-S03",
+   "wardId": "W03",
+   "name": "Mullai Extension",
+   "pincode": "600910"
+  },
+  {
+   "id": "W03-S04",
+   "wardId": "W03",
+   "name": "Nesavu Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W03-S05",
+   "wardId": "W03",
+   "name": "Palai Extension",
+   "pincode": "600910"
+  },
+  {
+   "id": "W03-S06",
+   "wardId": "W03",
+   "name": "Palai Lane",
+   "pincode": "600910"
+  },
+  {
+   "id": "W03-S07",
+   "wardId": "W03",
+   "name": "Palai Road",
+   "pincode": "600910"
+  },
+  {
+   "id": "W03-S08",
+   "wardId": "W03",
+   "name": "Senthamarai 2nd Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W03-S09",
+   "wardId": "W03",
+   "name": "Senthamarai Main Road",
+   "pincode": "600910"
+  },
+  {
+   "id": "W03-S10",
+   "wardId": "W03",
+   "name": "Thoppu Cross Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W04-S01",
+   "wardId": "W04",
+   "name": "Ilango Main Road",
+   "pincode": "600910"
+  },
+  {
+   "id": "W04-S02",
+   "wardId": "W04",
+   "name": "Kaveri Cross Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W04-S03",
+   "wardId": "W04",
+   "name": "Kaveri Lane",
+   "pincode": "600910"
+  },
+  {
+   "id": "W04-S04",
+   "wardId": "W04",
+   "name": "Senthamarai Road",
+   "pincode": "600910"
+  },
+  {
+   "id": "W04-S05",
+   "wardId": "W04",
+   "name": "Vaigai Cross Street",
+   "pincode": "600910"
+  },
+  {
+   "id": "W04-S06",
+   "wardId": "W04",
+   "name": "Valluvar Extension",
+   "pincode": "600910"
+  },
+  {
+   "id": "W05-S01",
+   "wardId": "W05",
+   "name": "Avvai 1st Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W05-S02",
+   "wardId": "W05",
+   "name": "Ilango Road",
+   "pincode": "600911"
+  },
+  {
+   "id": "W05-S03",
+   "wardId": "W05",
+   "name": "Kaveri Cross Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W05-S04",
+   "wardId": "W05",
+   "name": "Neithal Extension",
+   "pincode": "600911"
+  },
+  {
+   "id": "W05-S05",
+   "wardId": "W05",
+   "name": "Neithal Road",
+   "pincode": "600911"
+  },
+  {
+   "id": "W05-S06",
+   "wardId": "W05",
+   "name": "Pavalam 2nd Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W05-S07",
+   "wardId": "W05",
+   "name": "Vaigai 1st Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W05-S08",
+   "wardId": "W05",
+   "name": "Vaigai 2nd Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W05-S09",
+   "wardId": "W05",
+   "name": "Valluvar Extension",
+   "pincode": "600911"
+  },
+  {
+   "id": "W06-S01",
+   "wardId": "W06",
+   "name": "Arasu Extension",
+   "pincode": "600911"
+  },
+  {
+   "id": "W06-S02",
+   "wardId": "W06",
+   "name": "Arasu Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W06-S03",
+   "wardId": "W06",
+   "name": "Avvai Main Road",
+   "pincode": "600911"
+  },
+  {
+   "id": "W06-S04",
+   "wardId": "W06",
+   "name": "Malai Main Road",
+   "pincode": "600911"
+  },
+  {
+   "id": "W06-S05",
+   "wardId": "W06",
+   "name": "Nesavu Extension",
+   "pincode": "600911"
+  },
+  {
+   "id": "W06-S06",
+   "wardId": "W06",
+   "name": "Pavalam Road",
+   "pincode": "600911"
+  },
+  {
+   "id": "W06-S07",
+   "wardId": "W06",
+   "name": "Sengol Cross Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W06-S08",
+   "wardId": "W06",
+   "name": "Thoppu Extension",
+   "pincode": "600911"
+  },
+  {
+   "id": "W06-S09",
+   "wardId": "W06",
+   "name": "Vembu 2nd Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W06-S10",
+   "wardId": "W06",
+   "name": "Vembu Lane",
+   "pincode": "600911"
+  },
+  {
+   "id": "W07-S01",
+   "wardId": "W07",
+   "name": "Muthu 1st Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W07-S02",
+   "wardId": "W07",
+   "name": "Neithal 1st Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W07-S03",
+   "wardId": "W07",
+   "name": "Neithal Cross Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W07-S04",
+   "wardId": "W07",
+   "name": "Neithal Extension",
+   "pincode": "600911"
+  },
+  {
+   "id": "W07-S05",
+   "wardId": "W07",
+   "name": "Neithal Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W07-S06",
+   "wardId": "W07",
+   "name": "Thamarai Road",
+   "pincode": "600911"
+  },
+  {
+   "id": "W08-S01",
+   "wardId": "W08",
+   "name": "Arasu Lane",
+   "pincode": "600911"
+  },
+  {
+   "id": "W08-S02",
+   "wardId": "W08",
+   "name": "Avvai Extension",
+   "pincode": "600911"
+  },
+  {
+   "id": "W08-S03",
+   "wardId": "W08",
+   "name": "Elango 1st Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W08-S04",
+   "wardId": "W08",
+   "name": "Kambar 1st Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W08-S05",
+   "wardId": "W08",
+   "name": "Kurinji Extension",
+   "pincode": "600911"
+  },
+  {
+   "id": "W08-S06",
+   "wardId": "W08",
+   "name": "Malligai 2nd Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W08-S07",
+   "wardId": "W08",
+   "name": "Mullai Road",
+   "pincode": "600911"
+  },
+  {
+   "id": "W08-S08",
+   "wardId": "W08",
+   "name": "Muthu Street",
+   "pincode": "600911"
+  },
+  {
+   "id": "W08-S09",
+   "wardId": "W08",
+   "name": "Neithal Main Road",
+   "pincode": "600911"
+  },
+  {
+   "id": "W08-S10",
+   "wardId": "W08",
+   "name": "Thamarai Extension",
+   "pincode": "600911"
+  },
+  {
+   "id": "W09-S01",
+   "wardId": "W09",
+   "name": "Kulam 2nd Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W09-S02",
+   "wardId": "W09",
+   "name": "Nesavu Extension",
+   "pincode": "600912"
+  },
+  {
+   "id": "W09-S03",
+   "wardId": "W09",
+   "name": "Thamarai Extension",
+   "pincode": "600912"
+  },
+  {
+   "id": "W09-S04",
+   "wardId": "W09",
+   "name": "Thoppu Main Road",
+   "pincode": "600912"
+  },
+  {
+   "id": "W09-S05",
+   "wardId": "W09",
+   "name": "Vaigai Main Road",
+   "pincode": "600912"
+  },
+  {
+   "id": "W09-S06",
+   "wardId": "W09",
+   "name": "Valluvar Extension",
+   "pincode": "600912"
+  },
+  {
+   "id": "W10-S01",
+   "wardId": "W10",
+   "name": "Avvai 2nd Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W10-S02",
+   "wardId": "W10",
+   "name": "Elango Lane",
+   "pincode": "600912"
+  },
+  {
+   "id": "W10-S03",
+   "wardId": "W10",
+   "name": "Kaveri Road",
+   "pincode": "600912"
+  },
+  {
+   "id": "W10-S04",
+   "wardId": "W10",
+   "name": "Malai Extension",
+   "pincode": "600912"
+  },
+  {
+   "id": "W10-S05",
+   "wardId": "W10",
+   "name": "Mullai Cross Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W10-S06",
+   "wardId": "W10",
+   "name": "Neithal Lane",
+   "pincode": "600912"
+  },
+  {
+   "id": "W10-S07",
+   "wardId": "W10",
+   "name": "Nesavu Lane",
+   "pincode": "600912"
+  },
+  {
+   "id": "W10-S08",
+   "wardId": "W10",
+   "name": "Sengol Cross Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W10-S09",
+   "wardId": "W10",
+   "name": "Thoppu Road",
+   "pincode": "600912"
+  },
+  {
+   "id": "W11-S01",
+   "wardId": "W11",
+   "name": "Arasu Lane",
+   "pincode": "600912"
+  },
+  {
+   "id": "W11-S02",
+   "wardId": "W11",
+   "name": "Ilango 2nd Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W11-S03",
+   "wardId": "W11",
+   "name": "Ilango Road",
+   "pincode": "600912"
+  },
+  {
+   "id": "W11-S04",
+   "wardId": "W11",
+   "name": "Kambar 2nd Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W11-S05",
+   "wardId": "W11",
+   "name": "Kaveri 2nd Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W11-S06",
+   "wardId": "W11",
+   "name": "Kulam Lane",
+   "pincode": "600912"
+  },
+  {
+   "id": "W11-S07",
+   "wardId": "W11",
+   "name": "Kurinji 1st Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W11-S08",
+   "wardId": "W11",
+   "name": "Kurinji Lane",
+   "pincode": "600912"
+  },
+  {
+   "id": "W11-S09",
+   "wardId": "W11",
+   "name": "Mullai 1st Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W11-S10",
+   "wardId": "W11",
+   "name": "Thamarai Cross Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W12-S01",
+   "wardId": "W12",
+   "name": "Bazaar Extension",
+   "pincode": "600912"
+  },
+  {
+   "id": "W12-S02",
+   "wardId": "W12",
+   "name": "Kulam Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W12-S03",
+   "wardId": "W12",
+   "name": "Malligai 2nd Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W12-S04",
+   "wardId": "W12",
+   "name": "Mullai 1st Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W12-S05",
+   "wardId": "W12",
+   "name": "Palai Main Road",
+   "pincode": "600912"
+  },
+  {
+   "id": "W12-S06",
+   "wardId": "W12",
+   "name": "Sengol Road",
+   "pincode": "600912"
+  },
+  {
+   "id": "W12-S07",
+   "wardId": "W12",
+   "name": "Thoppu 1st Street",
+   "pincode": "600912"
+  },
+  {
+   "id": "W12-S08",
+   "wardId": "W12",
+   "name": "Valluvar Lane",
+   "pincode": "600912"
+  },
+  {
+   "id": "W13-S01",
+   "wardId": "W13",
+   "name": "Arasu Main Road",
+   "pincode": "600913"
+  },
+  {
+   "id": "W13-S02",
+   "wardId": "W13",
+   "name": "Arasu Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W13-S03",
+   "wardId": "W13",
+   "name": "Kulam Main Road",
+   "pincode": "600913"
+  },
+  {
+   "id": "W13-S04",
+   "wardId": "W13",
+   "name": "Pavalam Extension",
+   "pincode": "600913"
+  },
+  {
+   "id": "W13-S05",
+   "wardId": "W13",
+   "name": "Thamarai Road",
+   "pincode": "600913"
+  },
+  {
+   "id": "W13-S06",
+   "wardId": "W13",
+   "name": "Thoppu Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W13-S07",
+   "wardId": "W13",
+   "name": "Vaigai 1st Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W13-S08",
+   "wardId": "W13",
+   "name": "Valluvar Main Road",
+   "pincode": "600913"
+  },
+  {
+   "id": "W13-S09",
+   "wardId": "W13",
+   "name": "Vembu Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W14-S01",
+   "wardId": "W14",
+   "name": "Arasu Extension",
+   "pincode": "600913"
+  },
+  {
+   "id": "W14-S02",
+   "wardId": "W14",
+   "name": "Ilango Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W14-S03",
+   "wardId": "W14",
+   "name": "Kambar Lane",
+   "pincode": "600913"
+  },
+  {
+   "id": "W14-S04",
+   "wardId": "W14",
+   "name": "Kovil Extension",
+   "pincode": "600913"
+  },
+  {
+   "id": "W14-S05",
+   "wardId": "W14",
+   "name": "Kurinji Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W14-S06",
+   "wardId": "W14",
+   "name": "Malligai Main Road",
+   "pincode": "600913"
+  },
+  {
+   "id": "W14-S07",
+   "wardId": "W14",
+   "name": "Mullai Road",
+   "pincode": "600913"
+  },
+  {
+   "id": "W14-S08",
+   "wardId": "W14",
+   "name": "Palai 1st Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W14-S09",
+   "wardId": "W14",
+   "name": "Vaigai Lane",
+   "pincode": "600913"
+  },
+  {
+   "id": "W15-S01",
+   "wardId": "W15",
+   "name": "Kambar Cross Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W15-S02",
+   "wardId": "W15",
+   "name": "Kovil 1st Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W15-S03",
+   "wardId": "W15",
+   "name": "Kulam 2nd Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W15-S04",
+   "wardId": "W15",
+   "name": "Malligai Lane",
+   "pincode": "600913"
+  },
+  {
+   "id": "W15-S05",
+   "wardId": "W15",
+   "name": "Nesavu Extension",
+   "pincode": "600913"
+  },
+  {
+   "id": "W15-S06",
+   "wardId": "W15",
+   "name": "Sengol Lane",
+   "pincode": "600913"
+  },
+  {
+   "id": "W15-S07",
+   "wardId": "W15",
+   "name": "Senthamarai Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W15-S08",
+   "wardId": "W15",
+   "name": "Thamarai Lane",
+   "pincode": "600913"
+  },
+  {
+   "id": "W15-S09",
+   "wardId": "W15",
+   "name": "Vaigai Lane",
+   "pincode": "600913"
+  },
+  {
+   "id": "W15-S10",
+   "wardId": "W15",
+   "name": "Vembu Main Road",
+   "pincode": "600913"
+  },
+  {
+   "id": "W16-S01",
+   "wardId": "W16",
+   "name": "Bazaar Extension",
+   "pincode": "600913"
+  },
+  {
+   "id": "W16-S02",
+   "wardId": "W16",
+   "name": "Elango Extension",
+   "pincode": "600913"
+  },
+  {
+   "id": "W16-S03",
+   "wardId": "W16",
+   "name": "Kambar 1st Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W16-S04",
+   "wardId": "W16",
+   "name": "Kaveri Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W16-S05",
+   "wardId": "W16",
+   "name": "Kulam Extension",
+   "pincode": "600913"
+  },
+  {
+   "id": "W16-S06",
+   "wardId": "W16",
+   "name": "Pavalam Lane",
+   "pincode": "600913"
+  },
+  {
+   "id": "W16-S07",
+   "wardId": "W16",
+   "name": "Senthamarai Extension",
+   "pincode": "600913"
+  },
+  {
+   "id": "W16-S08",
+   "wardId": "W16",
+   "name": "Valluvar 1st Street",
+   "pincode": "600913"
+  },
+  {
+   "id": "W17-S01",
+   "wardId": "W17",
+   "name": "Elango Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W17-S02",
+   "wardId": "W17",
+   "name": "Kambar 2nd Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W17-S03",
+   "wardId": "W17",
+   "name": "Kovil 1st Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W17-S04",
+   "wardId": "W17",
+   "name": "Kovil Main Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W17-S05",
+   "wardId": "W17",
+   "name": "Neithal 2nd Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W17-S06",
+   "wardId": "W17",
+   "name": "Palai 1st Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W17-S07",
+   "wardId": "W17",
+   "name": "Pavalam 2nd Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W17-S08",
+   "wardId": "W17",
+   "name": "Sengol Extension",
+   "pincode": "600914"
+  },
+  {
+   "id": "W17-S09",
+   "wardId": "W17",
+   "name": "Vembu Extension",
+   "pincode": "600914"
+  },
+  {
+   "id": "W18-S01",
+   "wardId": "W18",
+   "name": "Bharathi Main Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W18-S02",
+   "wardId": "W18",
+   "name": "Nesavu Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W18-S03",
+   "wardId": "W18",
+   "name": "Palai Extension",
+   "pincode": "600914"
+  },
+  {
+   "id": "W18-S04",
+   "wardId": "W18",
+   "name": "Senthamarai 1st Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W18-S05",
+   "wardId": "W18",
+   "name": "Thamarai Main Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W18-S06",
+   "wardId": "W18",
+   "name": "Thoppu 2nd Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W18-S07",
+   "wardId": "W18",
+   "name": "Vaigai Main Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W18-S08",
+   "wardId": "W18",
+   "name": "Vaigai Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W19-S01",
+   "wardId": "W19",
+   "name": "Arasu 1st Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W19-S02",
+   "wardId": "W19",
+   "name": "Arasu Cross Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W19-S03",
+   "wardId": "W19",
+   "name": "Bharathi 2nd Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W19-S04",
+   "wardId": "W19",
+   "name": "Elango Extension",
+   "pincode": "600914"
+  },
+  {
+   "id": "W19-S05",
+   "wardId": "W19",
+   "name": "Elango Main Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W19-S06",
+   "wardId": "W19",
+   "name": "Kambar Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W19-S07",
+   "wardId": "W19",
+   "name": "Mullai Extension",
+   "pincode": "600914"
+  },
+  {
+   "id": "W19-S08",
+   "wardId": "W19",
+   "name": "Thamarai 2nd Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W19-S09",
+   "wardId": "W19",
+   "name": "Thoppu Main Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W20-S01",
+   "wardId": "W20",
+   "name": "Avvai 1st Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W20-S02",
+   "wardId": "W20",
+   "name": "Bazaar Main Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W20-S03",
+   "wardId": "W20",
+   "name": "Bharathi Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W20-S04",
+   "wardId": "W20",
+   "name": "Elango 1st Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W20-S05",
+   "wardId": "W20",
+   "name": "Malligai Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W20-S06",
+   "wardId": "W20",
+   "name": "Mullai Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W20-S07",
+   "wardId": "W20",
+   "name": "Neithal Main Road",
+   "pincode": "600914"
+  },
+  {
+   "id": "W20-S08",
+   "wardId": "W20",
+   "name": "Thoppu Street",
+   "pincode": "600914"
+  },
+  {
+   "id": "W20-S09",
+   "wardId": "W20",
+   "name": "Valluvar Lane",
+   "pincode": "600914"
+  },
+  {
+   "id": "W21-S01",
+   "wardId": "W21",
+   "name": "Ilango 2nd Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W21-S02",
+   "wardId": "W21",
+   "name": "Kovil 1st Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W21-S03",
+   "wardId": "W21",
+   "name": "Kulam Extension",
+   "pincode": "600915"
+  },
+  {
+   "id": "W21-S04",
+   "wardId": "W21",
+   "name": "Kurinji 1st Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W21-S05",
+   "wardId": "W21",
+   "name": "Kurinji Main Road",
+   "pincode": "600915"
+  },
+  {
+   "id": "W21-S06",
+   "wardId": "W21",
+   "name": "Pavalam 2nd Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W21-S07",
+   "wardId": "W21",
+   "name": "Thoppu 2nd Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W21-S08",
+   "wardId": "W21",
+   "name": "Valluvar 2nd Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W21-S09",
+   "wardId": "W21",
+   "name": "Vembu Extension",
+   "pincode": "600915"
+  },
+  {
+   "id": "W22-S01",
+   "wardId": "W22",
+   "name": "Arasu Cross Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W22-S02",
+   "wardId": "W22",
+   "name": "Kulam 2nd Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W22-S03",
+   "wardId": "W22",
+   "name": "Kulam Cross Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W22-S04",
+   "wardId": "W22",
+   "name": "Mullai Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W22-S05",
+   "wardId": "W22",
+   "name": "Muthu Road",
+   "pincode": "600915"
+  },
+  {
+   "id": "W22-S06",
+   "wardId": "W22",
+   "name": "Vembu Cross Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W23-S01",
+   "wardId": "W23",
+   "name": "Avvai Lane",
+   "pincode": "600915"
+  },
+  {
+   "id": "W23-S02",
+   "wardId": "W23",
+   "name": "Bazaar 1st Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W23-S03",
+   "wardId": "W23",
+   "name": "Ilango 1st Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W23-S04",
+   "wardId": "W23",
+   "name": "Malai 1st Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W23-S05",
+   "wardId": "W23",
+   "name": "Malai 2nd Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W23-S06",
+   "wardId": "W23",
+   "name": "Malligai Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W23-S07",
+   "wardId": "W23",
+   "name": "Mullai Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W23-S08",
+   "wardId": "W23",
+   "name": "Vaigai Road",
+   "pincode": "600915"
+  },
+  {
+   "id": "W24-S01",
+   "wardId": "W24",
+   "name": "Arasu Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W24-S02",
+   "wardId": "W24",
+   "name": "Avvai Lane",
+   "pincode": "600915"
+  },
+  {
+   "id": "W24-S03",
+   "wardId": "W24",
+   "name": "Kambar Lane",
+   "pincode": "600915"
+  },
+  {
+   "id": "W24-S04",
+   "wardId": "W24",
+   "name": "Kaveri Cross Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W24-S05",
+   "wardId": "W24",
+   "name": "Kovil Main Road",
+   "pincode": "600915"
+  },
+  {
+   "id": "W24-S06",
+   "wardId": "W24",
+   "name": "Malligai 1st Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W24-S07",
+   "wardId": "W24",
+   "name": "Malligai Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W24-S08",
+   "wardId": "W24",
+   "name": "Mullai 1st Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W24-S09",
+   "wardId": "W24",
+   "name": "Muthu Street",
+   "pincode": "600915"
+  },
+  {
+   "id": "W25-S01",
+   "wardId": "W25",
+   "name": "Bazaar 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W25-S02",
+   "wardId": "W25",
+   "name": "Malligai 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W25-S03",
+   "wardId": "W25",
+   "name": "Mullai 1st Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W25-S04",
+   "wardId": "W25",
+   "name": "Senthamarai Lane",
+   "pincode": "600916"
+  },
+  {
+   "id": "W25-S05",
+   "wardId": "W25",
+   "name": "Thamarai Extension",
+   "pincode": "600916"
+  },
+  {
+   "id": "W25-S06",
+   "wardId": "W25",
+   "name": "Thoppu 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W26-S01",
+   "wardId": "W26",
+   "name": "Bazaar Cross Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W26-S02",
+   "wardId": "W26",
+   "name": "Muthu 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W26-S03",
+   "wardId": "W26",
+   "name": "Neithal 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W26-S04",
+   "wardId": "W26",
+   "name": "Neithal Extension",
+   "pincode": "600916"
+  },
+  {
+   "id": "W26-S05",
+   "wardId": "W26",
+   "name": "Nesavu 1st Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W26-S06",
+   "wardId": "W26",
+   "name": "Pavalam Cross Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W26-S07",
+   "wardId": "W26",
+   "name": "Sengol 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W26-S08",
+   "wardId": "W26",
+   "name": "Thamarai Main Road",
+   "pincode": "600916"
+  },
+  {
+   "id": "W27-S01",
+   "wardId": "W27",
+   "name": "Bazaar 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W27-S02",
+   "wardId": "W27",
+   "name": "Bazaar Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W27-S03",
+   "wardId": "W27",
+   "name": "Kurinji 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W27-S04",
+   "wardId": "W27",
+   "name": "Malai 1st Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W27-S05",
+   "wardId": "W27",
+   "name": "Muthu 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W27-S06",
+   "wardId": "W27",
+   "name": "Neithal Main Road",
+   "pincode": "600916"
+  },
+  {
+   "id": "W27-S07",
+   "wardId": "W27",
+   "name": "Palai 1st Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W27-S08",
+   "wardId": "W27",
+   "name": "Senthamarai 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W27-S09",
+   "wardId": "W27",
+   "name": "Thamarai Road",
+   "pincode": "600916"
+  },
+  {
+   "id": "W27-S10",
+   "wardId": "W27",
+   "name": "Valluvar 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W28-S01",
+   "wardId": "W28",
+   "name": "Avvai 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W28-S02",
+   "wardId": "W28",
+   "name": "Bharathi Road",
+   "pincode": "600916"
+  },
+  {
+   "id": "W28-S03",
+   "wardId": "W28",
+   "name": "Elango 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W28-S04",
+   "wardId": "W28",
+   "name": "Ilango 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W28-S05",
+   "wardId": "W28",
+   "name": "Ilango Lane",
+   "pincode": "600916"
+  },
+  {
+   "id": "W28-S06",
+   "wardId": "W28",
+   "name": "Mullai Road",
+   "pincode": "600916"
+  },
+  {
+   "id": "W28-S07",
+   "wardId": "W28",
+   "name": "Muthu Main Road",
+   "pincode": "600916"
+  },
+  {
+   "id": "W28-S08",
+   "wardId": "W28",
+   "name": "Nesavu 2nd Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W28-S09",
+   "wardId": "W28",
+   "name": "Palai Cross Street",
+   "pincode": "600916"
+  },
+  {
+   "id": "W28-S10",
+   "wardId": "W28",
+   "name": "Pavalam Lane",
+   "pincode": "600916"
+  },
+  {
+   "id": "W29-S01",
+   "wardId": "W29",
+   "name": "Arasu Cross Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W29-S02",
+   "wardId": "W29",
+   "name": "Arasu Main Road",
+   "pincode": "600917"
+  },
+  {
+   "id": "W29-S03",
+   "wardId": "W29",
+   "name": "Avvai 2nd Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W29-S04",
+   "wardId": "W29",
+   "name": "Avvai Lane",
+   "pincode": "600917"
+  },
+  {
+   "id": "W29-S05",
+   "wardId": "W29",
+   "name": "Avvai Road",
+   "pincode": "600917"
+  },
+  {
+   "id": "W29-S06",
+   "wardId": "W29",
+   "name": "Bharathi Road",
+   "pincode": "600917"
+  },
+  {
+   "id": "W29-S07",
+   "wardId": "W29",
+   "name": "Kambar Cross Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W29-S08",
+   "wardId": "W29",
+   "name": "Kaveri Lane",
+   "pincode": "600917"
+  },
+  {
+   "id": "W29-S09",
+   "wardId": "W29",
+   "name": "Kurinji Main Road",
+   "pincode": "600917"
+  },
+  {
+   "id": "W29-S10",
+   "wardId": "W29",
+   "name": "Malligai Lane",
+   "pincode": "600917"
+  },
+  {
+   "id": "W30-S01",
+   "wardId": "W30",
+   "name": "Arasu Main Road",
+   "pincode": "600917"
+  },
+  {
+   "id": "W30-S02",
+   "wardId": "W30",
+   "name": "Bharathi Road",
+   "pincode": "600917"
+  },
+  {
+   "id": "W30-S03",
+   "wardId": "W30",
+   "name": "Palai Cross Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W30-S04",
+   "wardId": "W30",
+   "name": "Pavalam Main Road",
+   "pincode": "600917"
+  },
+  {
+   "id": "W30-S05",
+   "wardId": "W30",
+   "name": "Vaigai Lane",
+   "pincode": "600917"
+  },
+  {
+   "id": "W30-S06",
+   "wardId": "W30",
+   "name": "Vembu 1st Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W30-S07",
+   "wardId": "W30",
+   "name": "Vembu 2nd Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W31-S01",
+   "wardId": "W31",
+   "name": "Arasu Road",
+   "pincode": "600917"
+  },
+  {
+   "id": "W31-S02",
+   "wardId": "W31",
+   "name": "Bharathi Extension",
+   "pincode": "600917"
+  },
+  {
+   "id": "W31-S03",
+   "wardId": "W31",
+   "name": "Kovil Lane",
+   "pincode": "600917"
+  },
+  {
+   "id": "W31-S04",
+   "wardId": "W31",
+   "name": "Nesavu 1st Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W31-S05",
+   "wardId": "W31",
+   "name": "Palai Extension",
+   "pincode": "600917"
+  },
+  {
+   "id": "W31-S06",
+   "wardId": "W31",
+   "name": "Sengol Extension",
+   "pincode": "600917"
+  },
+  {
+   "id": "W31-S07",
+   "wardId": "W31",
+   "name": "Senthamarai 2nd Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W31-S08",
+   "wardId": "W31",
+   "name": "Thamarai Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W31-S09",
+   "wardId": "W31",
+   "name": "Thoppu 1st Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W32-S01",
+   "wardId": "W32",
+   "name": "Bazaar 1st Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W32-S02",
+   "wardId": "W32",
+   "name": "Bharathi 1st Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W32-S03",
+   "wardId": "W32",
+   "name": "Bharathi Extension",
+   "pincode": "600917"
+  },
+  {
+   "id": "W32-S04",
+   "wardId": "W32",
+   "name": "Kovil Main Road",
+   "pincode": "600917"
+  },
+  {
+   "id": "W32-S05",
+   "wardId": "W32",
+   "name": "Neithal Road",
+   "pincode": "600917"
+  },
+  {
+   "id": "W32-S06",
+   "wardId": "W32",
+   "name": "Palai Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W32-S07",
+   "wardId": "W32",
+   "name": "Sengol Road",
+   "pincode": "600917"
+  },
+  {
+   "id": "W32-S08",
+   "wardId": "W32",
+   "name": "Valluvar Street",
+   "pincode": "600917"
+  },
+  {
+   "id": "W33-S01",
+   "wardId": "W33",
+   "name": "Avvai Extension",
+   "pincode": "600918"
+  },
+  {
+   "id": "W33-S02",
+   "wardId": "W33",
+   "name": "Avvai Main Road",
+   "pincode": "600918"
+  },
+  {
+   "id": "W33-S03",
+   "wardId": "W33",
+   "name": "Kambar Lane",
+   "pincode": "600918"
+  },
+  {
+   "id": "W33-S04",
+   "wardId": "W33",
+   "name": "Kulam Road",
+   "pincode": "600918"
+  },
+  {
+   "id": "W33-S05",
+   "wardId": "W33",
+   "name": "Malai 2nd Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W33-S06",
+   "wardId": "W33",
+   "name": "Mullai 1st Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W33-S07",
+   "wardId": "W33",
+   "name": "Senthamarai 1st Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W33-S08",
+   "wardId": "W33",
+   "name": "Thamarai 2nd Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W33-S09",
+   "wardId": "W33",
+   "name": "Valluvar Road",
+   "pincode": "600918"
+  },
+  {
+   "id": "W34-S01",
+   "wardId": "W34",
+   "name": "Bharathi Lane",
+   "pincode": "600918"
+  },
+  {
+   "id": "W34-S02",
+   "wardId": "W34",
+   "name": "Kovil 2nd Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W34-S03",
+   "wardId": "W34",
+   "name": "Malligai Cross Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W34-S04",
+   "wardId": "W34",
+   "name": "Malligai Road",
+   "pincode": "600918"
+  },
+  {
+   "id": "W34-S05",
+   "wardId": "W34",
+   "name": "Pavalam Lane",
+   "pincode": "600918"
+  },
+  {
+   "id": "W34-S06",
+   "wardId": "W34",
+   "name": "Senthamarai Cross Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W34-S07",
+   "wardId": "W34",
+   "name": "Vembu Cross Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W35-S01",
+   "wardId": "W35",
+   "name": "Avvai Extension",
+   "pincode": "600918"
+  },
+  {
+   "id": "W35-S02",
+   "wardId": "W35",
+   "name": "Avvai Lane",
+   "pincode": "600918"
+  },
+  {
+   "id": "W35-S03",
+   "wardId": "W35",
+   "name": "Avvai Road",
+   "pincode": "600918"
+  },
+  {
+   "id": "W35-S04",
+   "wardId": "W35",
+   "name": "Avvai Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W35-S05",
+   "wardId": "W35",
+   "name": "Bazaar Extension",
+   "pincode": "600918"
+  },
+  {
+   "id": "W35-S06",
+   "wardId": "W35",
+   "name": "Kambar Lane",
+   "pincode": "600918"
+  },
+  {
+   "id": "W35-S07",
+   "wardId": "W35",
+   "name": "Kulam Lane",
+   "pincode": "600918"
+  },
+  {
+   "id": "W35-S08",
+   "wardId": "W35",
+   "name": "Palai Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W36-S01",
+   "wardId": "W36",
+   "name": "Avvai 2nd Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W36-S02",
+   "wardId": "W36",
+   "name": "Kulam Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W36-S03",
+   "wardId": "W36",
+   "name": "Kurinji Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W36-S04",
+   "wardId": "W36",
+   "name": "Malai Lane",
+   "pincode": "600918"
+  },
+  {
+   "id": "W36-S05",
+   "wardId": "W36",
+   "name": "Palai Main Road",
+   "pincode": "600918"
+  },
+  {
+   "id": "W36-S06",
+   "wardId": "W36",
+   "name": "Sengol Cross Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W36-S07",
+   "wardId": "W36",
+   "name": "Thamarai 2nd Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W36-S08",
+   "wardId": "W36",
+   "name": "Thoppu 2nd Street",
+   "pincode": "600918"
+  },
+  {
+   "id": "W36-S09",
+   "wardId": "W36",
+   "name": "Valluvar Main Road",
+   "pincode": "600918"
+  },
+  {
+   "id": "W36-S10",
+   "wardId": "W36",
+   "name": "Vembu Main Road",
+   "pincode": "600918"
+  },
+  {
+   "id": "W37-S01",
+   "wardId": "W37",
+   "name": "Avvai 1st Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W37-S02",
+   "wardId": "W37",
+   "name": "Elango 2nd Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W37-S03",
+   "wardId": "W37",
+   "name": "Ilango 2nd Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W37-S04",
+   "wardId": "W37",
+   "name": "Thamarai Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W37-S05",
+   "wardId": "W37",
+   "name": "Vaigai 2nd Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W37-S06",
+   "wardId": "W37",
+   "name": "Valluvar 1st Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W37-S07",
+   "wardId": "W37",
+   "name": "Vembu Cross Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W38-S01",
+   "wardId": "W38",
+   "name": "Avvai 1st Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W38-S02",
+   "wardId": "W38",
+   "name": "Elango Lane",
+   "pincode": "600919"
+  },
+  {
+   "id": "W38-S03",
+   "wardId": "W38",
+   "name": "Kulam Extension",
+   "pincode": "600919"
+  },
+  {
+   "id": "W38-S04",
+   "wardId": "W38",
+   "name": "Kurinji Cross Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W38-S05",
+   "wardId": "W38",
+   "name": "Kurinji Extension",
+   "pincode": "600919"
+  },
+  {
+   "id": "W38-S06",
+   "wardId": "W38",
+   "name": "Muthu Extension",
+   "pincode": "600919"
+  },
+  {
+   "id": "W39-S01",
+   "wardId": "W39",
+   "name": "Bazaar Lane",
+   "pincode": "600919"
+  },
+  {
+   "id": "W39-S02",
+   "wardId": "W39",
+   "name": "Kambar 1st Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W39-S03",
+   "wardId": "W39",
+   "name": "Kambar Main Road",
+   "pincode": "600919"
+  },
+  {
+   "id": "W39-S04",
+   "wardId": "W39",
+   "name": "Kurinji 2nd Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W39-S05",
+   "wardId": "W39",
+   "name": "Muthu Road",
+   "pincode": "600919"
+  },
+  {
+   "id": "W39-S06",
+   "wardId": "W39",
+   "name": "Senthamarai Extension",
+   "pincode": "600919"
+  },
+  {
+   "id": "W39-S07",
+   "wardId": "W39",
+   "name": "Thamarai Road",
+   "pincode": "600919"
+  },
+  {
+   "id": "W39-S08",
+   "wardId": "W39",
+   "name": "Vembu Main Road",
+   "pincode": "600919"
+  },
+  {
+   "id": "W40-S01",
+   "wardId": "W40",
+   "name": "Bazaar Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W40-S02",
+   "wardId": "W40",
+   "name": "Malligai 1st Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W40-S03",
+   "wardId": "W40",
+   "name": "Muthu Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W40-S04",
+   "wardId": "W40",
+   "name": "Palai 1st Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W40-S05",
+   "wardId": "W40",
+   "name": "Pavalam Main Road",
+   "pincode": "600919"
+  },
+  {
+   "id": "W40-S06",
+   "wardId": "W40",
+   "name": "Thoppu 1st Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W40-S07",
+   "wardId": "W40",
+   "name": "Valluvar 2nd Street",
+   "pincode": "600919"
+  },
+  {
+   "id": "W41-S01",
+   "wardId": "W41",
+   "name": "Ilango Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W41-S02",
+   "wardId": "W41",
+   "name": "Mullai Cross Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W41-S03",
+   "wardId": "W41",
+   "name": "Neithal 1st Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W41-S04",
+   "wardId": "W41",
+   "name": "Sengol 1st Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W41-S05",
+   "wardId": "W41",
+   "name": "Valluvar Main Road",
+   "pincode": "600920"
+  },
+  {
+   "id": "W41-S06",
+   "wardId": "W41",
+   "name": "Vembu Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W42-S01",
+   "wardId": "W42",
+   "name": "Bharathi Lane",
+   "pincode": "600920"
+  },
+  {
+   "id": "W42-S02",
+   "wardId": "W42",
+   "name": "Kambar 1st Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W42-S03",
+   "wardId": "W42",
+   "name": "Kambar Extension",
+   "pincode": "600920"
+  },
+  {
+   "id": "W42-S04",
+   "wardId": "W42",
+   "name": "Kambar Lane",
+   "pincode": "600920"
+  },
+  {
+   "id": "W42-S05",
+   "wardId": "W42",
+   "name": "Kaveri Extension",
+   "pincode": "600920"
+  },
+  {
+   "id": "W42-S06",
+   "wardId": "W42",
+   "name": "Kulam 1st Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W42-S07",
+   "wardId": "W42",
+   "name": "Kurinji Cross Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W42-S08",
+   "wardId": "W42",
+   "name": "Neithal Extension",
+   "pincode": "600920"
+  },
+  {
+   "id": "W42-S09",
+   "wardId": "W42",
+   "name": "Nesavu Lane",
+   "pincode": "600920"
+  },
+  {
+   "id": "W42-S10",
+   "wardId": "W42",
+   "name": "Sengol Extension",
+   "pincode": "600920"
+  },
+  {
+   "id": "W43-S01",
+   "wardId": "W43",
+   "name": "Bharathi Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W43-S02",
+   "wardId": "W43",
+   "name": "Kambar Extension",
+   "pincode": "600920"
+  },
+  {
+   "id": "W43-S03",
+   "wardId": "W43",
+   "name": "Kambar Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W43-S04",
+   "wardId": "W43",
+   "name": "Kurinji Lane",
+   "pincode": "600920"
+  },
+  {
+   "id": "W43-S05",
+   "wardId": "W43",
+   "name": "Nesavu Extension",
+   "pincode": "600920"
+  },
+  {
+   "id": "W43-S06",
+   "wardId": "W43",
+   "name": "Palai 2nd Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W43-S07",
+   "wardId": "W43",
+   "name": "Pavalam 2nd Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W43-S08",
+   "wardId": "W43",
+   "name": "Sengol 1st Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W43-S09",
+   "wardId": "W43",
+   "name": "Thamarai Extension",
+   "pincode": "600920"
+  },
+  {
+   "id": "W43-S10",
+   "wardId": "W43",
+   "name": "Valluvar Road",
+   "pincode": "600920"
+  },
+  {
+   "id": "W44-S01",
+   "wardId": "W44",
+   "name": "Kambar 1st Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W44-S02",
+   "wardId": "W44",
+   "name": "Kaveri 1st Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W44-S03",
+   "wardId": "W44",
+   "name": "Kaveri Cross Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W44-S04",
+   "wardId": "W44",
+   "name": "Kovil 2nd Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W44-S05",
+   "wardId": "W44",
+   "name": "Malligai 2nd Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W44-S06",
+   "wardId": "W44",
+   "name": "Malligai Lane",
+   "pincode": "600920"
+  },
+  {
+   "id": "W44-S07",
+   "wardId": "W44",
+   "name": "Vaigai Lane",
+   "pincode": "600920"
+  },
+  {
+   "id": "W44-S08",
+   "wardId": "W44",
+   "name": "Vaigai Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W44-S09",
+   "wardId": "W44",
+   "name": "Vembu Cross Street",
+   "pincode": "600920"
+  },
+  {
+   "id": "W44-S10",
+   "wardId": "W44",
+   "name": "Vembu Lane",
+   "pincode": "600920"
+  },
+  {
+   "id": "W45-S01",
+   "wardId": "W45",
+   "name": "Arasu Lane",
+   "pincode": "600921"
+  },
+  {
+   "id": "W45-S02",
+   "wardId": "W45",
+   "name": "Kambar Main Road",
+   "pincode": "600921"
+  },
+  {
+   "id": "W45-S03",
+   "wardId": "W45",
+   "name": "Malai Extension",
+   "pincode": "600921"
+  },
+  {
+   "id": "W45-S04",
+   "wardId": "W45",
+   "name": "Malligai Cross Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W45-S05",
+   "wardId": "W45",
+   "name": "Vaigai 1st Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W45-S06",
+   "wardId": "W45",
+   "name": "Valluvar Main Road",
+   "pincode": "600921"
+  },
+  {
+   "id": "W46-S01",
+   "wardId": "W46",
+   "name": "Avvai 1st Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W46-S02",
+   "wardId": "W46",
+   "name": "Elango 1st Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W46-S03",
+   "wardId": "W46",
+   "name": "Pavalam Cross Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W46-S04",
+   "wardId": "W46",
+   "name": "Thamarai Extension",
+   "pincode": "600921"
+  },
+  {
+   "id": "W46-S05",
+   "wardId": "W46",
+   "name": "Thamarai Main Road",
+   "pincode": "600921"
+  },
+  {
+   "id": "W46-S06",
+   "wardId": "W46",
+   "name": "Vaigai Main Road",
+   "pincode": "600921"
+  },
+  {
+   "id": "W46-S07",
+   "wardId": "W46",
+   "name": "Vembu Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W47-S01",
+   "wardId": "W47",
+   "name": "Arasu Road",
+   "pincode": "600921"
+  },
+  {
+   "id": "W47-S02",
+   "wardId": "W47",
+   "name": "Avvai Main Road",
+   "pincode": "600921"
+  },
+  {
+   "id": "W47-S03",
+   "wardId": "W47",
+   "name": "Bharathi Extension",
+   "pincode": "600921"
+  },
+  {
+   "id": "W47-S04",
+   "wardId": "W47",
+   "name": "Ilango Extension",
+   "pincode": "600921"
+  },
+  {
+   "id": "W47-S05",
+   "wardId": "W47",
+   "name": "Kurinji Cross Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W47-S06",
+   "wardId": "W47",
+   "name": "Malligai Main Road",
+   "pincode": "600921"
+  },
+  {
+   "id": "W47-S07",
+   "wardId": "W47",
+   "name": "Senthamarai Main Road",
+   "pincode": "600921"
+  },
+  {
+   "id": "W47-S08",
+   "wardId": "W47",
+   "name": "Thamarai Main Road",
+   "pincode": "600921"
+  },
+  {
+   "id": "W47-S09",
+   "wardId": "W47",
+   "name": "Thoppu 1st Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W48-S01",
+   "wardId": "W48",
+   "name": "Arasu Lane",
+   "pincode": "600921"
+  },
+  {
+   "id": "W48-S02",
+   "wardId": "W48",
+   "name": "Kovil 1st Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W48-S03",
+   "wardId": "W48",
+   "name": "Kulam 1st Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W48-S04",
+   "wardId": "W48",
+   "name": "Nesavu Road",
+   "pincode": "600921"
+  },
+  {
+   "id": "W48-S05",
+   "wardId": "W48",
+   "name": "Pavalam Cross Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W48-S06",
+   "wardId": "W48",
+   "name": "Sengol 2nd Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W48-S07",
+   "wardId": "W48",
+   "name": "Thamarai Cross Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W48-S08",
+   "wardId": "W48",
+   "name": "Vaigai 2nd Street",
+   "pincode": "600921"
+  },
+  {
+   "id": "W48-S09",
+   "wardId": "W48",
+   "name": "Valluvar 2nd Street",
+   "pincode": "600921"
+  }
+ ]
+}
