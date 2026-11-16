@@ -48,6 +48,12 @@ export const DELAYS = {
   ELEC_SUBMIT: { spec: fixed(1500), page: "/services/electricity/new-connection", element: "Submit application button", traps: [] },
   // ── Water: bill payment ─────────────────────────────────────────
   CONSUMER_LOOKUP: { spec: fixed(2000), page: "/services/water/pay", element: "Fetch bill → Bill details panel (appears when the lookup returns)", traps: ["DYN-01"] },
+  PAY_OVERLAY: { spec: fixed(1500), page: "/services/water/pay", element: "Payment options → overlay over 'Proceed to pay' (on first show and after changing the method)", traps: ["BTN-04"] },
+  // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup) ──
+  GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
+  GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },
+  GATEWAY_OTP_VERIFY: { spec: fixed(1000), page: "/pay/astheenpay/checkout", element: "OTP modal → Verify and pay button", traps: ["DLG-08"] },
+  GATEWAY_RETURN: { spec: fixed(1500), page: "/pay/astheenpay/checkout", element: "'Payment successful, returning…' before the receipt shows on /services/water/pay (popup closes)", traps: ["FRM-01", "DLG-15", "FIL-05"] },
 } as const satisfies Record<string, DelayEntry>;
 
 export type DelayName = keyof typeof DELAYS;

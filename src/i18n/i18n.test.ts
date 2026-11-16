@@ -8,7 +8,7 @@ describe("dictionaries", () => {
     expect(Object.keys(ta).sort()).toEqual(Object.keys(en).sort());
   });
   it("no Tamil string is empty or left in English (except brand/acronyms)", () => {
-    const allowSame = new Set(["corp.short"]);
+    const allowSame = new Set(["corp.short", "ap.brand"]);
     for (const [k, v] of Object.entries(ta)) {
       expect(v.trim(), k).not.toBe("");
       if (!allowSame.has(k)) expect(v, k).not.toBe(en[k as keyof typeof en]);

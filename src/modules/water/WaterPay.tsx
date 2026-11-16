@@ -5,10 +5,11 @@ import { lookupConsumer, type WaterBill } from "@/mock/endpoints/water";
 import { normalizeConsumerNo } from "./bill";
 import { ConsumerLookup } from "./ConsumerLookup";
 import { BillDetails } from "./BillDetails";
+import { PaymentFlow } from "./PaymentFlow";
 
 type Status = "idle" | "loading" | "done" | "notFound" | "error";
 
-/** Water bill: consumer lookup → bill details (payment follows in the next step of this flow). */
+/** Water bill: consumer lookup → bill details → payment options → AstheenPay → receipt. */
 export function WaterPay({ initialRef }: { initialRef: string }) {
   const { t } = useT();
   const [value, setValue] = useState(() => normalizeConsumerNo(initialRef) ?? initialRef);
@@ -61,6 +62,7 @@ export function WaterPay({ initialRef }: { initialRef: string }) {
       {status === "error" && <div className="alert alert-error" role="alert">{t("wt.errService")}</div>}
       {/* DYN-01: the bill panel is not in the DOM until CONSUMER_LOOKUP resolves (~2s); a new lookup removes it again. */}
       {status === "done" && bill && <BillDetails bill={bill} />}
+      {status === "done" && bill && !bill.paid && <PaymentFlow key={bill.billNo} bill={bill} />}
     </>
   );
 }

@@ -1,0 +1,76 @@
+/* Payment options */
+.options { position: relative; margin-bottom: 20px; overflow: hidden; }
+.optionsBody { max-width: 720px; }
+.paying { margin: 4px 0 0; font-weight: 600; }
+
+/* OTH-02: custom slider */
+.slider { padding: 10px 11px 0; }
+.track { position: relative; height: 8px; border-radius: 999px; background: var(--c-surface-2); border: 1px solid var(--c-border); cursor: pointer; touch-action: none; }
+.track::before { content: ""; position: absolute; inset: -12px 0; }
+.fill { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: var(--c-primary); }
+.thumb {
+  position: absolute; top: 50%; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%;
+  background: var(--c-surface); border: 3px solid var(--c-primary); box-shadow: var(--shadow-1); cursor: grab;
+}
+.thumb:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+.scale { display: flex; justify-content: space-between; margin: 10px -11px 0; font-size: 0.8rem; color: var(--c-muted); }
+
+/* RAD-02: method cards */
+.methods { margin-top: 8px; }
+.methodGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.method {
+  display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid var(--c-border);
+  border-radius: var(--radius); background: var(--c-surface); cursor: pointer; color: var(--c-primary);
+}
+.method:hover { border-color: var(--c-primary); }
+.method:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+.methodOn { border-color: var(--c-primary); background: var(--c-primary-soft); box-shadow: inset 0 0 0 1px var(--c-primary); }
+.methodText { display: flex; flex-direction: column; flex: 1; min-width: 0; color: var(--c-text); }
+.methodTitle { font-weight: 700; font-size: 0.95rem; }
+.methodNote { font-size: 0.8rem; color: var(--c-muted); }
+.methodDot { width: 16px; height: 16px; flex: none; border-radius: 50%; border: 2px solid var(--c-border); }
+.methodOn .methodDot { border-color: var(--c-primary); background: radial-gradient(var(--c-primary) 45%, transparent 50%); }
+[aria-invalid="true"] > .method { border-color: var(--c-danger); }
+
+/* Summary + proceed */
+.summary { margin: 4px 0 18px; padding: 12px 14px; border-radius: var(--radius); background: var(--c-surface-2); }
+.summary > div { display: flex; justify-content: space-between; gap: 12px; padding: 3px 0; }
+.summary dt { color: var(--c-muted); }
+.summary dd { margin: 0; font-variant-numeric: tabular-nums; font-weight: 600; }
+.sumTotal { border-top: 1px solid var(--c-border); margin-top: 6px; padding-top: 8px !important; }
+.sumTotal dt, .sumTotal dd { color: var(--c-text); font-weight: 800; }
+.proceed { min-width: 200px; }
+
+/* BTN-04: overlay over the whole card */
+.overlay {
+  position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; gap: 12px;
+  padding: 16px; background: color-mix(in srgb, var(--c-surface) 72%, transparent); font-weight: 600; color: var(--c-text);
+}
+.overlayMsg { display: flex; align-items: center; gap: 12px; max-width: 420px; padding: 12px 16px; border-radius: var(--radius-lg); background: var(--c-surface); border: 1px solid var(--c-border); box-shadow: var(--shadow-2); }
+.spinner { width: 20px; height: 20px; border-radius: 50%; border: 3px solid var(--c-primary-soft); border-top-color: var(--c-primary); animation: spin 0.8s linear infinite; flex: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 2.4s; } }
+
+/* FRM-01 / DLG-15: gateway host */
+.gateway { margin-bottom: 20px; scroll-margin-top: 150px; }
+.gateway h2 { display: flex; align-items: center; gap: 8px; }
+.frame { display: block; width: 100%; max-width: 560px; margin: 0 auto; border: 1px solid var(--c-border); border-radius: var(--radius-lg); background: var(--c-surface); }
+.waiting { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; padding: 28px 12px; }
+.waiting p { margin: 0; max-width: 46ch; }
+.waitingActions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+/* FIL-05: receipt */
+.receipt { margin-bottom: 20px; scroll-margin-top: 150px; }
+.receiptHead { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 12px; }
+.receiptHead h2 { margin: 0; color: var(--c-green); }
+.receiptHead p { margin: 2px 0 0; }
+.tick { display: grid; place-items: center; width: 44px; height: 44px; flex: none; border-radius: 50%; background: var(--c-green-soft); color: var(--c-green); }
+.receiptRows { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; margin: 0 0 18px; }
+.receiptRows dt { font-size: 0.8rem; color: var(--c-muted); }
+.receiptRows dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+
+@media (max-width: 640px) {
+  .methodGrid { grid-template-columns: 1fr; }
+  .receiptRows { grid-template-columns: 1fr; }
+  .proceed { width: 100%; }
+}
