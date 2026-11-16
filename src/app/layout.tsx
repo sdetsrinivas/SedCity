@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Providers } from "@/components/layout/Providers";
+import { Chrome } from "@/components/layout/Chrome";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import { SessionWatcher } from "@/components/layout/SessionWatcher";
 import { KeyboardShortcuts } from "@/components/layout/KeyboardShortcuts";
@@ -28,12 +29,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang={lang} data-theme={theme} className={`${sans.variable} ${tamil.variable}`}>
       <body>
         <Providers lang={lang}>
-          <Header theme={theme} />
-          <main id="main" tabIndex={-1}>{children}</main>
-          <Footer />
-          <CookieConsent />
-          <SessionWatcher />
-          <KeyboardShortcuts />
+          <Chrome
+            header={<Header theme={theme} />}
+            footer={<Footer />}
+            extras={<><CookieConsent /><SessionWatcher /><KeyboardShortcuts /></>}
+          >
+            {children}
+          </Chrome>
         </Providers>
       </body>
     </html>

@@ -33,6 +33,11 @@ const paths = {
   info: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 11v6M12 7v.5",
   check: "M5 12l5 5L20 7",
   arrowRight: "M5 12h14M13 6l6 6-6 6",
+  card: "M3 6h18v12H3zM3 10h18M7 15h4",
+  bank: "M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18",
+  lock: "M6 11h12v10H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3",
+  download: "M12 4v11M7 10l5 5 5-5M5 20h14",
+  external: "M14 4h6v6M20 4l-9 9M18 14v6H4V6h6",
 } as const;
 
 export type IconName = keyof typeof paths;

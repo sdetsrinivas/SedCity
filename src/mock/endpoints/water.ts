@@ -1,5 +1,6 @@
 import water from "../data/water.json";
 import { call } from "../api";
+import { store } from "../store";
 import { streetById, wardById } from "./geo";
 import { addDays, todayISO } from "@/lib/format";
 import { computeCharges, type Charges, type WaterCategory } from "@/modules/water/bill";
@@ -63,5 +64,17 @@ export function buildBill(c: Consumer, today = todayISO()): WaterBill {
 export const lookupConsumer = (consumerNo: string) =>
   call("CONSUMER_LOOKUP", () => {
     const c = water.consumers.find((x) => x.no === consumerNo);
-    return c ? buildBill(c) : null;
+    if (!c) return null;
+    const bill = buildBill(c);
+    // A bill paid in full on this browser shows as paid on the next lookup.
+    if ((waterPayments()[bill.billNo] ?? 0) >= bill.charges.total) bill.paid = true;
+    return bill;
   });
+
+/** Amount paid so far against each bill number (this browser only). */
+export const waterPayments = () => store.get<Record<string, number>>("waterPayments", {});
+
+export function recordWaterPayment(billNo: string, amount: number): void {
+  const paid = waterPayments();
+  store.set("waterPayments", { ...paid, [billNo]: Math.round(((paid[billNo] ?? 0) + amount) * 100) / 100 });
+}
