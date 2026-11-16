@@ -38,6 +38,10 @@ export const DELAYS = {
   REGISTER_SUBMIT: { spec: fixed(1200), page: "/register", element: "Create account button", traps: [] },
   SESSION_WARN: { spec: fixed(240_000), page: "(signed-in pages)", element: "Session timeout warning modal (idle time before it opens)", traps: ["DLG-05"] },
   SESSION_COUNTDOWN: { spec: fixed(60_000), page: "(signed-in pages)", element: "Session timeout modal countdown", traps: ["DLG-05"] },
+  // ── Shared geography (zone → ward → street) ─────────────────────
+  ZONE_LIST: { spec: fixed(800), page: "/services/electricity/new-connection", element: "Zone dropdown options", traps: [] },
+  WARD_LIST: { spec: fixed(2000), page: "/services/electricity/new-connection", element: "Ward dropdown options", traps: [] },
+  STREET_LIST: { spec: random(1000, 4000), page: "/services/electricity/new-connection", element: "Street dropdown options", traps: [] },
 } as const satisfies Record<string, DelayEntry>;
 
 export type DelayName = keyof typeof DELAYS;
