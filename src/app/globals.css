@@ -133,7 +133,7 @@ p { margin: 0 0 1em; }
 .card-body { padding: 20px; }
 .card-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--c-border); }
 .card-title h2, .card-title h3 { margin: 0; font-size: 1.05rem; }
-.alert { padding: 12px 14px; border-radius: var(--radius); border-left: 4px solid; margin-bottom: 16px; font-size: 0.95rem; }
+.alert { padding: 12px 14px; border-radius: var(--radius); border: 1px solid; margin-bottom: 16px; font-size: 0.95rem; }
 .alert-error { background: var(--c-danger-soft); border-color: var(--c-danger); }
 .alert-info { background: var(--c-primary-soft); border-color: var(--c-primary); }
 .alert-success { background: var(--c-green-soft); border-color: var(--c-green); }
