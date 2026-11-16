@@ -7,7 +7,7 @@ import { getSession } from "@/lib/session";
 import { pushSms } from "@/lib/sms";
 import { delayFor } from "@/mock/api";
 import {
-  cancelPaySession, loadPaySession, sendPayOtp, verifyPayOtp, type GatewayMessage, type PaySession,
+  cancelPaySession, loadPaySession, sendPayOtp, verifyPayOtp, type GatewayMessage, type PayOrder, type PaySession,
 } from "@/mock/endpoints/astheenpay";
 import type { DictKey } from "@/i18n";
 import { cvvValid, expiryValid, formatExpiry, groupCardNumber, luhnValid, maskCard, nameValid, upiValid } from "./card";
@@ -76,6 +76,10 @@ export function Checkout({ sessionId, view }: { sessionId: string; view: "frame"
   }
 
   const total = pay.amount + pay.fee;
+  const orderLabel = (o: PayOrder) =>
+    o.kind === "water"
+      ? t("ap.forBill", { bill: o.billNo, consumer: o.consumerNo })
+      : t(o.half === 1 ? "ap.forTaxFirst" : "ap.forTaxSecond", { fy: o.fy, no: o.assessmentNo });
   const errors: Partial<Record<keyof typeof f, string>> = {};
   if (pay.method === "card") {
     if (!luhnValid(f.card)) errors.card = t("ap.errCard");
@@ -142,7 +146,7 @@ export function Checkout({ sessionId, view }: { sessionId: string; view: "frame"
     <Frame>
       <dl className={s.order}>
         <div><dt>{t("ap.merchant")}</dt><dd>{t("corp.name")}</dd></div>
-        <div><dt>{t("ap.purpose")}</dt><dd>{t("ap.forBill", { bill: pay.billNo, consumer: pay.consumerNo })}</dd></div>
+        <div><dt>{t("ap.purpose")}</dt><dd>{orderLabel(pay.order)}</dd></div>
         <div><dt>{t("ap.amount")}</dt><dd>{formatINR(pay.amount)}</dd></div>
         <div><dt>{t("ap.fee")}</dt><dd>{formatINR(pay.fee)}</dd></div>
         <div className={s.orderTotal}><dt>{t("ap.total")}</dt><dd>{formatINR(total)}</dd></div>

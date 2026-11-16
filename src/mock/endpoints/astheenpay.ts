@@ -1,15 +1,19 @@
 /**
- * AstheenPay: the (fictional) payment gateway the portal hands off to. Sessions live in localStorage
+ * AstheenPay: the (fictional) payment gateway the portal hands off to (water bills, property tax). Sessions live in localStorage
  * so the checkout page works the same in the same-origin iframe (FRM-01) and in the popup (DLG-15).
  */
 import { call } from "../api";
 import { store } from "../store";
 import type { PayMethod } from "@/modules/water/payment";
 
+/** What the payment is for; the checkout words its order summary from this. */
+export type PayOrder =
+  | { kind: "water"; consumerNo: string; billNo: string }
+  | { kind: "propertyTax"; assessmentNo: string; half: 1 | 2; fy: string };
+
 export interface PaySession {
   id: string;
-  consumerNo: string;
-  billNo: string;
+  order: PayOrder;
   amount: number;
   fee: number;
   method: PayMethod;

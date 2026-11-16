@@ -31,7 +31,7 @@ Hard rules from the brief:
 | 2 | Login / Register / SMS inbox / session timeout / role switch | `/login` `/register` `/messages` | ✅ |
 | 3 | New Electricity Connection wizard | `/services/electricity/new-connection` | ✅ |
 | 4 | Water Bill Payment + AstheenPay gateway (iframe + popup) | `/services/water/pay`, `/pay/astheenpay/checkout` | ✅ |
-| 5 | Property Tax Self-Assessment | `/services/property-tax/assess` | ⏳ |
+| 5 | Property Tax Self-Assessment (pays through AstheenPay) | `/services/property-tax/assess` | ✅ |
 | 6 | Grievance Registration & Tracking | `/grievances/new`, `/grievances/track` | ⏳ |
 | 7 | Certificates (Birth / Trade Licence) | `/certificates/birth`, `/certificates/trade-license` | ⏳ |
 | 8 | City News & Events | `/news`, `/news/events/[slug]` | ⏳ |
@@ -41,7 +41,7 @@ Hard rules from the brief:
 | 12 | Help (shadow-DOM chatbot, FAQ, nested-iframe survey) | `/help`, `/help/survey` | ⏳ |
 | — | Trap registry completion, `npm run guide` → `docs/trap-guide.md` + `docs/Astheenapuram-Trap-Guide.pdf` (cover, TOC, section per element type, summary table; **not linked or served from the site**), full verification | | ⏳ |
 
-Phases from the brief: (a) shell/auth ✅ → (b) modules 3–6 (3, 4 ✅) → (c) modules 7–12 → (d) registry, guide PDF, full verification. Placeholder routes show a "temporarily unavailable" notice until their module ships.
+Phases from the brief: (a) shell/auth ✅ → (b) modules 3–6 (3, 4, 5 ✅) → (c) modules 7–12 → (d) registry, guide PDF, full verification. Placeholder routes show a "temporarily unavailable" notice until their module ships.
 
 ## Delays still to register (planned values)
 
@@ -49,8 +49,6 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 
 | Name | Value | Where |
 |---|---|---|
-| `ASSESSMENT_CHECK` | 1s | Property tax async validation (TXT-13) |
-| `LOCALITY_PAGE` | 700ms | Property tax lazy dropdown (DRP-06) |
 | `GRIEVANCE_POLL` | every 5s | Status tracker (DYN-05) |
 | `NEWS_PAGE` | random 1–4s | Infinite scroll |
 | `DIRECTORY_PAGE` | 800ms | Officials spinner overlay (DYN-02) |
@@ -60,7 +58,7 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 | `SURVEY_INNER` | 2s | Nested survey iframe |
 | `STREAM_DASHBOARD` | 3s | Dashboard server streaming |
 
-Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`.
+Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`.
 
 ## Seeded accounts (README only, never on the site)
 
@@ -72,7 +70,7 @@ Approved plan for the Astheenapuram Citizen Services Portal: a realistic municip
 
 Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ live · ⏳ planned.
 
-**131 traps · 44 live · 87 planned.** Difficulty mix: E 39 / M 51 / H 41.
+**131 traps · 53 live · 78 planned.** Difficulty mix: E 39 / M 51 / H 41.
 
 
 ## Checkbox (CHK)
@@ -81,7 +79,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 |---|---|---|---|---|
 | CHK-01 | Native, SSR `checked` attribute | `/login: keep me signed in` | E | ✅ |
 | CHK-02 | Native, state only via `.checked` property | `/services/water/pay: email receipt` | M | ✅ |
-| CHK-03 | `div role=checkbox` | `/services/property-tax/assess: rebates` | M | ⏳ |
+| CHK-03 | `div role=checkbox` | `/services/property-tax/assess: rebates` | M | ✅ |
 | CHK-04 | Hidden input + styled label | `/services/electricity/new-connection: declaration` | M | ✅ |
 | CHK-05 | Inside open shadow DOM | `/help chatbot: email transcript` | H | ⏳ |
 | CHK-06 | Indeterminate select-all (property only) | `/dashboard: notifications` | M | ⏳ |
@@ -95,7 +93,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 |---|---|---|---|---|
 | RAD-01 | Native group | `/services/electricity/new-connection: connection type` | E | ✅ |
 | RAD-02 | Card radios, roving tabindex | `/services/water/pay: payment method` | M | ✅ |
-| RAD-03 | Segmented control | `/services/property-tax/assess: usage type` | E | ⏳ |
+| RAD-03 | Segmented control | `/services/property-tax/assess: usage type` | E | ✅ |
 | RAD-04 | Same `name` in two forms | `/certificates/birth: applicant vs delivery` | H | ⏳ |
 
 ## Text input (TXT)
@@ -114,7 +112,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TXT-10 | maxlength | `/certificates/birth: child name` | E | ⏳ |
 | TXT-11 | Placeholder as only label | `/bookings: purpose, attendees` | M | ⏳ |
 | TXT-12 | Floating label | `/pay/astheenpay/checkout: card fields` | E | ✅ |
-| TXT-13 | Debounced async validation | `/services/property-tax/assess: assessment no.` | M | ⏳ |
+| TXT-13 | Debounced async validation | `/services/property-tax/assess: assessment no.` | M | ✅ |
 | TXT-14 | Typeahead (debounced combobox) | `/: global search` | M | ✅ |
 
 ## Dropdown (DRP)
@@ -126,7 +124,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DRP-03 | Portal listbox at end of body | `/grievances/new: category` | H | ⏳ |
 | DRP-04 | Searchable combobox | `/directory/officials: department` | M | ⏳ |
 | DRP-05 | Multi-select with chips | `/officer/queue: wards` | M | ⏳ |
-| DRP-06 | Options lazy-loaded on scroll | `/services/property-tax/assess: locality` | H | ⏳ |
+| DRP-06 | Options lazy-loaded on scroll | `/services/property-tax/assess: locality` | H | ✅ |
 | DRP-07 | Closes on blur | `/news: category` | H | ⏳ |
 | DRP-08 | Cascading, delayed load | `/services/electricity/new-connection: zone→ward→street` | M | ✅ |
 
@@ -143,14 +141,14 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | BTN-07 | Double-click action | `/officer/queue: claim row` | M | ⏳ |
 | BTN-08 | Right-click context menu | `/dashboard: documents` | M | ⏳ |
 | BTN-09 | Hover-only menu | `header: Services` | M | ✅ |
-| BTN-10 | Duplicate mobile + desktop in DOM | `/services/property-tax/assess: Proceed to pay` | M | ⏳ |
+| BTN-10 | Duplicate mobile + desktop in DOM | `/services/property-tax/assess: Proceed to pay` | M | ✅ |
 
 ## Dialogs & popups (DLG)
 
 | ID | Variant | Route / flow | D | Status |
 |---|---|---|---|---|
 | DLG-01 | alert | `/grievances/new: no ward selected` | E | ⏳ |
-| DLG-02 | confirm | `/services/property-tax/assess: remove floor` | E | ⏳ |
+| DLG-02 | confirm | `/services/property-tax/assess: remove floor` | E | ✅ |
 | DLG-03 | prompt | `/dashboard: rename document` | M | ⏳ |
 | DLG-04 | beforeunload | `/certificates/*: unsaved form` | M | ⏳ |
 | DLG-05 | Portal modal (session timeout) | signed-in pages | M | ✅ |
@@ -160,7 +158,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DLG-09 | Auto-dismiss toast (~3s) | `/login: OTP` | M | ✅ |
 | DLG-10 | Toast stack | `/officer/queue: bulk actions` | M | ⏳ |
 | DLG-11 | Snackbar with Undo | `/dashboard: delete notification` | M | ⏳ |
-| DLG-12 | Tooltip | `/services/property-tax/assess: unit-area-value info` | E | ⏳ |
+| DLG-12 | Tooltip | `/services/property-tax/assess: unit-area-value info` | E | ✅ |
 | DLG-13 | Popover | `/register: Why Astheen ID?` | E | ✅ |
 | DLG-14 | `target=_blank` | `/news: event detail` | E | ⏳ |
 | DLG-15 | `window.open` popup | `/services/water/pay: pay in popup` | H | ✅ |
@@ -213,7 +211,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TBL-02 | Sortable + paginated | `/directory/officials` | M | ⏳ |
 | TBL-03 | `div role=grid` | `/dashboard: payment history` | H | ⏳ |
 | TBL-04 | Nested table | `/services/water/pay: slab breakup` | M | ✅ |
-| TBL-05 | Editable cells | `/services/property-tax/assess: floors` | H | ⏳ |
+| TBL-05 | Editable cells | `/services/property-tax/assess: floors` | H | ✅ |
 | TBL-06 | Expandable rows | `/officer/queue` | M | ⏳ |
 | TBL-07 | Sticky header | `/grievances/track: my grievances` | E | ⏳ |
 | TBL-08 | Duplicate text across rows | `/bookings: my bookings` | M | ⏳ |
@@ -244,7 +242,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 
 | ID | Variant | Route / flow | D | Status |
 |---|---|---|---|---|
-| OTH-01 | Native slider | `/services/property-tax/assess: building age` | E | ⏳ |
+| OTH-01 | Native slider | `/services/property-tax/assess: building age` | E | ✅ |
 | OTH-02 | Custom slider | `/services/water/pay: partial payment` | H | ✅ |
 | OTH-03 | HTML5 drag-and-drop | `/bookings: move booking` | H | ⏳ |
 | OTH-04 | Pointer-event drag-and-drop | `/dashboard: reorder widgets` | H | ⏳ |

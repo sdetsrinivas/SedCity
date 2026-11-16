@@ -5,9 +5,9 @@ import { pick } from "@/i18n";
 import { nextReference, saveApplication } from "@/lib/applications";
 import { formatINR } from "@/lib/format";
 import { createPaySession, getPaySession, type PaySession } from "@/mock/endpoints/astheenpay";
+import { GatewayFrame } from "@/modules/astheenpay/GatewayFrame";
 import { recordWaterPayment, type WaterBill } from "@/mock/endpoints/water";
 import { PaymentOptions } from "./PaymentOptions";
-import { GatewayFrame } from "./GatewayFrame";
 import { Receipt } from "./Receipt";
 
 type Step =
@@ -26,7 +26,7 @@ export function PaymentFlow({ bill }: { bill: WaterBill }) {
         total={bill.charges.total}
         notice={state.notice}
         onProceed={(c) => {
-          const session = createPaySession({ consumerNo: bill.consumerNo, billNo: bill.billNo, ...c });
+          const session = createPaySession({ order: { kind: "water", consumerNo: bill.consumerNo, billNo: bill.billNo }, ...c });
           setState({ step: "gateway", session: session.id });
         }}
       />
@@ -45,7 +45,7 @@ export function PaymentFlow({ bill }: { bill: WaterBill }) {
             return;
           }
           const receiptNo = nextReference("water");
-          recordWaterPayment(pay.billNo, pay.amount);
+          recordWaterPayment(bill.billNo, pay.amount);
           saveApplication({
             ref: receiptNo,
             service: "water",
@@ -62,5 +62,5 @@ export function PaymentFlow({ bill }: { bill: WaterBill }) {
     );
   }
 
-  return <Receipt receiptNo={state.receiptNo} pay={state.pay} billTotal={bill.charges.total} />;
+  return <Receipt receiptNo={state.receiptNo} pay={state.pay} bill={bill} />;
 }

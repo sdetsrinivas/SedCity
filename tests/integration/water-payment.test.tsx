@@ -55,7 +55,7 @@ describe("Water bill payment options", () => {
 
 describe("AstheenPay checkout", () => {
   const session = () =>
-    createPaySession({ consumerNo: "W02-014-00731", billNo: "WB/202611/00731", amount: 332.5, fee: 3.33, method: "card", email: null });
+    createPaySession({ order: { kind: "water", consumerNo: "W02-014-00731", billNo: "WB/202611/00731" }, amount: 332.5, fee: 3.33, method: "card", email: null });
 
   it("validates card fields, asks for the OTP sent by SMS and marks the session paid", async () => {
     const s = session();

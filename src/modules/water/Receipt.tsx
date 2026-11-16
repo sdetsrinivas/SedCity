@@ -4,6 +4,7 @@ import { useT } from "@/i18n/client";
 import { Icon } from "@/components/ui/Icon";
 import { formatDateTime, formatINR } from "@/lib/format";
 import type { PaySession } from "@/mock/endpoints/astheenpay";
+import type { WaterBill } from "@/mock/endpoints/water";
 import type { DictKey } from "@/i18n";
 import { receiptFileName, receiptPdf } from "./receiptPdf";
 import s from "./Payment.module.css";
@@ -13,7 +14,8 @@ const METHOD_EN: Record<PaySession["method"], string> = { card: "Debit / credit 
 const rs = (n: number) => `Rs. ${formatINR(n).replace(/[^\d.,]/g, "")}`;
 
 /** FIL-05: "Download receipt (PDF)" builds the PDF in the browser and saves it through a temporary blob link. */
-export function Receipt({ receiptNo, pay, billTotal }: { receiptNo: string; pay: PaySession; billTotal: number }) {
+export function Receipt({ receiptNo, pay, bill }: { receiptNo: string; pay: PaySession; bill: WaterBill }) {
+  const billTotal = bill.charges.total;
   const { t } = useT();
   const section = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -25,8 +27,8 @@ export function Receipt({ receiptNo, pay, billTotal }: { receiptNo: string; pay:
     [t("wt.rReceiptNo"), receiptNo],
     [t("wt.rTxn"), pay.txnId!],
     [t("wt.rPaidOn"), paidAt],
-    [t("wt.rConsumer"), pay.consumerNo],
-    [t("wt.rBill"), pay.billNo],
+    [t("wt.rConsumer"), bill.consumerNo],
+    [t("wt.rBill"), bill.billNo],
     [t("wt.rMethod"), `${t(METHOD_KEY[pay.method])}${pay.instrument ? ` (${pay.instrument})` : ""}`],
     [t("wt.rAmount"), formatINR(pay.amount)],
     [t("wt.rFee"), formatINR(pay.fee)],
@@ -42,8 +44,8 @@ export function Receipt({ receiptNo, pay, billTotal }: { receiptNo: string; pay:
       rows: [
         ["Transaction ID", pay.txnId!],
         ["Paid on", paidAt],
-        ["Consumer number", pay.consumerNo],
-        ["Bill number", pay.billNo],
+        ["Consumer number", bill.consumerNo],
+        ["Bill number", bill.billNo],
         ["Payment method", `${METHOD_EN[pay.method]}${asciiInstrument ? ` (${asciiInstrument})` : ""}`],
         ["Amount paid towards bill", rs(pay.amount)],
         ["Convenience fee", rs(pay.fee)],

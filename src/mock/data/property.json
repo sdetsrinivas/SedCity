@@ -1,0 +1,60 @@
+{
+  "baseRateByZone": { "Z1": 2.4, "Z2": 3.1, "Z3": 4.2, "Z4": 2.8, "Z5": 3.4, "Z6": 3.8 },
+  "assessments": [
+    {
+      "no": "014-002-00731",
+      "owner": { "en": "Meena Rajendran", "ta": "மீனா ராஜேந்திரன்" },
+      "door": "12/4",
+      "streetId": "W14-S02",
+      "usage": "residential",
+      "builtYear": 2009,
+      "floors": [
+        { "level": 0, "area": 850, "occupancy": "self" },
+        { "level": 1, "area": 620, "occupancy": "rented" }
+      ]
+    },
+    {
+      "no": "003-001-01208",
+      "owner": { "en": "Arulmozhi Kannan", "ta": "அருள்மொழி கண்ணன்" },
+      "door": "7",
+      "streetId": "W03-S01",
+      "usage": "residential",
+      "builtYear": 1982,
+      "floors": [{ "level": 0, "area": 1200, "occupancy": "self" }]
+    },
+    {
+      "no": "029-004-00057",
+      "owner": { "en": "S. Valliammal", "ta": "சு. வள்ளியம்மாள்" },
+      "door": "41-A",
+      "streetId": "W29-S02",
+      "usage": "commercial",
+      "builtYear": 2015,
+      "floors": [
+        { "level": 0, "area": 450, "occupancy": "self" },
+        { "level": 1, "area": 450, "occupancy": "rented" }
+      ]
+    },
+    {
+      "no": "021-003-03390",
+      "owner": { "en": "Karthik Subramaniam", "ta": "கார்த்திக் சுப்பிரமணியம்" },
+      "door": "3/118",
+      "streetId": "W21-S02",
+      "usage": "mixed",
+      "builtYear": 2021,
+      "floors": [
+        { "level": 0, "area": 900, "occupancy": "self" },
+        { "level": 1, "area": 900, "occupancy": "rented" },
+        { "level": 2, "area": 600, "occupancy": "rented" }
+      ]
+    },
+    {
+      "no": "036-001-00412",
+      "owner": { "en": "Fathima Begum", "ta": "பாத்திமா பேகம்" },
+      "door": "22",
+      "streetId": "W36-S01",
+      "usage": "residential",
+      "builtYear": 1998,
+      "floors": [{ "level": 0, "area": 980, "occupancy": "self" }]
+    }
+  ]
+}
