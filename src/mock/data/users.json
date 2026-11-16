@@ -1,0 +1,36 @@
+[
+  {
+    "username": "meena.r",
+    "password": "Astheen@123",
+    "role": "citizen",
+    "name": "Meena Rajendran",
+    "nameTa": "மீனா ராஜேந்திரன்",
+    "astheenId": "ASP-4821-7730-6",
+    "mobile": "9841023456",
+    "email": "meena.r@mail.example",
+    "ward": "Ward 14 – Kalaivani Nagar"
+  },
+  {
+    "username": "arul.k",
+    "password": "Arul@2026",
+    "role": "citizen",
+    "name": "Arulmozhi Kannan",
+    "nameTa": "அருள்மொழி கண்ணன்",
+    "astheenId": "ASP-1093-5521-0",
+    "mobile": "9790011223",
+    "email": "arul.k@mail.example",
+    "ward": "Ward 3 – Thenmalai"
+  },
+  {
+    "username": "officer.selvi",
+    "password": "Officer@123",
+    "role": "officer",
+    "name": "Selvi Natarajan",
+    "nameTa": "செல்வி நடராஜன்",
+    "astheenId": "ASP-7710-2209-2",
+    "mobile": "9445566778",
+    "email": "selvi.n@amc.example",
+    "ward": "Zone II – Revenue Office",
+    "designation": "Assistant Revenue Officer"
+  }
+]
