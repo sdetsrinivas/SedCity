@@ -11,6 +11,8 @@ or testing. The trap guide lives in `docs/` and is not served.
 
 > All names, data, accounts, payments and services are fictional. Nothing leaves the browser.
 
+> **Contributors / AI assistants:** start with [CLAUDE.md](CLAUDE.md) (rules), [docs/PLAN.md](docs/PLAN.md) (plan and trap map) and [docs/PROGRESS.md](docs/PROGRESS.md) (status and next steps).
+
 ## Quick start
 
 ```bash
@@ -96,7 +98,7 @@ URL-encoded JSON:
 | Phase | Scope | Status |
 |---|---|---|
 | a | Shell, branding, navigation, i18n, dark mode, mock layer, home, login/register, SMS inbox, session timeout | ✅ |
-| b | Electricity connection, water bill + AstheenPay, property tax, grievances | ⏳ |
+| b | Electricity connection ✅, water bill + AstheenPay, property tax, grievances | 🚧 |
 | c | Certificates, news & events, directory, bookings, dashboard, help, officer queue | ⏳ |
 | d | Full registry, trap guide (Markdown + PDF via `npm run guide`), complete verification | ⏳ |
 
