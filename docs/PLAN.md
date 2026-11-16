@@ -32,7 +32,7 @@ Hard rules from the brief:
 | 3 | New Electricity Connection wizard | `/services/electricity/new-connection` | ✅ |
 | 4 | Water Bill Payment + AstheenPay gateway (iframe + popup) | `/services/water/pay`, `/pay/astheenpay/checkout` | ✅ |
 | 5 | Property Tax Self-Assessment (pays through AstheenPay) | `/services/property-tax/assess` | ✅ |
-| 6 | Grievance Registration & Tracking | `/grievances/new`, `/grievances/track` | ⏳ |
+| 6 | Grievance Registration & Tracking | `/grievances/new` ✅, `/grievances/track` ⏳ | 🚧 |
 | 7 | Certificates (Birth / Trade Licence) | `/certificates/birth`, `/certificates/trade-license` | ⏳ |
 | 8 | City News & Events | `/news`, `/news/events/[slug]` | ⏳ |
 | 9 | Officials & Office Directory (table + virtualized vanilla view + geolocation) | `/directory/officials`, `/directory/offices` | ⏳ |
@@ -58,7 +58,7 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 | `SURVEY_INNER` | 2s | Nested survey iframe |
 | `STREAM_DASHBOARD` | 3s | Dashboard server streaming |
 
-Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`.
+Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`.
 
 ## Seeded accounts (README only, never on the site)
 
@@ -70,7 +70,7 @@ Approved plan for the Astheenapuram Citizen Services Portal: a realistic municip
 
 Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ live · ⏳ planned.
 
-**131 traps · 53 live · 78 planned.** Difficulty mix: E 39 / M 51 / H 41.
+**131 traps · 59 live · 72 planned.** Difficulty mix: E 39 / M 51 / H 41.
 
 
 ## Checkbox (CHK)
@@ -105,7 +105,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TXT-03 | Masked Astheen ID | `/services/electricity/new-connection: applicant` | M | ✅ |
 | TXT-04 | Reformats on blur | `/services/water/pay: consumer number` | E | ✅ |
 | TXT-05 | Controlled input (`.value` via JS ignored) | `/grievances/track: grievance number` | M | ⏳ |
-| TXT-06 | contenteditable | `/grievances/new: description` | H | ⏳ |
+| TXT-06 | contenteditable | `/grievances/new: description` | H | ✅ |
 | TXT-07 | Input in shadow DOM | `/help chatbot` | H | ⏳ |
 | TXT-08 | readonly vs disabled vs aria-disabled | `/dashboard: profile` | E | ⏳ |
 | TXT-09 | Paste blocked | `/certificates/trade-license: re-enter bank account` | M | ⏳ |
@@ -121,7 +121,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 |---|---|---|---|---|
 | DRP-01 | Native select | `/certificates/birth: hospital` | E | ⏳ |
 | DRP-02 | optgroups | `/certificates/trade-license: business category` | E | ⏳ |
-| DRP-03 | Portal listbox at end of body | `/grievances/new: category` | H | ⏳ |
+| DRP-03 | Portal listbox at end of body | `/grievances/new: category` | H | ✅ |
 | DRP-04 | Searchable combobox | `/directory/officials: department` | M | ⏳ |
 | DRP-05 | Multi-select with chips | `/officer/queue: wards` | M | ⏳ |
 | DRP-06 | Options lazy-loaded on scroll | `/services/property-tax/assess: locality` | H | ✅ |
@@ -147,7 +147,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 
 | ID | Variant | Route / flow | D | Status |
 |---|---|---|---|---|
-| DLG-01 | alert | `/grievances/new: no ward selected` | E | ⏳ |
+| DLG-01 | alert | `/grievances/new: no ward selected` | E | ✅ |
 | DLG-02 | confirm | `/services/property-tax/assess: remove floor` | E | ✅ |
 | DLG-03 | prompt | `/dashboard: rename document` | M | ⏳ |
 | DLG-04 | beforeunload | `/certificates/*: unsaved form` | M | ⏳ |
@@ -223,7 +223,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DAT-01 | Native date | `/certificates/birth: DOB` | E | ⏳ |
 | DAT-02 | Custom calendar | `/bookings` | H | ⏳ |
 | DAT-03 | Date range | `/dashboard: payments filter` | M | ⏳ |
-| DAT-04 | Time picker | `/grievances/new: inspection time` | M | ⏳ |
+| DAT-04 | Time picker | `/grievances/new: inspection time` | M | ✅ |
 | DAT-05 | DD/MM/YYYY text date + calendar | `/services/electricity/new-connection: inspection date` | M | ✅ |
 | DAT-06 | Disabled dates | `/grievances/track: reschedule` | M | ⏳ |
 
@@ -233,7 +233,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 |---|---|---|---|---|
 | FIL-01 | Native file input | `/certificates/birth` | E | ⏳ |
 | FIL-02 | Hidden input behind styled button | `/services/electricity/new-connection: documents` | M | ✅ |
-| FIL-03 | Drag-and-drop only | `/grievances/new: photos` | H | ⏳ |
+| FIL-03 | Drag-and-drop only | `/grievances/new: photos` | H | ✅ |
 | FIL-04 | Multiple files | `/certificates/trade-license` | E | ⏳ |
 | FIL-05 | PDF download | `/services/water/pay: receipt` | E | ✅ |
 | FIL-06 | CSV download | `/directory/officials: export` | E | ⏳ |
@@ -247,7 +247,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | OTH-03 | HTML5 drag-and-drop | `/bookings: move booking` | H | ⏳ |
 | OTH-04 | Pointer-event drag-and-drop | `/dashboard: reorder widgets` | H | ⏳ |
 | OTH-05 | Canvas signature | `/certificates/trade-license` | H | ⏳ |
-| OTH-06 | SVG needing local-name() XPath | `/grievances/new: ward map` | H | ⏳ |
+| OTH-06 | SVG needing local-name() XPath | `/grievances/new: ward map` | H | ✅ |
 | OTH-07 | Tabs | `/help` | E | ⏳ |
 | OTH-08 | Accordion | `/help: FAQ` | E | ⏳ |
 | OTH-09 | Star rating | `/grievances/track` | E | ⏳ |

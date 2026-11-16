@@ -1,0 +1,206 @@
+import type { Locator, Page } from "@playwright/test";
+import { test, expect, mockDelays } from "./fixtures";
+
+const URL = "/grievances/new";
+const FAST = { GRIEVANCE_SUBMIT: 0 };
+const WARD_14 = "Ward 14 – Kalaivani Nagar";
+const DESCRIPTION = "Large pothole in front of house no. 12, near the Kalaivani bus stop.";
+
+const map = (page: Page) => page.locator("svg[role=group]");
+const dropZone = (page: Page) => page.getByRole("group", { name: "Photos (optional)" });
+
+/** FIL-03: build a DataTransfer with real File objects in the page and dispatch a drop on the zone. */
+async function dropFiles(zone: Locator, files: { name: string; type: string; size?: number }[]) {
+  const dataTransfer = await zone.page().evaluateHandle((list) => {
+    const dt = new DataTransfer();
+    for (const f of list) dt.items.add(new File([new Uint8Array(f.size ?? 2048)], f.name, { type: f.type }));
+    return dt;
+  }, files);
+  await zone.dispatchEvent("drop", { dataTransfer });
+}
+
+async function chooseCategory(page: Page, name: string) {
+  await page.locator("#gr-category").click();
+  await page.getByRole("option", { name }).click();
+}
+
+async function chooseTime(page: Page, hour: string, minute: string) {
+  await page.locator("#gr-time").click();
+  const dlg = page.getByRole("dialog", { name: "Choose a time" });
+  await dlg.getByRole("listbox", { name: "Hour" }).getByRole("option", { name: hour }).click();
+  await dlg.getByRole("listbox", { name: "Minute" }).getByRole("option", { name: minute, exact: true }).click();
+}
+
+async function fillAllButWard(page: Page) {
+  await chooseCategory(page, "Roads and potholes");
+  await page.getByRole("textbox", { name: "Describe the problem" }).fill(DESCRIPTION);
+  await chooseTime(page, "10 AM", "30");
+  await page.getByLabel("Your name").fill("Meena Rajendran");
+  await page.getByLabel("Mobile number").fill("9841023456");
+}
+
+test.describe("Grievance registration", () => {
+  test.beforeEach(async ({ context }) => {
+    await mockDelays(context, { delays: FAST });
+  });
+
+  test("[DRP-03] category options are rendered in a portal at the end of the body", async ({ page }) => {
+    await page.goto(URL);
+    const button = page.locator("#gr-category");
+    await expect(page.locator("select")).toHaveCount(0);
+    await expect(page.getByRole("listbox")).toHaveCount(0);
+    await button.click();
+    await expect(button).toHaveAttribute("aria-expanded", "true");
+    const list = page.locator("body > ul[role=listbox]");
+    await expect(list).toBeVisible();
+    expect(await list.evaluate((el) => el === document.body.lastElementChild)).toBe(true);
+    await expect(page.locator("form [role=listbox], form [role=option]")).toHaveCount(0);
+    await expect(list.getByRole("option")).toHaveCount(10);
+    // The list is placed under the button even though it is far away in the DOM.
+    const b = (await button.boundingBox())!;
+    const l = (await list.boundingBox())!;
+    expect(Math.abs(l.x - b.x)).toBeLessThan(2);
+    expect(l.y).toBeGreaterThan(b.y + b.height - 1);
+
+    await page.getByRole("option", { name: "Street light not working" }).click();
+    await expect(page.getByRole("listbox")).toHaveCount(0);
+    await expect(button).toHaveText("Street light not working");
+    await expect(button).toHaveAttribute("aria-expanded", "false");
+  });
+
+  test("[OTH-06] ward paths are only reachable with local-name() in XPath", async ({ page }) => {
+    await page.goto(URL);
+    await expect(map(page)).toBeVisible();
+    await expect(page.locator("xpath=//svg")).toHaveCount(0);
+    await expect(page.locator("xpath=//path")).toHaveCount(0);
+    const wards = page.locator("xpath=//*[local-name()='svg' and @role='group']//*[local-name()='path'][*[local-name()='title']]");
+    await expect(wards).toHaveCount(48);
+    await expect(page.locator("#gr-ward-selected")).toHaveText("None");
+
+    const ward14 = page.locator(
+      "xpath=//*[local-name()='svg' and @role='group']//*[local-name()='path'][*[local-name()='title' and contains(.,'Kalaivani Nagar')]]",
+    );
+    await ward14.click();
+    await expect(page.locator("#gr-ward-selected")).toHaveText(WARD_14);
+    await expect(ward14).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator("input[name=ward]")).toHaveValue("W14");
+    // The role locator reads the accessible name from <title>.
+    await page.getByRole("button", { name: "Ward 48 – Pavala Nagar" }).click();
+    await expect(page.locator("#gr-ward-selected")).toHaveText("Ward 48 – Pavala Nagar");
+    await expect(ward14).toHaveAttribute("aria-pressed", "false");
+  });
+
+  test("[TXT-06] description is contenteditable and only input events count", async ({ page }) => {
+    await page.goto(URL);
+    const box = page.getByRole("textbox", { name: "Describe the problem" });
+    expect(await box.evaluate((el) => el.tagName)).toBe("DIV");
+    await expect(box).toHaveAttribute("contenteditable", "true");
+    await expect(page.locator("textarea")).toHaveCount(0);
+
+    // Changing the content from script fires no input event: the form still sees nothing.
+    await box.evaluate((el) => (el.textContent = "Text set from a script without any input event"));
+    await expect(page.getByText("0 / 1000 characters")).toBeVisible();
+
+    await box.fill("");
+    await box.pressSequentially("Garbage not cleared");
+    await expect(box).toHaveText("Garbage not cleared");
+    await expect(page.getByText("19 / 1000 characters")).toBeVisible();
+    await box.fill(DESCRIPTION);
+    await expect(page.getByText(`${DESCRIPTION.length} / 1000 characters`)).toBeVisible();
+  });
+
+  test("[FIL-03] photos can only be dropped onto the zone", async ({ page }) => {
+    await page.goto(URL);
+    await expect(page.locator("input[type=file]")).toHaveCount(0);
+    const zone = dropZone(page);
+    await dropFiles(zone, [
+      { name: "pothole.jpg", type: "image/jpeg" },
+      { name: "notice.pdf", type: "application/pdf" },
+      { name: "street.png", type: "image/png" },
+    ]);
+    const thumbs = page.getByRole("list", { name: "2 photo(s) attached" });
+    await expect(thumbs.getByRole("listitem")).toHaveCount(2);
+    await expect(thumbs.getByRole("img", { name: "pothole.jpg" })).toBeVisible();
+    await expect(page.getByText("notice.pdf: only JPG and PNG photos can be attached.")).toBeVisible();
+
+    await dropFiles(zone, [{ name: "big.jpg", type: "image/jpeg", size: 3 * 1024 * 1024 }, { name: "a.jpg", type: "image/jpeg" }, { name: "b.jpg", type: "image/jpeg" }]);
+    await expect(page.getByText("big.jpg: the photo is larger than 2 MB.")).toBeVisible();
+    await expect(page.getByText("b.jpg: you can attach at most 3 photos.")).toBeVisible();
+    await expect(page.getByRole("list", { name: "3 photo(s) attached" }).getByRole("listitem")).toHaveCount(3);
+    await page.getByRole("button", { name: "Remove photo pothole.jpg" }).click();
+    await expect(page.getByRole("list", { name: "2 photo(s) attached" })).toBeVisible();
+  });
+
+  test("[DAT-04] inspection time is picked from hour and minute lists", async ({ page }) => {
+    await page.goto(URL);
+    const field = page.locator("#gr-time");
+    await expect(field).not.toBeEditable();
+    await field.click();
+    const dlg = page.getByRole("dialog", { name: "Choose a time" });
+    const hours = dlg.getByRole("listbox", { name: "Hour" });
+    const minutes = dlg.getByRole("listbox", { name: "Minute" });
+    await expect(hours.getByRole("option")).toHaveCount(8);
+    await expect(hours.getByRole("option", { name: "01 PM" })).toHaveCount(0);
+
+    await hours.getByRole("option", { name: "05 PM" }).click();
+    const m45 = minutes.getByRole("option", { name: "45" });
+    await expect(m45).toHaveAttribute("aria-disabled", "true");
+    // Playwright refuses to click an aria-disabled option; forcing the click shows it does nothing.
+    await m45.click({ force: true });
+    await expect(dlg).toBeVisible();
+    await expect(field).toHaveValue("");
+
+    await hours.getByRole("option", { name: "02 PM" }).click();
+    await minutes.getByRole("option", { name: "30" }).click();
+    await expect(dlg).toBeHidden();
+    await expect(field).toHaveValue("02:30 PM");
+    await expect(page.locator("input[name=inspectionTime]")).toHaveValue("14:30");
+  });
+
+  test("[DLG-01] submitting without a ward raises a native alert", async ({ page }) => {
+    await page.goto(URL);
+    await fillAllButWard(page);
+    const seen: { type: string; message: string }[] = [];
+    page.once("dialog", async (d) => {
+      seen.push({ type: d.type(), message: d.message() });
+      await d.accept();
+    });
+    await page.getByRole("button", { name: "Submit grievance" }).click();
+    await expect.poll(() => seen).toEqual([
+      { type: "alert", message: "Please select your ward on the map before submitting the grievance." },
+    ]);
+    await expect(page.getByText("Grievance registered")).toHaveCount(0);
+    expect(await page.evaluate(() => localStorage.getItem("amc.applications"))).toBeNull();
+
+    // With a ward chosen the same form is registered.
+    await page.getByRole("button", { name: WARD_14 }).click();
+    await page.getByRole("button", { name: "Submit grievance" }).click();
+    await expect(page.getByRole("heading", { name: "Grievance registered" })).toBeVisible();
+  });
+
+  test("[DLG-01][FIL-03][OTH-06] a complete grievance is saved and acknowledged", async ({ page, context }) => {
+    await mockDelays(context, { delays: { GRIEVANCE_SUBMIT: 800 } });
+    await page.goto(URL);
+    await fillAllButWard(page);
+    await page.getByRole("button", { name: WARD_14 }).click();
+    await dropFiles(dropZone(page), [{ name: "pothole.jpg", type: "image/jpeg" }]);
+    let alerted = false;
+    page.on("dialog", (d) => { alerted = true; void d.dismiss(); });
+    const submit = page.getByRole("button", { name: "Submit grievance" });
+    await submit.click();
+    await expect(page.getByRole("button", { name: "Submitting…" })).toBeDisabled();
+    await expect(page.getByRole("heading", { name: "Grievance registered" })).toBeVisible();
+    expect(alerted).toBe(false);
+
+    const ref = (await page.locator("#gr-ref").textContent())!;
+    expect(ref).toMatch(/^AMC\/GR\/\d{4}\/\d{6}$/);
+    await expect(page.getByText(WARD_14)).toBeVisible();
+    await expect(page.getByText("10:30 AM")).toBeVisible();
+    const apps = JSON.parse((await page.evaluate(() => localStorage.getItem("amc.applications")))!);
+    expect(apps[0]).toMatchObject({
+      ref, service: "grievance", status: "Submitted",
+      details: { category: "roads", ward: "W14", inspectionTime: "10:30", photos: "pothole.jpg", description: DESCRIPTION },
+    });
+    await expect(page.getByRole("main").getByRole("link", { name: "Track grievance", exact: true })).toHaveAttribute("href", "/grievances/track");
+  });
+});

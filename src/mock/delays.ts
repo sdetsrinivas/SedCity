@@ -53,6 +53,8 @@ export const DELAYS = {
   ASSESSMENT_DEBOUNCE: { spec: fixed(500), page: "/services/property-tax/assess", element: "Assessment number input (pause after typing before it is verified)", traps: ["TXT-13"] },
   ASSESSMENT_CHECK: { spec: fixed(1000), page: "/services/property-tax/assess", element: "Assessment number → 'Verifying…' then the owner/address or an error below the field", traps: ["TXT-13"] },
   LOCALITY_PAGE: { spec: fixed(700), page: "/services/property-tax/assess", element: "Locality list → each further page of ten localities, loaded when the list is scrolled to its end", traps: ["DRP-06"] },
+  // ── Grievances: registration ────────────────────────────────────
+  GRIEVANCE_SUBMIT: { spec: fixed(1500), page: "/grievances/new", element: "Submit grievance button → 'Submitting…' then the acknowledgement with the grievance number (the no-ward alert comes before this, without delay)", traps: ["DLG-01"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },
