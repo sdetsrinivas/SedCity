@@ -15,7 +15,7 @@ import { PhotoDrop, type Photo } from "./PhotoDrop";
 import { TimePicker } from "./TimePicker";
 import { Acknowledgement, type Ack } from "./Acknowledgement";
 import { formatTime } from "./time";
-import { EMPTY_DRAFT, validateGrievance, type Errors, type GrievanceDraft } from "./validate";
+import { DESC_MAX, DESC_MIN, EMPTY_DRAFT, validateGrievance, type Errors, type GrievanceDraft } from "./validate";
 import s from "./Grievance.module.css";
 
 /** Register a grievance: category, ward (map), description, photos, preferred inspection time, contact. */
@@ -96,7 +96,7 @@ export function GrievanceForm() {
       {errorList.length > 0 && (
         <div ref={summaryRef} tabIndex={-1} className="alert alert-error" role="alert">
           <strong>{t("gr.errSummary")}</strong>
-          <ul className={s.errList}>{errorList.map((k) => <li key={k}>{t(k!)}</li>)}</ul>
+          <ul className={s.errList}>{errorList.map((k) => <li key={k}>{t(k!, { min: DESC_MIN, max: DESC_MAX })}</li>)}</ul>
         </div>
       )}
 

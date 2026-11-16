@@ -26,6 +26,27 @@ describe("Grievance registration", () => {
     alert.mockRestore();
   });
 
+  it("fills in the limits in the error summary", async () => {
+    const alert = vi.spyOn(window, "alert").mockImplementation(() => {});
+    renderWithProviders(<GrievanceForm />);
+    describeProblem("Too short");
+    fireEvent.click(screen.getByRole("button", { name: "Submit grievance" }));
+    const summary = await screen.findByRole("alert");
+    expect(summary).toHaveTextContent("Describe the problem in at least 30 characters.");
+    expect(summary.textContent).not.toMatch(/\{\w+\}/);
+    alert.mockRestore();
+  });
+
+  it("focuses the category list the first time it opens", () => {
+    renderWithProviders(<GrievanceForm />);
+    fireEvent.click(screen.getByRole("button", { name: /Category/ }));
+    const list = screen.getByRole("listbox", { name: "Category" });
+    expect(document.activeElement).toBe(list);
+    fireEvent.keyDown(list, { key: "Escape" });
+    expect(screen.queryByRole("listbox")).toBeNull();
+    expect(document.activeElement).toBe(screen.getByRole("button", { name: /Category/ }));
+  });
+
   it("opens the category list at the end of the body, outside the form", () => {
     const { container } = renderWithProviders(<GrievanceForm />);
     expect(screen.queryByRole("listbox")).toBeNull();

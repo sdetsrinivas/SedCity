@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import { createPortal } from "react-dom";
 import { useT } from "@/i18n/client";
 import { pick, type DictKey } from "@/i18n";
@@ -28,10 +28,6 @@ export function CategorySelect({ value, onChange, error }: { value: string; onCh
     if (r) setPos({ top: r.bottom + window.scrollY + 4, left: r.left + window.scrollX, width: r.width });
   }, []);
 
-  useLayoutEffect(() => {
-    if (open) place();
-  }, [open, place]);
-
   useEffect(() => {
     if (!open) return;
     list.current?.focus({ preventScroll: true });
@@ -49,6 +45,8 @@ export function CategorySelect({ value, onChange, error }: { value: string; onCh
 
   const show = () => {
     setActive(Math.max(0, CATEGORIES.findIndex((c) => c.id === value)));
+    // Position before opening so the portal list exists in the same commit and the focus effect can reach it.
+    place();
     setOpen(true);
   };
 
