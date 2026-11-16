@@ -1,0 +1,38 @@
+[
+  {
+    "id": "monsoon-2026",
+    "tone": "teal",
+    "icon": "rain",
+    "title": { "en": "Monsoon preparedness drive 2026", "ta": "பருவமழை முன்னெச்சரிக்கை இயக்கம் 2026" },
+    "body": { "en": "Storm-water drains in all 48 wards are being desilted before 30 November. Report waterlogging through Grievances.", "ta": "48 வார்டுகளிலும் மழைநீர் வடிகால்கள் நவம்பர் 30-க்குள் தூர்வாரப்படுகின்றன. நீர் தேக்கத்தைக் குறைதீர்ப்பு மூலம் தெரிவிக்கவும்." },
+    "cta": { "en": "Register a grievance", "ta": "குறை பதிவு செய்க" },
+    "href": "/grievances/new"
+  },
+  {
+    "id": "property-tax-rebate",
+    "tone": "saffron",
+    "icon": "home",
+    "title": { "en": "5% rebate on property tax paid before 15 December", "ta": "டிசம்பர் 15-க்கு முன் செலுத்தும் சொத்துவரிக்கு 5% தள்ளுபடி" },
+    "body": { "en": "Self-assess your property online and pay the second half-year tax with an early-payment rebate.", "ta": "உங்கள் சொத்தை இணையத்தில் சுயமதிப்பீடு செய்து இரண்டாம் அரையாண்டு வரியை தள்ளுபடியுடன் செலுத்துங்கள்." },
+    "cta": { "en": "Assess property tax", "ta": "சொத்துவரி மதிப்பீடு" },
+    "href": "/services/property-tax/assess"
+  },
+  {
+    "id": "solar-connection",
+    "tone": "green",
+    "icon": "bolt",
+    "title": { "en": "Rooftop solar with new electricity connections", "ta": "புதிய மின் இணைப்புடன் கூரை சூரிய மின்சக்தி" },
+    "body": { "en": "Domestic applicants can now opt for net metering while applying for a new connection.", "ta": "புதிய இணைப்புக்கு விண்ணப்பிக்கும்போதே நிகர அளவீட்டைத் தேர்வு செய்யலாம்." },
+    "cta": { "en": "Apply now", "ta": "இப்போது விண்ணப்பிக்க" },
+    "href": "/services/electricity/new-connection"
+  },
+  {
+    "id": "heritage-walk",
+    "tone": "plum",
+    "icon": "temple",
+    "title": { "en": "Astheenapuram Heritage Walk – every Sunday", "ta": "அஸ்தீனாபுரம் பாரம்பரிய நடை – ஒவ்வொரு ஞாயிறும்" },
+    "body": { "en": "Free guided walks from Kalaivani Square at 6:30 AM. Registration opens every Monday.", "ta": "கலைவாணி சதுக்கத்திலிருந்து காலை 6:30க்கு இலவச வழிகாட்டு நடை. பதிவு ஒவ்வொரு திங்களும் தொடங்கும்." },
+    "cta": { "en": "View events", "ta": "நிகழ்வுகளைக் காண்க" },
+    "href": "/news"
+  }
+]

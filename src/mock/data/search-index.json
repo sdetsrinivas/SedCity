@@ -1,0 +1,19 @@
+[
+  { "id": "water-pay", "en": "Pay water bill", "ta": "குடிநீர் கட்டணம் செலுத்த", "keywords": "water bill payment consumer metro", "href": "/services/water/pay", "dept": "Water Supply" },
+  { "id": "water-history", "en": "Water bill history", "ta": "குடிநீர் கட்டண வரலாறு", "keywords": "water bill old previous receipt", "href": "/services/water/pay", "dept": "Water Supply" },
+  { "id": "elec-new", "en": "New electricity connection", "ta": "புதிய மின் இணைப்பு", "keywords": "electricity power connection meter eb new", "href": "/services/electricity/new-connection", "dept": "Electricity" },
+  { "id": "elec-solar", "en": "Rooftop solar net metering", "ta": "கூரை சூரிய மின் நிகர அளவீடு", "keywords": "solar net metering electricity", "href": "/services/electricity/new-connection", "dept": "Electricity" },
+  { "id": "ptax-assess", "en": "Property tax self-assessment", "ta": "சொத்துவரி சுயமதிப்பீடு", "keywords": "property tax house assessment calculator", "href": "/services/property-tax/assess", "dept": "Revenue" },
+  { "id": "ptax-pay", "en": "Pay property tax", "ta": "சொத்துவரி செலுத்த", "keywords": "property tax payment half year", "href": "/services/property-tax/assess", "dept": "Revenue" },
+  { "id": "griev-new", "en": "Register a grievance", "ta": "குறை பதிவு", "keywords": "complaint grievance pothole garbage streetlight drain", "href": "/grievances/new", "dept": "Public Grievances" },
+  { "id": "griev-track", "en": "Track grievance status", "ta": "குறை நிலை அறிய", "keywords": "complaint status track grievance", "href": "/grievances/track", "dept": "Public Grievances" },
+  { "id": "cert-birth", "en": "Birth certificate", "ta": "பிறப்புச் சான்றிதழ்", "keywords": "birth certificate child registration", "href": "/certificates/birth", "dept": "Health" },
+  { "id": "cert-trade", "en": "Trade licence – new / renewal", "ta": "வர்த்தக உரிமம் – புதியது / புதுப்பித்தல்", "keywords": "trade license licence shop business renewal", "href": "/certificates/trade-license", "dept": "Revenue" },
+  { "id": "book-hall", "en": "Book a community hall", "ta": "சமுதாயக் கூடம் முன்பதிவு", "keywords": "hall booking marriage function community", "href": "/bookings", "dept": "Estates" },
+  { "id": "book-park", "en": "Book a park or ground", "ta": "பூங்கா / மைதானம் முன்பதிவு", "keywords": "park ground booking event", "href": "/bookings", "dept": "Parks" },
+  { "id": "dir-officials", "en": "Officials directory", "ta": "அலுவலர் விவரக்கோவை", "keywords": "officer contact phone email directory", "href": "/directory/officials", "dept": "Administration" },
+  { "id": "dir-offices", "en": "Find nearest office", "ta": "அருகிலுள்ள அலுவலகம்", "keywords": "office ward zone service centre near location", "href": "/directory/offices", "dept": "Administration" },
+  { "id": "news", "en": "City news and events", "ta": "நகரச் செய்திகள் மற்றும் நிகழ்வுகள்", "keywords": "news events festival announcement", "href": "/news", "dept": "Public Relations" },
+  { "id": "help", "en": "Help and FAQs", "ta": "உதவி மற்றும் கேள்விகள்", "keywords": "help faq support chat contact", "href": "/help", "dept": "Citizen Services" },
+  { "id": "dashboard", "en": "My applications", "ta": "எனது விண்ணப்பங்கள்", "keywords": "dashboard my applications status receipts", "href": "/dashboard", "dept": "Citizen Services" }
+]
