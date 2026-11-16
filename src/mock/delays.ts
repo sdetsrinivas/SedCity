@@ -55,6 +55,11 @@ export const DELAYS = {
   LOCALITY_PAGE: { spec: fixed(700), page: "/services/property-tax/assess", element: "Locality list → each further page of ten localities, loaded when the list is scrolled to its end", traps: ["DRP-06"] },
   // ── Grievances: registration ────────────────────────────────────
   GRIEVANCE_SUBMIT: { spec: fixed(1500), page: "/grievances/new", element: "Submit grievance button → 'Submitting…' then the acknowledgement with the grievance number (the no-ward alert comes before this, without delay)", traps: ["DLG-01"] },
+  // ── Grievances: tracking ────────────────────────────────────────
+  GRIEVANCE_LOOKUP: { spec: fixed(1000), page: "/grievances/track", element: "Track button → 'Searching…' then the status card (or 'No grievance found')", traps: ["TXT-05"] },
+  GRIEVANCE_POLL: { spec: interval(5000), page: "/grievances/track", element: "Status card → pause between automatic status checks (until the grievance is resolved)", traps: ["DYN-05"] },
+  GRIEVANCE_STATUS: { spec: fixed(600), page: "/grievances/track", element: "Status card → 'Checking for updates…' during each automatic check; a new grievance moves on one stage per check up to 'Inspection scheduled'", traps: ["DYN-05"] },
+  GRIEVANCE_UPDATE: { spec: fixed(1000), page: "/grievances/track", element: "Reschedule inspection → 'Confirm new date', and Rate the resolution → 'Submit feedback' ('Saving…' then the confirmation)", traps: ["DAT-06", "OTH-09"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },

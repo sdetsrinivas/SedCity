@@ -98,7 +98,7 @@ URL-encoded JSON:
 | Phase | Scope | Status |
 |---|---|---|
 | a | Shell, branding, navigation, i18n, dark mode, mock layer, home, login/register, SMS inbox, session timeout | ✅ |
-| b | Electricity connection ✅, water bill + AstheenPay ✅, property tax ✅, grievance registration ✅, grievance tracking | 🚧 |
+| b | Electricity connection, water bill + AstheenPay, property tax, grievance registration and tracking | ✅ |
 | c | Certificates, news & events, directory, bookings, dashboard, help, officer queue | ⏳ |
 | d | Full registry, trap guide (Markdown + PDF via `npm run guide`), complete verification | ⏳ |
 

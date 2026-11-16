@@ -32,7 +32,7 @@ Hard rules from the brief:
 | 3 | New Electricity Connection wizard | `/services/electricity/new-connection` | ✅ |
 | 4 | Water Bill Payment + AstheenPay gateway (iframe + popup) | `/services/water/pay`, `/pay/astheenpay/checkout` | ✅ |
 | 5 | Property Tax Self-Assessment (pays through AstheenPay) | `/services/property-tax/assess` | ✅ |
-| 6 | Grievance Registration & Tracking | `/grievances/new` ✅, `/grievances/track` ⏳ | 🚧 |
+| 6 | Grievance Registration & Tracking | `/grievances/new`, `/grievances/track` | ✅ |
 | 7 | Certificates (Birth / Trade Licence) | `/certificates/birth`, `/certificates/trade-license` | ⏳ |
 | 8 | City News & Events | `/news`, `/news/events/[slug]` | ⏳ |
 | 9 | Officials & Office Directory (table + virtualized vanilla view + geolocation) | `/directory/officials`, `/directory/offices` | ⏳ |
@@ -41,7 +41,7 @@ Hard rules from the brief:
 | 12 | Help (shadow-DOM chatbot, FAQ, nested-iframe survey) | `/help`, `/help/survey` | ⏳ |
 | — | Trap registry completion, `npm run guide` → `docs/trap-guide.md` + `docs/Astheenapuram-Trap-Guide.pdf` (cover, TOC, section per element type, summary table; **not linked or served from the site**), full verification | | ⏳ |
 
-Phases from the brief: (a) shell/auth ✅ → (b) modules 3–6 (3, 4, 5 ✅) → (c) modules 7–12 → (d) registry, guide PDF, full verification. Placeholder routes show a "temporarily unavailable" notice until their module ships.
+Phases from the brief: (a) shell/auth ✅ → (b) modules 3–6 ✅ → (c) modules 7–12 → (d) registry, guide PDF, full verification. Placeholder routes show a "temporarily unavailable" notice until their module ships.
 
 ## Delays still to register (planned values)
 
@@ -49,7 +49,6 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 
 | Name | Value | Where |
 |---|---|---|
-| `GRIEVANCE_POLL` | every 5s | Status tracker (DYN-05) |
 | `NEWS_PAGE` | random 1–4s | Infinite scroll |
 | `DIRECTORY_PAGE` | 800ms | Officials spinner overlay (DYN-02) |
 | `MAP_IFRAME` | 5s | Late-loading iframe (FRM-04) |
@@ -58,7 +57,7 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 | `SURVEY_INNER` | 2s | Nested survey iframe |
 | `STREAM_DASHBOARD` | 3s | Dashboard server streaming |
 
-Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`.
+Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`.
 
 ## Seeded accounts (README only, never on the site)
 
@@ -70,7 +69,7 @@ Approved plan for the Astheenapuram Citizen Services Portal: a realistic municip
 
 Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ live · ⏳ planned.
 
-**131 traps · 59 live · 72 planned.** Difficulty mix: E 39 / M 51 / H 41.
+**131 traps · 65 live · 66 planned.** Difficulty mix: E 39 / M 51 / H 41.
 
 
 ## Checkbox (CHK)
@@ -104,7 +103,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TXT-02 | Masked phone | `/register: mobile` | M | ✅ |
 | TXT-03 | Masked Astheen ID | `/services/electricity/new-connection: applicant` | M | ✅ |
 | TXT-04 | Reformats on blur | `/services/water/pay: consumer number` | E | ✅ |
-| TXT-05 | Controlled input (`.value` via JS ignored) | `/grievances/track: grievance number` | M | ⏳ |
+| TXT-05 | Controlled input (`.value` via JS ignored) | `/grievances/track: grievance number` | M | ✅ |
 | TXT-06 | contenteditable | `/grievances/new: description` | H | ✅ |
 | TXT-07 | Input in shadow DOM | `/help chatbot` | H | ⏳ |
 | TXT-08 | readonly vs disabled vs aria-disabled | `/dashboard: profile` | E | ⏳ |
@@ -162,7 +161,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DLG-13 | Popover | `/register: Why Astheen ID?` | E | ✅ |
 | DLG-14 | `target=_blank` | `/news: event detail` | E | ⏳ |
 | DLG-15 | `window.open` popup | `/services/water/pay: pay in popup` | H | ✅ |
-| DLG-16 | Print dialog | `/grievances/track: acknowledgement` | M | ⏳ |
+| DLG-16 | Print dialog | `/grievances/track: acknowledgement` | M | ✅ |
 | DLG-17 | Geolocation prompt | `/directory/offices: nearest` | E | ⏳ |
 | DLG-18 | Notification permission | `/dashboard: preferences` | E | ⏳ |
 | DLG-19 | Clipboard copy | `/services/electricity/new-connection: reference no.` | M | ✅ |
@@ -197,7 +196,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DYN-02 | Spinner overlay | `/directory/officials: paging` | M | ⏳ |
 | DYN-03 | Skeleton loaders | `/dashboard: cards` | E | ⏳ |
 | DYN-04 | Slide animation (present, not clickable) | `/services/electricity/new-connection: step change` | H | ✅ |
-| DYN-05 | Polling status | `/grievances/track` | M | ⏳ |
+| DYN-05 | Polling status | `/grievances/track` | M | ✅ |
 | DYN-06 | Hashed classes / generated ids | `/bookings` | H | ⏳ |
 | DYN-07 | Reordering list | `/officer/queue: SLA order` | H | ⏳ |
 | DYN-08 | Nested scroll containers | `/directory/offices` | H | ⏳ |
@@ -213,7 +212,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TBL-04 | Nested table | `/services/water/pay: slab breakup` | M | ✅ |
 | TBL-05 | Editable cells | `/services/property-tax/assess: floors` | H | ✅ |
 | TBL-06 | Expandable rows | `/officer/queue` | M | ⏳ |
-| TBL-07 | Sticky header | `/grievances/track: my grievances` | E | ⏳ |
+| TBL-07 | Sticky header | `/grievances/track: my grievances` | E | ✅ |
 | TBL-08 | Duplicate text across rows | `/bookings: my bookings` | M | ⏳ |
 
 ## Date & time (DAT)
@@ -225,7 +224,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DAT-03 | Date range | `/dashboard: payments filter` | M | ⏳ |
 | DAT-04 | Time picker | `/grievances/new: inspection time` | M | ✅ |
 | DAT-05 | DD/MM/YYYY text date + calendar | `/services/electricity/new-connection: inspection date` | M | ✅ |
-| DAT-06 | Disabled dates | `/grievances/track: reschedule` | M | ⏳ |
+| DAT-06 | Disabled dates | `/grievances/track: reschedule` | M | ✅ |
 
 ## Files (FIL)
 
@@ -250,7 +249,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | OTH-06 | SVG needing local-name() XPath | `/grievances/new: ward map` | H | ✅ |
 | OTH-07 | Tabs | `/help` | E | ⏳ |
 | OTH-08 | Accordion | `/help: FAQ` | E | ⏳ |
-| OTH-09 | Star rating | `/grievances/track` | E | ⏳ |
+| OTH-09 | Star rating | `/grievances/track` | E | ✅ |
 | OTH-10 | Toggle switch | `/dashboard: paperless billing` | E | ⏳ |
 | OTH-11 | Keyboard shortcuts | global: / and Alt+L | M | ✅ |
 | OTH-12 | Text split across spans / &nbsp; | `/services/water/pay: amount due` | M | ✅ |

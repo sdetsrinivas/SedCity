@@ -40,6 +40,8 @@ const paths = {
   external: "M14 4h6v6M20 4l-9 9M18 14v6H4V6h6",
   clock: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 4v5l3 2",
   camera: "M4 8h3l2-3h6l2 3h3v11H4zm8 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6z",
+  star: "M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9z",
+  printer: "M7 8V3h10v5M7 17H4v-7h16v7h-3M7 14h10v7H7z",
 } as const;
 
 export type IconName = keyof typeof paths;
