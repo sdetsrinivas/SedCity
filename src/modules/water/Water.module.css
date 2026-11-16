@@ -1,0 +1,57 @@
+.sectionTitle { margin: 0 0 14px; font-size: 1.1rem; }
+.mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 0.04em; }
+
+/* Lookup */
+.lookup { margin-bottom: 20px; }
+.lookupForm { display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+.lookupField { flex: 1 1 280px; max-width: 420px; margin-bottom: 0; }
+.fetchBtn { margin-top: 29px; }
+.loading { display: flex; align-items: center; gap: 10px; margin: 16px 0 0; color: var(--c-muted); }
+.spinner { width: 18px; height: 18px; border-radius: 50%; border: 3px solid var(--c-primary-soft); border-top-color: var(--c-primary); animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 2.4s; } }
+
+/* Bill */
+.bill { margin-bottom: 20px; }
+.paid { background: var(--c-green-soft); color: var(--c-green); }
+.unpaid { background: var(--c-warn-soft); color: var(--c-warn); }
+.billBody { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; align-items: start; }
+.billMain { min-width: 0; }
+.consumerNo { margin: 0 0 12px; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 1.15rem; font-weight: 800; color: var(--c-primary); letter-spacing: 0.04em; }
+.facts { margin: 0 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+.facts dt { font-size: 0.8rem; color: var(--c-muted); }
+.facts dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+
+/* TBL-04: charges with a nested slab table */
+.tableWrap { max-width: 100%; overflow-x: auto; }
+.charges caption { caption-side: top; text-align: left; font-weight: 700; padding: 0 0 8px; }
+.charges tfoot th, .charges tfoot td { font-weight: 800; border-bottom: 0; border-top: 2px solid var(--c-border); background: none; text-transform: none; letter-spacing: 0; font-size: 0.95rem; color: var(--c-text); }
+.num { text-align: right !important; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.chargeName { display: block; font-weight: 600; margin-bottom: 8px; }
+.slabs { width: 100%; border-collapse: collapse; font-size: 0.82rem; background: var(--c-surface-2); border-radius: var(--radius); }
+.slabs caption { caption-side: top; text-align: left; font-size: 0.78rem; color: var(--c-muted); padding: 0 0 4px; font-weight: 600; }
+.slabs th, .slabs td { padding: 5px 8px; border-bottom: 1px solid var(--c-border); background: none; text-transform: none; letter-spacing: 0; font-size: 0.8rem; }
+.slabs th { white-space: normal; vertical-align: bottom; }
+.slabs tbody tr:last-child td { border-bottom: 0; }
+
+/* OTH-12: amount payable */
+.due { position: sticky; top: 140px; padding: 18px; border-radius: var(--radius-lg); background: var(--c-primary-soft); border: 1px solid var(--c-primary); }
+.dueLabel { margin: 0; font-weight: 600; color: var(--c-muted); }
+.dueAmount { margin: 4px 0 8px; font-size: 2.1rem; font-weight: 800; color: var(--c-primary); font-variant-numeric: tabular-nums; line-height: 1.2; }
+.dueSymbol { font-size: 1.5rem; }
+.duePaise { font-size: 1.2rem; }
+.dueNote { margin: 0; font-size: 0.9rem; }
+
+@media (max-width: 900px) {
+  .billBody { grid-template-columns: 1fr; }
+  .due { position: static; order: -1; }
+  .facts { grid-template-columns: 1fr; }
+  .fetchBtn { margin-top: 0; }
+  .lookupField { max-width: none; }
+}
+@media (max-width: 520px) {
+  .charges th, .charges td { padding: 8px 6px; }
+  .slabs th, .slabs td { padding: 4px 4px; font-size: 0.74rem; }
+  .slabs th { hyphens: auto; overflow-wrap: anywhere; }
+  .billBody { padding: 14px; }
+}

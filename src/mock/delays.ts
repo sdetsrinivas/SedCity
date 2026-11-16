@@ -46,6 +46,8 @@ export const DELAYS = {
   STEP_ANIMATION: { spec: fixed(450), page: "/services/electricity/new-connection", element: "Wizard step slide-in (not clickable until it ends)", traps: ["DYN-04"] },
   REVIEW_BANNER: { spec: fixed(1500), page: "/services/electricity/new-connection", element: "Review step → estimated-charges banner (pushes Submit down)", traps: ["BTN-05"] },
   ELEC_SUBMIT: { spec: fixed(1500), page: "/services/electricity/new-connection", element: "Submit application button", traps: [] },
+  // ── Water: bill payment ─────────────────────────────────────────
+  CONSUMER_LOOKUP: { spec: fixed(2000), page: "/services/water/pay", element: "Fetch bill → Bill details panel (appears when the lookup returns)", traps: ["DYN-01"] },
 } as const satisfies Record<string, DelayEntry>;
 
 export type DelayName = keyof typeof DELAYS;

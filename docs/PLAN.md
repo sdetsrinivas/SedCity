@@ -30,7 +30,7 @@ Hard rules from the brief:
 | 1 | Home | `/` | ✅ |
 | 2 | Login / Register / SMS inbox / session timeout / role switch | `/login` `/register` `/messages` | ✅ |
 | 3 | New Electricity Connection wizard | `/services/electricity/new-connection` | ✅ |
-| 4 | Water Bill Payment + AstheenPay gateway (iframe + popup) | `/services/water/pay`, `/pay/astheenpay/checkout` | ⏳ next |
+| 4 | Water Bill Payment + AstheenPay gateway (iframe + popup) | `/services/water/pay`, `/pay/astheenpay/checkout` | 🚧 part A (lookup + bill) ✅, part B (gateway) next |
 | 5 | Property Tax Self-Assessment | `/services/property-tax/assess` | ⏳ |
 | 6 | Grievance Registration & Tracking | `/grievances/new`, `/grievances/track` | ⏳ |
 | 7 | Certificates (Birth / Trade Licence) | `/certificates/birth`, `/certificates/trade-license` | ⏳ |
@@ -49,7 +49,6 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 
 | Name | Value | Where |
 |---|---|---|
-| `CONSUMER_LOOKUP` | 2s | Water consumer lookup (DYN-01) |
 | `PAY_OVERLAY` | 1.5s | Water "Proceed to pay" overlay (BTN-04) |
 | `GATEWAY_LOAD` | 1.2s | AstheenPay iframe and popup |
 | `ASSESSMENT_CHECK` | 1s | Property tax async validation (TXT-13) |
@@ -63,7 +62,7 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 | `SURVEY_INNER` | 2s | Nested survey iframe |
 | `STREAM_DASHBOARD` | 3s | Dashboard server streaming |
 
-Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`.
+Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`.
 
 ## Seeded accounts (README only, never on the site)
 
@@ -75,7 +74,7 @@ Approved plan for the Astheenapuram Citizen Services Portal: a realistic municip
 
 Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ live · ⏳ planned.
 
-**131 traps · 31 live · 100 planned.** Difficulty mix: E 39 / M 51 / H 41.
+**131 traps · 35 live · 96 planned.** Difficulty mix: E 39 / M 51 / H 41.
 
 
 ## Checkbox (CHK)
@@ -108,7 +107,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TXT-01 | Plain | `/login: username` | E | ✅ |
 | TXT-02 | Masked phone | `/register: mobile` | M | ✅ |
 | TXT-03 | Masked Astheen ID | `/services/electricity/new-connection: applicant` | M | ✅ |
-| TXT-04 | Reformats on blur | `/services/water/pay: consumer number` | E | ⏳ |
+| TXT-04 | Reformats on blur | `/services/water/pay: consumer number` | E | ✅ |
 | TXT-05 | Controlled input (`.value` via JS ignored) | `/grievances/track: grievance number` | M | ⏳ |
 | TXT-06 | contenteditable | `/grievances/new: description` | H | ⏳ |
 | TXT-07 | Input in shadow DOM | `/help chatbot` | H | ⏳ |
@@ -198,7 +197,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 
 | ID | Variant | Route / flow | D | Status |
 |---|---|---|---|---|
-| DYN-01 | Delayed appearance | `/services/water/pay: bill details` | E | ⏳ |
+| DYN-01 | Delayed appearance | `/services/water/pay: bill details` | E | ✅ |
 | DYN-02 | Spinner overlay | `/directory/officials: paging` | M | ⏳ |
 | DYN-03 | Skeleton loaders | `/dashboard: cards` | E | ⏳ |
 | DYN-04 | Slide animation (present, not clickable) | `/services/electricity/new-connection: step change` | H | ✅ |
@@ -215,7 +214,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TBL-01 | Static | `/help: fee schedule` | E | ⏳ |
 | TBL-02 | Sortable + paginated | `/directory/officials` | M | ⏳ |
 | TBL-03 | `div role=grid` | `/dashboard: payment history` | H | ⏳ |
-| TBL-04 | Nested table | `/services/water/pay: slab breakup` | M | ⏳ |
+| TBL-04 | Nested table | `/services/water/pay: slab breakup` | M | ✅ |
 | TBL-05 | Editable cells | `/services/property-tax/assess: floors` | H | ⏳ |
 | TBL-06 | Expandable rows | `/officer/queue` | M | ⏳ |
 | TBL-07 | Sticky header | `/grievances/track: my grievances` | E | ⏳ |
@@ -258,7 +257,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | OTH-09 | Star rating | `/grievances/track` | E | ⏳ |
 | OTH-10 | Toggle switch | `/dashboard: paperless billing` | E | ⏳ |
 | OTH-11 | Keyboard shortcuts | global: / and Alt+L | M | ✅ |
-| OTH-12 | Text split across spans / &nbsp; | `/services/water/pay: amount due` | M | ⏳ |
+| OTH-12 | Text split across spans / &nbsp; | `/services/water/pay: amount due` | M | ✅ |
 | OTH-13 | Duplicate ids on one page | `/certificates/trade-license` | H | ⏳ |
 | OTH-14 | Canvas math CAPTCHA | `/login` | H | ✅ |
 | OTH-15 | Canvas chart | `/dashboard` | H | ⏳ |
