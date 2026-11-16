@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { fireEvent, screen, waitFor, within } from "@testing-library/react";
 import { renderWithProviders } from "./render";
 import { GrievanceTracker } from "@/modules/grievance/GrievanceTracker";
@@ -48,6 +48,32 @@ describe("Grievance tracking", () => {
     expect(document.activeElement?.getAttribute("aria-disabled")).toBeNull();
     expect(Number(document.activeElement?.textContent)).toBe(Number(first.slice(8)));
     expect(within(grid).queryAllByRole("button")).toHaveLength(0);
+  });
+
+  describe("on a fixed day (Monday 16/11/2026)", () => {
+    afterEach(() => { vi.useRealTimers(); });
+
+    it("explains the day actually clicked, including days outside the booking window", async () => {
+      vi.useFakeTimers({ toFake: ["Date"] });
+      vi.setSystemTime(new Date(2026, 10, 16, 10, 0));
+      renderWithProviders(<GrievanceTracker />);
+      track("AMC/GR/2026/004612");
+      fireEvent.click(await screen.findByRole("button", { name: "Reschedule inspection" }));
+      const grid = screen.getByRole("grid");
+      const day = (name: string) => within(grid).getByRole("gridcell", { name });
+
+      fireEvent.click(day("Thursday, 5 November 2026"));
+      expect(screen.getByText("05/11/2026 is not available: outside the booking period.")).toBeInTheDocument();
+      fireEvent.click(day("Monday, 16 November 2026")); // today
+      expect(screen.getByText("16/11/2026 is not available: outside the booking period.")).toBeInTheDocument();
+      fireEvent.click(day("Friday, 27 November 2026"));
+      expect(screen.getByText("27/11/2026 is not available: public holiday, Astheenapuram Foundation Day.")).toBeInTheDocument();
+      expect(screen.getByText("None chosen")).toBeInTheDocument();
+
+      fireEvent.click(day("Wednesday, 18 November 2026"));
+      expect(screen.getByText("18/11/2026 is available.")).toBeInTheDocument();
+      expect(document.querySelector("#gt-new-date")).toHaveTextContent("18/11/2026");
+    });
   });
 
   it("lists a signed-in citizen's grievances, including ones registered in this browser", () => {

@@ -1,7 +1,8 @@
 import type { Page } from "@playwright/test";
 import { test, expect, mockDelays, seedSession } from "./fixtures";
 import { addDays, formatDate, todayISO } from "../src/lib/format";
-import { firstAvailable, isAvailable, unavailableReason, WINDOW_DAYS } from "../src/modules/grievance/tracking";
+import { firstAvailable, monthOf, unavailableReason } from "../src/modules/grievance/tracking";
+import { calendarDays, monthsBetween } from "./inspection-dates";
 
 const URL = "/grievances/track";
 /** Lookups and updates instant; automatic checks far apart so they don't interfere. */
@@ -201,48 +202,67 @@ test.describe("Grievance tracking", () => {
 
   test("[DAT-06] unavailable dates are aria-disabled grid cells, and the grid works by keyboard", async ({ page }) => {
     const today = todayISO();
+    const days = calendarDays(today);
+    expect(days, `no available inspection day after ${today}`).not.toBeNull();
+    const { first, current, off, outside, target } = days!;
     await page.goto(URL);
     await track(page, INSPECTION);
     await page.getByRole("button", { name: "Reschedule inspection" }).click();
     const grid = page.getByRole("grid");
     await expect(grid.locator("button, input:not([type=hidden])")).toHaveCount(0);
+    const cell = (iso: string) => grid.getByRole("gridcell", { name: longDate(iso), exact: true });
+    const note = (iso: string) => page.getByText(new RegExp(`^${formatDate(iso)} is (not )?available`));
 
-    // Focus lands on the first available day as soon as the calendar opens.
-    const first = firstAvailable(addDays(today, 1), today)!;
-    await expect(grid.getByRole("gridcell", { name: longDate(first) })).toBeFocused();
+    // Focus lands on the first available day as soon as the calendar opens, in that day's month.
+    await expect(cell(first)).toBeFocused();
     await expect(grid.locator("[tabindex='0']")).toHaveCount(1);
+    let shown = monthOf(first);
+    const showMonth = async (iso: string) => {
+      const n = monthsBetween(shown, monthOf(iso));
+      const button = page.getByRole("button", { name: n > 0 ? "Next month" : "Previous month" });
+      for (let i = 0; i < Math.abs(n); i++) await button.click();
+      shown = monthOf(iso);
+      await expect(cell(iso)).toBeVisible();
+    };
 
-    // An unavailable day in view: a plain <td> with aria-disabled, no disabled property.
-    let off = addDays(today, 1);
-    while (isAvailable(off, today) || off.slice(0, 7) !== first.slice(0, 7)) off = addDays(off, 1);
-    const offCell = grid.getByRole("gridcell", { name: longDate(off) });
+    // An unavailable day in the window: a plain <td> with aria-disabled, no disabled property.
+    expect(off, "every day of the booking window is available").not.toBeNull();
+    await showMonth(off!);
+    const offCell = cell(off!);
     await expect(offCell).toHaveAttribute("aria-disabled", "true");
     expect(await offCell.evaluate((el) => [el.tagName, "disabled" in el, el.hasAttribute("disabled")])).toEqual(["TD", false, false]);
     await expect(offCell).toBeDisabled(); // Playwright reads aria-disabled
     await offCell.click({ force: true });
     await expect(page.locator("#gt-new-date")).toHaveText("None chosen");
     await expect(page.locator("input[name=inspectionDate]")).toHaveValue("");
-    const reason = unavailableReason(off, today)!;
-    await expect(page.getByText(`${formatDate(off)} is not available:`)).toBeVisible();
-    if (reason.kind === "sunday") await expect(page.getByText(`${formatDate(off)} is not available: Sunday.`)).toBeVisible();
+    const reason = unavailableReason(off!, today)!;
+    await expect(note(off!)).toContainText(`${formatDate(off!)} is not available:`);
+    if (reason.kind === "sunday") await expect(note(off!)).toHaveText(`${formatDate(off!)} is not available: Sunday.`);
 
-    // Keyboard: walk with arrow keys from the focused day to an available day other than the current one.
-    const current = firstAvailable(addDays(today, 2), today)!;
-    let target = addDays(first, 1);
-    while (!isAvailable(target, today) || target === current) target = addDays(target, 1);
-    expect(target <= addDays(today, WINDOW_DAYS)).toBe(true);
-    await grid.getByRole("gridcell", { name: longDate(first) }).focus();
-    const steps = Math.round((new Date(target).getTime() - new Date(first).getTime()) / 86_400_000);
+    // A day outside the window explains itself too (not some other day). There is no such day in the
+    // months on show when the window covers whole months, e.g. today = 31 March.
+    if (outside) {
+      await showMonth(outside);
+      await cell(outside).click({ force: true });
+      await expect(note(outside)).toHaveText(`${formatDate(outside)} is not available: outside the booking period.`);
+      await expect(page.locator("#gt-new-date")).toHaveText("None chosen");
+    }
+
+    // Keyboard: walk with arrow keys from the first day to an available day other than the current one.
+    expect(target, `no second available day after ${first} other than ${current}`).not.toBeNull();
+    await showMonth(first);
+    await cell(first).focus();
+    const steps = Math.round((new Date(target!).getTime() - new Date(first).getTime()) / 86_400_000);
     for (let i = 0; i < steps; i++) await page.keyboard.press("ArrowRight");
-    await expect(grid.getByRole("gridcell", { name: longDate(target) })).toBeFocused();
+    await expect(cell(target!)).toBeFocused();
     await page.keyboard.press("Enter");
-    await expect(page.locator("#gt-new-date")).toHaveText(formatDate(target));
-    await expect(page.locator("input[name=inspectionDate]")).toHaveValue(target);
-    await expect(grid.getByRole("gridcell", { name: longDate(target) })).toHaveAttribute("aria-selected", "true");
+    await expect(page.locator("#gt-new-date")).toHaveText(formatDate(target!));
+    await expect(page.locator("input[name=inspectionDate]")).toHaveValue(target!);
+    await expect(cell(target!)).toHaveAttribute("aria-selected", "true");
 
     await page.getByRole("button", { name: "Confirm new date" }).click();
-    await expect(page.getByText(`The site inspection has been moved to ${formatDate(target)} at 11:00 AM.`)).toBeVisible();
-    await expect(page.locator("#gt-inspection")).toHaveText(`${formatDate(target)} at 11:00 AM`);
+    await expect(page.getByText(`The site inspection has been moved to ${formatDate(target!)} at 11:00 AM.`)).toBeVisible();
+    await expect(page.locator("#gt-inspection")).toHaveText(`${formatDate(target!)} at 11:00 AM`);
     await expect(grid).toHaveCount(0);
   });
 

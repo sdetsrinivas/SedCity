@@ -13,8 +13,9 @@ import s from "./Track.module.css";
  * DAT-06: inline calendar for a new inspection date. It is a `table[role=grid]` whose day cells are
  * `td[role=gridcell]` (no buttons). Sundays, 2nd/4th Saturdays, public holidays, fully booked days and
  * days outside tomorrow…+30 look greyed out and carry `aria-disabled=true`, but they are ordinary cells:
- * nothing is natively disabled, a click on them only shows why the day is unavailable. The choice is
- * also in hidden input `inspectionDate` (ISO).
+ * nothing is natively disabled, a click on them only shows why that day is unavailable (also for days
+ * outside the window, which the roving focus never reaches). The choice is also in hidden input
+ * `inspectionDate` (ISO).
  *
  * Keyboard: the grid has one tab stop (roving tabindex), focused as soon as the calendar opens; arrows,
  * Home/End and PageUp/PageDown move, Enter/Space choose.
@@ -24,16 +25,19 @@ export function InspectionCalendar({ value, onChange, today }: { value: string |
   const locale = lang === "ta" ? "ta-IN" : "en-IN";
   const [active, setActive] = useState(() => value ?? firstAvailable(addDays(today, 1), today) ?? addDays(today, 1));
   const [month, setMonth] = useState(() => monthOf(active));
-  const [explain, setExplain] = useState(false);
+  /** The day the note below the grid talks about: the one last clicked or moved to (not clamped). */
+  const [noted, setNoted] = useState<string | null>(null);
   const cells = useRef(new Map<string, HTMLTableCellElement>());
   const focusActive = useRef(true);
+  // Bumped on every keyboard move, so focus follows even when the active day itself does not change.
+  const [focusTick, setFocusTick] = useState(0);
   const labelId = useId();
 
   useEffect(() => {
     if (!focusActive.current) return;
     focusActive.current = false;
     cells.current.get(active)?.focus();
-  }, [active, month]);
+  }, [active, month, focusTick]);
 
   const minMonth = monthOf(addDays(today, 1));
   const maxMonth = monthOf(addDays(today, WINDOW_DAYS));
@@ -54,14 +58,18 @@ export function InspectionCalendar({ value, onChange, today }: { value: string |
   const go = (iso: string, focus: boolean) => {
     const next = clampToWindow(iso, today);
     focusActive.current = focus;
+    if (focus) setFocusTick((n) => n + 1);
     setActive(next);
     setMonth(monthOf(next));
+    return next;
   };
 
   const choose = (iso: string) => {
-    go(iso, false);
-    setExplain(true);
-    if (!unavailableReason(iso, today)) onChange(iso);
+    setNoted(iso);
+    const why = unavailableReason(iso, today);
+    // Focus only follows clicks inside the window; a day outside it just gets its explanation.
+    if (why?.kind !== "outside") go(iso, false);
+    if (!why) onChange(iso);
   };
 
   const onKey = (e: KeyboardEvent<HTMLTableCellElement>, iso: string) => {
@@ -73,8 +81,7 @@ export function InspectionCalendar({ value, onChange, today }: { value: string |
     const next = moveDate(iso, e.key);
     if (!next) return;
     e.preventDefault();
-    setExplain(true);
-    go(next, true);
+    setNoted(go(next, true));
   };
 
   const shift = (n: number) => {
@@ -83,7 +90,7 @@ export function InspectionCalendar({ value, onChange, today }: { value: string |
     setActive(clampToWindow(`${target}-${active.slice(8)}`.replace(/-(29|30|31)$/, "-28"), today));
   };
 
-  const activeReason = unavailableReason(active, today);
+  const notedReason = noted ? unavailableReason(noted, today) : null;
   return (
     <div className={s.calendar}>
       <div className={s.calHead}>
@@ -135,9 +142,9 @@ export function InspectionCalendar({ value, onChange, today }: { value: string |
         </tbody>
       </table>
       <p className={`small ${s.dayNote}`} aria-live="polite">
-        {explain && (activeReason
-          ? t("gt.dayUnavailable", { date: formatDate(active), reason: reasonText(activeReason) })
-          : t("gt.dayAvailable", { date: formatDate(active) }))}
+        {noted && (notedReason
+          ? t("gt.dayUnavailable", { date: formatDate(noted), reason: reasonText(notedReason) })
+          : t("gt.dayAvailable", { date: formatDate(noted) }))}
       </p>
       <input type="hidden" name="inspectionDate" value={value ?? ""} />
     </div>
