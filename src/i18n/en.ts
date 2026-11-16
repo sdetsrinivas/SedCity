@@ -413,7 +413,7 @@ export const en = {
   "pt.localityLoading": "Loading localities…",
   "pt.localityMore": "Loading more localities…",
   "pt.localityFailed": "Could not load the localities.",
-  "pt.localityHelp": "The locality decides the notified rental rate. Scroll the list to see all 48 wards.",
+  "pt.localityHelp": "The locality decides the notified rental rate.",
   "pt.retry": "Try again",
   "pt.usage": "Usage of the building",
   "pt.usageResidential": "Residential",
