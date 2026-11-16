@@ -1,0 +1,24 @@
+{
+  "effective": "2026-04-01",
+  "energy": {
+    "domestic": [
+      { "from": 0, "to": 100, "rate": 0 },
+      { "from": 101, "to": 200, "rate": 2.35 },
+      { "from": 201, "to": 400, "rate": 4.7 },
+      { "from": 401, "to": 500, "rate": 6.3 },
+      { "from": 501, "to": null, "rate": 8.05 }
+    ],
+    "commercial": [
+      { "from": 0, "to": 100, "rate": 5.0 },
+      { "from": 101, "to": null, "rate": 8.5 }
+    ],
+    "industrial": [
+      { "from": 0, "to": null, "rate": 7.25 }
+    ]
+  },
+  "fixedPerKw": { "domestic": 20, "commercial": 150, "industrial": 350 },
+  "depositPerKw": { "domestic": 300, "commercial": 1000, "industrial": 2500 },
+  "serviceCharge": { "single": 1500, "three": 4500 },
+  "applicationFee": 100,
+  "limits": { "singlePhaseMaxKw": 7, "domesticMaxKw": 15, "maxKw": 100 }
+}
