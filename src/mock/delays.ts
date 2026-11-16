@@ -39,9 +39,13 @@ export const DELAYS = {
   SESSION_WARN: { spec: fixed(240_000), page: "(signed-in pages)", element: "Session timeout warning modal (idle time before it opens)", traps: ["DLG-05"] },
   SESSION_COUNTDOWN: { spec: fixed(60_000), page: "(signed-in pages)", element: "Session timeout modal countdown", traps: ["DLG-05"] },
   // ── Shared geography (zone → ward → street) ─────────────────────
-  ZONE_LIST: { spec: fixed(800), page: "/services/electricity/new-connection", element: "Zone dropdown options", traps: [] },
-  WARD_LIST: { spec: fixed(2000), page: "/services/electricity/new-connection", element: "Ward dropdown options", traps: [] },
-  STREET_LIST: { spec: random(1000, 4000), page: "/services/electricity/new-connection", element: "Street dropdown options", traps: [] },
+  ZONE_LIST: { spec: fixed(800), page: "/services/electricity/new-connection", element: "Premises step → Zone dropdown options", traps: ["DRP-08"] },
+  WARD_LIST: { spec: fixed(2000), page: "/services/electricity/new-connection", element: "Premises step → Ward dropdown options", traps: ["DRP-08"] },
+  STREET_LIST: { spec: random(1000, 4000), page: "/services/electricity/new-connection", element: "Premises step → Street dropdown options", traps: ["DRP-08"] },
+  // ── Electricity: new connection ─────────────────────────────────
+  STEP_ANIMATION: { spec: fixed(450), page: "/services/electricity/new-connection", element: "Wizard step slide-in (not clickable until it ends)", traps: ["DYN-04"] },
+  REVIEW_BANNER: { spec: fixed(1500), page: "/services/electricity/new-connection", element: "Review step → estimated-charges banner (pushes Submit down)", traps: ["BTN-05"] },
+  ELEC_SUBMIT: { spec: fixed(1500), page: "/services/electricity/new-connection", element: "Submit application button", traps: [] },
 } as const satisfies Record<string, DelayEntry>;
 
 export type DelayName = keyof typeof DELAYS;

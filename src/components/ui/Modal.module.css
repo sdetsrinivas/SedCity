@@ -4,3 +4,5 @@
 .body { padding: 12px 20px 4px; }
 .footer { display: flex; justify-content: flex-end; gap: 10px; padding: 12px 20px 18px; flex-wrap: wrap; }
 @keyframes pop { from { transform: scale(0.97); opacity: 0; } to { transform: none; opacity: 1; } }
+.lg { width: min(680px, 100%); }
+.body { max-height: min(70vh, 640px); overflow: auto; }
