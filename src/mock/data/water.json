@@ -1,0 +1,89 @@
+{
+  "tariff": {
+    "domestic": {
+      "slabs": [
+        { "upTo": 10, "rate": 6 },
+        { "upTo": 20, "rate": 11 },
+        { "upTo": 30, "rate": 18 },
+        { "upTo": null, "rate": 27.5 }
+      ],
+      "meterRent": 30
+    },
+    "commercial": {
+      "slabs": [
+        { "upTo": 50, "rate": 32 },
+        { "upTo": null, "rate": 45 }
+      ],
+      "meterRent": 75
+    },
+    "seweragePercent": 25,
+    "latePercent": 2
+  },
+  "consumers": [
+    {
+      "no": "W02-014-00731",
+      "name": { "en": "Meena Rajendran", "ta": "மீனா ராஜேந்திரன்" },
+      "category": "domestic",
+      "door": "12/4",
+      "streetId": "W14-S02",
+      "meterNo": "AMC-WM-148207",
+      "previousReading": 1482,
+      "currentReading": 1506,
+      "arrears": 0,
+      "dueInDays": 12,
+      "paid": false
+    },
+    {
+      "no": "W01-003-01208",
+      "name": { "en": "Arulmozhi Kannan", "ta": "அருள்மொழி கண்ணன்" },
+      "category": "domestic",
+      "door": "7",
+      "streetId": "W03-S01",
+      "meterNo": "AMC-WM-030915",
+      "previousReading": 3310,
+      "currentReading": 3348,
+      "arrears": 212.4,
+      "dueInDays": 4,
+      "paid": false
+    },
+    {
+      "no": "W04-029-00057",
+      "name": { "en": "Sri Valli Tiffin Centre", "ta": "ஸ்ரீ வள்ளி சிற்றுண்டி நிலையம்" },
+      "category": "commercial",
+      "door": "88",
+      "streetId": "W29-S02",
+      "meterNo": "AMC-WM-290044",
+      "previousReading": 9020,
+      "currentReading": 9084,
+      "arrears": 0,
+      "dueInDays": 9,
+      "paid": false
+    },
+    {
+      "no": "W03-021-03390",
+      "name": { "en": "Karthik Subramaniam", "ta": "கார்த்திக் சுப்பிரமணியம்" },
+      "category": "domestic",
+      "door": "3B",
+      "streetId": "W21-S02",
+      "meterNo": "AMC-WM-211736",
+      "previousReading": 702,
+      "currentReading": 719,
+      "arrears": 0,
+      "dueInDays": 15,
+      "paid": true
+    },
+    {
+      "no": "W05-036-00412",
+      "name": { "en": "Fathima Begum", "ta": "பாத்திமா பேகம்" },
+      "category": "domestic",
+      "door": "21/1",
+      "streetId": "W36-S01",
+      "meterNo": "AMC-WM-360128",
+      "previousReading": 455,
+      "currentReading": 463,
+      "arrears": 0,
+      "dueInDays": 18,
+      "paid": false
+    }
+  ]
+}

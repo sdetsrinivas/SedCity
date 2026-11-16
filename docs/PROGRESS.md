@@ -4,19 +4,20 @@ Update this file in every PR that changes status (the PR template of this projec
 
 ## Where we are
 
-`main` has **31 of 131 traps live**, phase (a) done and module 3 of phase (b) done. 149 unit/integration tests and 31 Playwright verification checks pass in CI.
+`main` has **35 of 131 traps live** once the module 4 part A PR merges: phase (a) done, module 3 done and module 4 half done (water bill lookup + bill details; the AstheenPay gateway is part B). 173 unit/integration tests and 36 Playwright verification checks pass.
 
 | PR | What | State |
 |---|---|---|
 | #1 | Phase (a): shell, mock layer, home, login/register, SMS inbox, session timeout | merged |
 | #2 | Shared foundations: geo data (6 zones / 48 wards / 397 streets), formatters, applications store, `PageHead` | merged |
 | #4 | Module 3: electricity connection wizard (10 traps) | merged (replaced #3, auto-closed when its stacked base branch was deleted) |
+| (this PR) | Module 4 part A: water bill consumer lookup + bill details (4 traps) | open |
 
-Live traps (31): CHK-01 CHK-04 CHK-09 · RAD-01 · TXT-01 TXT-02 TXT-03 TXT-14 · DRP-08 · BTN-01 BTN-05 BTN-06 BTN-09 · DLG-05 DLG-07 DLG-09 DLG-13 DLG-19 · HYD-01 · DYN-04 · DAT-05 · FIL-02 · OTH-11 OTH-14 OTH-17 OTH-18 OTH-22 OTH-23 OTH-24 OTH-25 OTH-26.
+Live traps (35): CHK-01 CHK-04 CHK-09 · RAD-01 · TXT-01 TXT-02 TXT-03 TXT-04 TXT-14 · DRP-08 · BTN-01 BTN-05 BTN-06 BTN-09 · DLG-05 DLG-07 DLG-09 DLG-13 DLG-19 · HYD-01 · DYN-01 DYN-04 · TBL-04 · DAT-05 · FIL-02 · OTH-11 OTH-12 OTH-14 OTH-17 OTH-18 OTH-22 OTH-23 OTH-24 OTH-25 OTH-26.
 
 ## Next up
 
-1. **Module 4: Water Bill Payment + AstheenPay** (suggested split into small PRs: lookup/bill details, then the gateway iframe/popup + OTP + receipt). Traps: CHK-02 RAD-02 TXT-04 BTN-04 DLG-08 DLG-15 FRM-01 DYN-01 TBL-04 OTH-02 OTH-12 FIL-05 TXT-12.
+1. **Module 4 part B: payment options + AstheenPay gateway** on `/services/water/pay` (below the bill details from part A) and `/pay/astheenpay/checkout`. Remaining traps: OTH-02 (partial-payment slider), RAD-02 (payment method cards), CHK-02 (email receipt), BTN-04 (Proceed to pay under `PAY_OVERLAY`), FRM-01 (same-origin iframe), DLG-15 (`window.open` popup), DLG-08 (OTP modal inside the iframe), TXT-12 (floating-label card fields), FIL-05 (PDF receipt). Delays to register: `PAY_OVERLAY`, `GATEWAY_LOAD`. Part A data/helpers to reuse: `src/mock/data/water.json` (5 seeded consumers), `lookupConsumer()` in `src/mock/endpoints/water.ts`, `WaterBill`, `splitAmount()`; save paid bills with `saveApplication()` (service `water`).
 2. Module 5 property tax → module 6 grievances (finishes phase b), then phase (c), then phase (d).
 
 ## Decisions and deviations from the original plan
