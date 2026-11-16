@@ -10,5 +10,33 @@
     { "id": "trees", "en": "Fallen trees and parks", "ta": "விழுந்த மரங்கள் மற்றும் பூங்காக்கள்", "slaDays": 4 },
     { "id": "toilets", "en": "Public toilets", "ta": "பொதுக் கழிப்பறைகள்", "slaDays": 3 },
     { "id": "encroachment", "en": "Encroachment of footpaths", "ta": "நடைபாதை ஆக்கிரமிப்பு", "slaDays": 15 }
+  ],
+  "holidays": [
+    { "date": "2026-11-24", "en": "Karthigai Deepam", "ta": "கார்த்திகை தீபம்" },
+    { "date": "2026-11-27", "en": "Astheenapuram Foundation Day", "ta": "அஸ்தீனாபுரம் நிறுவன நாள்" },
+    { "date": "2026-12-25", "en": "Christmas", "ta": "கிறிஸ்துமஸ்" },
+    { "date": "2027-01-01", "en": "New Year's Day", "ta": "ஆங்கிலப் புத்தாண்டு" },
+    { "date": "2027-01-14", "en": "Pongal", "ta": "பொங்கல்" },
+    { "date": "2027-01-15", "en": "Thiruvalluvar Day", "ta": "திருவள்ளுவர் தினம்" },
+    { "date": "2027-01-26", "en": "Republic Day", "ta": "குடியரசு தினம்" }
+  ],
+  "seeded": [
+    { "ref": "AMC/GR/2026/004655", "owner": "meena.r", "category": "drains", "ward": "W14", "submitted": "2026-11-14", "stage": 0, "inspectionTime": "10:30", "description": "Sewer manhole overflowing on 3rd Cross Street since Friday evening." },
+    { "ref": "AMC/GR/2026/004612", "owner": "meena.r", "category": "roads", "ward": "W14", "submitted": "2026-11-10", "stage": 2, "inspectionTime": "11:00", "description": "Deep pothole at the Kalaivani Nagar bus stop junction; two-wheelers are skidding." },
+    { "ref": "AMC/GR/2026/004598", "owner": "meena.r", "category": "streetlight", "ward": "W14", "submitted": "2026-11-03", "stage": 4, "inspectionTime": "10:30", "description": "Three street lights not working on Temple Street, poles 14 to 16." },
+    { "ref": "AMC/GR/2026/004571", "owner": "meena.r", "category": "garbage", "ward": "W14", "submitted": "2026-10-21", "stage": 4, "inspectionTime": "10:30", "description": "Garbage bin near the ration shop not cleared for four days.", "rating": 4 },
+    { "ref": "AMC/GR/2026/004540", "owner": "meena.r", "category": "drains", "ward": "W15", "submitted": "2026-10-08", "stage": 3, "inspectionTime": "15:00", "description": "Storm water drain blocked near the overhead tank, water stagnating." },
+    { "ref": "AMC/GR/2026/004533", "owner": "meena.r", "category": "mosquito", "ward": "W14", "submitted": "2026-10-02", "stage": 4, "inspectionTime": "10:30", "description": "Mosquito breeding in the vacant plot behind the primary school.", "rating": 5 },
+    { "ref": "AMC/GR/2026/004498", "owner": "meena.r", "category": "water", "ward": "W14", "submitted": "2026-09-15", "stage": 4, "inspectionTime": "09:30", "description": "Low pressure in drinking water supply on North Street for a week." },
+    { "ref": "AMC/GR/2026/004467", "owner": "meena.r", "category": "trees", "ward": "W13", "submitted": "2026-08-30", "stage": 4, "inspectionTime": "10:30", "description": "Tree branch hanging over the children's park entrance after the rain.", "rating": 3 },
+    { "ref": "AMC/GR/2026/004431", "owner": "meena.r", "category": "animals", "ward": "W14", "submitted": "2026-08-11", "stage": 4, "inspectionTime": "10:30", "description": "Stray cattle blocking Main Road near the market every morning." },
+    { "ref": "AMC/GR/2026/004402", "owner": "meena.r", "category": "toilets", "ward": "W14", "submitted": "2026-07-22", "stage": 4, "inspectionTime": "16:00", "description": "Public toilet at the bus stand has no water supply.", "rating": 2 },
+    { "ref": "AMC/GR/2026/004377", "owner": "meena.r", "category": "encroachment", "ward": "W14", "submitted": "2026-07-01", "stage": 4, "inspectionTime": "10:30", "description": "Footpath on Bazaar Street occupied by shop extensions." },
+    { "ref": "AMC/GR/2026/004350", "owner": "meena.r", "category": "roads", "ward": "W14", "submitted": "2026-06-12", "stage": 4, "inspectionTime": "10:30", "description": "Road cut for cable work on 2nd Cross Street not restored.", "rating": 5 },
+    { "ref": "AMC/GR/2026/004318", "owner": "meena.r", "category": "streetlight", "ward": "W14", "submitted": "2026-05-20", "stage": 4, "inspectionTime": "14:15", "description": "Street light flickering at the corner of Lake View Road." },
+    { "ref": "AMC/GR/2026/004290", "owner": "meena.r", "category": "garbage", "ward": "W14", "submitted": "2026-04-28", "stage": 4, "inspectionTime": "10:30", "description": "Debris dumped on the roadside near the community hall." },
+    { "ref": "AMC/GR/2026/004649", "owner": "arul.k", "category": "water", "ward": "W03", "submitted": "2026-11-12", "stage": 1, "inspectionTime": "12:00", "description": "Drinking water is muddy in the morning supply on Hill Road." },
+    { "ref": "AMC/GR/2026/004587", "owner": "arul.k", "category": "roads", "ward": "W03", "submitted": "2026-10-29", "stage": 4, "inspectionTime": "10:30", "description": "Speed breaker without markings near Thenmalai school.", "rating": 4 },
+    { "ref": "AMC/GR/2026/004520", "owner": "arul.k", "category": "garbage", "ward": "W03", "submitted": "2026-09-27", "stage": 4, "inspectionTime": "10:30", "description": "Overflowing community bin at the bus depot entrance." }
   ]
 }

@@ -158,3 +158,14 @@ p { margin: 0 0 1em; }
 .data-table th, .data-table td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--c-border); }
 .data-table th { background: var(--c-surface-2); font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--c-muted); }
 .data-table td:last-child { font-variant-numeric: tabular-nums; }
+
+/* ───────────────────────── Printing ─────────────────────────
+   A page that has a `.print-area` prints only that area (e.g. the grievance acknowledgement). */
+.print-only { display: none; }
+@media print {
+  body:has(.print-area) * { visibility: hidden; }
+  body:has(.print-area) .print-area, body:has(.print-area) .print-area * { visibility: visible; }
+  body:has(.print-area) .print-area { position: absolute; left: 0; top: 0; width: 100%; border: 0; box-shadow: none; }
+  .print-only { display: block; }
+  .no-print { display: none !important; }
+}
