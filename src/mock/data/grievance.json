@@ -1,0 +1,14 @@
+{
+  "categories": [
+    { "id": "roads", "en": "Roads and potholes", "ta": "சாலைகள் மற்றும் பள்ளங்கள்", "slaDays": 7 },
+    { "id": "drains", "en": "Drainage and sewer overflow", "ta": "வடிகால் மற்றும் கழிவுநீர் வழிதல்", "slaDays": 3 },
+    { "id": "streetlight", "en": "Street light not working", "ta": "தெருவிளக்கு எரியவில்லை", "slaDays": 2 },
+    { "id": "garbage", "en": "Garbage not collected", "ta": "குப்பை அகற்றப்படவில்லை", "slaDays": 2 },
+    { "id": "water", "en": "Drinking water supply", "ta": "குடிநீர் விநியோகம்", "slaDays": 3 },
+    { "id": "mosquito", "en": "Mosquito menace", "ta": "கொசுத் தொல்லை", "slaDays": 5 },
+    { "id": "animals", "en": "Stray animals", "ta": "தெரு விலங்குகள்", "slaDays": 5 },
+    { "id": "trees", "en": "Fallen trees and parks", "ta": "விழுந்த மரங்கள் மற்றும் பூங்காக்கள்", "slaDays": 4 },
+    { "id": "toilets", "en": "Public toilets", "ta": "பொதுக் கழிப்பறைகள்", "slaDays": 3 },
+    { "id": "encroachment", "en": "Encroachment of footpaths", "ta": "நடைபாதை ஆக்கிரமிப்பு", "slaDays": 15 }
+  ]
+}
