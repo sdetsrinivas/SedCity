@@ -70,6 +70,9 @@ export const DELAYS = {
   HYDRATE_NEWS: { spec: fixed(2000), page: "/news", element: "'Show events only' checkbox: inert until it hydrates, then a saved choice is restored and the list reloads", traps: ["CHK-08"] },
   EVENT_SEATS: { spec: fixed(1500), page: "/news/events/[slug]", element: "Registration panel → 'Checking seat availability…' then the seats left; the Register button is replaced by a new element when it returns", traps: ["HYD-03"] },
   EVENT_REGISTER: { spec: fixed(1000), page: "/news/events/[slug]", element: "Confirm registration button → 'Registering…' then the registration number", traps: [] },
+  // ── Directory: officials ────────────────────────────────────────
+  DIRECTORY_PAGE: { spec: fixed(800), page: "/directory/officials", element: "Officials table → spinner overlay over the table and pager (the previous rows stay underneath) after a page, sort or filter change, and once after load when the address has ?department= or ?q=", traps: ["DYN-02", "TBL-02", "HYD-04", "DRP-04"] },
+  DIRECTORY_EXPORT: { spec: fixed(1000), page: "/directory/officials", element: "Download list (CSV) → 'Preparing file…' then the file download (every matching official, all pages)", traps: ["FIL-06"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },
