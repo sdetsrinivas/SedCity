@@ -1,0 +1,15 @@
+{
+  "hospitals": [
+    { "id": "H01", "en": "Astheenapuram Government General Hospital, Periya Bazaar", "ta": "அஸ்தீனாபுரம் அரசு பொது மருத்துவமனை, பெரிய பஜார்" },
+    { "id": "H02", "en": "AMC Maternity Hospital, Kalaivani Nagar", "ta": "மாநகராட்சி மகப்பேறு மருத்துவமனை, கலைவாணி நகர்" },
+    { "id": "H03", "en": "AMC Urban Primary Health Centre, Pavala Nagar", "ta": "மாநகராட்சி நகர்ப்புற ஆரம்ப சுகாதார நிலையம், பவள நகர்" },
+    { "id": "H04", "en": "Sri Meenakshi Nursing Home, Thendral Street", "ta": "ஸ்ரீ மீனாட்சி செவிலியர் இல்லம், தென்றல் தெரு" },
+    { "id": "H05", "en": "Kaveri Women and Child Hospital, Lake Road", "ta": "காவேரி மகளிர் மற்றும் குழந்தைகள் மருத்துவமனை, ஏரிச் சாலை" },
+    { "id": "H06", "en": "Arogya Multispeciality Hospital, Station Road", "ta": "ஆரோக்யா பல்நோக்கு மருத்துவமனை, ஸ்டேஷன் சாலை" },
+    { "id": "H07", "en": "St. Agnes Mission Hospital, Church Street", "ta": "புனித ஆக்னஸ் மிஷன் மருத்துவமனை, சர்ச் தெரு" },
+    { "id": "H08", "en": "Vaigai Fertility and Maternity Centre, Bypass Road", "ta": "வைகை கருவுறுதல் மற்றும் மகப்பேறு மையம், புறவழிச் சாலை" },
+    { "id": "H09", "en": "AMC Urban Primary Health Centre, Ammanpettai", "ta": "மாநகராட்சி நகர்ப்புற ஆரம்ப சுகாதார நிலையம், அம்மன்பேட்டை" },
+    { "id": "H10", "en": "Thamarai Hospital, Gandhi Road", "ta": "தாமரை மருத்துவமனை, காந்தி சாலை" }
+  ],
+  "birthFees": { "perCopy": 50, "speedPost": 40 }
+}
