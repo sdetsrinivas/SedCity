@@ -1,0 +1,263 @@
+{
+  "pageSize": 8,
+  "categories": ["works", "health", "culture", "environment", "education", "sports"],
+  "items": [
+    {
+      "slug": "drain-desilting-31-wards", "kind": "news", "category": "works", "date": "2026-11-16",
+      "title": { "en": "Storm-water drain desilting completed in 31 of 48 wards", "ta": "48 வார்டுகளில் 31-இல் மழைநீர் வடிகால் தூர்வாரும் பணி நிறைவு" },
+      "summary": { "en": "Field teams removed 6,200 tonnes of silt ahead of the north-east monsoon.", "ta": "வடகிழக்குப் பருவமழைக்கு முன் களக் குழுக்கள் 6,200 டன் வண்டலை அகற்றின." },
+      "more": { "en": "The remaining 17 wards in Zones IV to VI will be covered by 30 November. Residents can report blocked drains through the Grievances service.", "ta": "மண்டலங்கள் IV முதல் VI வரையிலான மீதமுள்ள 17 வார்டுகள் நவம்பர் 30-க்குள் முடிக்கப்படும். அடைப்புள்ள வடிகால்களைக் குறைதீர்ப்புச் சேவை மூலம் தெரிவிக்கலாம்." }
+    },
+    {
+      "slug": "margazhi-music-evenings", "kind": "event", "category": "culture", "date": "2026-11-15",
+      "title": { "en": "Margazhi music evenings at Kalaivani Square", "ta": "கலைவாணி சதுக்கத்தில் மார்கழி இசை மாலைகள்" },
+      "summary": { "en": "Five evenings of Carnatic and folk music by young artists from city schools.", "ta": "மாநகரப் பள்ளிகளின் இளம் கலைஞர்கள் வழங்கும் ஐந்து மாலைக் கர்நாடக மற்றும் நாட்டுப்புற இசை நிகழ்ச்சிகள்." },
+      "eventDate": "2026-12-16", "time": "18:00 – 20:30",
+      "venue": { "en": "Open-air stage, Kalaivani Square", "ta": "திறந்தவெளி மேடை, கலைவாணி சதுக்கம்" },
+      "organiser": { "en": "Department of Culture, AMC", "ta": "கலாச்சாரத் துறை, மாநகராட்சி" },
+      "capacity": 400, "registered": 288,
+      "body": {
+        "en": ["The series opens on 16 December with a nagaswaram recital and closes with a folk ensemble from Ward 22.", "Seating is free but limited. Register in advance and show your registration number at the gate."],
+        "ta": ["டிசம்பர் 16 அன்று நாகஸ்வரக் கச்சேரியுடன் தொடங்கி, வார்டு 22 நாட்டுப்புறக் குழுவுடன் நிறைவடையும்.", "இருக்கைகள் இலவசம், ஆனால் குறைவு. முன்பதிவு செய்து நுழைவாயிலில் பதிவு எண்ணைக் காட்டவும்."]
+      }
+    },
+    {
+      "slug": "fogging-schedule-november", "kind": "news", "category": "health", "date": "2026-11-14",
+      "title": { "en": "Dengue prevention: fogging schedule for November published", "ta": "டெங்கு தடுப்பு: நவம்பர் மாதப் புகையடிப்பு அட்டவணை வெளியீடு" },
+      "summary": { "en": "Every ward will be covered twice this month, early morning and evening.", "ta": "இந்த மாதம் ஒவ்வொரு வார்டிலும் அதிகாலையும் மாலையும் இரண்டு முறை புகையடிக்கப்படும்." },
+      "more": { "en": "Keep windows open during fogging and clear stagnant water from flower pots, tyres and overhead tanks. The ward-wise schedule is available at every zonal office.", "ta": "புகையடிக்கும்போது சன்னல்களைத் திறந்து வைக்கவும்; பூந்தொட்டி, டயர், மேல்நிலைத் தொட்டிகளில் தேங்கிய நீரை அகற்றவும். வார்டு வாரியான அட்டவணை ஒவ்வொரு மண்டல அலுவலகத்திலும் கிடைக்கும்." }
+    },
+    {
+      "slug": "canal-tree-planting", "kind": "event", "category": "environment", "date": "2026-11-13",
+      "title": { "en": "Tree planting along the Periyar Canal bund", "ta": "பெரியார் கால்வாய்க் கரையில் மரம் நடும் விழா" },
+      "summary": { "en": "Volunteers will plant 2,000 native saplings along a 3 km stretch of the canal.", "ta": "கால்வாயின் 3 கி.மீ. நீளத்தில் தன்னார்வலர்கள் 2,000 நாட்டு மரக்கன்றுகளை நடுவார்கள்." },
+      "eventDate": "2026-11-29", "time": "07:00 – 10:00",
+      "venue": { "en": "Canal bund, near Thendral Nagar bridge", "ta": "கால்வாய்க் கரை, தென்றல் நகர் பாலம் அருகில்" },
+      "organiser": { "en": "Parks and Environment Wing, AMC", "ta": "பூங்கா மற்றும் சுற்றுச்சூழல் பிரிவு, மாநகராட்சி" },
+      "capacity": 250, "registered": 117,
+      "body": {
+        "en": ["Saplings, tools and gloves are provided. Wear closed shoes and bring a water bottle.", "Each volunteer receives a certificate of participation from the Corporation."],
+        "ta": ["மரக்கன்றுகள், கருவிகள், கையுறைகள் வழங்கப்படும். மூடிய காலணி அணிந்து தண்ணீர்ப் புட்டி கொண்டு வரவும்.", "ஒவ்வொரு தன்னார்வலருக்கும் மாநகராட்சியின் பங்கேற்புச் சான்றிதழ் வழங்கப்படும்."]
+      }
+    },
+    {
+      "slug": "smart-classrooms", "kind": "news", "category": "education", "date": "2026-11-12",
+      "title": { "en": "Corporation schools to get 120 smart classrooms", "ta": "மாநகராட்சிப் பள்ளிகளுக்கு 120 திறன் வகுப்பறைகள்" },
+      "summary": { "en": "Interactive panels and reading corners will be installed before the next term.", "ta": "அடுத்த பருவத்துக்கு முன் தொடுதிரைப் பலகைகளும் வாசிப்பு மூலைகளும் அமைக்கப்படும்." },
+      "more": { "en": "The first 40 classrooms are in Zones I and II. Teachers will be trained in December during the half-yearly holidays.", "ta": "முதல் 40 வகுப்பறைகள் மண்டலங்கள் I, II-இல் அமையும். அரையாண்டு விடுமுறையில் டிசம்பரில் ஆசிரியர்களுக்குப் பயிற்சி அளிக்கப்படும்." }
+    },
+    {
+      "slug": "led-street-lights-zone-iii", "kind": "news", "category": "works", "date": "2026-11-11",
+      "title": { "en": "1,800 new LED street lights for Zone III", "ta": "மண்டலம் III-க்கு 1,800 புதிய LED தெருவிளக்குகள்" },
+      "summary": { "en": "Old sodium-vapour lamps on arterial roads are being replaced from this week.", "ta": "முக்கியச் சாலைகளில் உள்ள பழைய சோடியம் விளக்குகள் இந்த வாரம் முதல் மாற்றப்படுகின்றன." },
+      "more": { "en": "The new fittings use about half the power and are monitored remotely, so faults are noticed within hours.", "ta": "புதிய விளக்குகள் ஏறத்தாழ பாதி மின்சாரத்தையே பயன்படுத்தும்; தொலைவிலிருந்து கண்காணிக்கப்படுவதால் பழுதுகள் சில மணி நேரத்தில் தெரியவரும்." }
+    },
+    {
+      "slug": "city-marathon-2026", "kind": "event", "category": "sports", "date": "2026-11-10",
+      "title": { "en": "Astheenapuram City Marathon 2026", "ta": "அஸ்தீனாபுரம் நகர மாரத்தான் 2026" },
+      "summary": { "en": "Choose a 5 km fun run, a 10 km run or the half marathon through the Old Town.", "ta": "பழைய நகர் வழியாக 5 கி.மீ., 10 கி.மீ. அல்லது அரை மாரத்தான் ஓட்டத்தைத் தேர்வு செய்யுங்கள்." },
+      "eventDate": "2026-12-06", "time": "05:30 – 10:00",
+      "venue": { "en": "Start and finish at Nehru Stadium", "ta": "தொடக்கமும் முடிவும் நேரு விளையாட்டரங்கம்" },
+      "organiser": { "en": "Sports Development Cell, AMC", "ta": "விளையாட்டு மேம்பாட்டுப் பிரிவு, மாநகராட்சி" },
+      "capacity": 3000, "registered": 2614,
+      "body": {
+        "en": ["Bibs and timing chips are handed out at the stadium on 5 December between 10:00 and 18:00.", "Roads on the route are closed to traffic from 05:00 to 10:30. Water stations are set up every 2.5 km."],
+        "ta": ["டிசம்பர் 5 அன்று காலை 10 முதல் மாலை 6 வரை அரங்கில் பிப் எண்களும் நேரச் சில்லுகளும் வழங்கப்படும்.", "வழித்தடச் சாலைகள் காலை 5 முதல் 10:30 வரை போக்குவரத்துக்கு மூடப்படும். ஒவ்வொரு 2.5 கி.மீ.க்கும் தண்ணீர் மையம் உண்டு."]
+      }
+    },
+    {
+      "slug": "dry-waste-days-zone-ii", "kind": "news", "category": "environment", "date": "2026-11-09",
+      "title": { "en": "Dry waste collection days changed in Zone II", "ta": "மண்டலம் II-இல் உலர் கழிவு சேகரிப்பு நாட்கள் மாற்றம்" },
+      "summary": { "en": "From 1 December, dry waste will be collected on Wednesdays and Saturdays.", "ta": "டிசம்பர் 1 முதல் உலர் கழிவுகள் புதன், சனிக்கிழமைகளில் சேகரிக்கப்படும்." },
+      "more": { "en": "Wet waste continues to be collected every day. Hand over dry waste separately in a bag or box.", "ta": "ஈரக் கழிவு தொடர்ந்து தினமும் சேகரிக்கப்படும். உலர் கழிவைப் பை அல்லது பெட்டியில் தனியாக ஒப்படைக்கவும்." }
+    },
+    {
+      "slug": "senior-health-camp", "kind": "event", "category": "health", "date": "2026-11-08",
+      "title": { "en": "Free health check-up camp for senior citizens", "ta": "மூத்த குடிமக்களுக்கான இலவச மருத்துவப் பரிசோதனை முகாம்" },
+      "summary": { "en": "Blood sugar, blood pressure, eye and hearing tests for residents aged 60 and above.", "ta": "60 வயதுக்கு மேற்பட்டோருக்கு இரத்தச் சர்க்கரை, இரத்த அழுத்தம், கண், செவிப் பரிசோதனைகள்." },
+      "eventDate": "2026-11-28", "time": "09:00 – 14:00",
+      "venue": { "en": "Urban Primary Health Centre, Kalaivani Nagar", "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம், கலைவாணி நகர்" },
+      "organiser": { "en": "Public Health Department, AMC", "ta": "பொது சுகாதாரத் துறை, மாநகராட்சி" },
+      "capacity": 150, "registered": 149,
+      "body": {
+        "en": ["Bring any previous prescriptions and your Astheen ID. Spectacles are given free where needed.", "Registration keeps waiting times short; walk-ins are seen if time permits."],
+        "ta": ["முந்தைய மருந்துச் சீட்டுகளையும் அஸ்தீன் அடையாள எண்ணையும் கொண்டு வரவும். தேவைப்படுவோருக்குக் கண்ணாடி இலவசம்.", "முன்பதிவு காத்திருப்பு நேரத்தைக் குறைக்கும்; நேரம் இருந்தால் நேரில் வருவோரும் பார்க்கப்படுவர்."]
+      }
+    },
+    {
+      "slug": "clock-tower-restoration", "kind": "news", "category": "culture", "date": "2026-11-07",
+      "title": { "en": "Restoration of the Kalaivani Square clock tower begins", "ta": "கலைவாணி சதுக்க மணிக்கூண்டு புனரமைப்பு தொடக்கம்" },
+      "summary": { "en": "The 1912 tower will get its original lime plaster and a repaired mechanism.", "ta": "1912-ஆம் ஆண்டு மணிக்கூண்டுக்கு அசல் சுண்ணாம்புப் பூச்சும் சீரமைத்த இயந்திரமும் கிடைக்கும்." },
+      "more": { "en": "Work will take about eight months. The square stays open; only the area around the tower is fenced off.", "ta": "பணி சுமார் எட்டு மாதங்கள் நடைபெறும். சதுக்கம் திறந்தே இருக்கும்; மணிக்கூண்டைச் சுற்றிய பகுதி மட்டும் வேலியிடப்படும்." }
+    },
+    {
+      "slug": "nehru-stadium-pool-reopens", "kind": "news", "category": "sports", "date": "2026-11-06",
+      "title": { "en": "Renovated swimming pool at Nehru Stadium reopens", "ta": "நேரு விளையாட்டரங்கில் புதுப்பிக்கப்பட்ட நீச்சல் குளம் மீண்டும் திறப்பு" },
+      "summary": { "en": "Morning batches for women and children have been added.", "ta": "பெண்கள் மற்றும் குழந்தைகளுக்கான காலை நேரப் பிரிவுகள் சேர்க்கப்பட்டுள்ளன." },
+      "more": { "en": "Monthly passes cost ₹500 for adults and ₹250 for children and are sold at the stadium office.", "ta": "மாதாந்திர அனுமதிச் சீட்டு பெரியவர்களுக்கு ₹500, குழந்தைகளுக்கு ₹250; அரங்க அலுவலகத்தில் கிடைக்கும்." }
+    },
+    {
+      "slug": "school-science-fair", "kind": "event", "category": "education", "date": "2026-11-05",
+      "title": { "en": "Science fair for Corporation school students", "ta": "மாநகராட்சிப் பள்ளி மாணவர்களுக்கான அறிவியல் கண்காட்சி" },
+      "summary": { "en": "Over 300 working models by students of classes 6 to 12. Open to the public.", "ta": "6 முதல் 12-ஆம் வகுப்பு மாணவர்களின் 300-க்கும் மேற்பட்ட செயல்முறை மாதிரிகள். பொதுமக்களுக்கு அனுமதி உண்டு." },
+      "eventDate": "2026-12-12", "time": "10:00 – 17:00",
+      "venue": { "en": "Corporation Higher Secondary School, Arcot Road", "ta": "மாநகராட்சி மேல்நிலைப் பள்ளி, ஆற்காடு சாலை" },
+      "organiser": { "en": "Education Department, AMC", "ta": "கல்வித் துறை, மாநகராட்சி" },
+      "capacity": 600, "registered": 212,
+      "body": {
+        "en": ["Visitors are admitted in batches every hour. School groups should register one person for the whole group and give the number of people attending.", "Prizes are presented at 16:30 by the Commissioner."],
+        "ta": ["பார்வையாளர்கள் ஒவ்வொரு மணி நேரமும் குழுவாக அனுமதிக்கப்படுவர். பள்ளிக் குழுக்கள் ஒருவர் பெயரில் பதிவு செய்து வருவோர் எண்ணிக்கையைக் குறிப்பிடவும்.", "மாலை 4:30 மணிக்கு ஆணையர் பரிசுகளை வழங்குவார்."]
+      }
+    },
+    {
+      "slug": "mobile-vaccination-van", "kind": "news", "category": "health", "date": "2026-11-04",
+      "title": { "en": "Mobile vaccination van to visit 12 wards", "ta": "12 வார்டுகளுக்கு நடமாடும் தடுப்பூசி வாகனம்" },
+      "summary": { "en": "Routine childhood vaccines and booster doses at your doorstep.", "ta": "குழந்தைகளுக்கான வழக்கமான தடுப்பூசிகளும் ஊக்கத் தவணைகளும் உங்கள் வீட்டருகே." },
+      "more": { "en": "The van stops at ward offices from 10:00 to 16:00. Bring the child's vaccination card.", "ta": "வாகனம் வார்டு அலுவலகங்களில் காலை 10 முதல் மாலை 4 வரை நிற்கும். குழந்தையின் தடுப்பூசி அட்டையைக் கொண்டு வரவும்." }
+    },
+    {
+      "slug": "arcot-road-diversion", "kind": "news", "category": "works", "date": "2026-11-03",
+      "title": { "en": "Flyover work: traffic diversion on Arcot Road", "ta": "மேம்பாலப் பணி: ஆற்காடு சாலையில் போக்குவரத்து மாற்றம்" },
+      "summary": { "en": "City-bound traffic will use Mill Road between 10 November and 20 December.", "ta": "நவம்பர் 10 முதல் டிசம்பர் 20 வரை நகரை நோக்கிய வாகனங்கள் மில் சாலையைப் பயன்படுத்தும்." },
+      "more": { "en": "Buses stop at a temporary shelter opposite the market. Two-wheelers may still use the service lane.", "ta": "பேருந்துகள் சந்தைக்கு எதிரே உள்ள தற்காலிக நிறுத்தத்தில் நிற்கும். இருசக்கர வாகனங்கள் சேவைச் சாலையைப் பயன்படுத்தலாம்." }
+    },
+    {
+      "slug": "old-town-heritage-walk", "kind": "event", "category": "culture", "date": "2026-11-02",
+      "title": { "en": "Heritage walk: Old Town temples and markets", "ta": "பாரம்பரிய நடை: பழைய நகரக் கோயில்களும் சந்தைகளும்" },
+      "summary": { "en": "A guided two-hour walk through the oldest streets of the city.", "ta": "நகரின் மிகப் பழைய தெருக்கள் வழியாக இரண்டு மணி நேர வழிகாட்டு நடை." },
+      "eventDate": "2026-11-30", "time": "06:30 – 08:30",
+      "venue": { "en": "Meeting point: East Gate, Old Town market", "ta": "சந்திப்பு இடம்: கிழக்கு வாயில், பழைய நகரச் சந்தை" },
+      "organiser": { "en": "Heritage Conservation Cell, AMC", "ta": "பாரம்பரியப் பாதுகாப்புப் பிரிவு, மாநகராட்சி" },
+      "capacity": 40, "registered": 31,
+      "body": {
+        "en": ["The walk covers the Thiruvalluvar temple tank, the brass-ware street and the 19th-century grain market.", "Groups are kept small. Comfortable footwear is recommended."],
+        "ta": ["திருவள்ளுவர் கோயில் குளம், பித்தளைப் பாத்திரத் தெரு, 19-ஆம் நூற்றாண்டுத் தானியச் சந்தை ஆகியவை நடையில் அடங்கும்.", "குழுக்கள் சிறியதாக வைக்கப்படும். வசதியான காலணி அணியவும்."]
+      }
+    },
+    {
+      "slug": "plastic-free-markets", "kind": "news", "category": "environment", "date": "2026-11-01",
+      "title": { "en": "Plastic-free market campaign extended to 20 markets", "ta": "பிளாஸ்டிக் இல்லாச் சந்தை இயக்கம் 20 சந்தைகளுக்கு விரிவாக்கம்" },
+      "summary": { "en": "Cloth bags are on sale at ₹10 at every market entrance.", "ta": "ஒவ்வொரு சந்தை நுழைவாயிலிலும் துணிப் பைகள் ₹10-க்கு விற்பனை." },
+      "more": { "en": "Shops found using banned carry bags will be fined from January. Self-help groups stitch and sell the cloth bags.", "ta": "தடைசெய்யப்பட்ட பைகளைப் பயன்படுத்தும் கடைகளுக்கு ஜனவரி முதல் அபராதம். துணிப் பைகளை மகளிர் சுயஉதவிக் குழுக்கள் தைத்து விற்கின்றன." }
+    },
+    {
+      "slug": "evening-reading-rooms", "kind": "news", "category": "education", "date": "2026-10-31",
+      "title": { "en": "Evening reading rooms open in ward libraries", "ta": "வார்டு நூலகங்களில் மாலை வாசிப்பு அறைகள் திறப்பு" },
+      "summary": { "en": "Students can study until 21:00 in 18 ward libraries.", "ta": "18 வார்டு நூலகங்களில் மாணவர்கள் இரவு 9 மணி வரை படிக்கலாம்." },
+      "more": { "en": "Entry is free with a library card. Competitive exam guides have been added to every branch.", "ta": "நூலக அட்டையுடன் அனுமதி இலவசம். ஒவ்வொரு கிளையிலும் போட்டித் தேர்வு வழிகாட்டிகள் சேர்க்கப்பட்டுள்ளன." }
+    },
+    {
+      "slug": "home-composting-workshop", "kind": "event", "category": "environment", "date": "2026-10-30",
+      "title": { "en": "Composting workshop for residents' associations", "ta": "குடியிருப்போர் சங்கங்களுக்கான உரமாக்கல் பயிற்சிப் பட்டறை" },
+      "summary": { "en": "Learn to turn kitchen waste into compost at home or in your apartment block.", "ta": "சமையலறைக் கழிவுகளை வீட்டிலோ குடியிருப்பு வளாகத்திலோ உரமாக்கக் கற்றுக்கொள்ளுங்கள்." },
+      "eventDate": "2026-12-05", "time": "10:30 – 12:30",
+      "venue": { "en": "Zone II Office, Community Hall", "ta": "மண்டலம் II அலுவலகம், சமுதாயக் கூடம்" },
+      "organiser": { "en": "Solid Waste Management Department, AMC", "ta": "திடக்கழிவு மேலாண்மைத் துறை, மாநகராட்சி" },
+      "capacity": 80, "registered": 46,
+      "body": {
+        "en": ["Every household that attends receives a compost bin at a subsidised price of ₹300.", "Associations that compost on site get a 5% rebate on the solid waste charge."],
+        "ta": ["கலந்துகொள்ளும் ஒவ்வொரு குடும்பத்துக்கும் மானிய விலையில் ₹300-க்கு உரத் தொட்டி வழங்கப்படும்.", "வளாகத்திலேயே உரமாக்கும் சங்கங்களுக்குத் திடக்கழிவுக் கட்டணத்தில் 5% தள்ளுபடி."]
+      }
+    },
+    {
+      "slug": "pothole-repair-october", "kind": "news", "category": "works", "date": "2026-10-29",
+      "title": { "en": "2,400 potholes repaired in October", "ta": "அக்டோபரில் 2,400 சாலைப் பள்ளங்கள் சீரமைப்பு" },
+      "summary": { "en": "Most complaints were closed within three working days.", "ta": "பெரும்பாலான புகார்கள் மூன்று வேலை நாட்களுக்குள் முடிக்கப்பட்டன." },
+      "more": { "en": "Cold-mix patching lets crews repair roads even in light rain. Report a pothole with a photo through the Grievances service.", "ta": "குளிர்க் கலவை மூலம் லேசான மழையிலும் சாலைகளைச் சீரமைக்கலாம். பள்ளத்தைப் புகைப்படத்துடன் குறைதீர்ப்புச் சேவையில் தெரிவிக்கவும்." }
+    },
+    {
+      "slug": "inter-ward-kabaddi", "kind": "event", "category": "sports", "date": "2026-10-28",
+      "title": { "en": "Inter-ward kabaddi tournament", "ta": "வார்டுகளுக்கு இடையிலான கபடிப் போட்டி" },
+      "summary": { "en": "Thirty-two ward teams compete over two weekends. Entry for spectators is free.", "ta": "முப்பத்திரண்டு வார்டு அணிகள் இரண்டு வார இறுதிகளில் மோதுகின்றன. பார்வையாளர்களுக்கு அனுமதி இலவசம்." },
+      "eventDate": "2026-12-19", "time": "16:00 – 21:00",
+      "venue": { "en": "Indoor court, Nehru Stadium", "ta": "உள்ளரங்கம், நேரு விளையாட்டரங்கம்" },
+      "organiser": { "en": "Sports Development Cell, AMC", "ta": "விளையாட்டு மேம்பாட்டுப் பிரிவு, மாநகராட்சி" },
+      "capacity": 900, "registered": 403,
+      "body": {
+        "en": ["Spectator seats are allotted on registration. The final is played on 20 December at 19:00.", "Teams must report to the organising desk one hour before their first match."],
+        "ta": ["பதிவின்போது பார்வையாளர் இருக்கைகள் ஒதுக்கப்படும். இறுதிப் போட்டி டிசம்பர் 20 இரவு 7 மணிக்கு.", "அணிகள் முதல் போட்டிக்கு ஒரு மணி நேரம் முன் ஏற்பாட்டு மேசையில் வருகையைப் பதிவு செய்ய வேண்டும்."]
+      }
+    },
+    {
+      "slug": "thendral-nagar-health-centre", "kind": "news", "category": "health", "date": "2026-10-27",
+      "title": { "en": "New primary health centre opens at Thendral Nagar", "ta": "தென்றல் நகரில் புதிய ஆரம்ப சுகாதார நிலையம் திறப்பு" },
+      "summary": { "en": "Outpatient care, a pharmacy and a laboratory, open six days a week.", "ta": "புறநோயாளர் சிகிச்சை, மருந்தகம், ஆய்வகம்; வாரத்தில் ஆறு நாட்கள் இயங்கும்." },
+      "more": { "en": "Timings are 08:00 to 20:00, Monday to Saturday. The centre also runs antenatal clinics on Tuesdays.", "ta": "நேரம்: திங்கள் முதல் சனி வரை காலை 8 முதல் இரவு 8 வரை. செவ்வாய்தோறும் கர்ப்பகாலப் பரிசோதனையும் உண்டு." }
+    },
+    {
+      "slug": "folk-art-exhibition-extended", "kind": "news", "category": "culture", "date": "2026-10-26",
+      "title": { "en": "Folk art exhibition at the City Museum extended", "ta": "நகர அருங்காட்சியக நாட்டுப்புறக் கலைக் கண்காட்சி நீட்டிப்பு" },
+      "summary": { "en": "The exhibition of leather puppets and kolam designs stays open until 31 January.", "ta": "தோல்பாவை மற்றும் கோலக் கண்காட்சி ஜனவரி 31 வரை திறந்திருக்கும்." },
+      "more": { "en": "Entry is ₹20 for adults; children and students in uniform enter free.", "ta": "பெரியவர்களுக்கு நுழைவுக் கட்டணம் ₹20; குழந்தைகளுக்கும் சீருடை அணிந்த மாணவர்களுக்கும் இலவசம்." }
+    },
+    {
+      "slug": "zone-iv-ward-sabha", "kind": "event", "category": "works", "date": "2026-10-25",
+      "title": { "en": "Ward Sabha meeting: Zone IV budget proposals", "ta": "வார்டு சபைக் கூட்டம்: மண்டலம் IV வரவு-செலவுப் பரிந்துரைகள்" },
+      "summary": { "en": "Residents of Zone IV can suggest and vote on road, drain and park works for next year.", "ta": "மண்டலம் IV குடியிருப்போர் அடுத்த ஆண்டின் சாலை, வடிகால், பூங்காப் பணிகளைப் பரிந்துரைத்து வாக்களிக்கலாம்." },
+      "eventDate": "2026-12-13", "time": "10:00 – 13:00",
+      "venue": { "en": "Zone IV Office, Conference Hall", "ta": "மண்டலம் IV அலுவலகம், கூட்ட அரங்கம்" },
+      "organiser": { "en": "Zonal Officer, Zone IV", "ta": "மண்டல அலுவலர், மண்டலம் IV" },
+      "capacity": 200, "registered": 64,
+      "body": {
+        "en": ["Proposals received by 30 November are placed on the agenda. Each ward gets 20 minutes.", "Bring proof of residence in Zone IV to vote."],
+        "ta": ["நவம்பர் 30-க்குள் பெறப்படும் பரிந்துரைகள் நிகழ்ச்சி நிரலில் சேர்க்கப்படும். ஒவ்வொரு வார்டுக்கும் 20 நிமிடங்கள்.", "வாக்களிக்க மண்டலம் IV குடியிருப்புச் சான்று கொண்டு வரவும்."]
+      }
+    },
+    {
+      "slug": "air-quality-monitors", "kind": "news", "category": "environment", "date": "2026-10-24",
+      "title": { "en": "Air quality monitors installed at six junctions", "ta": "ஆறு சந்திப்புகளில் காற்றுத் தரக் கண்காணிப்புக் கருவிகள்" },
+      "summary": { "en": "Readings are updated every 15 minutes on display boards at each junction.", "ta": "ஒவ்வொரு சந்திப்பிலும் உள்ள காட்சிப் பலகையில் 15 நிமிடத்துக்கு ஒருமுறை அளவீடுகள் புதுப்பிக்கப்படும்." },
+      "more": { "en": "The data will guide where the Corporation sprinkles water on roads and plants green buffers.", "ta": "சாலைகளில் நீர் தெளிக்கவும் பசுமைத் தடுப்புகளை அமைக்கவும் இந்தத் தரவு வழிகாட்டும்." }
+    },
+    {
+      "slug": "open-gyms-in-parks", "kind": "news", "category": "sports", "date": "2026-10-23",
+      "title": { "en": "Open gyms installed in 15 parks", "ta": "15 பூங்காக்களில் திறந்தவெளி உடற்பயிற்சிக் கூடங்கள்" },
+      "summary": { "en": "Free outdoor exercise equipment for all age groups.", "ta": "அனைத்து வயதினருக்கும் இலவச வெளிப்புற உடற்பயிற்சிக் கருவிகள்." },
+      "more": { "en": "Parks are open from 05:00 to 09:00 and 16:00 to 20:00. A trainer visits each park once a week.", "ta": "பூங்காக்கள் காலை 5 முதல் 9 வரையும் மாலை 4 முதல் இரவு 8 வரையும் திறந்திருக்கும். வாரம் ஒருமுறை பயிற்றுநர் வருவார்." }
+    },
+    {
+      "slug": "ripon-mahal-blood-donation", "kind": "event", "category": "health", "date": "2026-10-22",
+      "title": { "en": "Blood donation drive at Ripon Mahal", "ta": "ரிப்பன் மஹாலில் இரத்த தான முகாம்" },
+      "summary": { "en": "Healthy adults aged 18 to 65 can donate. Refreshments are provided.", "ta": "18 முதல் 65 வயதுடைய ஆரோக்கியமானவர்கள் இரத்த தானம் செய்யலாம். சிற்றுண்டி வழங்கப்படும்." },
+      "eventDate": "2026-12-02", "time": "09:00 – 16:00",
+      "venue": { "en": "Ripon Mahal, Kalaivani Square", "ta": "ரிப்பன் மஹால், கலைவாணி சதுக்கம்" },
+      "organiser": { "en": "Public Health Department, AMC", "ta": "பொது சுகாதாரத் துறை, மாநகராட்சி" },
+      "capacity": 300, "registered": 158,
+      "body": {
+        "en": ["Eat a light meal before donating and carry a photo ID. Donation takes about 30 minutes.", "Every donor receives a donor card valid at Corporation hospitals."],
+        "ta": ["தானத்துக்கு முன் லேசான உணவு உண்டு, புகைப்பட அடையாள அட்டை கொண்டு வரவும். சுமார் 30 நிமிடங்கள் ஆகும்.", "ஒவ்வொரு கொடையாளருக்கும் மாநகராட்சி மருத்துவமனைகளில் செல்லும் கொடையாளர் அட்டை வழங்கப்படும்."]
+      }
+    },
+    {
+      "slug": "school-scholarships-open", "kind": "news", "category": "education", "date": "2026-10-21",
+      "title": { "en": "Scholarship applications open for Corporation school students", "ta": "மாநகராட்சிப் பள்ளி மாணவர்களுக்கான உதவித்தொகை விண்ணப்பங்கள் தொடக்கம்" },
+      "summary": { "en": "Merit and need-based scholarships for classes 9 to 12. Last date 15 December.", "ta": "9 முதல் 12-ஆம் வகுப்புக்குத் தகுதி மற்றும் தேவை அடிப்படையிலான உதவித்தொகை. கடைசி நாள் டிசம்பர் 15." },
+      "more": { "en": "Forms are available from class teachers. Attach the income certificate and the last mark sheet.", "ta": "படிவங்கள் வகுப்பாசிரியர்களிடம் கிடைக்கும். வருமானச் சான்றிதழையும் கடைசி மதிப்பெண் பட்டியலையும் இணைக்கவும்." }
+    },
+    {
+      "slug": "childrens-film-festival", "kind": "event", "category": "culture", "date": "2026-10-20",
+      "title": { "en": "Children's film festival at the Town Hall", "ta": "நகர மண்டபத்தில் குழந்தைகள் திரைப்பட விழா" },
+      "summary": { "en": "Award-winning children's films in Tamil and English, followed by short talks with film-makers.", "ta": "விருது பெற்ற தமிழ், ஆங்கிலக் குழந்தைத் திரைப்படங்களும் இயக்குநர்களுடன் சிறு உரையாடல்களும்." },
+      "eventDate": "2026-12-26", "time": "10:00 – 16:00",
+      "venue": { "en": "Town Hall auditorium", "ta": "நகர மண்டப அரங்கம்" },
+      "organiser": { "en": "Department of Culture, AMC", "ta": "கலாச்சாரத் துறை, மாநகராட்சி" },
+      "capacity": 500, "registered": 377,
+      "body": {
+        "en": ["Three screenings a day. Children under 12 must be accompanied by an adult.", "Schools can register a group under one name and give the number of people attending."],
+        "ta": ["நாளொன்றுக்கு மூன்று காட்சிகள். 12 வயதுக்குட்பட்ட குழந்தைகளுடன் பெரியவர் வர வேண்டும்.", "பள்ளிகள் ஒருவர் பெயரில் குழுவாகப் பதிவு செய்து வருவோர் எண்ணிக்கையைக் குறிப்பிடலாம்."]
+      }
+    },
+    {
+      "slug": "zone-i-water-interruption", "kind": "news", "category": "works", "date": "2026-10-19",
+      "title": { "en": "Water supply interruption in Zone I on 21 October", "ta": "அக்டோபர் 21 அன்று மண்டலம் I-இல் குடிநீர் விநியோகத் தடை" },
+      "summary": { "en": "Supply will be stopped from 06:00 to 18:00 for pipeline interconnection work.", "ta": "குழாய் இணைப்புப் பணிக்காகக் காலை 6 முதல் மாலை 6 வரை விநியோகம் நிறுத்தப்படும்." },
+      "more": { "en": "Tanker lorries will serve hospitals and schools. Store enough water the previous evening.", "ta": "மருத்துவமனைகளுக்கும் பள்ளிகளுக்கும் லாரிகள் மூலம் நீர் வழங்கப்படும். முந்தைய மாலையே போதுமான நீரைச் சேமிக்கவும்." }
+    },
+    {
+      "slug": "ward-library-membership-free", "kind": "news", "category": "education", "date": "2026-10-18",
+      "title": { "en": "Ward library membership is now free", "ta": "வார்டு நூலக உறுப்பினர் சேர்க்கை இனி இலவசம்" },
+      "summary": { "en": "The ₹50 annual fee has been waived for all residents.", "ta": "அனைத்துக் குடியிருப்போருக்கும் ₹50 ஆண்டுக் கட்டணம் தள்ளுபடி செய்யப்பட்டது." },
+      "more": { "en": "Bring your Astheen ID to any ward library to get a card on the spot.", "ta": "எந்த வார்டு நூலகத்துக்கும் அஸ்தீன் அடையாள எண்ணுடன் சென்று உடனே அட்டை பெறலாம்." }
+    }
+  ]
+}

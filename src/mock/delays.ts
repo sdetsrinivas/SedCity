@@ -65,6 +65,11 @@ export const DELAYS = {
   // ── Certificates: trade licence ─────────────────────────────────
   TRADE_FEE: { spec: fixed(800), page: "/certificates/trade-license", element: "6. Fee and declaration → fee badge 'Calculating…' then the annual fee, after the business category or floor area changes", traps: ["SHD-03"] },
   TRADE_SUBMIT: { spec: fixed(1500), page: "/certificates/trade-license", element: "Submit application button → 'Submitting…' then the acknowledgement with the application number (the leave-page prompt stops once it is shown)", traps: ["DLG-04"] },
+  // ── News & events ───────────────────────────────────────────────
+  NEWS_PAGE: { spec: random(1000, 4000), page: "/news", element: "News list → 'Loading more…' then the next eight cards, when the end of the list is scrolled into view (also the first page again after the category or 'Show events only' changes)", traps: ["OTH-19", "CHK-08", "DRP-07"] },
+  HYDRATE_NEWS: { spec: fixed(2000), page: "/news", element: "'Show events only' checkbox: inert until it hydrates, then a saved choice is restored and the list reloads", traps: ["CHK-08"] },
+  EVENT_SEATS: { spec: fixed(1500), page: "/news/events/[slug]", element: "Registration panel → 'Checking seat availability…' then the seats left; the Register button is replaced by a new element when it returns", traps: ["HYD-03"] },
+  EVENT_REGISTER: { spec: fixed(1000), page: "/news/events/[slug]", element: "Confirm registration button → 'Registering…' then the registration number", traps: [] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },
