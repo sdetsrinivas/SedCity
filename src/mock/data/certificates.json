@@ -11,5 +11,47 @@
     { "id": "H09", "en": "AMC Urban Primary Health Centre, Ammanpettai", "ta": "மாநகராட்சி நகர்ப்புற ஆரம்ப சுகாதார நிலையம், அம்மன்பேட்டை" },
     { "id": "H10", "en": "Thamarai Hospital, Gandhi Road", "ta": "தாமரை மருத்துவமனை, காந்தி சாலை" }
   ],
-  "birthFees": { "perCopy": 50, "speedPost": 40 }
+  "birthFees": { "perCopy": 50, "speedPost": 40 },
+  "tradeGroups": [
+    {
+      "id": "FH", "en": "Food and hospitality", "ta": "உணவு மற்றும் விருந்தோம்பல்",
+      "categories": [
+        { "id": "FH01", "en": "Restaurant or hotel", "ta": "உணவகம் அல்லது விடுதி", "fee": 2500 },
+        { "id": "FH02", "en": "Bakery and sweet stall", "ta": "பேக்கரி மற்றும் இனிப்புக் கடை", "fee": 1500 },
+        { "id": "FH03", "en": "Tea stall or juice shop", "ta": "தேநீர்க் கடை அல்லது பழச்சாறு கடை", "fee": 600 },
+        { "id": "FH04", "en": "Catering service", "ta": "உணவு வழங்கல் சேவை", "fee": 2000 },
+        { "id": "FH99", "en": "Others", "ta": "மற்றவை", "fee": 1000 }
+      ]
+    },
+    {
+      "id": "RT", "en": "Retail trade", "ta": "சில்லறை வணிகம்",
+      "categories": [
+        { "id": "RT01", "en": "Grocery and provision store", "ta": "மளிகை மற்றும் பலசரக்குக் கடை", "fee": 1200 },
+        { "id": "RT02", "en": "Textiles and readymade garments", "ta": "ஜவுளி மற்றும் ஆயத்த ஆடைகள்", "fee": 1800 },
+        { "id": "RT03", "en": "Electronics and mobile phones", "ta": "மின்னணுப் பொருட்கள் மற்றும் கைபேசிகள்", "fee": 2000 },
+        { "id": "RT04", "en": "Pharmacy", "ta": "மருந்தகம்", "fee": 1500 },
+        { "id": "RT99", "en": "Others", "ta": "மற்றவை", "fee": 1000 }
+      ]
+    },
+    {
+      "id": "SV", "en": "Services", "ta": "சேவைகள்",
+      "categories": [
+        { "id": "SV01", "en": "Beauty parlour or salon", "ta": "அழகு நிலையம் அல்லது முடிதிருத்தகம்", "fee": 1000 },
+        { "id": "SV02", "en": "Tailoring", "ta": "தையல் கடை", "fee": 500 },
+        { "id": "SV03", "en": "Laundry and dry cleaning", "ta": "சலவை மற்றும் உலர் சலவை", "fee": 800 },
+        { "id": "SV04", "en": "Two-wheeler workshop", "ta": "இருசக்கர வாகனப் பணிமனை", "fee": 1500 },
+        { "id": "SV99", "en": "Others", "ta": "மற்றவை", "fee": 800 }
+      ]
+    },
+    {
+      "id": "MS", "en": "Manufacturing and storage", "ta": "உற்பத்தி மற்றும் சேமிப்பு",
+      "categories": [
+        { "id": "MS01", "en": "Flour mill", "ta": "மாவு அரைவை ஆலை", "fee": 2000 },
+        { "id": "MS02", "en": "Printing press", "ta": "அச்சகம்", "fee": 2500 },
+        { "id": "MS03", "en": "Godown or warehouse", "ta": "கிடங்கு", "fee": 3000 },
+        { "id": "MS99", "en": "Others", "ta": "மற்றவை", "fee": 2000 }
+      ]
+    }
+  ],
+  "tradeFees": { "freeArea": 200, "perStep": 100, "stepArea": 100 }
 }

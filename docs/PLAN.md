@@ -33,7 +33,7 @@ Hard rules from the brief:
 | 4 | Water Bill Payment + AstheenPay gateway (iframe + popup) | `/services/water/pay`, `/pay/astheenpay/checkout` | ✅ |
 | 5 | Property Tax Self-Assessment (pays through AstheenPay) | `/services/property-tax/assess` | ✅ |
 | 6 | Grievance Registration & Tracking | `/grievances/new`, `/grievances/track` | ✅ |
-| 7 | Certificates (Birth / Trade Licence) | `/certificates/birth`, `/certificates/trade-license` | ⏳ birth ✅ (part A), trade licence next |
+| 7 | Certificates (Birth / Trade Licence) | `/certificates/birth`, `/certificates/trade-license` | ✅ |
 | 8 | City News & Events | `/news`, `/news/events/[slug]` | ⏳ |
 | 9 | Officials & Office Directory (table + virtualized vanilla view + geolocation) | `/directory/officials`, `/directory/offices` | ⏳ |
 | 10 | Hall / Park Booking | `/bookings` | ⏳ |
@@ -57,7 +57,7 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 | `SURVEY_INNER` | 2s | Nested survey iframe |
 | `STREAM_DASHBOARD` | 3s | Dashboard server streaming |
 
-Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`.
+Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`.
 
 ## Seeded accounts (README only, never on the site)
 
@@ -69,7 +69,7 @@ Approved plan for the Astheenapuram Citizen Services Portal: a realistic municip
 
 Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ live · ⏳ planned.
 
-**131 traps · 71 live · 60 planned.** Difficulty mix: E 39 / M 51 / H 41.
+**131 traps · 78 live · 53 planned.** Difficulty mix: E 39 / M 51 / H 41.
 
 
 ## Checkbox (CHK)
@@ -107,7 +107,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TXT-06 | contenteditable | `/grievances/new: description` | H | ✅ |
 | TXT-07 | Input in shadow DOM | `/help chatbot` | H | ⏳ |
 | TXT-08 | readonly vs disabled vs aria-disabled | `/dashboard: profile` | E | ⏳ |
-| TXT-09 | Paste blocked | `/certificates/trade-license: re-enter bank account` | M | ⏳ |
+| TXT-09 | Paste blocked | `/certificates/trade-license: re-enter bank account` | M | ✅ |
 | TXT-10 | maxlength | `/certificates/birth: child name` | E | ✅ |
 | TXT-11 | Placeholder as only label | `/bookings: purpose, attendees` | M | ⏳ |
 | TXT-12 | Floating label | `/pay/astheenpay/checkout: card fields` | E | ✅ |
@@ -119,7 +119,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | ID | Variant | Route / flow | D | Status |
 |---|---|---|---|---|
 | DRP-01 | Native select | `/certificates/birth: hospital` | E | ✅ |
-| DRP-02 | optgroups | `/certificates/trade-license: business category` | E | ⏳ |
+| DRP-02 | optgroups | `/certificates/trade-license: business category` | E | ✅ |
 | DRP-03 | Portal listbox at end of body | `/grievances/new: category` | H | ✅ |
 | DRP-04 | Searchable combobox | `/directory/officials: department` | M | ⏳ |
 | DRP-05 | Multi-select with chips | `/officer/queue: wards` | M | ⏳ |
@@ -149,7 +149,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DLG-01 | alert | `/grievances/new: no ward selected` | E | ✅ |
 | DLG-02 | confirm | `/services/property-tax/assess: remove floor` | E | ✅ |
 | DLG-03 | prompt | `/dashboard: rename document` | M | ⏳ |
-| DLG-04 | beforeunload | `/certificates/*: unsaved form` (birth live; trade licence in part B) | M | ✅ |
+| DLG-04 | beforeunload | `/certificates/*: unsaved form` (birth, trade licence) | M | ✅ |
 | DLG-05 | Portal modal (session timeout) | signed-in pages | M | ✅ |
 | DLG-06 | Native `<dialog>` | `/bookings: confirm` | E | ⏳ |
 | DLG-07 | Nested modals | `/services/electricity/new-connection: tariff→glossary` | H | ✅ |
@@ -176,7 +176,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | FRM-04 | Late-loading iframe, no id/name | `/directory/offices: map` | H | ⏳ |
 | SHD-01 | Open shadow root | `/help chatbot` | M | ⏳ |
 | SHD-02 | Nested shadow roots | `/help chatbot: quick replies` | H | ⏳ |
-| SHD-03 | Closed shadow root | `/certificates/trade-license: fee badge` | H | ⏳ |
+| SHD-03 | Closed shadow root | `/certificates/trade-license: fee badge` | H | ✅ |
 | SHD-04 | Slotted content | `/dashboard: profile card` | M | ⏳ |
 
 ## Hydration (HYD)
@@ -200,7 +200,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DYN-06 | Hashed classes / generated ids | `/bookings` | H | ⏳ |
 | DYN-07 | Reordering list | `/officer/queue: SLA order` | H | ⏳ |
 | DYN-08 | Nested scroll containers | `/directory/offices` | H | ⏳ |
-| DYN-09 | Sticky header covers elements | `/certificates/trade-license: long form` | M | ⏳ |
+| DYN-09 | Sticky header covers elements | `/certificates/trade-license: long form` | M | ✅ |
 
 ## Tables (TBL)
 
@@ -233,7 +233,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | FIL-01 | Native file input | `/certificates/birth` | E | ✅ |
 | FIL-02 | Hidden input behind styled button | `/services/electricity/new-connection: documents` | M | ✅ |
 | FIL-03 | Drag-and-drop only | `/grievances/new: photos` | H | ✅ |
-| FIL-04 | Multiple files | `/certificates/trade-license` | E | ⏳ |
+| FIL-04 | Multiple files | `/certificates/trade-license` | E | ✅ |
 | FIL-05 | PDF download | `/services/water/pay: receipt` | E | ✅ |
 | FIL-06 | CSV download | `/directory/officials: export` | E | ⏳ |
 
@@ -245,7 +245,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | OTH-02 | Custom slider | `/services/water/pay: partial payment` | H | ✅ |
 | OTH-03 | HTML5 drag-and-drop | `/bookings: move booking` | H | ⏳ |
 | OTH-04 | Pointer-event drag-and-drop | `/dashboard: reorder widgets` | H | ⏳ |
-| OTH-05 | Canvas signature | `/certificates/trade-license` | H | ⏳ |
+| OTH-05 | Canvas signature | `/certificates/trade-license` | H | ✅ |
 | OTH-06 | SVG needing local-name() XPath | `/grievances/new: ward map` | H | ✅ |
 | OTH-07 | Tabs | `/help` | E | ⏳ |
 | OTH-08 | Accordion | `/help: FAQ` | E | ⏳ |
@@ -253,7 +253,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | OTH-10 | Toggle switch | `/dashboard: paperless billing` | E | ⏳ |
 | OTH-11 | Keyboard shortcuts | global: / and Alt+L | M | ✅ |
 | OTH-12 | Text split across spans / &nbsp; | `/services/water/pay: amount due` | M | ✅ |
-| OTH-13 | Duplicate ids on one page | `/certificates/trade-license` | H | ⏳ |
+| OTH-13 | Duplicate ids on one page | `/certificates/trade-license` | H | ✅ |
 | OTH-14 | Canvas math CAPTCHA | `/login` | H | ✅ |
 | OTH-15 | Canvas chart | `/dashboard` | H | ⏳ |
 | OTH-16 | SVG chart | `/dashboard` | E | ⏳ |

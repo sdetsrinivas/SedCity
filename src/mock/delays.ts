@@ -62,6 +62,9 @@ export const DELAYS = {
   GRIEVANCE_UPDATE: { spec: fixed(1000), page: "/grievances/track", element: "Reschedule inspection → 'Confirm new date', and Rate the resolution → 'Submit feedback' ('Saving…' then the confirmation)", traps: ["DAT-06", "OTH-09"] },
   // ── Certificates: birth ─────────────────────────────────────────
   BIRTH_SUBMIT: { spec: fixed(1500), page: "/certificates/birth", element: "Submit application button → 'Submitting…' then the acknowledgement with the application number (the leave-page prompt stops once it is shown)", traps: ["DLG-04"] },
+  // ── Certificates: trade licence ─────────────────────────────────
+  TRADE_FEE: { spec: fixed(800), page: "/certificates/trade-license", element: "6. Fee and declaration → fee badge 'Calculating…' then the annual fee, after the business category or floor area changes", traps: ["SHD-03"] },
+  TRADE_SUBMIT: { spec: fixed(1500), page: "/certificates/trade-license", element: "Submit application button → 'Submitting…' then the acknowledgement with the application number (the leave-page prompt stops once it is shown)", traps: ["DLG-04"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },
