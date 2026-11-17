@@ -4,7 +4,7 @@ Update this file in every PR that changes status (the PR template of this projec
 
 ## Where we are
 
-`main` has **71 of 131 traps live** once the module 7 part A PR merges: phases (a) and (b) are done (modules 1–6) and phase (c) has started with the birth certificate. 332 unit/integration tests and 83 Playwright verification checks pass.
+`main` has **78 of 131 traps live** once the module 7 part B PR merges: phases (a) and (b) are done (modules 1–6) and in phase (c) module 7 (certificates) is complete. 368 unit/integration tests and 93 Playwright verification checks pass.
 
 | PR | What | State |
 |---|---|---|
@@ -16,14 +16,15 @@ Update this file in every PR that changes status (the PR template of this projec
 | #8 | Module 5: property tax self-assessment (9 traps); AstheenPay generalised for more than water bills | merged |
 | #9 | Module 6 part A: grievance registration `/grievances/new` (6 traps) | merged |
 | #10 | Module 6 part B: grievance tracking `/grievances/track` (6 traps); finishes phase (b) | merged |
-| (this PR) | Module 7 part A: birth certificate `/certificates/birth` (6 traps); first PR of phase (c) | open |
+| #11 | Module 7 part A: birth certificate `/certificates/birth` (6 traps); first PR of phase (c) | merged |
+| (this PR) | Module 7 part B: trade licence `/certificates/trade-license` (7 traps + DLG-04 on a second page); finishes module 7 | open |
 
-Live traps (71): CHK-01 CHK-02 CHK-03 CHK-04 CHK-09 · RAD-01 RAD-02 RAD-03 RAD-04 · TXT-01 TXT-02 TXT-03 TXT-04 TXT-05 TXT-06 TXT-10 TXT-12 TXT-13 TXT-14 · DRP-01 DRP-03 DRP-06 DRP-08 · BTN-01 BTN-04 BTN-05 BTN-06 BTN-09 BTN-10 · DLG-01 DLG-02 DLG-04 DLG-05 DLG-07 DLG-08 DLG-09 DLG-12 DLG-13 DLG-15 DLG-16 DLG-19 · FRM-01 · HYD-01 · DYN-01 DYN-04 DYN-05 · TBL-04 TBL-05 TBL-07 · DAT-01 DAT-04 DAT-05 DAT-06 · FIL-01 FIL-02 FIL-03 FIL-05 · OTH-01 OTH-02 OTH-06 OTH-09 OTH-11 OTH-12 OTH-14 OTH-17 OTH-18 OTH-22 OTH-23 OTH-24 OTH-25 OTH-26.
+Live traps (78): CHK-01 CHK-02 CHK-03 CHK-04 CHK-09 · RAD-01 RAD-02 RAD-03 RAD-04 · TXT-01 TXT-02 TXT-03 TXT-04 TXT-05 TXT-06 TXT-09 TXT-10 TXT-12 TXT-13 TXT-14 · DRP-01 DRP-02 DRP-03 DRP-06 DRP-08 · BTN-01 BTN-04 BTN-05 BTN-06 BTN-09 BTN-10 · DLG-01 DLG-02 DLG-04 DLG-05 DLG-07 DLG-08 DLG-09 DLG-12 DLG-13 DLG-15 DLG-16 DLG-19 · FRM-01 · SHD-03 · HYD-01 · DYN-01 DYN-04 DYN-05 DYN-09 · TBL-04 TBL-05 TBL-07 · DAT-01 DAT-04 DAT-05 DAT-06 · FIL-01 FIL-02 FIL-03 FIL-04 FIL-05 · OTH-01 OTH-02 OTH-05 OTH-06 OTH-09 OTH-11 OTH-12 OTH-13 OTH-14 OTH-17 OTH-18 OTH-22 OTH-23 OTH-24 OTH-25 OTH-26.
 
 ## Next up
 
-1. **Module 7 part B: Trade licence** (`/certificates/trade-license`): TXT-09 (paste blocked, re-enter bank account), DRP-02 (optgroups, business category), SHD-03 (closed shadow root, fee badge), DYN-09 (sticky header covers elements, long form), FIL-04 (multiple files), OTH-05 (canvas signature), OTH-13 (duplicate ids). Also attach DLG-04 there: reuse `useLeaveGuard()` from `src/modules/certificates/useLeaveGuard.ts`, add the file to the DLG-04 registry entry and a `[DLG-04]` check for that page. SHD-03 is the first native Web Component: keep it a single small custom element in the module (no shared Web Component infrastructure needed yet).
-2. Then modules 8–12 (news, directory, bookings, dashboard + officer queue, help), then phase (d).
+1. **Module 8: City News & Events** (`/news`, `/news/events/[slug]`): CHK-08 (events-only filter restored from localStorage after hydration), DRP-07 (category dropdown that closes on blur), BTN-03 (identical “Read more” links on cards), DLG-14 (`target=_blank` event detail), HYD-03 (Register button replaced after hydration, stale reference), OTH-19 (infinite scroll, lazy images, end state). Register the planned `NEWS_PAGE` delay (random 1–4s).
+2. Then modules 9–12 (directory, bookings, dashboard + officer queue, help), then phase (d).
 
 ## Decisions and deviations from the original plan
 
@@ -36,6 +37,7 @@ Live traps (71): CHK-01 CHK-02 CHK-03 CHK-04 CHK-09 · RAD-01 RAD-02 RAD-03 RAD-
 - Module 6 is split into part A (`/grievances/new`) and part B (`/grievances/track`). Part A added delay `GRIEVANCE_SUBMIT` (1.5s), categories in `src/mock/data/grievance.json` (with SLA days), and `clock`/`camera` icons. The ward map geometry is `src/modules/grievance/mapGeometry.ts` (not `wardMap.ts`: it would clash with `WardMap.tsx` on case-insensitive file systems). The ward is never pre-filled from the session, so the DLG-01 alert stays reachable.
 - Grievance tracking (module 6 part B) keeps its state in localStorage `amc.grievanceProgress` (stage, history, inspection date, rating per grievance number). Seeded grievances are in `src/mock/data/grievance.json` (`seeded`: 14 for meena.r, 3 for arul.k), e.g. `AMC/GR/2026/004655` (submitted), `004612` (inspection scheduled), `004598` (resolved, not rated). A new grievance moves on one stage per automatic check and stops at “Inspection scheduled”; later stages exist only in seeded data. Added delays `GRIEVANCE_LOOKUP` (1s), `GRIEVANCE_STATUS` (0.6s) and `GRIEVANCE_UPDATE` (1s) next to the planned `GRIEVANCE_POLL` (every 5s). Inspection holidays are in the same JSON (`holidays`); availability rules are in `src/modules/grievance/tracking.ts`.
 - Module 7 is split into part A (`/certificates/birth`) and part B (`/certificates/trade-license`); both live in `src/modules/certificates/`. Part A added delay `BIRTH_SUBMIT` (1.5s) and `src/mock/data/certificates.json` (10 hospitals H01–H10, fees ₹50/copy + ₹40 Speed Post); the fee is shown but not paid online (no AstheenPay order kind). The birth page is two sibling `<form>`s (application, delivery) because RAD-04 needs two radio groups with the same name; the Submit button sits in the delivery form. DLG-04 is a shared hook (`useLeaveGuard`); in-portal links navigate client-side and deliberately do not ask.
+- Trade licence (module 7 part B) is one long form in six sections with a sticky in-page section bar (DYN-09) under the sticky header. Categories (4 optgroups, 19 categories, an “Others” in each) and fee rules are in `src/mock/data/certificates.json` (`tradeGroups`, `tradeFees`): annual fee = category base + ₹100 per started 100 sq. ft above 200 sq. ft (`tradeFee()`); shown, not paid online. Added delays `TRADE_FEE` (0.8s, fee badge) and `TRADE_SUBMIT` (1.5s). SHD-03 is the first native Web Component: `<amc-fee-badge>` in `src/modules/certificates/feeBadgeElement.ts` (closed root, data via the `view` property, theme via inherited `--c-*`). The saved application keeps the drawn signature as a PNG data URL and the account number masked.
 - Print: `src/app/globals.css` has shared print rules: a page with a `.print-area` prints only that element; `.print-only` / `.no-print` show or hide content in print.
 - Repo-local git identity is the GitHub noreply address of `srinivascompanyprofile` (the machine had no global identity).
 
