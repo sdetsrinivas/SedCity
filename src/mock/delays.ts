@@ -60,6 +60,8 @@ export const DELAYS = {
   GRIEVANCE_POLL: { spec: interval(5000), page: "/grievances/track", element: "Status card → pause between automatic status checks (until the grievance is resolved)", traps: ["DYN-05"] },
   GRIEVANCE_STATUS: { spec: fixed(600), page: "/grievances/track", element: "Status card → 'Checking for updates…' during each automatic check; a new grievance moves on one stage per check up to 'Inspection scheduled'", traps: ["DYN-05"] },
   GRIEVANCE_UPDATE: { spec: fixed(1000), page: "/grievances/track", element: "Reschedule inspection → 'Confirm new date', and Rate the resolution → 'Submit feedback' ('Saving…' then the confirmation)", traps: ["DAT-06", "OTH-09"] },
+  // ── Certificates: birth ─────────────────────────────────────────
+  BIRTH_SUBMIT: { spec: fixed(1500), page: "/certificates/birth", element: "Submit application button → 'Submitting…' then the acknowledgement with the application number (the leave-page prompt stops once it is shown)", traps: ["DLG-04"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },
