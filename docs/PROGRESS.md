@@ -4,7 +4,7 @@ Update this file in every PR that changes status (the PR template of this projec
 
 ## Where we are
 
-`main` has **78 of 131 traps live** once the module 7 part B PR merges: phases (a) and (b) are done (modules 1–6) and in phase (c) module 7 (certificates) is complete. 368 unit/integration tests and 93 Playwright verification checks pass.
+`main` has **84 of 131 traps live** once the module 8 PR merges: phases (a) and (b) are done (modules 1–6) and in phase (c) modules 7 (certificates) and 8 (news & events) are complete. 395 unit/integration tests and 103 Playwright verification checks pass.
 
 | PR | What | State |
 |---|---|---|
@@ -17,14 +17,15 @@ Update this file in every PR that changes status (the PR template of this projec
 | #9 | Module 6 part A: grievance registration `/grievances/new` (6 traps) | merged |
 | #10 | Module 6 part B: grievance tracking `/grievances/track` (6 traps); finishes phase (b) | merged |
 | #11 | Module 7 part A: birth certificate `/certificates/birth` (6 traps); first PR of phase (c) | merged |
-| (this PR) | Module 7 part B: trade licence `/certificates/trade-license` (7 traps + DLG-04 on a second page); finishes module 7 | open |
+| #12 | Module 7 part B: trade licence `/certificates/trade-license` (7 traps + DLG-04 on a second page); finishes module 7 | merged |
+| (this PR) | Module 8: news & events `/news`, `/news/events/[slug]` (6 traps) | open |
 
-Live traps (78): CHK-01 CHK-02 CHK-03 CHK-04 CHK-09 · RAD-01 RAD-02 RAD-03 RAD-04 · TXT-01 TXT-02 TXT-03 TXT-04 TXT-05 TXT-06 TXT-09 TXT-10 TXT-12 TXT-13 TXT-14 · DRP-01 DRP-02 DRP-03 DRP-06 DRP-08 · BTN-01 BTN-04 BTN-05 BTN-06 BTN-09 BTN-10 · DLG-01 DLG-02 DLG-04 DLG-05 DLG-07 DLG-08 DLG-09 DLG-12 DLG-13 DLG-15 DLG-16 DLG-19 · FRM-01 · SHD-03 · HYD-01 · DYN-01 DYN-04 DYN-05 DYN-09 · TBL-04 TBL-05 TBL-07 · DAT-01 DAT-04 DAT-05 DAT-06 · FIL-01 FIL-02 FIL-03 FIL-04 FIL-05 · OTH-01 OTH-02 OTH-05 OTH-06 OTH-09 OTH-11 OTH-12 OTH-13 OTH-14 OTH-17 OTH-18 OTH-22 OTH-23 OTH-24 OTH-25 OTH-26.
+Live traps (84): CHK-01 CHK-02 CHK-03 CHK-04 CHK-08 CHK-09 · RAD-01 RAD-02 RAD-03 RAD-04 · TXT-01 TXT-02 TXT-03 TXT-04 TXT-05 TXT-06 TXT-09 TXT-10 TXT-12 TXT-13 TXT-14 · DRP-01 DRP-02 DRP-03 DRP-06 DRP-07 DRP-08 · BTN-01 BTN-03 BTN-04 BTN-05 BTN-06 BTN-09 BTN-10 · DLG-01 DLG-02 DLG-04 DLG-05 DLG-07 DLG-08 DLG-09 DLG-12 DLG-13 DLG-14 DLG-15 DLG-16 DLG-19 · FRM-01 · SHD-03 · HYD-01 HYD-03 · DYN-01 DYN-04 DYN-05 DYN-09 · TBL-04 TBL-05 TBL-07 · DAT-01 DAT-04 DAT-05 DAT-06 · FIL-01 FIL-02 FIL-03 FIL-04 FIL-05 · OTH-01 OTH-02 OTH-05 OTH-06 OTH-09 OTH-11 OTH-12 OTH-13 OTH-14 OTH-17 OTH-18 OTH-19 OTH-22 OTH-23 OTH-24 OTH-25 OTH-26.
 
 ## Next up
 
-1. **Module 8: City News & Events** (`/news`, `/news/events/[slug]`): CHK-08 (events-only filter restored from localStorage after hydration), DRP-07 (category dropdown that closes on blur), BTN-03 (identical “Read more” links on cards), DLG-14 (`target=_blank` event detail), HYD-03 (Register button replaced after hydration, stale reference), OTH-19 (infinite scroll, lazy images, end state). Register the planned `NEWS_PAGE` delay (random 1–4s).
-2. Then modules 9–12 (directory, bookings, dashboard + officer queue, help), then phase (d).
+1. **Module 9: Officials & Office Directory** (`/directory/officials`, `/directory/offices`): DRP-04 (searchable department combobox), BTN-02 (icon-only row actions), FIL-06 (CSV export), HYD-04 (list re-keyed on filter), DYN-02 (spinner overlay on paging, `DIRECTORY_PAGE` 800ms), TBL-02 (sortable + paginated), DLG-17 (geolocation “nearest office”), FRM-04 (late-loading map iframe, `MAP_IFRAME` 5s), DYN-08 (nested scroll containers), OTH-20 (virtualized vanilla-JS list). Probably two PRs (officials, offices).
+2. Then modules 10–12 (bookings, dashboard + officer queue, help), then phase (d).
 
 ## Decisions and deviations from the original plan
 
@@ -38,6 +39,7 @@ Live traps (78): CHK-01 CHK-02 CHK-03 CHK-04 CHK-09 · RAD-01 RAD-02 RAD-03 RAD-
 - Grievance tracking (module 6 part B) keeps its state in localStorage `amc.grievanceProgress` (stage, history, inspection date, rating per grievance number). Seeded grievances are in `src/mock/data/grievance.json` (`seeded`: 14 for meena.r, 3 for arul.k), e.g. `AMC/GR/2026/004655` (submitted), `004612` (inspection scheduled), `004598` (resolved, not rated). A new grievance moves on one stage per automatic check and stops at “Inspection scheduled”; later stages exist only in seeded data. Added delays `GRIEVANCE_LOOKUP` (1s), `GRIEVANCE_STATUS` (0.6s) and `GRIEVANCE_UPDATE` (1s) next to the planned `GRIEVANCE_POLL` (every 5s). Inspection holidays are in the same JSON (`holidays`); availability rules are in `src/modules/grievance/tracking.ts`.
 - Module 7 is split into part A (`/certificates/birth`) and part B (`/certificates/trade-license`); both live in `src/modules/certificates/`. Part A added delay `BIRTH_SUBMIT` (1.5s) and `src/mock/data/certificates.json` (10 hospitals H01–H10, fees ₹50/copy + ₹40 Speed Post); the fee is shown but not paid online (no AstheenPay order kind). The birth page is two sibling `<form>`s (application, delivery) because RAD-04 needs two radio groups with the same name; the Submit button sits in the delivery form. DLG-04 is a shared hook (`useLeaveGuard`); in-portal links navigate client-side and deliberately do not ask.
 - Trade licence (module 7 part B) is one long form in six sections with a sticky in-page section bar (DYN-09) under the sticky header. Categories (4 optgroups, 19 categories, an “Others” in each) and fee rules are in `src/mock/data/certificates.json` (`tradeGroups`, `tradeFees`): annual fee = category base + ₹100 per started 100 sq. ft above 200 sq. ft (`tradeFee()`); shown, not paid online. Added delays `TRADE_FEE` (0.8s, fee badge) and `TRADE_SUBMIT` (1.5s). SHD-03 is the first native Web Component: `<amc-fee-badge>` in `src/modules/certificates/feeBadgeElement.ts` (closed root, data via the `view` property, theme via inherited `--c-*`). The saved application keeps the drawn signature as a PNG data URL and the account number masked.
+- News & events (module 8) lives in `src/modules/news/`; 30 seeded items (19 news, 11 events) in `src/mock/data/news.json`, category pictures in `public/images/news/`. The server renders the first 8 cards; later pages come from `fetchNewsPage()` (`NEWS_PAGE`, random 1–4s). The category dropdown, the “Show events only” island and the list share a filter store through `NewsFilterContext.tsx` (a stable store object, so a filter change does not force the delayed island to hydrate). Added delays `HYDRATE_NEWS` (2s, CHK-08), `EVENT_SEATS` (1.5s, HYD-03) and `EVENT_REGISTER` (1s). Event registration is free, at most 4 people, kept in localStorage `amc.eventRegistrations` (numbers `EVR/2026/0xxxx`) and confirmed by SMS; `senior-health-camp` has 1 seat left.
 - Print: `src/app/globals.css` has shared print rules: a page with a `.print-area` prints only that element; `.print-only` / `.no-print` show or hide content in print.
 - Repo-local git identity is the GitHub noreply address of `srinivascompanyprofile` (the machine had no global identity).
 
@@ -48,6 +50,7 @@ Live traps (78): CHK-01 CHK-02 CHK-03 CHK-04 CHK-09 · RAD-01 RAD-02 RAD-03 RAD-
 
 ## Gotchas (learned the hard way)
 
+- `.page` (padding `24px 0 48px`) overrides the side padding of `.container` when both are on one element (`container page`), so those pages touch the screen edge at 390px. The news pages nest them (`.container > .page`); the older pages still use the combined form (not changed here).
 - Next renames its process to `next-server`: free the port with `lsof -ti:3100 | xargs kill`, **not** `pkill -f "next start"`, or Playwright reuses a stale build.
 - Never stack PRs: merging the base deletes its branch and GitHub auto-closes the dependent PR. Branch every PR from `main`.
 - The AstheenPay checkout lives at `/pay/…`; `src/components/layout/Chrome.tsx` hides the portal header, footer, cookie banner, session watcher and shortcuts there (it runs inside an iframe/popup).
