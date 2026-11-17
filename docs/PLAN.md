@@ -35,7 +35,7 @@ Hard rules from the brief:
 | 6 | Grievance Registration & Tracking | `/grievances/new`, `/grievances/track` | ✅ |
 | 7 | Certificates (Birth / Trade Licence) | `/certificates/birth`, `/certificates/trade-license` | ✅ |
 | 8 | City News & Events | `/news`, `/news/events/[slug]` | ✅ |
-| 9 | Officials & Office Directory (table + virtualized vanilla view + geolocation) | `/directory/officials`, `/directory/offices` | ⏳ |
+| 9 | Officials & Office Directory (table + virtualized vanilla view + geolocation) | `/directory/officials`, `/directory/offices` | ⏳ part A (officials) ✅ |
 | 10 | Hall / Park Booking | `/bookings` | ⏳ |
 | 11 | My Dashboard (+ Officer work queue) | `/dashboard`, `/officer/queue` | ⏳ |
 | 12 | Help (shadow-DOM chatbot, FAQ, nested-iframe survey) | `/help`, `/help/survey` | ⏳ |
@@ -49,14 +49,13 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 
 | Name | Value | Where |
 |---|---|---|
-| `DIRECTORY_PAGE` | 800ms | Officials spinner overlay (DYN-02) |
 | `MAP_IFRAME` | 5s | Late-loading iframe (FRM-04) |
 | `SKELETON` | 2s | Dashboard cards (DYN-03) |
 | `CHAT_REPLY` | random 1–2s | Chatbot |
 | `SURVEY_INNER` | 2s | Nested survey iframe |
 | `STREAM_DASHBOARD` | 3s | Dashboard server streaming |
 
-Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`.
+Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`, `DIRECTORY_PAGE`, `DIRECTORY_EXPORT`.
 
 ## Seeded accounts (README only, never on the site)
 
@@ -68,7 +67,7 @@ Approved plan for the Astheenapuram Citizen Services Portal: a realistic municip
 
 Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ live · ⏳ planned.
 
-**131 traps · 84 live · 47 planned.** Difficulty mix: E 39 / M 51 / H 41.
+**131 traps · 90 live · 41 planned.** Difficulty mix: E 39 / M 51 / H 41.
 
 
 ## Checkbox (CHK)
@@ -120,7 +119,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DRP-01 | Native select | `/certificates/birth: hospital` | E | ✅ |
 | DRP-02 | optgroups | `/certificates/trade-license: business category` | E | ✅ |
 | DRP-03 | Portal listbox at end of body | `/grievances/new: category` | H | ✅ |
-| DRP-04 | Searchable combobox | `/directory/officials: department` | M | ⏳ |
+| DRP-04 | Searchable combobox | `/directory/officials: department` | M | ✅ |
 | DRP-05 | Multi-select with chips | `/officer/queue: wards` | M | ⏳ |
 | DRP-06 | Options lazy-loaded on scroll | `/services/property-tax/assess: locality` | H | ✅ |
 | DRP-07 | Closes on blur | `/news: category` | H | ✅ |
@@ -131,7 +130,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | ID | Variant | Route / flow | D | Status |
 |---|---|---|---|---|
 | BTN-01 | button vs anchor vs div/span | `/: service tiles` | E | ✅ |
-| BTN-02 | Icon-only, aria-label only | `/directory/officials: row actions` | E | ⏳ |
+| BTN-02 | Icon-only, aria-label only | `/directory/officials: row actions` | E | ✅ |
 | BTN-03 | Identical text (“Read more”) | `/news: cards` | M | ✅ |
 | BTN-04 | Covered by overlay/spinner | `/services/water/pay: Proceed to pay` | H | ✅ |
 | BTN-05 | Moves due to layout shift | `/services/electricity/new-connection: Submit (review)` | H | ✅ |
@@ -185,14 +184,14 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | HYD-01 | Visible but inert until hydration | `/: Quick Pay` | H | ✅ |
 | HYD-02 | Text changes after hydration | `/dashboard: greeting, last login` | M | ⏳ |
 | HYD-03 | Element replaced (stale reference) | `/news/events/[slug]: Register` | H | ✅ |
-| HYD-04 | List re-keyed on filter | `/directory/officials` | H | ⏳ |
+| HYD-04 | List re-keyed on filter | `/directory/officials` | H | ✅ |
 
 ## Waits & dynamic content (DYN)
 
 | ID | Variant | Route / flow | D | Status |
 |---|---|---|---|---|
 | DYN-01 | Delayed appearance | `/services/water/pay: bill details` | E | ✅ |
-| DYN-02 | Spinner overlay | `/directory/officials: paging` | M | ⏳ |
+| DYN-02 | Spinner overlay | `/directory/officials: paging` | M | ✅ |
 | DYN-03 | Skeleton loaders | `/dashboard: cards` | E | ⏳ |
 | DYN-04 | Slide animation (present, not clickable) | `/services/electricity/new-connection: step change` | H | ✅ |
 | DYN-05 | Polling status | `/grievances/track` | M | ✅ |
@@ -206,7 +205,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | ID | Variant | Route / flow | D | Status |
 |---|---|---|---|---|
 | TBL-01 | Static | `/help: fee schedule` | E | ⏳ |
-| TBL-02 | Sortable + paginated | `/directory/officials` | M | ⏳ |
+| TBL-02 | Sortable + paginated | `/directory/officials` | M | ✅ |
 | TBL-03 | `div role=grid` | `/dashboard: payment history` | H | ⏳ |
 | TBL-04 | Nested table | `/services/water/pay: slab breakup` | M | ✅ |
 | TBL-05 | Editable cells | `/services/property-tax/assess: floors` | H | ✅ |
@@ -234,7 +233,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | FIL-03 | Drag-and-drop only | `/grievances/new: photos` | H | ✅ |
 | FIL-04 | Multiple files | `/certificates/trade-license` | E | ✅ |
 | FIL-05 | PDF download | `/services/water/pay: receipt` | E | ✅ |
-| FIL-06 | CSV download | `/directory/officials: export` | E | ⏳ |
+| FIL-06 | CSV download | `/directory/officials: export` | E | ✅ |
 
 ## Other (OTH)
 

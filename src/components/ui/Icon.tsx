@@ -42,6 +42,10 @@ const paths = {
   camera: "M4 8h3l2-3h6l2 3h3v11H4zm8 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6z",
   star: "M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9z",
   printer: "M7 8V3h10v5M7 17H4v-7h16v7h-3M7 14h10v7H7z",
+  mail: "M3 6h18v12H3zM3 7l9 6 9-6",
+  arrowUp: "M12 19V5M6 11l6-6 6 6",
+  arrowDown: "M12 5v14M6 13l6 6 6-6",
+  sort: "M8 9l4-4 4 4M8 15l4 4 4-4",
 } as const;
 
 export type IconName = keyof typeof paths;
