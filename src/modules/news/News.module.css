@@ -70,6 +70,7 @@
 .backLink { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; }
 .registerPanel { position: sticky; top: 110px; }
 .seats { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-weight: 600; }
+.seatsError { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 0 0 12px; }
 .regForm { margin-top: 4px; }
 .attendees { max-width: 120px; }
 .regActions { display: flex; justify-content: flex-end; gap: 8px; }

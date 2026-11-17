@@ -109,6 +109,24 @@ describe("Event registration", () => {
     expect(sms.body).toBe(`AMC: Registration ${reg.ref} confirmed for Astheenapuram City Marathon 2026 on 06/12/2026, 05:30 – 10:00, for 2 person(s). Show this SMS at the venue.`);
   });
 
+  it("reports a failed seat check as an error that can be retried, keeping Register usable", async () => {
+    const mock = (fail: string[]) => {
+      document.cookie = `amc_mock=${encodeURIComponent(JSON.stringify({ scale: 0, fail }))}; path=/`;
+    };
+    mock(["EVENT_SEATS"]);
+    renderWithProviders(<RegisterPanel slug="city-marathon-2026" />);
+    const alert = await screen.findByRole("alert");
+    expect(alert).toHaveTextContent("Seat availability could not be checked right now.");
+    expect(screen.queryByText("All seats have been taken")).toBeNull();
+    expect(screen.getByRole("button", { name: "Register" })).toBeEnabled();
+
+    mock([]);
+    fireEvent.click(within(alert).getByRole("button", { name: "Check again" }));
+    await screen.findByText("386 of 3000 seats available");
+    expect(screen.queryByRole("alert")).toBeNull();
+    expect(screen.getByRole("button", { name: "Register" })).toBeEnabled();
+  });
+
   it("refuses more people than seats left and fills the Tamil messages", async () => {
     const { container } = renderWithProviders(<RegisterPanel slug="senior-health-camp" />, "ta");
     await screen.findByText("150 இல் 1 இருக்கைகள் உள்ளன");

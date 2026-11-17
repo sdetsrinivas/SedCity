@@ -9,6 +9,8 @@ const card = (page: Page, title: string) => page.getByRole("article", { name: ti
 const count = (page: Page) => page.getByText(/^Showing \d+ of \d+$/);
 const eventsOnly = (page: Page) => page.getByRole("checkbox", { name: "Show events only" });
 const category = (page: Page) => page.getByRole("combobox", { name: "Category" });
+/** The empty element after the last card that triggers the next page when it nears the viewport. */
+const marker = (page: Page) => page.locator('section[aria-labelledby="news-list-title"] > div[aria-hidden="true"]');
 const scrollToEnd = (page: Page) => page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
 
 /** Every card on the list carries the "Event" badge. */
@@ -29,6 +31,7 @@ test.describe("News & events list", () => {
     await page.goto(URL);
     await expect(cards(page)).toHaveCount(8);
     await expect(count(page)).toHaveText("Showing 8 of 30");
+    await expect(marker(page)).toHaveCount(1);
 
     // Lazy pictures: a card far below the fold still has the placeholder; the real file is only in data-src.
     const lastPicture = cards(page).nth(7).locator("img");
@@ -65,10 +68,25 @@ test.describe("News & events list", () => {
     await expect(count(page)).toHaveText("Showing 30 of 30");
     await expect(page.getByRole("heading", { name: "Ward library membership is now free" })).toBeVisible();
 
-    // Scrolling again after the end fetches nothing.
-    await scrollToEnd(page);
-    await expect(page.getByText("Loading more…")).toHaveCount(0);
-    await expect(cards(page)).toHaveCount(30);
+    // Scrolling again after the end fetches nothing: the scroll marker is gone, and over a window longer
+    // than NEWS_PAGE (1200ms here) no "Loading more…" ever appears and no card is added.
+    await expect(marker(page)).toHaveCount(0);
+    const after = await page.evaluate(async () => {
+      const status = [...document.querySelectorAll("main [role=status]")];
+      let sawLoading = false;
+      const watch = new MutationObserver(() => {
+        if (status.some((el) => el.textContent?.includes("Loading more"))) sawLoading = true;
+      });
+      for (const el of status) watch.observe(el, { childList: true, subtree: true, characterData: true });
+      window.scrollTo(0, 0);
+      await new Promise((r) => setTimeout(r, 100));
+      window.scrollTo(0, document.documentElement.scrollHeight);
+      await new Promise((r) => setTimeout(r, 1800));
+      watch.disconnect();
+      return { sawLoading, cards: document.querySelectorAll("main article").length };
+    });
+    expect(after).toEqual({ sawLoading: false, cards: 30 });
+    await expect(count(page)).toHaveText("Showing 30 of 30");
   });
 
   test("[OTH-19] a failed page can be retried", async ({ page, context }) => {
@@ -222,11 +240,17 @@ test.describe("News & events list", () => {
     await box.click();
     await expect(box).not.toBeChecked();
     await expect(count(page)).toHaveText("Showing 8 of 30");
+    await expect.poll(() => page.evaluate(() => localStorage.getItem("amc.newsEventsOnly"))).toBe("false");
     await mockDelays(context, { delays: { NEWS_PAGE: 400, HYDRATE_NEWS: 0 } });
     await page.reload();
+    // Wait until the island has hydrated (React has attached its handlers to the box), so the saved
+    // choice has been read; it must still be unticked with the full list.
+    await expect
+      .poll(() => box.evaluate((el) => Object.keys(el).some((k) => k.startsWith("__reactProps"))), { timeout: 8_000 })
+      .toBe(true);
     await expect(box).not.toBeChecked();
-    await page.waitForTimeout(800);
-    await expect(box).not.toBeChecked();
+    await expect(count(page)).toHaveText("Showing 8 of 30");
+    await expect(card(page, "Storm-water drain desilting completed in 31 of 48 wards")).toBeVisible();
   });
 });
 
@@ -300,6 +324,24 @@ test.describe("Event page", () => {
     const sms = await page.evaluate(() => JSON.parse(localStorage.getItem("amc.sms") ?? "[]")[0]);
     expect(sms.to).toBe("9790011223");
     expect(sms.body).toMatch(/^AMC: Registration EVR\/\d{4}\/\d{5} confirmed for Free health check-up camp for senior citizens on 28\/11\/2026, 09:00 – 14:00, for 1 person\(s\)\./);
+  });
+
+  test("[HYD-03] a failed seat check shows an error with a retry; the first button stays until a check succeeds", async ({ page, context }) => {
+    await mockDelays(context, { delays: { EVENT_SEATS: 300, EVENT_REGISTER: 0 }, fail: ["EVENT_SEATS"] });
+    await page.goto(MARATHON);
+    const failure = page.getByRole("alert").filter({ hasText: "Seat availability could not be checked right now." });
+    await expect(failure).toBeVisible();
+    await expect(page.getByText("All seats have been taken")).toHaveCount(0);
+    const early = await page.$("#ev-register");
+    await expect(page.locator("#ev-register")).toBeEnabled();
+
+    await mockDelays(context, { delays: { EVENT_SEATS: 300, EVENT_REGISTER: 0 } });
+    await failure.getByRole("button", { name: "Check again" }).click();
+    await expect(page.getByRole("status")).toHaveText("386 of 3000 seats available");
+    await expect(failure).toHaveCount(0);
+    // The successful check replaces the button, as on a normal load.
+    expect(await early!.evaluate((el) => el.isConnected)).toBe(false);
+    await expect(page.getByRole("button", { name: "Register" })).toBeEnabled();
   });
 
   test("a news item has no event page", async ({ page }) => {

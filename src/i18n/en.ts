@@ -944,6 +944,8 @@ export const en = {
   "ev.checkingSeats": "Checking seat availability…",
   "ev.seatsLeft": "{left} of {capacity} seats available",
   "ev.full": "All seats have been taken",
+  "ev.seatsError": "Seat availability could not be checked right now.",
+  "ev.seatsRetry": "Check again",
   "ev.register": "Register",
   "ev.name": "Name",
   "ev.mobile": "Mobile number",

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useT } from "@/i18n/client";
 import { pick } from "@/i18n";
 import { Icon } from "@/components/ui/Icon";
@@ -26,17 +26,29 @@ export function RegisterPanel({ slug }: { slug: string }) {
   const [seats, setSeats] = useState<SeatInfo | null>(null);
   const [phase, setPhase] = useState<Phase>("idle");
   const [done, setDone] = useState<EventRegistration | null>(null);
+  const [seatsFailed, setSeatsFailed] = useState(false);
+  const live = useRef(true);
+
+  const loadSeats = useCallback(() => {
+    setSeatsFailed(false);
+    checkSeats(event, registrationFor(slug)?.attendees ?? 0).then(
+      (info) => live.current && setSeats(info),
+      // A failed check is a service error, not a full event: the Register button stays usable
+      // (the seats are checked again on submit) and the check can be retried.
+      () => live.current && setSeatsFailed(true),
+    );
+  }, [event, slug]);
 
   useEffect(() => {
+    live.current = true;
     const own = registrationFor(slug);
     if (own) {
       setDone(own);
       setPhase("done");
     }
-    let live = true;
-    checkSeats(event, own?.attendees ?? 0).then((info) => live && setSeats(info), () => live && setSeats({ capacity: event.capacity, left: 0 }));
-    return () => { live = false; };
-  }, [event, slug]);
+    loadSeats();
+    return () => { live.current = false; };
+  }, [slug, loadSeats]);
 
   const submit = async (input: RegistrationInput) => {
     const own = registrationFor(slug)?.attendees ?? 0;
@@ -54,14 +66,21 @@ export function RegisterPanel({ slug }: { slug: string }) {
     <section className={`card ${s.registerPanel}`} aria-labelledby="ev-register-title">
       <div className="card-title"><h2 id="ev-register-title">{t("ev.registration")}</h2></div>
       <div className="card-body">
-        <p className={s.seats} role="status">
-          <Icon name="users" size={18} />
-          {seats === null
-            ? t("ev.checkingSeats")
-            : seats.left > 0
-              ? t("ev.seatsLeft", { left: seats.left, capacity: seats.capacity })
-              : t("ev.full")}
-        </p>
+        {seatsFailed ? (
+          <div className={`alert alert-error ${s.seatsError}`} role="alert">
+            <span>{t("ev.seatsError")}</span>
+            <button type="button" className="btn btn-outline" onClick={loadSeats}>{t("ev.seatsRetry")}</button>
+          </div>
+        ) : (
+          <p className={s.seats} role="status">
+            <Icon name="users" size={18} />
+            {seats === null
+              ? t("ev.checkingSeats")
+              : seats.left > 0
+                ? t("ev.seatsLeft", { left: seats.left, capacity: seats.capacity })
+                : t("ev.full")}
+          </p>
+        )}
 
         {phase === "done" && done ? (
           <div className={s.registered}>

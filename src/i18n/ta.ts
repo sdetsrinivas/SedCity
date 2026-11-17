@@ -931,6 +931,8 @@ export const ta: Dict = {
   "ev.checkingSeats": "இருக்கை இருப்பைச் சரிபார்க்கிறது…",
   "ev.seatsLeft": "{capacity} இல் {left} இருக்கைகள் உள்ளன",
   "ev.full": "அனைத்து இருக்கைகளும் நிரம்பிவிட்டன",
+  "ev.seatsError": "இருக்கை இருப்பை இப்போது சரிபார்க்க முடியவில்லை.",
+  "ev.seatsRetry": "மீண்டும் சரிபார்",
   "ev.register": "பதிவு செய்",
   "ev.name": "பெயர்",
   "ev.mobile": "கைப்பேசி எண்",
