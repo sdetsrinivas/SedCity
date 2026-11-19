@@ -102,6 +102,22 @@ export function shiftMonth(month: string, n: number): string {
 }
 
 /**
+ * Where the calendar opens: the chosen day if it can still be booked, otherwise the first available day
+ * (focused, `active`), on that day's month. With no available day it opens on the window's first month.
+ * Note the month can be later than the window's first month (today + 2 falls on the 30th/31st and the
+ * month's last days are closed or fully booked), so "Previous month" is then enabled.
+ */
+export function calendarStart(v: Venue, today: string, held: HeldSlots[] = [], value: string | null = null) {
+  const active = value && !dayStatus(v, value, today, held) ? value : firstAvailableDay(v, today, held);
+  return { active, month: monthOf(active ?? firstBookable(today)) };
+}
+
+/** Whether the "Previous month" / "Next month" buttons can move from `month` (the window's months only). */
+export function monthNav(month: string, today: string) {
+  return { prev: month > monthOf(firstBookable(today)), next: month < monthOf(lastBookable(today)) };
+}
+
+/**
  * Whole weeks (Monday first) covering the month, including the days of the previous and next month
  * that fill the first and last week.
  */

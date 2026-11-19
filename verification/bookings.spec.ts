@@ -121,12 +121,15 @@ test.describe("Hall / park booking", () => {
   });
 
   test("[DAT-02] later dates need the month buttons; a next-month day in this month's grid switches month", async ({ page }) => {
-    const { first, nextMonth, otherBookable } = await open(page);
+    const { first, opens, nav, nextMonth, otherBookable } = await open(page);
     await trigger(page).click();
     const cal = calendar(page);
     const label = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString("en-IN", { month: "long", year: "numeric" });
-    await expect(cal.getByText(label(first), { exact: true })).toBeVisible();
-    await expect(cal.getByRole("button", { name: "Previous month" })).toBeDisabled();
+    await expect(cal.getByText(label(`${opens}-01`), { exact: true })).toBeVisible();
+    // Usually disabled; enabled when the window's first month has no bookable day left (opens a month later).
+    const prev = cal.getByRole("button", { name: "Previous month" });
+    await (nav.prev ? expect(prev).toBeEnabled() : expect(prev).toBeDisabled());
+    await expect(cal.getByRole("button", { name: "Next month" })).toBeEnabled();
     await cal.getByRole("button", { name: "Next month" }).click();
     await expect(cal.getByText(label(nextMonth), { exact: true })).toBeVisible();
     await cal.getByRole("button", { name: await longDate(page, nextMonth), exact: true }).click();
@@ -139,6 +142,31 @@ test.describe("Hall / park booking", () => {
       await cal.getByRole("button", { name: await longDate(page, otherBookable), exact: true }).click();
       await expect(trigger(page)).toHaveText(ddmmyyyy(otherBookable));
     }
+  });
+
+  test("[DAT-02] keyboard: paging to the last or first month keeps focus in the calendar, so Escape still closes it", async ({ page }) => {
+    const { today, opens } = await open(page);
+    await trigger(page).click();
+    const cal = calendar(page);
+    const prev = cal.getByRole("button", { name: "Previous month" });
+    const next = cal.getByRole("button", { name: "Next month" });
+    const months = (a: string, b: string) => (Number(b.slice(0, 4)) - Number(a.slice(0, 4))) * 12 + Number(b.slice(5)) - Number(a.slice(5));
+
+    // Shift+Tab from the focused day reaches "Next month"; Enter pages until the window's last month disables it.
+    await page.keyboard.press("Shift+Tab");
+    await expect(next).toBeFocused();
+    for (let i = months(opens, monthOf(lastBookable(today))); i > 0; i--) await page.keyboard.press("Enter");
+    await expect(next).toBeDisabled();
+    await expect(prev).toBeFocused();
+
+    // The same at the other end: "Previous month" to the first month hands focus to "Next month".
+    for (let i = months(monthOf(firstBookable(today)), monthOf(lastBookable(today))); i > 0; i--) await page.keyboard.press("Enter");
+    await expect(prev).toBeDisabled();
+    await expect(next).toBeFocused();
+
+    await page.keyboard.press("Escape");
+    await expect(cal).toBeHidden();
+    await expect(trigger(page)).toBeFocused();
   });
 
   test("[OTH-21] slots are SVG rects named by <title>; booked ones only explain; the map is replaced on reload", async ({ page, context }) => {

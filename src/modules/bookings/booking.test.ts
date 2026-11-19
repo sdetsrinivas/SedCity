@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { addDays } from "@/lib/format";
 import {
-  EMPTY_BOOKING, MAX_SLOTS, VENUES, bookingFees, dayStatus, firstAvailableDay, firstBookable, freeSlots, lastBookable,
-  monthGrid, monthOf, moveDay, slotLabel, takenSlots, toggleSlot, validateBooking, venueById, venueSlots,
+  EMPTY_BOOKING, MAX_SLOTS, VENUES, bookingFees, calendarStart, dayStatus, firstAvailableDay, firstBookable, freeSlots, lastBookable,
+  monthGrid, monthNav, monthOf, moveDay, shiftMonth, slotLabel, takenSlots, toggleSlot, validateBooking, venueById, venueSlots,
 } from "./booking";
 import { bookingDays } from "../../../verification/booking-dates";
 
@@ -149,5 +149,41 @@ describe("verification day picks", () => {
       }
       expect(freeSlots(V01, first).length).toBeGreaterThan(0);
     }
+  });
+
+  it("the opening month and month buttons the checks expect match the calendar, for every today over two years", () => {
+    const later: string[] = [];
+    for (const today of todays(800)) {
+      const p = bookingDays(today)!;
+      // The same pure functions the calendar uses when it opens and renders its month buttons…
+      expect(calendarStart(V01, today)).toEqual({ active: p.first, month: p.opens });
+      expect(monthNav(p.opens, today)).toEqual(p.nav);
+      // …checked against the rules written out independently.
+      const min = monthOf(firstBookable(today));
+      const max = monthOf(lastBookable(today));
+      expect(monthOf(p.first), today).toBe(p.opens);
+      expect(p.nav, today).toEqual({ prev: p.opens > min, next: p.opens < max });
+      // The checks click "Next month" from the opening month, then page between the window's first and last month.
+      expect(p.nav.next, today).toBe(true);
+      expect(min < max, today).toBe(true);
+      if (p.opens !== min) {
+        // Opening a month late happens only when nothing in the window's first month can be booked.
+        expect(p.opens, today).toBe(shiftMonth(min, 1));
+        for (let d = firstBookable(today); monthOf(d) === min; d = addDays(d, 1)) expect(dayStatus(V01, d, today), `${today} ${d}`).not.toBeNull();
+        later.push(today);
+      }
+    }
+    // The days the review found (today + 2 on the 30th/31st, the rest of that month closed or fully booked).
+    for (const today of ["2026-03-29", "2026-05-29", "2026-06-28", "2026-09-27", "2026-09-28", "2026-12-29", "2027-03-28", "2027-03-29", "2027-07-29", "2027-08-29", "2027-11-28"]) {
+      expect(later).toContain(today);
+    }
+  });
+
+  it("a chosen day that can still be booked reopens the calendar on its month", () => {
+    const today = "2026-11-19";
+    const p = bookingDays(today)!;
+    expect(calendarStart(V01, today, [], p.nextMonth)).toEqual({ active: p.nextMonth, month: monthOf(p.nextMonth) });
+    const held = [{ venue: "V01", date: p.nextMonth, slots: venueSlots(V01) }];
+    expect(calendarStart(V01, today, held, p.nextMonth)).toEqual({ active: p.first, month: p.opens });
   });
 });

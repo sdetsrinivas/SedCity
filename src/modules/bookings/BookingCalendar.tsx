@@ -4,7 +4,7 @@ import { useT } from "@/i18n/client";
 import { Icon } from "@/components/ui/Icon";
 import { formatDate } from "@/lib/format";
 import {
-  dayStatus, firstAvailableDay, firstBookable, lastBookable, monthGrid, monthOf, moveDay, shiftMonth,
+  calendarStart, dayStatus, firstAvailableDay, firstBookable, lastBookable, monthGrid, monthNav, monthOf, moveDay, shiftMonth,
   type DayStatus, type HeldSlots, type Venue,
 } from "./booking";
 import s from "./Bookings.module.css";
@@ -36,6 +36,8 @@ interface Props {
  * Keyboard: opening focuses the chosen day or the first bookable one (one tab stop in the month); arrows
  * skip unavailable days, Home/End go to the week's first/last bookable day, PageUp/PageDown move a month,
  * Enter/Space choose, Escape closes and returns focus to the trigger. A click outside closes it.
+ * DAT-02: when a month button disables itself (the window's first or last month is reached), focus moves to
+ * the other month button so it stays inside the popover and Escape still closes it.
  */
 export function BookingCalendar({ id, venue, value, onChange, today, held, invalid, describedBy }: Props) {
   const { t, lang } = useT();
@@ -47,6 +49,10 @@ export function BookingCalendar({ id, venue, value, onChange, today, held, inval
   const wrap = useRef<HTMLDivElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const focusPending = useRef(false);
+  const prevBtn = useRef<HTMLButtonElement>(null);
+  const nextBtn = useRef<HTMLButtonElement>(null);
+  /** The month button to focus after a render, because the focused one has just been disabled. */
+  const navFocus = useRef<HTMLButtonElement | null>(null);
 
   const status = (iso: string) => (venue ? dayStatus(venue, iso, today, held) : "outside");
 
@@ -55,6 +61,11 @@ export function BookingCalendar({ id, venue, value, onChange, today, held, inval
     focusPending.current = false;
     if (active) days.current.get(active)?.focus();
   }, [open, active, month]);
+
+  useEffect(() => {
+    navFocus.current?.focus();
+    navFocus.current = null;
+  }, [month]);
 
   useEffect(() => {
     if (!open) return;
@@ -70,9 +81,9 @@ export function BookingCalendar({ id, venue, value, onChange, today, held, inval
 
   const openCalendar = () => {
     if (!venue) return;
-    const start = value && !status(value) ? value : firstAvailableDay(venue, today, held);
-    setActive(start);
-    setMonth(monthOf(start ?? firstBookable(today)));
+    const start = calendarStart(venue, today, held, value);
+    setActive(start.active);
+    setMonth(start.month);
     focusPending.current = true;
     setOpen(true);
   };
@@ -103,13 +114,16 @@ export function BookingCalendar({ id, venue, value, onChange, today, held, inval
   const showMonth = (n: number) => {
     if (!venue) return;
     const target = shiftMonth(month, n);
+    const can = monthNav(target, today);
+    // DAT-02: the clicked button is about to be disabled; keep focus in the popover.
+    if (n < 0 && !can.prev) navFocus.current = nextBtn.current;
+    if (n > 0 && !can.next) navFocus.current = prevBtn.current;
     setMonth(target);
     const first = firstAvailableDay(venue, today, held, `${target}-01`);
     setActive(first && monthOf(first) === target ? first : null);
   };
 
-  const minMonth = monthOf(firstBookable(today));
-  const maxMonth = monthOf(lastBookable(today));
+  const nav = monthNav(month, today);
   const [y, m] = month.split("-").map(Number);
   const monthLabel = new Date(y, m - 1, 1).toLocaleDateString(locale, { month: "long", year: "numeric" });
   const weekdays = Array.from({ length: 7 }, (_, i) => new Date(2024, 0, 1 + i)); // 1 Jan 2024 was a Monday
@@ -139,11 +153,11 @@ export function BookingCalendar({ id, venue, value, onChange, today, held, inval
       {open && venue && (
         <div className={s.calPop} role="dialog" aria-label={t("bk.calTitle")} onKeyDown={(e) => { if (e.key === "Escape") { e.preventDefault(); close(true); } }}>
           <div className={s.calHead}>
-            <button type="button" className="icon-btn" aria-label={t("bk.prevMonth")} disabled={month <= minMonth} onClick={() => showMonth(-1)}>
+            <button ref={prevBtn} type="button" className="icon-btn" aria-label={t("bk.prevMonth")} disabled={!nav.prev} onClick={() => showMonth(-1)}>
               <Icon name="chevronLeft" size={16} />
             </button>
             <strong aria-live="polite">{monthLabel}</strong>
-            <button type="button" className="icon-btn" aria-label={t("bk.nextMonth")} disabled={month >= maxMonth} onClick={() => showMonth(1)}>
+            <button ref={nextBtn} type="button" className="icon-btn" aria-label={t("bk.nextMonth")} disabled={!nav.next} onClick={() => showMonth(1)}>
               <Icon name="chevronRight" size={16} />
             </button>
           </div>

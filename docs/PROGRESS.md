@@ -33,8 +33,6 @@ Live traps (100): CHK-01 CHK-02 CHK-03 CHK-04 CHK-07 CHK-08 CHK-09 · RAD-01 RAD
    - Saved bookings hold their slots: `heldSlots()` in `src/mock/endpoints/bookings.ts` turns every `booking` record not `Rejected` into `{ venue, date, slots }`, and `takenSlots()`/`dayStatus()` (`src/modules/bookings/booking.ts`) treat them as booked (slot map and calendar). A move must rewrite `date`/`slots`/`start`/`end`/`hours`/`hire`/`amount` of the same `ref`, and check the target with `takenSlots()` excluding the booking being moved.
 2. Then modules 11–12 (dashboard + officer queue, help), then phase (d).
 
-2. Then modules 11–12 (dashboard + officer queue, help), then phase (d).
-
 ## Decisions and deviations from the original plan
 
 - **CHK-09 is a `button role=checkbox`, not a native checkbox.** React 19 replays native input changes made before hydration, so a native box cannot be made truly inert.

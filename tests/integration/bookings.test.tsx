@@ -1,8 +1,8 @@
-import { beforeAll, describe, expect, it } from "vitest";
+import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { fireEvent, screen, waitFor, within } from "@testing-library/react";
 import { renderWithProviders } from "./render";
 import { BookingForm } from "@/modules/bookings/BookingForm";
-import { firstAvailableDay, freeSlots, slotLabel, venueById } from "@/modules/bookings/booking";
+import { firstAvailableDay, freeSlots, lastBookable, monthOf, slotLabel, venueById } from "@/modules/bookings/booking";
 import { heldSlots } from "@/mock/endpoints/bookings";
 import { listApplications } from "@/lib/applications";
 import { listSms } from "@/lib/sms";
@@ -55,6 +55,52 @@ async function fillAll() {
   fireEvent.change(screen.getByPlaceholderText("Expected number of guests"), { target: { value: "120" } });
   return { day, slot };
 }
+
+/** Open the calendar for V01 with the clock set to `today` (local noon). */
+function openCalendarOn(today: string) {
+  vi.useFakeTimers({ toFake: ["Date"] });
+  vi.setSystemTime(new Date(`${today}T12:00:00`));
+  renderWithProviders(<BookingForm uid="t" session={session} />);
+  fireEvent.change(screen.getByLabelText("Venue"), { target: { value: "V01" } });
+  fireEvent.click(screen.getByRole("button", { name: "Booking date" }));
+  return screen.getByRole("dialog", { name: "Choose the booking date" });
+}
+
+describe("Booking calendar month buttons", () => {
+  afterEach(() => vi.useRealTimers());
+
+  it("opens on the window's first month with Previous month disabled on an ordinary day", () => {
+    const cal = openCalendarOn("2026-11-19");
+    expect(within(cal).getByText("November 2026")).toBeInTheDocument();
+    expect(within(cal).getByRole("button", { name: "Previous month" })).toBeDisabled();
+    expect(within(cal).getByRole("button", { name: "Next month" })).toBeEnabled();
+  });
+
+  it("opens a month later, with Previous month enabled, when nothing is left to book in the first month", () => {
+    // Today + 2 is 31/03/2026, a closed or fully booked day: the first available day is in April.
+    const cal = openCalendarOn("2026-03-29");
+    expect(within(cal).getByText("April 2026")).toBeInTheDocument();
+    expect(within(cal).getByRole("button", { name: "Previous month" })).toBeEnabled();
+    fireEvent.click(within(cal).getByRole("button", { name: "Previous month" }));
+    expect(within(cal).getByText("March 2026")).toBeInTheDocument();
+    expect(within(cal).getByRole("button", { name: "Previous month" })).toBeDisabled();
+  });
+
+  it("reaching the last month moves focus to Previous month, so Escape still closes the calendar", () => {
+    const today = "2026-11-19";
+    const cal = openCalendarOn(today);
+    const next = within(cal).getByRole("button", { name: "Next month" });
+    while (!(next as HTMLButtonElement).disabled) {
+      next.focus();
+      fireEvent.click(next);
+    }
+    expect(within(cal).getByText(new Date(`${monthOf(lastBookable(today))}-01T12:00:00`).toLocaleDateString("en-IN", { month: "long", year: "numeric" }))).toBeInTheDocument();
+    expect(within(cal).getByRole("button", { name: "Previous month" })).toHaveFocus();
+    fireEvent.keyDown(document.activeElement!, { key: "Escape" });
+    expect(screen.queryByRole("dialog", { name: "Choose the booking date" })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Booking date" })).toHaveFocus();
+  });
+});
 
 describe("Hall / park booking", () => {
   it("lists every problem with its limits filled in", () => {
