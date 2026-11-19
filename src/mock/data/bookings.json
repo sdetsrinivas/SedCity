@@ -1,0 +1,49 @@
+{
+  "amenities": [
+    { "id": "sound", "fee": 750, "en": "Public address system", "ta": "ஒலிபெருக்கி அமைப்பு" },
+    { "id": "chairs", "fee": 300, "en": "Extra chairs (set of 50)", "ta": "கூடுதல் நாற்காலிகள் (50)" },
+    { "id": "generator", "fee": 1200, "en": "Generator backup", "ta": "மின்னாக்கி காப்பு" },
+    { "id": "kitchen", "fee": 1500, "en": "Kitchen and dining hall", "ta": "சமையலறை மற்றும் உணவுக்கூடம்" },
+    { "id": "lighting", "fee": 900, "en": "Flood lights", "ta": "ஒளிவெள்ள விளக்குகள்" },
+    { "id": "stage", "fee": 1000, "en": "Stage with backdrop", "ta": "பின்னணித் திரையுடன் மேடை" },
+    { "id": "cleaning", "fee": 600, "en": "Cleaning after the event", "ta": "நிகழ்வுக்குப் பின் சுத்தம் செய்தல்" }
+  ],
+  "venues": [
+    {
+      "id": "V01", "kind": "hall", "capacity": 300, "rate": 600, "deposit": 5000, "closedDay": 2, "open": 6, "close": 22,
+      "amenities": ["sound", "chairs", "generator", "kitchen", "stage", "cleaning"],
+      "en": "Kalaivani Nagar Community Hall", "ta": "கலைவாணி நகர் சமுதாயக் கூடம்",
+      "addressEn": "4th Cross Street, Ward 14 – Kalaivani Nagar", "addressTa": "4ஆவது குறுக்குத் தெரு, வார்டு 14 – கலைவாணி நகர்"
+    },
+    {
+      "id": "V02", "kind": "hall", "capacity": 500, "rate": 900, "deposit": 10000, "closedDay": 1, "open": 6, "close": 22,
+      "amenities": ["sound", "chairs", "generator", "kitchen", "stage", "cleaning"],
+      "en": "Lake Road Kalyana Mandapam", "ta": "ஏரிச் சாலை கல்யாண மண்டபம்",
+      "addressEn": "Lake Road, Ward 20 – Mandapam", "addressTa": "ஏரிச் சாலை, வார்டு 20 – மண்டபம்"
+    },
+    {
+      "id": "V03", "kind": "park", "capacity": 400, "rate": 400, "deposit": 3000, "closedDay": -1, "open": 6, "close": 22,
+      "amenities": ["sound", "chairs", "lighting", "generator", "stage"],
+      "en": "Thendral Park Open-Air Theatre", "ta": "தென்றல் பூங்கா திறந்தவெளி அரங்கம்",
+      "addressEn": "Park Avenue, Ward 26 – Senthamarai Nagar", "addressTa": "பூங்கா அவென்யூ, வார்டு 26 – செந்தாமரை நகர்"
+    },
+    {
+      "id": "V04", "kind": "park", "capacity": 150, "rate": 250, "deposit": 2000, "closedDay": 1, "open": 6, "close": 18,
+      "amenities": ["chairs", "sound", "cleaning"],
+      "en": "Anna Garden Picnic Lawn", "ta": "அண்ணா தோட்டம் சுற்றுலாப் புல்வெளி",
+      "addressEn": "Garden Road, Ward 37 – Pasumai Nagar", "addressTa": "தோட்டச் சாலை, வார்டு 37 – பசுமை நகர்"
+    },
+    {
+      "id": "V05", "kind": "ground", "capacity": 2000, "rate": 700, "deposit": 8000, "closedDay": -1, "open": 6, "close": 22,
+      "amenities": ["lighting", "generator", "sound", "stage", "cleaning"],
+      "en": "Gandhi Ground", "ta": "காந்தி மைதானம்",
+      "addressEn": "Fort Road, Ward 18 – Kottai", "addressTa": "கோட்டைச் சாலை, வார்டு 18 – கோட்டை"
+    },
+    {
+      "id": "V06", "kind": "hall", "capacity": 80, "rate": 200, "deposit": 1000, "closedDay": 0, "open": 8, "close": 20,
+      "amenities": ["chairs", "sound"],
+      "en": "Senior Citizens Recreation Hall", "ta": "மூத்த குடிமக்கள் பொழுதுபோக்குக் கூடம்",
+      "addressEn": "Temple Street, Ward 21 – Kaveri Colony", "addressTa": "கோவில் தெரு, வார்டு 21 – காவேரி காலனி"
+    }
+  ]
+}

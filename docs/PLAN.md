@@ -36,7 +36,7 @@ Hard rules from the brief:
 | 7 | Certificates (Birth / Trade Licence) | `/certificates/birth`, `/certificates/trade-license` | ✅ |
 | 8 | City News & Events | `/news`, `/news/events/[slug]` | ✅ |
 | 9 | Officials & Office Directory (table + virtualized vanilla view + geolocation) | `/directory/officials`, `/directory/offices` | ✅ |
-| 10 | Hall / Park Booking | `/bookings` | ⏳ |
+| 10 | Hall / Park Booking (part A find and book ✅, part B my bookings / move ⏳) | `/bookings` | ⏳ |
 | 11 | My Dashboard (+ Officer work queue) | `/dashboard`, `/officer/queue` | ⏳ |
 | 12 | Help (shadow-DOM chatbot, FAQ, nested-iframe survey) | `/help`, `/help/survey` | ⏳ |
 | — | Trap registry completion, `npm run guide` → `docs/trap-guide.md` + `docs/Astheenapuram-Trap-Guide.pdf` (cover, TOC, section per element type, summary table; **not linked or served from the site**), full verification | | ⏳ |
@@ -54,7 +54,7 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 | `SURVEY_INNER` | 2s | Nested survey iframe |
 | `STREAM_DASHBOARD` | 3s | Dashboard server streaming |
 
-Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`, `DIRECTORY_PAGE`, `DIRECTORY_EXPORT`, `MAP_IFRAME`, `LOCATE_TIMEOUT`, `OFFICE_NEAREST`.
+Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`, `DIRECTORY_PAGE`, `DIRECTORY_EXPORT`, `MAP_IFRAME`, `LOCATE_TIMEOUT`, `OFFICE_NEAREST`, `BOOKING_SLOTS`, `BOOKING_SUBMIT`.
 
 ## Seeded accounts (README only, never on the site)
 
@@ -66,7 +66,7 @@ Approved plan for the Astheenapuram Citizen Services Portal: a realistic municip
 
 Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ live · ⏳ planned.
 
-**131 traps · 94 live · 37 planned.** Difficulty mix: E 39 / M 51 / H 41.
+**131 traps · 100 live · 31 planned.** Difficulty mix: E 39 / M 51 / H 41.
 
 
 ## Checkbox (CHK)
@@ -79,7 +79,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | CHK-04 | Hidden input + styled label | `/services/electricity/new-connection: declaration` | M | ✅ |
 | CHK-05 | Inside open shadow DOM | `/help chatbot: email transcript` | H | ⏳ |
 | CHK-06 | Indeterminate select-all (property only) | `/dashboard: notifications` | M | ⏳ |
-| CHK-07 | State only as CSS class / SVG swap | `/bookings: amenity tiles` | H | ⏳ |
+| CHK-07 | State only as CSS class / SVG swap | `/bookings: amenity tiles` | H | ✅ |
 | CHK-08 | Restored from localStorage after hydration | `/news: events only` | H | ✅ |
 | CHK-09 | Inert until delayed hydration (button role=checkbox) | `/register: terms` | H | ✅ |
 
@@ -106,7 +106,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TXT-08 | readonly vs disabled vs aria-disabled | `/dashboard: profile` | E | ⏳ |
 | TXT-09 | Paste blocked | `/certificates/trade-license: re-enter bank account` | M | ✅ |
 | TXT-10 | maxlength | `/certificates/birth: child name` | E | ✅ |
-| TXT-11 | Placeholder as only label | `/bookings: purpose, attendees` | M | ⏳ |
+| TXT-11 | Placeholder as only label | `/bookings: purpose, attendees` | M | ✅ |
 | TXT-12 | Floating label | `/pay/astheenpay/checkout: card fields` | E | ✅ |
 | TXT-13 | Debounced async validation | `/services/property-tax/assess: assessment no.` | M | ✅ |
 | TXT-14 | Typeahead (debounced combobox) | `/: global search` | M | ✅ |
@@ -148,7 +148,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DLG-03 | prompt | `/dashboard: rename document` | M | ⏳ |
 | DLG-04 | beforeunload | `/certificates/*: unsaved form` (birth, trade licence) | M | ✅ |
 | DLG-05 | Portal modal (session timeout) | signed-in pages | M | ✅ |
-| DLG-06 | Native `<dialog>` | `/bookings: confirm` | E | ⏳ |
+| DLG-06 | Native `<dialog>` | `/bookings: confirm` | E | ✅ |
 | DLG-07 | Nested modals | `/services/electricity/new-connection: tariff→glossary` | H | ✅ |
 | DLG-08 | Modal inside iframe | AstheenPay: OTP modal | H | ✅ |
 | DLG-09 | Auto-dismiss toast (~3s) | `/login: OTP` | M | ✅ |
@@ -194,7 +194,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DYN-03 | Skeleton loaders | `/dashboard: cards` | E | ⏳ |
 | DYN-04 | Slide animation (present, not clickable) | `/services/electricity/new-connection: step change` | H | ✅ |
 | DYN-05 | Polling status | `/grievances/track` | M | ✅ |
-| DYN-06 | Hashed classes / generated ids | `/bookings` | H | ⏳ |
+| DYN-06 | Hashed classes / generated ids | `/bookings` | H | ✅ |
 | DYN-07 | Reordering list | `/officer/queue: SLA order` | H | ⏳ |
 | DYN-08 | Nested scroll containers | `/directory/offices` | H | ✅ |
 | DYN-09 | Sticky header covers elements | `/certificates/trade-license: long form` | M | ✅ |
@@ -217,7 +217,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | ID | Variant | Route / flow | D | Status |
 |---|---|---|---|---|
 | DAT-01 | Native date | `/certificates/birth: DOB` | E | ✅ |
-| DAT-02 | Custom calendar | `/bookings` | H | ⏳ |
+| DAT-02 | Custom calendar | `/bookings` | H | ✅ |
 | DAT-03 | Date range | `/dashboard: payments filter` | M | ⏳ |
 | DAT-04 | Time picker | `/grievances/new: inspection time` | M | ✅ |
 | DAT-05 | DD/MM/YYYY text date + calendar | `/services/electricity/new-connection: inspection date` | M | ✅ |
@@ -258,7 +258,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | OTH-18 | News ticker (vanilla JS) | `/` | M | ✅ |
 | OTH-19 | Infinite scroll, lazy images, end state | `/news` | M | ✅ |
 | OTH-20 | Virtualized list (vanilla JS) | `/directory/offices` | H | ✅ |
-| OTH-21 | SVG slot map | `/bookings` | H | ⏳ |
+| OTH-21 | SVG slot map | `/bookings` | H | ✅ |
 | OTH-22 | Cookie banner on first visit | `/` | E | ✅ |
 | OTH-23 | Language switch | global | E | ✅ |
 | OTH-24 | Dark mode | global | E | ✅ |

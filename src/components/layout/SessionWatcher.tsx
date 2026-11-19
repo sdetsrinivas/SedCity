@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useT } from "@/i18n/client";
 import { useSession } from "@/lib/useSession";
 import { clearSession } from "@/lib/session";
-import { delayFor } from "@/mock/api";
+import { limitFor } from "@/mock/api";
 import { Modal } from "@/components/ui/Modal";
 
 const ACTIVITY = ["mousemove", "mousedown", "keydown", "scroll", "touchstart"] as const;
@@ -12,6 +12,7 @@ const ACTIVITY = ["mousemove", "mousedown", "keydown", "scroll", "touchstart"] a
 /**
  * DLG-05: after SESSION_WARN of inactivity a portal modal warns of sign-out and counts down
  * SESSION_COUNTDOWN. Activity while the modal is open does NOT reset it — only the button does.
+ * Both are time limits (limitFor): the `scale` override does not shorten them, only a by-name override.
  */
 export function SessionWatcher() {
   const { session } = useSession();
@@ -26,9 +27,9 @@ export function SessionWatcher() {
   const armIdle = useCallback(() => {
     if (idleTimer.current) clearTimeout(idleTimer.current);
     idleTimer.current = setTimeout(() => {
-      setSecondsLeft(Math.ceil(delayFor("SESSION_COUNTDOWN") / 1000));
+      setSecondsLeft(Math.ceil(limitFor("SESSION_COUNTDOWN") / 1000));
       setWarning(true);
-    }, delayFor("SESSION_WARN"));
+    }, limitFor("SESSION_WARN"));
   }, []);
 
   useEffect(() => {
