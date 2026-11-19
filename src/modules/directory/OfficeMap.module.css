@@ -1,0 +1,36 @@
+/* The map page inside the offices page's map frame (FRM-04). */
+.page { display: flex; flex-direction: column; height: 100vh; padding: 8px 10px 6px; gap: 6px; background: var(--c-surface); color: var(--c-text); }
+.svg { flex: 1; min-height: 0; width: 100%; display: block; }
+.bg { fill: var(--c-surface-2); }
+.wardShape { fill: var(--c-surface); stroke: var(--c-border); stroke-width: 1; }
+.zoneLine { fill: none; stroke: var(--c-muted); stroke-width: 2; opacity: 0.7; }
+
+.pin { cursor: pointer; color: var(--c-primary); }
+.pin:focus { outline: none; }
+.pin:focus-visible .dot { stroke: var(--c-text); stroke-width: 3; }
+.hit { fill: transparent; }
+.dot { fill: currentColor; stroke: var(--c-surface); stroke-width: 1.5; }
+.pin:hover .dot { stroke: var(--c-text); }
+.pinOn .dot { stroke: var(--c-text); stroke-width: 2.5; }
+
+.head { color: var(--c-accent); }
+.zone { color: var(--c-primary-strong); }
+.ward { color: var(--c-primary); }
+.csc { color: var(--c-green); }
+.water { color: #6b4fbb; }
+.health { color: var(--c-danger); }
+:global([data-theme="dark"]) .zone { color: #a9d4ea; }
+:global([data-theme="dark"]) .water { color: #b9a2f2; }
+
+.label {
+  font-size: 12px; font-weight: 700; fill: var(--c-text); pointer-events: none;
+  paint-order: stroke; stroke: var(--c-surface); stroke-width: 4px; stroke-linejoin: round;
+}
+.labelOn { font-size: 13px; }
+.user { pointer-events: none; }
+.userHalo { fill: color-mix(in srgb, #2563eb 22%, transparent); }
+.userDot { fill: #2563eb; stroke: #fff; stroke-width: 2; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; font-size: 0.78rem; color: var(--c-muted); }
+.legend li { display: inline-flex; align-items: center; gap: 6px; }
+.swatch { width: 10px; height: 10px; border-radius: 50%; background: currentColor; }

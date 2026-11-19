@@ -4,10 +4,12 @@ import { usePathname } from "next/navigation";
 
 /**
  * Hides the portal shell (header, footer, consent banner, session watcher, shortcuts) on third-party
- * pages that live under this origin, i.e. the AstheenPay checkout at /pay/…, which runs in an iframe or popup.
+ * pages that live under this origin and run inside a frame or popup: the AstheenPay checkout at /pay/… and the
+ * office map at /maps/… (shown in the map frame of /directory/offices).
  */
 export function Chrome({ header, footer, extras, children }: { header: ReactNode; footer: ReactNode; extras: ReactNode; children: ReactNode }) {
-  const bare = usePathname()?.startsWith("/pay/") ?? false;
+  const path = usePathname() ?? "";
+  const bare = path.startsWith("/pay/") || path.startsWith("/maps/");
   if (bare) return <main id="main" tabIndex={-1}>{children}</main>;
   return (
     <>

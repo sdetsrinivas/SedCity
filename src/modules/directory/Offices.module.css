@@ -1,0 +1,64 @@
+/* ── Location and filters ────────────────────────────────────── */
+.toolbar { display: flex; flex-direction: column; gap: 14px; padding: 16px 20px; margin-bottom: 20px; }
+.locate { display: flex; flex-direction: column; gap: 10px; }
+.locateRow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.locateRow :global(.btn) { display: inline-flex; align-items: center; gap: 8px; }
+.locateStatus { color: var(--c-muted); font-size: 0.92rem; }
+.locateStatus:empty { display: none; }
+.locateMsg { margin: 0; }
+.filters { display: flex; flex-wrap: wrap; gap: 12px 20px; padding-top: 14px; border-top: 1px solid var(--c-border); }
+.filters :global(.field) { margin: 0; flex: 1 1 240px; }
+.filters :global(.field):last-child { flex: 0 1 260px; }
+
+/* ── List + details ─────────────────────────────────────────── */
+.grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 20px; align-items: start; margin-bottom: 20px; }
+.listCard { overflow: hidden; --ofl-height: 34rem; }
+.listHead { flex-wrap: wrap; }
+.count { font-size: 0.9rem; color: var(--c-muted); }
+
+/* DYN-08: outer scroll box (panel body) … */
+.details { overflow: hidden; }
+.detailsScroll { max-height: 34rem; overflow-y: auto; overscroll-behavior: contain; padding: 16px 20px 20px; }
+.detailsScroll:focus-visible { outline-offset: -3px; }
+.detailsHead { margin-bottom: 14px; }
+.officeName { margin: 8px 0 4px; font-size: 1.15rem; }
+.fromYou { margin: 0; color: var(--c-primary); font-weight: 600; font-size: 0.92rem; }
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; margin: 0 0 18px; }
+.facts dt { color: var(--c-muted); font-size: 0.9rem; }
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+.phone { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.subhead { margin: 0 0 8px; font-size: 0.95rem; }
+.hours { margin-bottom: 18px; }
+.hours th[scope="row"] { background: none; text-transform: none; letter-spacing: 0; font-size: 0.92rem; font-weight: 600; color: var(--c-text); width: 40%; }
+.hours td { font-variant-numeric: tabular-nums; }
+
+/* … and the inner one (services list). */
+.services {
+  max-height: 11rem; overflow-y: auto; overscroll-behavior: contain; margin: 0 0 16px; padding: 0; list-style: none;
+  border: 1px solid var(--c-border); border-radius: var(--radius);
+}
+.services li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border-bottom: 1px solid var(--c-border); }
+.services li:last-child { border-bottom: 0; }
+.online { flex-shrink: 0; font-size: 0.75rem; font-weight: 700; color: var(--c-green); }
+.note { margin: 0; font-size: 0.85rem; color: var(--c-muted); }
+
+/* ── Map (FRM-04) ───────────────────────────────────────────── */
+.mapCard { overflow: hidden; }
+.mapBody { position: relative; aspect-ratio: 4 / 3; max-height: 520px; width: 100%; background: var(--c-surface-2); }
+.mapFrame { display: block; width: 100%; height: 100%; border: 0; }
+.mapPlaceholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--c-muted); font-weight: 600; }
+.mapError { position: absolute; left: 20px; right: 20px; top: 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 0; }
+.spinner { width: 20px; height: 20px; border: 2px solid var(--c-border); border-top-color: var(--c-primary); border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .listCard { --ofl-height: 26rem; }
+  .detailsScroll { max-height: 28rem; }
+}
+@media (max-width: 600px) {
+  .toolbar { padding: 14px 16px; }
+  .detailsScroll { padding: 14px 16px 16px; }
+  .mapBody { aspect-ratio: 1 / 1; }
+}
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 2s; } }

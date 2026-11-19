@@ -73,6 +73,10 @@ export const DELAYS = {
   // ── Directory: officials ────────────────────────────────────────
   DIRECTORY_PAGE: { spec: fixed(800), page: "/directory/officials", element: "Officials table → spinner overlay over the table and pager (the previous rows stay underneath) after a page, sort or filter change, and once after load when the address has ?department= or ?q=", traps: ["DYN-02", "TBL-02", "HYD-04", "DRP-04"] },
   DIRECTORY_EXPORT: { spec: fixed(1000), page: "/directory/officials", element: "Download list (CSV) → 'Preparing file…' then the file download (every matching official, all pages)", traps: ["FIL-06"] },
+  // ── Directory: offices ──────────────────────────────────────────
+  MAP_IFRAME: { spec: fixed(5000), page: "/directory/offices", element: "Offices on the map → 'Loading map…' placeholder, then the map <iframe> (no id or name) is inserted", traps: ["FRM-04"] },
+  LOCATE_TIMEOUT: { spec: fixed(10_000), page: "/directory/offices", element: "Use my current location → longest wait for the browser to share the position (after permission) before 'Your location could not be found'", traps: ["DLG-17"] },
+  OFFICE_NEAREST: { spec: fixed(1000), page: "/directory/offices", element: "Use my current location → after the browser shares the position, 'Finding offices near you…' then the nearest-office message, the list ordered by distance and the nearest office selected", traps: ["DLG-17", "OTH-20"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },

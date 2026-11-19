@@ -53,3 +53,61 @@ describe("queryOfficials", () => {
     expect(officeName(byOffice[60].office).en).toBe("Zone VI – Kadalkarai");
   });
 });
+
+describe("offices", () => {
+  it("has 103 offices of six kinds with unique ids, names and extensions not shared with officials", async () => {
+    const { OFFICES, OFFICE_KINDS, officeServices } = await import("./directory");
+    expect(OFFICES).toHaveLength(103);
+    expect(OFFICE_KINDS.map((k) => k.id)).toEqual(["head", "zone", "ward", "csc", "water", "health"]);
+    for (const key of ["id", "ext"] as const) expect(new Set(OFFICES.map((o) => o[key])).size).toBe(103);
+    expect(new Set(OFFICES.map((o) => o.name.en)).size).toBe(103);
+    expect(new Set(OFFICES.map((o) => o.name.ta)).size).toBe(103);
+    const officialExts = new Set(OFFICIALS.map((o) => o.ext));
+    expect(OFFICES.filter((o) => officialExts.has(o.ext))).toEqual([]);
+    for (const k of OFFICE_KINDS) {
+      expect(k.hours).toHaveLength(7);
+      expect(officeServices(k.id).every(Boolean)).toBe(true);
+      expect(k.services.at(-1)).toBe("grievance");
+    }
+  });
+
+  it("every office lies inside the city and in a known ward", async () => {
+    const { OFFICES, CITY_BOUNDS } = await import("./directory");
+    const { wardById } = await import("./geo");
+    for (const o of OFFICES) {
+      expect(wardById(o.wardId), o.id).toBeDefined();
+      expect(o.lat).toBeLessThanOrEqual(CITY_BOUNDS.north);
+      expect(o.lat).toBeGreaterThanOrEqual(CITY_BOUNDS.north - CITY_BOUNDS.latSpan);
+      expect(o.lng).toBeGreaterThanOrEqual(CITY_BOUNDS.west);
+      expect(o.lng).toBeLessThanOrEqual(CITY_BOUNDS.west + CITY_BOUNDS.lngSpan);
+    }
+  });
+
+  it("measures distance and ranks offices nearest first", async () => {
+    const { distanceKm, rankOffices, officeById, CITY_CENTRE } = await import("./directory");
+    expect(distanceKm({ lat: 12, lng: 79 }, { lat: 13, lng: 79 })).toBeCloseTo(111.2, 1);
+    const ho = officeById("HO")!;
+    const near = rankOffices({ lat: ho.lat + 0.001, lng: ho.lng });
+    expect(near.ranked[0]).toMatchObject({ id: "HO" });
+    expect(near.ranked[0].km).toBeCloseTo(0.11, 2);
+    expect(near.ranked).toHaveLength(103);
+    for (let i = 1; i < near.ranked.length; i++) expect(near.ranked[i].km).toBeGreaterThanOrEqual(near.ranked[i - 1].km);
+    expect(near.outside).toBe(false);
+    const far = rankOffices({ lat: CITY_CENTRE.lat + 1, lng: CITY_CENTRE.lng });
+    expect(far.outside).toBe(true);
+    expect(far.fromCentreKm).toBeCloseTo(111.2, 0);
+  });
+
+  it("filters by kind and by name, street, locality or PIN code, in either language", async () => {
+    const { matchOffices, OFFICES } = await import("./directory");
+    expect(matchOffices("", "")).toHaveLength(103);
+    expect(matchOffices("zone", "")).toHaveLength(6);
+    expect(matchOffices("ward", "")).toHaveLength(48);
+    expect(matchOffices("", "ripon mahal").map((o) => o.id)).toEqual(["HO", "WO-17", "UHC-07"]);
+    expect(matchOffices("", "600901").map((o) => o.id)).toContain("HO");
+    expect(matchOffices("", "தேன்மலை").length).toBeGreaterThan(0);
+    expect(matchOffices("", "zzzz")).toEqual([]);
+    const reversed = OFFICES.map((o) => o.id).reverse();
+    expect(matchOffices("zone", "", reversed).map((o) => o.id)).toEqual(["ZO-6", "ZO-5", "ZO-4", "ZO-3", "ZO-2", "ZO-1"]);
+  });
+});
