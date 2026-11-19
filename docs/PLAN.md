@@ -35,7 +35,7 @@ Hard rules from the brief:
 | 6 | Grievance Registration & Tracking | `/grievances/new`, `/grievances/track` | ✅ |
 | 7 | Certificates (Birth / Trade Licence) | `/certificates/birth`, `/certificates/trade-license` | ✅ |
 | 8 | City News & Events | `/news`, `/news/events/[slug]` | ✅ |
-| 9 | Officials & Office Directory (table + virtualized vanilla view + geolocation) | `/directory/officials`, `/directory/offices` | ⏳ part A (officials) ✅ |
+| 9 | Officials & Office Directory (table + virtualized vanilla view + geolocation) | `/directory/officials`, `/directory/offices` | ✅ |
 | 10 | Hall / Park Booking | `/bookings` | ⏳ |
 | 11 | My Dashboard (+ Officer work queue) | `/dashboard`, `/officer/queue` | ⏳ |
 | 12 | Help (shadow-DOM chatbot, FAQ, nested-iframe survey) | `/help`, `/help/survey` | ⏳ |
@@ -49,13 +49,12 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 
 | Name | Value | Where |
 |---|---|---|
-| `MAP_IFRAME` | 5s | Late-loading iframe (FRM-04) |
 | `SKELETON` | 2s | Dashboard cards (DYN-03) |
 | `CHAT_REPLY` | random 1–2s | Chatbot |
 | `SURVEY_INNER` | 2s | Nested survey iframe |
 | `STREAM_DASHBOARD` | 3s | Dashboard server streaming |
 
-Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`, `DIRECTORY_PAGE`, `DIRECTORY_EXPORT`.
+Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`, `DIRECTORY_PAGE`, `DIRECTORY_EXPORT`, `MAP_IFRAME`, `LOCATE_TIMEOUT`, `OFFICE_NEAREST`.
 
 ## Seeded accounts (README only, never on the site)
 
@@ -67,7 +66,7 @@ Approved plan for the Astheenapuram Citizen Services Portal: a realistic municip
 
 Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ live · ⏳ planned.
 
-**131 traps · 90 live · 41 planned.** Difficulty mix: E 39 / M 51 / H 41.
+**131 traps · 94 live · 37 planned.** Difficulty mix: E 39 / M 51 / H 41.
 
 
 ## Checkbox (CHK)
@@ -160,7 +159,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DLG-14 | `target=_blank` | `/news: event detail` | E | ✅ |
 | DLG-15 | `window.open` popup | `/services/water/pay: pay in popup` | H | ✅ |
 | DLG-16 | Print dialog | `/grievances/track: acknowledgement` | M | ✅ |
-| DLG-17 | Geolocation prompt | `/directory/offices: nearest` | E | ⏳ |
+| DLG-17 | Geolocation prompt | `/directory/offices: nearest` | E | ✅ |
 | DLG-18 | Notification permission | `/dashboard: preferences` | E | ⏳ |
 | DLG-19 | Clipboard copy | `/services/electricity/new-connection: reference no.` | M | ✅ |
 
@@ -171,7 +170,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | FRM-01 | Same-origin iframe | `/services/water/pay: AstheenPay` | M | ✅ |
 | FRM-02 | Nested iframes | `/help/survey` | H | ⏳ |
 | FRM-03 | srcdoc iframe | `/help/survey inner` | H | ⏳ |
-| FRM-04 | Late-loading iframe, no id/name | `/directory/offices: map` | H | ⏳ |
+| FRM-04 | Late-loading iframe, no id/name | `/directory/offices: map` | H | ✅ |
 | SHD-01 | Open shadow root | `/help chatbot` | M | ⏳ |
 | SHD-02 | Nested shadow roots | `/help chatbot: quick replies` | H | ⏳ |
 | SHD-03 | Closed shadow root | `/certificates/trade-license: fee badge` | H | ✅ |
@@ -197,7 +196,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DYN-05 | Polling status | `/grievances/track` | M | ✅ |
 | DYN-06 | Hashed classes / generated ids | `/bookings` | H | ⏳ |
 | DYN-07 | Reordering list | `/officer/queue: SLA order` | H | ⏳ |
-| DYN-08 | Nested scroll containers | `/directory/offices` | H | ⏳ |
+| DYN-08 | Nested scroll containers | `/directory/offices` | H | ✅ |
 | DYN-09 | Sticky header covers elements | `/certificates/trade-license: long form` | M | ✅ |
 
 ## Tables (TBL)
@@ -258,7 +257,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | OTH-17 | Auto-rotating carousel | `/` | M | ✅ |
 | OTH-18 | News ticker (vanilla JS) | `/` | M | ✅ |
 | OTH-19 | Infinite scroll, lazy images, end state | `/news` | M | ✅ |
-| OTH-20 | Virtualized list (vanilla JS) | `/directory/offices` | H | ⏳ |
+| OTH-20 | Virtualized list (vanilla JS) | `/directory/offices` | H | ✅ |
 | OTH-21 | SVG slot map | `/bookings` | H | ⏳ |
 | OTH-22 | Cookie banner on first visit | `/` | E | ✅ |
 | OTH-23 | Language switch | global | E | ✅ |

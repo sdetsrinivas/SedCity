@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { DELAYS, describeDelay, parseOverrides, resolveDelay, type DelayName } from "./delays";
+import { DELAYS, describeDelay, parseOverrides, resolveDelay, resolveLimit, type DelayName } from "./delays";
 
 describe("delay registry", () => {
   it("every entry has page, element and a positive spec", () => {
@@ -22,6 +22,12 @@ describe("delay registry", () => {
     expect(resolveDelay("SEARCH_SUGGEST", { scale: 0.5 })).toBe(300);
     expect(resolveDelay("SESSION_WARN", { scale: 0, delays: { SESSION_WARN: 1500 } })).toBe(1500);
     expect(resolveDelay("SESSION_WARN", { delays: { SESSION_WARN: -5 } })).toBe(0);
+  });
+
+  it("time limits ignore scale; only a by-name override changes them", () => {
+    expect(resolveLimit("LOCATE_TIMEOUT")).toBe(10_000);
+    expect(resolveLimit("LOCATE_TIMEOUT", { scale: 0 })).toBe(10_000);
+    expect(resolveLimit("LOCATE_TIMEOUT", { scale: 0, delays: { LOCATE_TIMEOUT: 1500 } })).toBe(1500);
   });
 
   it("random delays stay inside their range", () => {

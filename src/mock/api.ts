@@ -2,7 +2,7 @@
  * The single mock service layer. Every "API call" in the portal goes through `call()`,
  * which applies the named simulated delay and (optionally) a simulated failure.
  */
-import { resolveDelay, type DelayName, type MockOverrides } from "./delays";
+import { resolveDelay, resolveLimit, type DelayName, type MockOverrides } from "./delays";
 import { readClientOverrides } from "./overrides";
 
 export class ApiError extends Error {
@@ -48,4 +48,9 @@ export async function call<T>(name: DelayName, handler: () => T | Promise<T>, op
 /** Wait for a named delay outside of an API call (e.g. UI timers). */
 export function delayFor(name: DelayName, overrides: MockOverrides = readClientOverrides()): number {
   return resolveDelay(name, overrides);
+}
+
+/** A named time limit (not scaled by the `scale` override; see `resolveLimit`). */
+export function limitFor(name: DelayName, overrides: MockOverrides = readClientOverrides()): number {
+  return resolveLimit(name, overrides);
 }

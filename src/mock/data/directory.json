@@ -983,5 +983,1767 @@
       "ext": "1405",
       "email": "venkatesh.k@amc.example"
     }
+  ],
+  "offices": [
+    {
+      "id": "HO",
+      "kind": "head",
+      "name": {
+        "en": "Corporation Head Office",
+        "ta": "மாநகராட்சி தலைமை அலுவலகம்"
+      },
+      "wardId": "W09",
+      "street": "Ripon Mahal",
+      "pincode": "600901",
+      "lat": 12.53438,
+      "lng": 79.51049,
+      "ext": "2000"
+    },
+    {
+      "id": "ZO-1",
+      "kind": "zone",
+      "name": {
+        "en": "Zone Office – Thenmalai",
+        "ta": "மண்டல அலுவலகம் – தேன்மலை"
+      },
+      "wardId": "W07",
+      "street": "Neithal Cross Street",
+      "pincode": "600911",
+      "lat": 12.52624,
+      "lng": 79.45324,
+      "ext": "2101"
+    },
+    {
+      "id": "ZO-2",
+      "kind": "zone",
+      "name": {
+        "en": "Zone Office – Kalaivani",
+        "ta": "மண்டல அலுவலகம் – கலைவாணி"
+      },
+      "wardId": "W15",
+      "street": "Kulam 2nd Street",
+      "pincode": "600913",
+      "lat": 12.52683,
+      "lng": 79.5519,
+      "ext": "2102"
+    },
+    {
+      "id": "ZO-3",
+      "kind": "zone",
+      "name": {
+        "en": "Zone Office – Ripon",
+        "ta": "மண்டல அலுவலகம் – ரிப்பன்"
+      },
+      "wardId": "W23",
+      "street": "Ilango 1st Street",
+      "pincode": "600915",
+      "lat": 12.47584,
+      "lng": 79.45038,
+      "ext": "2103"
+    },
+    {
+      "id": "ZO-4",
+      "kind": "zone",
+      "name": {
+        "en": "Zone Office – Vellaiyur",
+        "ta": "மண்டல அலுவலகம் – வெள்ளையூர்"
+      },
+      "wardId": "W27",
+      "street": "Kurinji 2nd Street",
+      "pincode": "600916",
+      "lat": 12.47662,
+      "lng": 79.55063,
+      "ext": "2104"
+    },
+    {
+      "id": "ZO-5",
+      "kind": "zone",
+      "name": {
+        "en": "Zone Office – Marudham",
+        "ta": "மண்டல அலுவலகம் – மருதம்"
+      },
+      "wardId": "W38",
+      "street": "Kulam Extension",
+      "pincode": "600919",
+      "lat": 12.42674,
+      "lng": 79.45282,
+      "ext": "2105"
+    },
+    {
+      "id": "ZO-6",
+      "kind": "zone",
+      "name": {
+        "en": "Zone Office – Kadalkarai",
+        "ta": "மண்டல அலுவலகம் – கடற்கரை"
+      },
+      "wardId": "W47",
+      "street": "Bharathi Extension",
+      "pincode": "600921",
+      "lat": 12.42627,
+      "lng": 79.55307,
+      "ext": "2106"
+    },
+    {
+      "id": "WO-01",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 1 Office – Periyar Colony",
+        "ta": "வார்டு 1 அலுவலகம் – பெரியார் காலனி"
+      },
+      "wardId": "W01",
+      "street": "Avvai 2nd Street",
+      "pincode": "600910",
+      "lat": 12.53849,
+      "lng": 79.41309,
+      "ext": "2201"
+    },
+    {
+      "id": "WO-02",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 2 Office – Malaiyadivaram",
+        "ta": "வார்டு 2 அலுவலகம் – மலையடிவாரம்"
+      },
+      "wardId": "W02",
+      "street": "Arasu Road",
+      "pincode": "600910",
+      "lat": 12.53747,
+      "lng": 79.44113,
+      "ext": "2202"
+    },
+    {
+      "id": "WO-03",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 3 Office – Thenmalai",
+        "ta": "வார்டு 3 அலுவலகம் – தேன்மலை"
+      },
+      "wardId": "W03",
+      "street": "Ilango Lane",
+      "pincode": "600910",
+      "lat": 12.53988,
+      "lng": 79.46739,
+      "ext": "2203"
+    },
+    {
+      "id": "WO-04",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 4 Office – Kurinji Nagar",
+        "ta": "வார்டு 4 அலுவலகம் – குறிஞ்சி நகர்"
+      },
+      "wardId": "W04",
+      "street": "Ilango Main Road",
+      "pincode": "600910",
+      "lat": 12.53673,
+      "lng": 79.48805,
+      "ext": "2204"
+    },
+    {
+      "id": "WO-05",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 5 Office – Pudhur",
+        "ta": "வார்டு 5 அலுவலகம் – புதூர்"
+      },
+      "wardId": "W05",
+      "street": "Avvai 1st Street",
+      "pincode": "600911",
+      "lat": 12.5115,
+      "lng": 79.41341,
+      "ext": "2205"
+    },
+    {
+      "id": "WO-06",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 6 Office – Arasampatti",
+        "ta": "வார்டு 6 அலுவலகம் – அரசம்பட்டி"
+      },
+      "wardId": "W06",
+      "street": "Arasu Extension",
+      "pincode": "600911",
+      "lat": 12.5148,
+      "lng": 79.44056,
+      "ext": "2206"
+    },
+    {
+      "id": "WO-07",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 7 Office – Vembu Thottam",
+        "ta": "வார்டு 7 அலுவலகம் – வேம்பு தோட்டம்"
+      },
+      "wardId": "W07",
+      "street": "Muthu 1st Street",
+      "pincode": "600911",
+      "lat": 12.51255,
+      "lng": 79.46122,
+      "ext": "2207"
+    },
+    {
+      "id": "WO-08",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 8 Office – Kondai Medu",
+        "ta": "வார்டு 8 அலுவலகம் – கொண்டை மேடு"
+      },
+      "wardId": "W08",
+      "street": "Arasu Lane",
+      "pincode": "600911",
+      "lat": 12.5103,
+      "lng": 79.48748,
+      "ext": "2208"
+    },
+    {
+      "id": "WO-09",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 9 Office – Kalaivani Square",
+        "ta": "வார்டு 9 அலுவலகம் – கலைவாணி சதுக்கம்"
+      },
+      "wardId": "W09",
+      "street": "Kulam 2nd Street",
+      "pincode": "600912",
+      "lat": 12.53916,
+      "lng": 79.51552,
+      "ext": "2209"
+    },
+    {
+      "id": "WO-10",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 10 Office – Thamarai Pettai",
+        "ta": "வார்டு 10 அலுவலகம் – தாமரைப் பேட்டை"
+      },
+      "wardId": "W10",
+      "street": "Avvai 2nd Street",
+      "pincode": "600912",
+      "lat": 12.53814,
+      "lng": 79.53618,
+      "ext": "2210"
+    },
+    {
+      "id": "WO-11",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 11 Office – Mullai Nagar",
+        "ta": "வார்டு 11 அலுவலகம் – முல்லை நகர்"
+      },
+      "wardId": "W11",
+      "street": "Arasu Lane",
+      "pincode": "600912",
+      "lat": 12.53712,
+      "lng": 79.56244,
+      "ext": "2211"
+    },
+    {
+      "id": "WO-12",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 12 Office – Sangam Street",
+        "ta": "வார்டு 12 அலுவலகம் – சங்கம் தெரு"
+      },
+      "wardId": "W12",
+      "street": "Bazaar Extension",
+      "pincode": "600912",
+      "lat": 12.53952,
+      "lng": 79.5887,
+      "ext": "2212"
+    },
+    {
+      "id": "WO-13",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 13 Office – Natarajapuram",
+        "ta": "வார்டு 13 அலுவலகம் – நடராஜபுரம்"
+      },
+      "wardId": "W13",
+      "street": "Arasu Main Road",
+      "pincode": "600913",
+      "lat": 12.51362,
+      "lng": 79.51496,
+      "ext": "2213"
+    },
+    {
+      "id": "WO-14",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 14 Office – Kalaivani Nagar",
+        "ta": "வார்டு 14 அலுவலகம் – கலைவாணி நகர்"
+      },
+      "wardId": "W14",
+      "street": "Arasu Extension",
+      "pincode": "600913",
+      "lat": 12.51137,
+      "lng": 79.53561,
+      "ext": "2214"
+    },
+    {
+      "id": "WO-15",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 15 Office – Ilanthoppu",
+        "ta": "வார்டு 15 அலுவலகம் – இலந்தோப்பு"
+      },
+      "wardId": "W15",
+      "street": "Kambar Cross Street",
+      "pincode": "600913",
+      "lat": 12.51467,
+      "lng": 79.56187,
+      "ext": "2215"
+    },
+    {
+      "id": "WO-16",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 16 Office – Chinna Bazaar",
+        "ta": "வார்டு 16 அலுவலகம் – சின்ன பஜார்"
+      },
+      "wardId": "W16",
+      "street": "Bazaar Extension",
+      "pincode": "600913",
+      "lat": 12.51242,
+      "lng": 79.58902,
+      "ext": "2216"
+    },
+    {
+      "id": "WO-17",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 17 Office – Ripon Mahal",
+        "ta": "வார்டு 17 அலுவலகம் – ரிப்பன் மஹால்"
+      },
+      "wardId": "W17",
+      "street": "Elango Road",
+      "pincode": "600914",
+      "lat": 12.48551,
+      "lng": 79.41057,
+      "ext": "2217"
+    },
+    {
+      "id": "WO-18",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 18 Office – Kottai",
+        "ta": "வார்டு 18 அலுவலகம் – கோட்டை"
+      },
+      "wardId": "W18",
+      "street": "Bharathi Main Road",
+      "pincode": "600914",
+      "lat": 12.48881,
+      "lng": 79.43683,
+      "ext": "2218"
+    },
+    {
+      "id": "WO-19",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 19 Office – Thiruvalluvar Nagar",
+        "ta": "வார்டு 19 அலுவலகம் – திருவள்ளுவர் நகர்"
+      },
+      "wardId": "W19",
+      "street": "Arasu 1st Street",
+      "pincode": "600914",
+      "lat": 12.48656,
+      "lng": 79.46309,
+      "ext": "2219"
+    },
+    {
+      "id": "WO-20",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 20 Office – Mandapam",
+        "ta": "வார்டு 20 அலுவலகம் – மண்டபம்"
+      },
+      "wardId": "W20",
+      "street": "Avvai 1st Street",
+      "pincode": "600914",
+      "lat": 12.48431,
+      "lng": 79.48375,
+      "ext": "2220"
+    },
+    {
+      "id": "WO-21",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 21 Office – Kaveri Colony",
+        "ta": "வார்டு 21 அலுவலகம் – காவேரி காலனி"
+      },
+      "wardId": "W21",
+      "street": "Ilango 2nd Street",
+      "pincode": "600915",
+      "lat": 12.46373,
+      "lng": 79.4109,
+      "ext": "2221"
+    },
+    {
+      "id": "WO-22",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 22 Office – Ther Mutti",
+        "ta": "வார்டு 22 அலுவலகம் – தேர் முட்டி"
+      },
+      "wardId": "W22",
+      "street": "Arasu Cross Street",
+      "pincode": "600915",
+      "lat": 12.46148,
+      "lng": 79.43626,
+      "ext": "2222"
+    },
+    {
+      "id": "WO-23",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 23 Office – Annai Nagar",
+        "ta": "வார்டு 23 அலுவலகம் – அன்னை நகர்"
+      },
+      "wardId": "W23",
+      "street": "Avvai Lane",
+      "pincode": "600915",
+      "lat": 12.45923,
+      "lng": 79.45692,
+      "ext": "2223"
+    },
+    {
+      "id": "WO-24",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 24 Office – Pallivasal",
+        "ta": "வார்டு 24 அலுவலகம் – பள்ளிவாசல்"
+      },
+      "wardId": "W24",
+      "street": "Arasu Street",
+      "pincode": "600915",
+      "lat": 12.46253,
+      "lng": 79.4853,
+      "ext": "2224"
+    },
+    {
+      "id": "WO-25",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 25 Office – Vellaiyur",
+        "ta": "வார்டு 25 அலுவலகம் – வெள்ளையூர்"
+      },
+      "wardId": "W25",
+      "street": "Bazaar 2nd Street",
+      "pincode": "600916",
+      "lat": 12.48763,
+      "lng": 79.51122,
+      "ext": "2225"
+    },
+    {
+      "id": "WO-26",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 26 Office – Senthamarai Nagar",
+        "ta": "வார்டு 26 அலுவலகம் – செந்தாமரை நகர்"
+      },
+      "wardId": "W26",
+      "street": "Bazaar Cross Street",
+      "pincode": "600916",
+      "lat": 12.48538,
+      "lng": 79.53748,
+      "ext": "2226"
+    },
+    {
+      "id": "WO-27",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 27 Office – Ayyanar Kovil",
+        "ta": "வார்டு 27 அலுவலகம் – ஐயனார் கோவில்"
+      },
+      "wardId": "W27",
+      "street": "Bazaar 2nd Street",
+      "pincode": "600916",
+      "lat": 12.48868,
+      "lng": 79.55814,
+      "ext": "2227"
+    },
+    {
+      "id": "WO-28",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 28 Office – Nesavalar Colony",
+        "ta": "வார்டு 28 அலுவலகம் – நெசவாளர் காலனி"
+      },
+      "wardId": "W28",
+      "street": "Avvai 2nd Street",
+      "pincode": "600916",
+      "lat": 12.48643,
+      "lng": 79.58618,
+      "ext": "2228"
+    },
+    {
+      "id": "WO-29",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 29 Office – Pon Nagar",
+        "ta": "வார்டு 29 அலுவலகம் – பொன் நகர்"
+      },
+      "wardId": "W29",
+      "street": "Arasu Cross Street",
+      "pincode": "600917",
+      "lat": 12.46585,
+      "lng": 79.51489,
+      "ext": "2229"
+    },
+    {
+      "id": "WO-30",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 30 Office – Kulathur",
+        "ta": "வார்டு 30 அலுவலகம் – குளத்தூர்"
+      },
+      "wardId": "W30",
+      "street": "Arasu Main Road",
+      "pincode": "600917",
+      "lat": 12.4636,
+      "lng": 79.53555,
+      "ext": "2230"
+    },
+    {
+      "id": "WO-31",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 31 Office – Melapalayam",
+        "ta": "வார்டு 31 அலுவலகம் – மேலப்பாளையம்"
+      },
+      "wardId": "W31",
+      "street": "Arasu Road",
+      "pincode": "600917",
+      "lat": 12.46135,
+      "lng": 79.56181,
+      "ext": "2231"
+    },
+    {
+      "id": "WO-32",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 32 Office – Keezhapalayam",
+        "ta": "வார்டு 32 அலுவலகம் – கீழப்பாளையம்"
+      },
+      "wardId": "W32",
+      "street": "Bazaar 1st Street",
+      "pincode": "600917",
+      "lat": 12.46465,
+      "lng": 79.58863,
+      "ext": "2232"
+    },
+    {
+      "id": "WO-33",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 33 Office – Marudham",
+        "ta": "வார்டு 33 அலுவலகம் – மருதம்"
+      },
+      "wardId": "W33",
+      "street": "Avvai Extension",
+      "pincode": "600918",
+      "lat": 12.43774,
+      "lng": 79.41018,
+      "ext": "2233"
+    },
+    {
+      "id": "WO-34",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 34 Office – Vayal Veli",
+        "ta": "வார்டு 34 அலுவலகம் – வயல்வெளி"
+      },
+      "wardId": "W34",
+      "street": "Bharathi Lane",
+      "pincode": "600918",
+      "lat": 12.43549,
+      "lng": 79.43677,
+      "ext": "2234"
+    },
+    {
+      "id": "WO-35",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 35 Office – Thottiyam",
+        "ta": "வார்டு 35 அலுவலகம் – தொட்டியம்"
+      },
+      "wardId": "W35",
+      "street": "Avvai Extension",
+      "pincode": "600918",
+      "lat": 12.44091,
+      "lng": 79.46303,
+      "ext": "2235"
+    },
+    {
+      "id": "WO-36",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 36 Office – Neerthekkam",
+        "ta": "வார்டு 36 அலுவலகம் – நீர்த்தேக்கம்"
+      },
+      "wardId": "W36",
+      "street": "Avvai 2nd Street",
+      "pincode": "600918",
+      "lat": 12.43866,
+      "lng": 79.49141,
+      "ext": "2236"
+    },
+    {
+      "id": "WO-37",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 37 Office – Pasumai Nagar",
+        "ta": "வார்டு 37 அலுவலகம் – பசுமை நகர்"
+      },
+      "wardId": "W37",
+      "street": "Avvai 1st Street",
+      "pincode": "600919",
+      "lat": 12.41075,
+      "lng": 79.41262,
+      "ext": "2237"
+    },
+    {
+      "id": "WO-38",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 38 Office – Ellai Nagar",
+        "ta": "வார்டு 38 அலுவலகம் – எல்லை நகர்"
+      },
+      "wardId": "W38",
+      "street": "Avvai 1st Street",
+      "pincode": "600919",
+      "lat": 12.41527,
+      "lng": 79.44044,
+      "ext": "2238"
+    },
+    {
+      "id": "WO-39",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 39 Office – Mangadu",
+        "ta": "வார்டு 39 அலுவலகம் – மாங்காடு"
+      },
+      "wardId": "W39",
+      "street": "Bazaar Lane",
+      "pincode": "600919",
+      "lat": 12.41425,
+      "lng": 79.4667,
+      "ext": "2239"
+    },
+    {
+      "id": "WO-40",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 40 Office – Puliyampatti",
+        "ta": "வார்டு 40 அலுவலகம் – புளியம்பட்டி"
+      },
+      "wardId": "W40",
+      "street": "Bazaar Street",
+      "pincode": "600919",
+      "lat": 12.41111,
+      "lng": 79.48736,
+      "ext": "2240"
+    },
+    {
+      "id": "WO-41",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 41 Office – Kadalkarai",
+        "ta": "வார்டு 41 அலுவலகம் – கடற்கரை"
+      },
+      "wardId": "W41",
+      "street": "Ilango Street",
+      "pincode": "600920",
+      "lat": 12.43986,
+      "lng": 79.5154,
+      "ext": "2241"
+    },
+    {
+      "id": "WO-42",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 42 Office – Meenavar Kuppam",
+        "ta": "வார்டு 42 அலுவலகம் – மீனவர் குப்பம்"
+      },
+      "wardId": "W42",
+      "street": "Bharathi Lane",
+      "pincode": "600920",
+      "lat": 12.43761,
+      "lng": 79.54166,
+      "ext": "2242"
+    },
+    {
+      "id": "WO-43",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 43 Office – Kalangarai Vilakku",
+        "ta": "வார்டு 43 அலுவலகம் – கலங்கரை விளக்கு"
+      },
+      "wardId": "W43",
+      "street": "Bharathi Street",
+      "pincode": "600920",
+      "lat": 12.43536,
+      "lng": 79.56232,
+      "ext": "2243"
+    },
+    {
+      "id": "WO-44",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 44 Office – Uppalam",
+        "ta": "வார்டு 44 அலுவலகம் – உப்பளம்"
+      },
+      "wardId": "W44",
+      "street": "Kambar 1st Street",
+      "pincode": "600920",
+      "lat": 12.43866,
+      "lng": 79.58791,
+      "ext": "2244"
+    },
+    {
+      "id": "WO-45",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 45 Office – Thuraimugam",
+        "ta": "வார்டு 45 அலுவலகம் – துறைமுகம்"
+      },
+      "wardId": "W45",
+      "street": "Arasu Lane",
+      "pincode": "600921",
+      "lat": 12.41142,
+      "lng": 79.51483,
+      "ext": "2245"
+    },
+    {
+      "id": "WO-46",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 46 Office – Neithal Nagar",
+        "ta": "வார்டு 46 அலுவலகம் – நெய்தல் நகர்"
+      },
+      "wardId": "W46",
+      "street": "Avvai 1st Street",
+      "pincode": "600921",
+      "lat": 12.4104,
+      "lng": 79.53549,
+      "ext": "2246"
+    },
+    {
+      "id": "WO-47",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 47 Office – Alai Osai",
+        "ta": "வார்டு 47 அலுவலகம் – அலை ஓசை"
+      },
+      "wardId": "W47",
+      "street": "Arasu Road",
+      "pincode": "600921",
+      "lat": 12.41492,
+      "lng": 79.56175,
+      "ext": "2247"
+    },
+    {
+      "id": "WO-48",
+      "kind": "ward",
+      "name": {
+        "en": "Ward 48 Office – Pavala Nagar",
+        "ta": "வார்டு 48 அலுவலகம் – பவள நகர்"
+      },
+      "wardId": "W48",
+      "street": "Arasu Lane",
+      "pincode": "600921",
+      "lat": 12.41178,
+      "lng": 79.58823,
+      "ext": "2248"
+    },
+    {
+      "id": "CSC-01",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Thenmalai Bus Terminus",
+        "ta": "குடிமக்கள் சேவை மையம் – தேன்மலை பேருந்து நிலையம்"
+      },
+      "wardId": "W03",
+      "street": "Kambar 1st Street",
+      "pincode": "600910",
+      "lat": 12.54198,
+      "lng": 79.47015,
+      "ext": "2301"
+    },
+    {
+      "id": "CSC-02",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Pudhur",
+        "ta": "குடிமக்கள் சேவை மையம் – புதூர்"
+      },
+      "wardId": "W05",
+      "street": "Kaveri Cross Street",
+      "pincode": "600911",
+      "lat": 12.5159,
+      "lng": 79.41447,
+      "ext": "2302"
+    },
+    {
+      "id": "CSC-03",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Vembu Thottam",
+        "ta": "குடிமக்கள் சேவை மையம் – வேம்பு தோட்டம்"
+      },
+      "wardId": "W07",
+      "street": "Neithal Extension",
+      "pincode": "600911",
+      "lat": 12.51421,
+      "lng": 79.46187,
+      "ext": "2303"
+    },
+    {
+      "id": "CSC-04",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Thamarai Pettai",
+        "ta": "குடிமக்கள் சேவை மையம் – தாமரைப் பேட்டை"
+      },
+      "wardId": "W10",
+      "street": "Mullai Cross Street",
+      "pincode": "600912",
+      "lat": 12.53846,
+      "lng": 79.53342,
+      "ext": "2304"
+    },
+    {
+      "id": "CSC-05",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Natarajapuram",
+        "ta": "குடிமக்கள் சேவை மையம் – நடராஜபுரம்"
+      },
+      "wardId": "W13",
+      "street": "Thoppu Street",
+      "pincode": "600913",
+      "lat": 12.5126,
+      "lng": 79.51812,
+      "ext": "2305"
+    },
+    {
+      "id": "CSC-06",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Ilanthoppu",
+        "ta": "குடிமக்கள் சேவை மையம் – இலந்தோப்பு"
+      },
+      "wardId": "W15",
+      "street": "Senthamarai Street",
+      "pincode": "600913",
+      "lat": 12.51091,
+      "lng": 79.56463,
+      "ext": "2306"
+    },
+    {
+      "id": "CSC-07",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Kottai",
+        "ta": "குடிமக்கள் சேவை மையம் – கோட்டை"
+      },
+      "wardId": "W18",
+      "street": "Vaigai Street",
+      "pincode": "600914",
+      "lat": 12.48371,
+      "lng": 79.43618,
+      "ext": "2307"
+    },
+    {
+      "id": "CSC-08",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Kaveri Colony",
+        "ta": "குடிமக்கள் சேவை மையம் – காவேரி காலனி"
+      },
+      "wardId": "W21",
+      "street": "Vembu Extension",
+      "pincode": "600915",
+      "lat": 12.45729,
+      "lng": 79.40684,
+      "ext": "2308"
+    },
+    {
+      "id": "CSC-09",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Annai Nagar",
+        "ta": "குடிமக்கள் சேவை மையம் – அன்னை நகர்"
+      },
+      "wardId": "W23",
+      "street": "Bazaar 1st Street",
+      "pincode": "600915",
+      "lat": 12.4556,
+      "lng": 79.45246,
+      "ext": "2309"
+    },
+    {
+      "id": "CSC-10",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Senthamarai Nagar",
+        "ta": "குடிமக்கள் சேவை மையம் – செந்தாமரை நகர்"
+      },
+      "wardId": "W26",
+      "street": "Neithal 2nd Street",
+      "pincode": "600916",
+      "lat": 12.4952,
+      "lng": 79.53894,
+      "ext": "2310"
+    },
+    {
+      "id": "CSC-11",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Pon Nagar",
+        "ta": "குடிமக்கள் சேவை மையம் – பொன் நகர்"
+      },
+      "wardId": "W29",
+      "street": "Arasu Main Road",
+      "pincode": "600917",
+      "lat": 12.46878,
+      "lng": 79.51295,
+      "ext": "2311"
+    },
+    {
+      "id": "CSC-12",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Melapalayam",
+        "ta": "குடிமக்கள் சேவை மையம் – மேலப்பாளையம்"
+      },
+      "wardId": "W31",
+      "street": "Nesavu 1st Street",
+      "pincode": "600917",
+      "lat": 12.46709,
+      "lng": 79.55946,
+      "ext": "2312"
+    },
+    {
+      "id": "CSC-13",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Vayal Veli",
+        "ta": "குடிமக்கள் சேவை மையம் – வயல்வெளி"
+      },
+      "wardId": "W34",
+      "street": "Vembu Cross Street",
+      "pincode": "600918",
+      "lat": 12.43989,
+      "lng": 79.43101,
+      "ext": "2313"
+    },
+    {
+      "id": "CSC-14",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Pasumai Nagar",
+        "ta": "குடிமக்கள் சேவை மையம் – பசுமை நகர்"
+      },
+      "wardId": "W37",
+      "street": "Avvai 1st Street",
+      "pincode": "600919",
+      "lat": 12.41381,
+      "lng": 79.41838,
+      "ext": "2314"
+    },
+    {
+      "id": "CSC-15",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Mangadu",
+        "ta": "குடிமக்கள் சேவை மையம் – மாங்காடு"
+      },
+      "wardId": "W39",
+      "street": "Vembu Main Road",
+      "pincode": "600919",
+      "lat": 12.41457,
+      "lng": 79.46646,
+      "ext": "2315"
+    },
+    {
+      "id": "CSC-16",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Meenavar Kuppam",
+        "ta": "குடிமக்கள் சேவை மையம் – மீனவர் குப்பம்"
+      },
+      "wardId": "W42",
+      "street": "Kurinji Cross Street",
+      "pincode": "600920",
+      "lat": 12.43659,
+      "lng": 79.53801,
+      "ext": "2316"
+    },
+    {
+      "id": "CSC-17",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Thuraimugam",
+        "ta": "குடிமக்கள் சேவை மையம் – துறைமுகம்"
+      },
+      "wardId": "W45",
+      "street": "Valluvar Main Road",
+      "pincode": "600921",
+      "lat": 12.40906,
+      "lng": 79.50777,
+      "ext": "2317"
+    },
+    {
+      "id": "CSC-18",
+      "kind": "csc",
+      "name": {
+        "en": "Citizen Service Centre – Alai Osai",
+        "ta": "குடிமக்கள் சேவை மையம் – அலை ஓசை"
+      },
+      "wardId": "W47",
+      "street": "Arasu Road",
+      "pincode": "600921",
+      "lat": 12.40982,
+      "lng": 79.56922,
+      "ext": "2318"
+    },
+    {
+      "id": "WSD-01",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Thenmalai",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – தேன்மலை"
+      },
+      "wardId": "W03",
+      "street": "Kambar 1st Street",
+      "pincode": "600910",
+      "lat": 12.53433,
+      "lng": 79.46041,
+      "ext": "2401"
+    },
+    {
+      "id": "WSD-02",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Kondai Medu",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – கொண்டை மேடு"
+      },
+      "wardId": "W08",
+      "street": "Elango 1st Street",
+      "pincode": "600911",
+      "lat": 12.50622,
+      "lng": 79.49162,
+      "ext": "2402"
+    },
+    {
+      "id": "WSD-03",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Mullai Nagar",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – முல்லை நகர்"
+      },
+      "wardId": "W11",
+      "street": "Kambar 2nd Street",
+      "pincode": "600912",
+      "lat": 12.5317,
+      "lng": 79.56317,
+      "ext": "2403"
+    },
+    {
+      "id": "WSD-04",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Chinna Bazaar",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – சின்ன பஜார்"
+      },
+      "wardId": "W16",
+      "street": "Kulam Extension",
+      "pincode": "600913",
+      "lat": 12.51771,
+      "lng": 79.58034,
+      "ext": "2404"
+    },
+    {
+      "id": "WSD-05",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Thiruvalluvar Nagar",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – திருவள்ளுவர் நகர்"
+      },
+      "wardId": "W19",
+      "street": "Kambar Road",
+      "pincode": "600914",
+      "lat": 12.49051,
+      "lng": 79.46593,
+      "ext": "2405"
+    },
+    {
+      "id": "WSD-06",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Pallivasal",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – பள்ளிவாசல்"
+      },
+      "wardId": "W24",
+      "street": "Malligai Street",
+      "pincode": "600915",
+      "lat": 12.4624,
+      "lng": 79.48432,
+      "ext": "2406"
+    },
+    {
+      "id": "WSD-07",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Ayyanar Kovil",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – ஐயனார் கோவில்"
+      },
+      "wardId": "W27",
+      "street": "Senthamarai 2nd Street",
+      "pincode": "600916",
+      "lat": 12.48721,
+      "lng": 79.55375,
+      "ext": "2407"
+    },
+    {
+      "id": "WSD-08",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Keezhapalayam",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – கீழப்பாளையம்"
+      },
+      "wardId": "W32",
+      "street": "Bazaar 1st Street",
+      "pincode": "600917",
+      "lat": 12.4591,
+      "lng": 79.58976,
+      "ext": "2408"
+    },
+    {
+      "id": "WSD-09",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Thottiyam",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – தொட்டியம்"
+      },
+      "wardId": "W35",
+      "street": "Avvai Lane",
+      "pincode": "600918",
+      "lat": 12.43402,
+      "lng": 79.46075,
+      "ext": "2409"
+    },
+    {
+      "id": "WSD-10",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Puliyampatti",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – புளியம்பட்டி"
+      },
+      "wardId": "W40",
+      "street": "Palai 1st Street",
+      "pincode": "600919",
+      "lat": 12.40569,
+      "lng": 79.49621,
+      "ext": "2410"
+    },
+    {
+      "id": "WSD-11",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Kalangarai Vilakku",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – கலங்கரை விளக்கு"
+      },
+      "wardId": "W43",
+      "street": "Kambar Extension",
+      "pincode": "600920",
+      "lat": 12.4434,
+      "lng": 79.56776,
+      "ext": "2411"
+    },
+    {
+      "id": "WSD-12",
+      "kind": "water",
+      "name": {
+        "en": "Water Supply Depot – Pavala Nagar",
+        "ta": "குடிநீர் வழங்கல் நிலையம் – பவள நகர்"
+      },
+      "wardId": "W48",
+      "street": "Nesavu Road",
+      "pincode": "600921",
+      "lat": 12.41574,
+      "lng": 79.58425,
+      "ext": "2412"
+    },
+    {
+      "id": "UHC-01",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Periyar Colony",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – பெரியார் காலனி"
+      },
+      "wardId": "W01",
+      "street": "Ilango Cross Street",
+      "pincode": "600910",
+      "lat": 12.54334,
+      "lng": 79.41861,
+      "ext": "2501"
+    },
+    {
+      "id": "UHC-02",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Kurinji Nagar",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – குறிஞ்சி நகர்"
+      },
+      "wardId": "W04",
+      "street": "Kaveri Lane",
+      "pincode": "600910",
+      "lat": 12.54024,
+      "lng": 79.49016,
+      "ext": "2502"
+    },
+    {
+      "id": "UHC-03",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Arasampatti",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – அரசம்பட்டி"
+      },
+      "wardId": "W06",
+      "street": "Malai Main Road",
+      "pincode": "600911",
+      "lat": 12.51556,
+      "lng": 79.43667,
+      "ext": "2503"
+    },
+    {
+      "id": "UHC-04",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Kalaivani Square",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – கலைவாணி சதுக்கம்"
+      },
+      "wardId": "W09",
+      "street": "Vaigai Main Road",
+      "pincode": "600912",
+      "lat": 12.53858,
+      "lng": 79.50822,
+      "ext": "2504"
+    },
+    {
+      "id": "UHC-05",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Sangam Street",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – சங்கம் தெரு"
+      },
+      "wardId": "W12",
+      "street": "Sengol Road",
+      "pincode": "600912",
+      "lat": 12.53761,
+      "lng": 79.59292,
+      "ext": "2505"
+    },
+    {
+      "id": "UHC-06",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Kalaivani Nagar",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – கலைவாணி நகர்"
+      },
+      "wardId": "W14",
+      "street": "Mullai Road",
+      "pincode": "600913",
+      "lat": 12.51226,
+      "lng": 79.53943,
+      "ext": "2506"
+    },
+    {
+      "id": "UHC-07",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Ripon Mahal",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – ரிப்பன் மஹால்"
+      },
+      "wardId": "W17",
+      "street": "Sengol Extension",
+      "pincode": "600914",
+      "lat": 12.48506,
+      "lng": 79.41098,
+      "ext": "2507"
+    },
+    {
+      "id": "UHC-08",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Mandapam",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – மண்டபம்"
+      },
+      "wardId": "W20",
+      "street": "Valluvar Lane",
+      "pincode": "600914",
+      "lat": 12.48253,
+      "lng": 79.48074,
+      "ext": "2508"
+    },
+    {
+      "id": "UHC-09",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Ther Mutti",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – தேர் முட்டி"
+      },
+      "wardId": "W22",
+      "street": "Mullai Street",
+      "pincode": "600915",
+      "lat": 12.45695,
+      "lng": 79.44219,
+      "ext": "2509"
+    },
+    {
+      "id": "UHC-10",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Vellaiyur",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – வெள்ளையூர்"
+      },
+      "wardId": "W25",
+      "street": "Thamarai Extension",
+      "pincode": "600916",
+      "lat": 12.48176,
+      "lng": 79.51374,
+      "ext": "2510"
+    },
+    {
+      "id": "UHC-11",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Nesavalar Colony",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – நெசவாளர் காலனி"
+      },
+      "wardId": "W28",
+      "street": "Bharathi Road",
+      "pincode": "600916",
+      "lat": 12.49402,
+      "lng": 79.58529,
+      "ext": "2511"
+    },
+    {
+      "id": "UHC-12",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Kulathur",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – குளத்தூர்"
+      },
+      "wardId": "W30",
+      "street": "Vembu 1st Street",
+      "pincode": "600917",
+      "lat": 12.46845,
+      "lng": 79.53425,
+      "ext": "2512"
+    },
+    {
+      "id": "UHC-13",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Marudham",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – மருதம்"
+      },
+      "wardId": "W33",
+      "street": "Malai 2nd Street",
+      "pincode": "600918",
+      "lat": 12.44125,
+      "lng": 79.40547,
+      "ext": "2513"
+    },
+    {
+      "id": "UHC-14",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Neerthekkam",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – நீர்த்தேக்கம்"
+      },
+      "wardId": "W36",
+      "street": "Palai Main Road",
+      "pincode": "600918",
+      "lat": 12.44083,
+      "lng": 79.49262,
+      "ext": "2514"
+    },
+    {
+      "id": "UHC-15",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Ellai Nagar",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – எல்லை நகர்"
+      },
+      "wardId": "W38",
+      "street": "Kurinji Cross Street",
+      "pincode": "600919",
+      "lat": 12.4147,
+      "lng": 79.44125,
+      "ext": "2515"
+    },
+    {
+      "id": "UHC-16",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Kadalkarai",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – கடற்கரை"
+      },
+      "wardId": "W41",
+      "street": "Valluvar Main Road",
+      "pincode": "600920",
+      "lat": 12.43795,
+      "lng": 79.5128,
+      "ext": "2516"
+    },
+    {
+      "id": "UHC-17",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Uppalam",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – உப்பளம்"
+      },
+      "wardId": "W44",
+      "street": "Vaigai Street",
+      "pincode": "600920",
+      "lat": 12.43541,
+      "lng": 79.5819,
+      "ext": "2517"
+    },
+    {
+      "id": "UHC-18",
+      "kind": "health",
+      "name": {
+        "en": "Urban Primary Health Centre – Neithal Nagar",
+        "ta": "நகர்ப்புற ஆரம்ப சுகாதார நிலையம் – நெய்தல் நகர்"
+      },
+      "wardId": "W46",
+      "street": "Thamarai Main Road",
+      "pincode": "600921",
+      "lat": 12.40995,
+      "lng": 79.54401,
+      "ext": "2518"
+    }
+  ],
+  "officeServices": [
+    {
+      "id": "water-bill",
+      "en": "Water bill payment",
+      "ta": "குடிநீர் கட்டணம் செலுத்துதல்",
+      "href": "/services/water/pay"
+    },
+    {
+      "id": "property-tax",
+      "en": "Property tax self-assessment",
+      "ta": "சொத்து வரி சுய மதிப்பீடு",
+      "href": "/services/property-tax/assess"
+    },
+    {
+      "id": "birth-cert",
+      "en": "Birth certificate",
+      "ta": "பிறப்புச் சான்றிதழ்",
+      "href": "/certificates/birth"
+    },
+    {
+      "id": "death-cert",
+      "en": "Death certificate",
+      "ta": "இறப்புச் சான்றிதழ்"
+    },
+    {
+      "id": "trade-licence",
+      "en": "Trade licence",
+      "ta": "வர்த்தக உரிமம்",
+      "href": "/certificates/trade-license"
+    },
+    {
+      "id": "electricity",
+      "en": "New electricity connection",
+      "ta": "புதிய மின் இணைப்பு",
+      "href": "/services/electricity/new-connection"
+    },
+    {
+      "id": "building-plan",
+      "en": "Building plan approval",
+      "ta": "கட்டட வரைபட ஒப்புதல்"
+    },
+    {
+      "id": "water-conn",
+      "en": "New water and sewer connection",
+      "ta": "புதிய குடிநீர் மற்றும் கழிவுநீர் இணைப்பு"
+    },
+    {
+      "id": "tanker",
+      "en": "Drinking water by tanker",
+      "ta": "லாரி மூலம் குடிநீர்"
+    },
+    {
+      "id": "immunisation",
+      "en": "Child immunisation",
+      "ta": "குழந்தைகளுக்குத் தடுப்பூசி"
+    },
+    {
+      "id": "hall",
+      "en": "Community hall booking",
+      "ta": "சமுதாயக் கூட முன்பதிவு"
+    },
+    {
+      "id": "grievance",
+      "en": "Register a grievance",
+      "ta": "குறை பதிவு",
+      "href": "/grievances/new"
+    }
+  ],
+  "officeKinds": [
+    {
+      "id": "head",
+      "en": "Head office",
+      "ta": "தலைமை அலுவலகம்",
+      "hours": [
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "13:00"
+        ],
+        null
+      ],
+      "services": [
+        "water-bill",
+        "property-tax",
+        "birth-cert",
+        "death-cert",
+        "trade-licence",
+        "electricity",
+        "building-plan",
+        "water-conn",
+        "hall",
+        "grievance"
+      ]
+    },
+    {
+      "id": "zone",
+      "en": "Zone office",
+      "ta": "மண்டல அலுவலகம்",
+      "hours": [
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "13:00"
+        ],
+        null
+      ],
+      "services": [
+        "water-bill",
+        "property-tax",
+        "birth-cert",
+        "death-cert",
+        "trade-licence",
+        "building-plan",
+        "water-conn",
+        "hall",
+        "grievance"
+      ]
+    },
+    {
+      "id": "ward",
+      "en": "Ward office",
+      "ta": "வார்டு அலுவலகம்",
+      "hours": [
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "17:45"
+        ],
+        [
+          "10:00",
+          "13:00"
+        ],
+        null
+      ],
+      "services": [
+        "property-tax",
+        "birth-cert",
+        "death-cert",
+        "grievance"
+      ]
+    },
+    {
+      "id": "csc",
+      "en": "Citizen Service Centre",
+      "ta": "குடிமக்கள் சேவை மையம்",
+      "hours": [
+        [
+          "08:00",
+          "20:00"
+        ],
+        [
+          "08:00",
+          "20:00"
+        ],
+        [
+          "08:00",
+          "20:00"
+        ],
+        [
+          "08:00",
+          "20:00"
+        ],
+        [
+          "08:00",
+          "20:00"
+        ],
+        [
+          "08:00",
+          "20:00"
+        ],
+        [
+          "09:00",
+          "13:00"
+        ]
+      ],
+      "services": [
+        "water-bill",
+        "property-tax",
+        "birth-cert",
+        "death-cert",
+        "trade-licence",
+        "electricity",
+        "grievance"
+      ]
+    },
+    {
+      "id": "water",
+      "en": "Water supply depot",
+      "ta": "குடிநீர் வழங்கல் நிலையம்",
+      "hours": [
+        [
+          "07:00",
+          "19:00"
+        ],
+        [
+          "07:00",
+          "19:00"
+        ],
+        [
+          "07:00",
+          "19:00"
+        ],
+        [
+          "07:00",
+          "19:00"
+        ],
+        [
+          "07:00",
+          "19:00"
+        ],
+        [
+          "07:00",
+          "19:00"
+        ],
+        null
+      ],
+      "services": [
+        "water-bill",
+        "water-conn",
+        "tanker",
+        "grievance"
+      ]
+    },
+    {
+      "id": "health",
+      "en": "Health centre",
+      "ta": "சுகாதார நிலையம்",
+      "hours": [
+        [
+          "08:00",
+          "16:00"
+        ],
+        [
+          "08:00",
+          "16:00"
+        ],
+        [
+          "08:00",
+          "16:00"
+        ],
+        [
+          "08:00",
+          "16:00"
+        ],
+        [
+          "08:00",
+          "16:00"
+        ],
+        [
+          "08:00",
+          "16:00"
+        ],
+        [
+          "08:00",
+          "12:00"
+        ]
+      ],
+      "services": [
+        "birth-cert",
+        "death-cert",
+        "immunisation",
+        "grievance"
+      ]
+    }
   ]
 }

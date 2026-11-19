@@ -46,6 +46,7 @@ const paths = {
   arrowUp: "M12 19V5M6 11l6-6 6 6",
   arrowDown: "M12 5v14M6 13l6 6 6-6",
   sort: "M8 9l4-4 4 4M8 15l4 4 4-4",
+  locate: "M12 2v3M12 19v3M2 12h3M19 12h3M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4z",
 } as const;
 
 export type IconName = keyof typeof paths;
