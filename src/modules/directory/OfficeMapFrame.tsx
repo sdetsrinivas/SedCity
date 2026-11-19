@@ -5,12 +5,28 @@ import { loadOfficeMap, type LatLng } from "@/mock/endpoints/directory";
 import { OFFICE_MAP_URL, isMapEvent, type MapState } from "./mapMessages";
 import s from "./Offices.module.css";
 
+const readTheme = (): "light" | "dark" => (document.documentElement.dataset.theme === "dark" ? "dark" : "light");
+
+/** The page's theme (html[data-theme]), updated when the theme switch flips it. */
+function usePageTheme() {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  useEffect(() => {
+    setTheme(readTheme());
+    const mo = new MutationObserver(() => setTheme(readTheme()));
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => mo.disconnect();
+  }, []);
+  return theme;
+}
+
 /**
  * FRM-04: the map is a same-origin <iframe> that is not in the page at first. A “Loading map…”
  * placeholder holds its place for MAP_IFRAME (5s); only then is the <iframe> element inserted, with a
  * title but no id or name. Everything on the map (office markers, the highlighted office, “You are here”)
  * lives in the frame's own document. Page and map talk through postMessage: choosing a marker chooses
- * that office on the page; choosing an office on the page highlights it on the map.
+ * that office on the page; choosing an office on the page highlights it on the map. The frame is
+ * re-created when the language changes (its text comes from the server) but not when the theme changes:
+ * the theme is sent in the same message, so the map recolours in place without a reload.
  */
 export function OfficeMapFrame({ selectedId, user, onSelect }: { selectedId: string | null; user: LatLng | null; onSelect: (id: string) => void }) {
   const { t, lang } = useT();
@@ -18,8 +34,9 @@ export function OfficeMapFrame({ selectedId, user, onSelect }: { selectedId: str
   const [attempt, setAttempt] = useState(0);
   const frame = useRef<HTMLIFrameElement>(null);
   const ready = useRef(false);
-  const latest = useRef({ selectedId, user, onSelect });
-  latest.current = { selectedId, user, onSelect };
+  const theme = usePageTheme();
+  const latest = useRef({ selectedId, user, onSelect, theme });
+  latest.current = { selectedId, user, onSelect, theme };
 
   useEffect(() => {
     let cancelled = false;
@@ -34,7 +51,7 @@ export function OfficeMapFrame({ selectedId, user, onSelect }: { selectedId: str
   const post = () => {
     const win = frame.current?.contentWindow;
     if (!win || !ready.current) return;
-    const msg: MapState = { source: "amc-offices", type: "state", selectedId: latest.current.selectedId, user: latest.current.user };
+    const msg: MapState = { source: "amc-offices", type: "state", selectedId: latest.current.selectedId, user: latest.current.user, theme: latest.current.theme };
     win.postMessage(msg, window.location.origin);
   };
 
@@ -50,7 +67,7 @@ export function OfficeMapFrame({ selectedId, user, onSelect }: { selectedId: str
     return () => window.removeEventListener("message", onMessage);
   }, []);
 
-  useEffect(post, [selectedId, user]);
+  useEffect(post, [selectedId, user, theme]);
 
   return (
     <section className={`card ${s.mapCard}`} aria-labelledby="office-map-title">

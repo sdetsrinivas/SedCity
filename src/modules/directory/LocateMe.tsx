@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { useT } from "@/i18n/client";
 import { pick } from "@/i18n";
 import { Icon } from "@/components/ui/Icon";
-import { delayFor } from "@/mock/api";
+import { limitFor } from "@/mock/api";
 import { findNearestOffices, officeById, type LatLng, type NearbyOffices } from "@/mock/endpoints/directory";
 import { formatKm } from "./offices";
 import s from "./Offices.module.css";
@@ -20,7 +20,8 @@ type Status = "idle" | "locating" | "searching" | "denied" | "unavailable" | "fa
  * makes the browser show its own location permission prompt — not part of the page, so it cannot be
  * clicked with page locators. With the position, the offices are ranked by distance (OFFICE_NEAREST) and
  * the nearest one is named and chosen. Refused permission, no position within LOCATE_TIMEOUT, or a failed
- * ranking each show an error instead.
+ * ranking each show an error instead, and drop any earlier location (its distances would contradict
+ * the error). LOCATE_TIMEOUT is a limit, so the `scale` test override does not shorten it.
  */
 export function LocateMe({ located, onLocated, onClear }: { located: Located | null; onLocated: (l: Located) => void; onClear: () => void }) {
   const { t, lang } = useT();
@@ -31,8 +32,13 @@ export function LocateMe({ located, onLocated, onClear }: { located: Located | n
   const locate = () => {
     if (busy) return;
     const id = ++attempt.current;
+    const fail = (next: "denied" | "unavailable" | "failed") => {
+      if (id !== attempt.current) return;
+      setStatus(next);
+      onClear();
+    };
     if (!("geolocation" in navigator)) {
-      setStatus("unavailable");
+      fail("unavailable");
       return;
     }
     setStatus("locating");
@@ -47,14 +53,11 @@ export function LocateMe({ located, onLocated, onClear }: { located: Located | n
             setStatus("idle");
             onLocated({ from, result });
           },
-          () => id === attempt.current && setStatus("failed"),
+          () => fail("failed"),
         );
       },
-      (err) => {
-        if (id !== attempt.current) return;
-        setStatus(err.code === err.PERMISSION_DENIED ? "denied" : "unavailable");
-      },
-      { enableHighAccuracy: false, maximumAge: 0, timeout: delayFor("LOCATE_TIMEOUT") },
+      (err) => fail(err.code === err.PERMISSION_DENIED ? "denied" : "unavailable"),
+      { enableHighAccuracy: false, maximumAge: 0, timeout: limitFor("LOCATE_TIMEOUT") },
     );
   };
 

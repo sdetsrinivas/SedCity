@@ -66,6 +66,26 @@ describe("Find nearest office", () => {
     expect(within(await listbox()).getAllByRole("option")[0]).toHaveTextContent("Corporation Head Office");
   });
 
+  it("drops the earlier location when a later attempt fails", async () => {
+    const csc = officeById("CSC-05")!;
+    mockGeolocation(at(csc.lat + 0.001, csc.lng));
+    renderWithProviders(<OfficeFinder />);
+    fireEvent.click(screen.getByRole("button", { name: "Use my current location" }));
+    await screen.findByText(`Nearest office: ${csc.name.en}, 0.1 km from your location.`);
+    expect(within(await listbox()).getAllByRole("option")[0]).toHaveTextContent("0.1 km");
+
+    mockGeolocation(refuse(3));
+    fireEvent.click(screen.getByRole("button", { name: "Use my current location" }));
+    expect(await screen.findByRole("alert")).toHaveTextContent("Your location could not be found.");
+    expect(screen.queryByText(/km from your location/)).toBeNull();
+    expect(screen.queryByRole("button", { name: "Clear location" })).toBeNull();
+    const first = within(await listbox()).getAllByRole("option")[0];
+    expect(first).toHaveTextContent("Corporation Head Office");
+    expect(first).not.toHaveTextContent("km");
+    // The office chosen by the earlier attempt stays chosen.
+    expect(within(details()).getByRole("heading", { name: csc.name.en })).toBeInTheDocument();
+  });
+
   it("says so when the position is outside the city", async () => {
     mockGeolocation(at(13.0827, 80.2707));
     renderWithProviders(<OfficeFinder />);

@@ -32,6 +32,8 @@ export function OfficeMap() {
       if (e.origin !== window.location.origin || e.source !== parent || !isMapState(e.data)) return;
       setSelectedId(e.data.selectedId);
       setUser(e.data.user);
+      // Follow the page's theme switch (the frame read the theme cookie only when it loaded).
+      if (e.data.theme === "dark" || e.data.theme === "light") document.documentElement.dataset.theme = e.data.theme;
     };
     window.addEventListener("message", onMessage);
     const ready: MapEvent = { source: "amc-map", type: "ready" };

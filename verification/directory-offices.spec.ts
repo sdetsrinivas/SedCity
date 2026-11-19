@@ -92,6 +92,38 @@ test.describe("Find nearest office", () => {
     await expect(detailsHeading(page)).toHaveText("Corporation Head Office");
   });
 
+  test("[DLG-17] with every delay scaled to 0, a granted position is still found (the time limit is not scaled)", async ({ page, context }) => {
+    await mockDelays(context, { scale: 0 });
+    await context.grantPermissions(["geolocation"], { origin: BASE });
+    await context.setGeolocation({ latitude: CSC.lat + 0.001, longitude: CSC.lng });
+    await open(page);
+    await locateBtn(page).click();
+    await expect(page.getByText(`Nearest office: ${CSC.name.en}, 0.1 km from your location.`)).toBeVisible();
+    await expect(alert(page)).toHaveCount(0);
+  });
+
+  test("[DLG-17] a failed attempt after a successful one removes the earlier distances", async ({ page, context }) => {
+    await context.grantPermissions(["geolocation"], { origin: BASE });
+    await context.setGeolocation({ latitude: CSC.lat + 0.001, longitude: CSC.lng });
+    await open(page);
+    await locateBtn(page).click();
+    await expect(page.getByText(`Nearest office: ${CSC.name.en}, 0.1 km from your location.`)).toBeVisible();
+    await expect(mapFrame(page).locator("text").filter({ hasText: "You are here" })).toBeVisible();
+
+    await context.clearPermissions();
+    await locateBtn(page).click();
+    await expect(alert(page)).toHaveText("Location access is turned off for this site. You can search by office name, area or PIN code instead.");
+    await expect(page.getByText(/^Nearest office: /)).toHaveCount(0);
+    await expect(page.getByText(/km from your location/)).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Clear location" })).toHaveCount(0);
+    const first = listbox(page).getByRole("option").first();
+    await expect(first).toContainText("Corporation Head Office");
+    await expect(first).not.toContainText("km");
+    await expect(mapFrame(page).locator("text").filter({ hasText: "You are here" })).toHaveCount(0);
+    // The office chosen by the earlier attempt stays chosen.
+    await expect(detailsHeading(page)).toHaveText(CSC.name.en);
+  });
+
   // ───────────────────────── FRM-04 ─────────────────────────
   test("[FRM-04] the map frame is inserted only after about five seconds and has no id or name", async ({ page, context }) => {
     await mockDelays(context, {});
@@ -131,6 +163,23 @@ test.describe("Find nearest office", () => {
     await expect(detailsHeading(page)).toHaveText("Zone Office – Kalaivani");
     await expect(map.locator("text").filter({ hasText: "Zone Office – Kalaivani" })).toBeVisible();
     await expect(map.locator("text").filter({ hasText: LAST.name.en })).toHaveCount(0);
+  });
+
+  test("[FRM-04] the map follows the theme switch without reloading the frame", async ({ page }) => {
+    await open(page);
+    const map = mapFrame(page);
+    await expect(map.getByRole("button", { name: "Corporation Head Office" })).toBeVisible();
+    const mapTheme = () => map.locator("html").getAttribute("data-theme");
+    expect(await mapTheme()).toBe("light");
+    // Mark the frame's document: a reload would lose the mark.
+    await map.locator("html").evaluate((el) => { (el as HTMLElement).dataset.mark = "1"; });
+
+    await page.getByRole("button", { name: "Switch to dark theme" }).click();
+    await expect(map.locator("html")).toHaveAttribute("data-theme", "dark");
+    await expect(map.locator("html")).toHaveAttribute("data-mark", "1");
+    await expect(page.locator("iframe")).toHaveCount(1);
+    await page.getByRole("button", { name: "Switch to light theme" }).click();
+    await expect(map.locator("html")).toHaveAttribute("data-theme", "light");
   });
 
   test("[FRM-04] if the map cannot be loaded, an error with Try again replaces it", async ({ page, context }) => {

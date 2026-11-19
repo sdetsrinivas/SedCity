@@ -75,7 +75,7 @@ export const DELAYS = {
   DIRECTORY_EXPORT: { spec: fixed(1000), page: "/directory/officials", element: "Download list (CSV) → 'Preparing file…' then the file download (every matching official, all pages)", traps: ["FIL-06"] },
   // ── Directory: offices ──────────────────────────────────────────
   MAP_IFRAME: { spec: fixed(5000), page: "/directory/offices", element: "Offices on the map → 'Loading map…' placeholder, then the map <iframe> (no id or name) is inserted", traps: ["FRM-04"] },
-  LOCATE_TIMEOUT: { spec: fixed(10_000), page: "/directory/offices", element: "Use my current location → longest wait for the browser to share the position (after permission) before 'Your location could not be found'", traps: ["DLG-17"] },
+  LOCATE_TIMEOUT: { spec: fixed(10_000), page: "/directory/offices", element: "Use my current location → longest wait for the browser to share the position (after permission) before 'Your location could not be found' (a limit: `scale` does not apply, only a by-name override)", traps: ["DLG-17"] },
   OFFICE_NEAREST: { spec: fixed(1000), page: "/directory/offices", element: "Use my current location → after the browser shares the position, 'Finding offices near you…' then the nearest-office message, the list ordered by distance and the nearest office selected", traps: ["DLG-17", "OTH-20"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
@@ -118,6 +118,18 @@ export function resolveDelay(
   const base = spec.kind === "random" ? spec.min + Math.round(rng() * (spec.max - spec.min)) : spec.ms;
   const scale = typeof overrides.scale === "number" ? overrides.scale : 1;
   return Math.max(0, Math.round(base * scale));
+}
+
+/**
+ * A time limit rather than a wait (e.g. how long to wait for the browser before giving up). `scale`
+ * does not apply: scaling a limit to 0 would make it expire at once instead of speeding anything up.
+ * Only a by-name override in `delays` changes it.
+ */
+export function resolveLimit(name: DelayName, overrides: MockOverrides = {}): number {
+  const explicit = overrides.delays?.[name];
+  if (typeof explicit === "number") return Math.max(0, explicit);
+  const spec: DelaySpec = DELAYS[name].spec;
+  return spec.kind === "random" ? spec.max : spec.ms;
 }
 
 export function describeDelay(spec: DelaySpec): string {

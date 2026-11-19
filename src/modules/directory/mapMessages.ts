@@ -10,6 +10,8 @@ export interface MapState {
   selectedId: string | null;
   /** The position the browser shared, if any. */
   user: LatLng | null;
+  /** The page's current colour theme, so the map follows the theme switch without reloading. */
+  theme: "light" | "dark";
 }
 
 /** Map frame → page. */
