@@ -38,7 +38,7 @@ Hard rules from the brief:
 | 9 | Officials & Office Directory (table + virtualized vanilla view + geolocation) | `/directory/officials`, `/directory/offices` | ✅ |
 | 10 | Hall / Park Booking (part A find and book, part B my bookings / move) | `/bookings` | ✅ |
 | 11 | My Dashboard (part A `/dashboard`) + Officer work queue (part B) | `/dashboard`, `/officer/queue` | ✅ |
-| 12 | Help (shadow-DOM chatbot, FAQ, nested-iframe survey) | `/help`, `/help/survey` | ⏳ |
+| 12 | Help (part A `/help`: tabs, FAQ, fee schedule, shadow-DOM chatbot ✅; part B nested-iframe survey) | `/help`, `/help/survey` | ⏳ |
 | — | Trap registry completion, `npm run guide` → `docs/trap-guide.md` + `docs/Astheenapuram-Trap-Guide.pdf` (cover, TOC, section per element type, summary table; **not linked or served from the site**), full verification | | ⏳ |
 
 Phases from the brief: (a) shell/auth ✅ → (b) modules 3–6 ✅ → (c) modules 7–12 → (d) registry, guide PDF, full verification. Placeholder routes show a "temporarily unavailable" notice until their module ships.
@@ -49,10 +49,9 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 
 | Name | Value | Where |
 |---|---|---|
-| `CHAT_REPLY` | random 1–2s | Chatbot |
 | `SURVEY_INNER` | 2s | Nested survey iframe |
 
-Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`, `DIRECTORY_PAGE`, `DIRECTORY_EXPORT`, `MAP_IFRAME`, `LOCATE_TIMEOUT`, `OFFICE_NEAREST`, `BOOKING_SLOTS`, `BOOKING_SUBMIT`, `MY_BOOKINGS`, `BOOKING_WEEK`, `BOOKING_MOVE`, `SKELETON`, `STREAM_DASHBOARD`, `UNDO_WINDOW`, `PROFILE_SAVE`, `QUEUE_LOAD`, `QUEUE_POLL`, `QUEUE_REORDER`, `QUEUE_DETAIL`, `QUEUE_CLAIM`.
+Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`, `DIRECTORY_PAGE`, `DIRECTORY_EXPORT`, `MAP_IFRAME`, `LOCATE_TIMEOUT`, `OFFICE_NEAREST`, `BOOKING_SLOTS`, `BOOKING_SUBMIT`, `MY_BOOKINGS`, `BOOKING_WEEK`, `BOOKING_MOVE`, `SKELETON`, `STREAM_DASHBOARD`, `UNDO_WINDOW`, `PROFILE_SAVE`, `QUEUE_LOAD`, `QUEUE_POLL`, `QUEUE_REORDER`, `QUEUE_DETAIL`, `QUEUE_CLAIM`, `CHAT_REPLY`, `CHAT_TRANSCRIPT`.
 
 ## Seeded accounts (README only, never on the site)
 
@@ -64,7 +63,7 @@ Approved plan for the Astheenapuram Citizen Services Portal: a realistic municip
 
 Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ live · ⏳ planned.
 
-**131 traps · 122 live · 9 planned.** Difficulty mix: E 39 / M 51 / H 41.
+**131 traps · 129 live · 2 planned.** Difficulty mix: E 39 / M 51 / H 41.
 
 
 ## Checkbox (CHK)
@@ -75,7 +74,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | CHK-02 | Native, state only via `.checked` property | `/services/water/pay: email receipt` | M | ✅ |
 | CHK-03 | `div role=checkbox` | `/services/property-tax/assess: rebates` | M | ✅ |
 | CHK-04 | Hidden input + styled label | `/services/electricity/new-connection: declaration` | M | ✅ |
-| CHK-05 | Inside open shadow DOM | `/help chatbot: email transcript` | H | ⏳ |
+| CHK-05 | Inside open shadow DOM | `/help chatbot: email transcript` | H | ✅ |
 | CHK-06 | Indeterminate select-all (property only) | `/dashboard: notifications` | M | ✅ |
 | CHK-07 | State only as CSS class / SVG swap | `/bookings: amenity tiles` | H | ✅ |
 | CHK-08 | Restored from localStorage after hydration | `/news: events only` | H | ✅ |
@@ -100,7 +99,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TXT-04 | Reformats on blur | `/services/water/pay: consumer number` | E | ✅ |
 | TXT-05 | Controlled input (`.value` via JS ignored) | `/grievances/track: grievance number` | M | ✅ |
 | TXT-06 | contenteditable | `/grievances/new: description` | H | ✅ |
-| TXT-07 | Input in shadow DOM | `/help chatbot` | H | ⏳ |
+| TXT-07 | Input in shadow DOM | `/help chatbot` | H | ✅ |
 | TXT-08 | readonly vs disabled vs aria-disabled | `/dashboard: profile` | E | ✅ |
 | TXT-09 | Paste blocked | `/certificates/trade-license: re-enter bank account` | M | ✅ |
 | TXT-10 | maxlength | `/certificates/birth: child name` | E | ✅ |
@@ -169,8 +168,8 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | FRM-02 | Nested iframes | `/help/survey` | H | ⏳ |
 | FRM-03 | srcdoc iframe | `/help/survey inner` | H | ⏳ |
 | FRM-04 | Late-loading iframe, no id/name | `/directory/offices: map` | H | ✅ |
-| SHD-01 | Open shadow root | `/help chatbot` | M | ⏳ |
-| SHD-02 | Nested shadow roots | `/help chatbot: quick replies` | H | ⏳ |
+| SHD-01 | Open shadow root | `/help chatbot` | M | ✅ |
+| SHD-02 | Nested shadow roots | `/help chatbot: quick replies` | H | ✅ |
 | SHD-03 | Closed shadow root | `/certificates/trade-license: fee badge` | H | ✅ |
 | SHD-04 | Slotted content | `/dashboard: profile card` | M | ✅ |
 
@@ -201,7 +200,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 
 | ID | Variant | Route / flow | D | Status |
 |---|---|---|---|---|
-| TBL-01 | Static | `/help: fee schedule` | E | ⏳ |
+| TBL-01 | Static | `/help: fee schedule` | E | ✅ |
 | TBL-02 | Sortable + paginated | `/directory/officials` | M | ✅ |
 | TBL-03 | `div role=grid` | `/dashboard: payment history` | H | ✅ |
 | TBL-04 | Nested table | `/services/water/pay: slab breakup` | M | ✅ |
@@ -242,8 +241,8 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | OTH-04 | Pointer-event drag-and-drop | `/dashboard: reorder widgets` | H | ✅ |
 | OTH-05 | Canvas signature | `/certificates/trade-license` | H | ✅ |
 | OTH-06 | SVG needing local-name() XPath | `/grievances/new: ward map` | H | ✅ |
-| OTH-07 | Tabs | `/help` | E | ⏳ |
-| OTH-08 | Accordion | `/help: FAQ` | E | ⏳ |
+| OTH-07 | Tabs | `/help` | E | ✅ |
+| OTH-08 | Accordion | `/help: FAQ` | E | ✅ |
 | OTH-09 | Star rating | `/grievances/track` | E | ✅ |
 | OTH-10 | Toggle switch | `/dashboard: paperless billing` | E | ✅ |
 | OTH-11 | Keyboard shortcuts | global: / and Alt+L | M | ✅ |

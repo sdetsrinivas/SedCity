@@ -95,6 +95,9 @@ export const DELAYS = {
   QUEUE_REORDER: { spec: fixed(400), page: "/officer/queue", element: "Open grievances table → rows slide to their new place after a new grievance arrives or a row opens or closes", traps: ["DYN-07"] },
   QUEUE_DETAIL: { spec: fixed(600), page: "/officer/queue", element: "Show details (chevron at the start of a row) → 'Loading details…' in the inserted details row, then the complaint, citizen, location and history (loaded once per row)", traps: ["TBL-06"] },
   QUEUE_CLAIM: { spec: fixed(800), page: "/officer/queue", element: "Claim (double-click) / Release in a row → 'Claiming…' / 'Releasing…'; Claim selected / Release selected run it once per ticked grievance, one toast each", traps: ["BTN-07", "DLG-10"] },
+  // ── Help centre ─────────────────────────────────────────────────
+  CHAT_REPLY: { spec: random(1000, 2000), page: "/help", element: "Chat with us (`<amc-help-chat>`, open shadow root) → 'Uthavi is typing…' after a question is sent (typed or a quick reply), then the reply and new quick replies; Send and the quick replies are disabled meanwhile", traps: ["TXT-07", "SHD-01", "SHD-02"] },
+  CHAT_TRANSCRIPT: { spec: fixed(800), page: "/help", element: "Chat with us → End chat with 'Email me a copy of this chat' ticked → 'Sending the copy…' then the closing message naming the address", traps: ["CHK-05"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },
