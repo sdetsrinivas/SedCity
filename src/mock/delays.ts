@@ -89,6 +89,12 @@ export const DELAYS = {
   STREAM_DASHBOARD: { spec: fixed(3000), page: "/dashboard", element: "Service updates card (server-streamed): skeleton placeholder in the first HTML, replaced by the list when the stream completes", traps: ["DYN-03"] },
   UNDO_WINDOW: { spec: fixed(6000), page: "/dashboard", element: "Notifications → Delete → snackbar with Undo; the deletion is saved when it closes (a limit: `scale` does not apply, only a by-name override)", traps: ["DLG-11"] },
   PROFILE_SAVE: { spec: fixed(1000), page: "/dashboard", element: "My profile → Change email → Save email ('Saving…' then 'Your email address has been updated.')", traps: ["TXT-08"] },
+  // ── Officer work queue ──────────────────────────────────────────
+  QUEUE_LOAD: { spec: fixed(1000), page: "/officer/queue", element: "Open grievances table → 'Loading the queue…' on first load; each automatic refresh fetches the queue again (the rows stay meanwhile)", traps: ["DYN-07"] },
+  QUEUE_POLL: { spec: interval(20_000), page: "/officer/queue", element: "Open grievances table → pause between automatic refreshes; each of the first three refreshes brings in a new grievance, inserted at its place in SLA order (rows below it move down)", traps: ["DYN-07"] },
+  QUEUE_REORDER: { spec: fixed(400), page: "/officer/queue", element: "Open grievances table → rows slide to their new place after a new grievance arrives or a row opens or closes", traps: ["DYN-07"] },
+  QUEUE_DETAIL: { spec: fixed(600), page: "/officer/queue", element: "Show details (chevron at the start of a row) → 'Loading details…' in the inserted details row, then the complaint, citizen, location and history (loaded once per row)", traps: ["TBL-06"] },
+  QUEUE_CLAIM: { spec: fixed(800), page: "/officer/queue", element: "Claim (double-click) / Release in a row → 'Claiming…' / 'Releasing…'; Claim selected / Release selected run it once per ticked grievance, one toast each", traps: ["BTN-07", "DLG-10"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },

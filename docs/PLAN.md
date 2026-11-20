@@ -37,7 +37,7 @@ Hard rules from the brief:
 | 8 | City News & Events | `/news`, `/news/events/[slug]` | ✅ |
 | 9 | Officials & Office Directory (table + virtualized vanilla view + geolocation) | `/directory/officials`, `/directory/offices` | ✅ |
 | 10 | Hall / Park Booking (part A find and book, part B my bookings / move) | `/bookings` | ✅ |
-| 11 | My Dashboard (part A `/dashboard`) + Officer work queue (part B) | `/dashboard`, `/officer/queue` | part A ✅ · part B ⏳ |
+| 11 | My Dashboard (part A `/dashboard`) + Officer work queue (part B) | `/dashboard`, `/officer/queue` | ✅ |
 | 12 | Help (shadow-DOM chatbot, FAQ, nested-iframe survey) | `/help`, `/help/survey` | ⏳ |
 | — | Trap registry completion, `npm run guide` → `docs/trap-guide.md` + `docs/Astheenapuram-Trap-Guide.pdf` (cover, TOC, section per element type, summary table; **not linked or served from the site**), full verification | | ⏳ |
 
@@ -52,7 +52,7 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 | `CHAT_REPLY` | random 1–2s | Chatbot |
 | `SURVEY_INNER` | 2s | Nested survey iframe |
 
-Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`, `DIRECTORY_PAGE`, `DIRECTORY_EXPORT`, `MAP_IFRAME`, `LOCATE_TIMEOUT`, `OFFICE_NEAREST`, `BOOKING_SLOTS`, `BOOKING_SUBMIT`, `MY_BOOKINGS`, `BOOKING_WEEK`, `BOOKING_MOVE`, `SKELETON`, `STREAM_DASHBOARD`, `UNDO_WINDOW`, `PROFILE_SAVE`.
+Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`, `DIRECTORY_PAGE`, `DIRECTORY_EXPORT`, `MAP_IFRAME`, `LOCATE_TIMEOUT`, `OFFICE_NEAREST`, `BOOKING_SLOTS`, `BOOKING_SUBMIT`, `MY_BOOKINGS`, `BOOKING_WEEK`, `BOOKING_MOVE`, `SKELETON`, `STREAM_DASHBOARD`, `UNDO_WINDOW`, `PROFILE_SAVE`, `QUEUE_LOAD`, `QUEUE_POLL`, `QUEUE_REORDER`, `QUEUE_DETAIL`, `QUEUE_CLAIM`.
 
 ## Seeded accounts (README only, never on the site)
 
@@ -64,7 +64,7 @@ Approved plan for the Astheenapuram Citizen Services Portal: a realistic municip
 
 Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ live · ⏳ planned.
 
-**131 traps · 117 live · 14 planned.** Difficulty mix: E 39 / M 51 / H 41.
+**131 traps · 122 live · 9 planned.** Difficulty mix: E 39 / M 51 / H 41.
 
 
 ## Checkbox (CHK)
@@ -117,7 +117,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DRP-02 | optgroups | `/certificates/trade-license: business category` | E | ✅ |
 | DRP-03 | Portal listbox at end of body | `/grievances/new: category` | H | ✅ |
 | DRP-04 | Searchable combobox | `/directory/officials: department` | M | ✅ |
-| DRP-05 | Multi-select with chips | `/officer/queue: wards` | M | ⏳ |
+| DRP-05 | Multi-select with chips | `/officer/queue: wards` | M | ✅ |
 | DRP-06 | Options lazy-loaded on scroll | `/services/property-tax/assess: locality` | H | ✅ |
 | DRP-07 | Closes on blur | `/news: category` | H | ✅ |
 | DRP-08 | Cascading, delayed load | `/services/electricity/new-connection: zone→ward→street` | M | ✅ |
@@ -132,7 +132,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | BTN-04 | Covered by overlay/spinner | `/services/water/pay: Proceed to pay` | H | ✅ |
 | BTN-05 | Moves due to layout shift | `/services/electricity/new-connection: Submit (review)` | H | ✅ |
 | BTN-06 | Disabled until form valid | `/login: Sign in` | E | ✅ |
-| BTN-07 | Double-click action | `/officer/queue: claim row` | M | ⏳ |
+| BTN-07 | Double-click action | `/officer/queue: claim row` | M | ✅ |
 | BTN-08 | Right-click context menu | `/dashboard: documents` | M | ✅ |
 | BTN-09 | Hover-only menu | `header: Services` | M | ✅ |
 | BTN-10 | Duplicate mobile + desktop in DOM | `/services/property-tax/assess: Proceed to pay` | M | ✅ |
@@ -150,7 +150,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DLG-07 | Nested modals | `/services/electricity/new-connection: tariff→glossary` | H | ✅ |
 | DLG-08 | Modal inside iframe | AstheenPay: OTP modal | H | ✅ |
 | DLG-09 | Auto-dismiss toast (~3s) | `/login: OTP` | M | ✅ |
-| DLG-10 | Toast stack | `/officer/queue: bulk actions` | M | ⏳ |
+| DLG-10 | Toast stack | `/officer/queue: bulk actions` | M | ✅ |
 | DLG-11 | Snackbar with Undo | `/dashboard: delete notification` | M | ✅ |
 | DLG-12 | Tooltip | `/services/property-tax/assess: unit-area-value info` | E | ✅ |
 | DLG-13 | Popover | `/register: Why Astheen ID?` | E | ✅ |
@@ -193,7 +193,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | DYN-04 | Slide animation (present, not clickable) | `/services/electricity/new-connection: step change` | H | ✅ |
 | DYN-05 | Polling status | `/grievances/track` | M | ✅ |
 | DYN-06 | Hashed classes / generated ids | `/bookings` | H | ✅ |
-| DYN-07 | Reordering list | `/officer/queue: SLA order` | H | ⏳ |
+| DYN-07 | Reordering list | `/officer/queue: SLA order` | H | ✅ |
 | DYN-08 | Nested scroll containers | `/directory/offices` | H | ✅ |
 | DYN-09 | Sticky header covers elements | `/certificates/trade-license: long form` | M | ✅ |
 
@@ -206,7 +206,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TBL-03 | `div role=grid` | `/dashboard: payment history` | H | ✅ |
 | TBL-04 | Nested table | `/services/water/pay: slab breakup` | M | ✅ |
 | TBL-05 | Editable cells | `/services/property-tax/assess: floors` | H | ✅ |
-| TBL-06 | Expandable rows | `/officer/queue` | M | ⏳ |
+| TBL-06 | Expandable rows | `/officer/queue` | M | ✅ |
 | TBL-07 | Sticky header | `/grievances/track: my grievances` | E | ✅ |
 | TBL-08 | Duplicate text across rows | `/bookings: my bookings` | M | ✅ |
 
