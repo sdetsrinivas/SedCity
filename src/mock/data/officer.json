@@ -1,0 +1,30 @@
+{
+  "officers": {
+    "officer.selvi": { "zone": "Z2" }
+  },
+  "colleagues": [
+    { "id": "ravi.k", "en": "K. Ravi", "ta": "கே. ரவி" },
+    { "id": "fathima.m", "en": "M. Fathima", "ta": "எம். பாத்திமா" }
+  ],
+  "queue": [
+    { "no": 4702, "category": "drains", "ward": "W09", "street": "W09-S02", "ageHours": 80, "citizen": { "en": "Senthil Kumar P.", "ta": "செந்தில் குமார் ப." }, "mobile": "98XXXXXX41", "description": "Drain in front of house no. 12 is blocked and sewage is entering the houses on the lower side.", "history": [{ "kind": "reminder", "hoursAgo": 30 }, { "kind": "escalated", "hoursAgo": 8 }] },
+    { "no": 4705, "category": "garbage", "ward": "W12", "street": "W12-S02", "ageHours": 54, "citizen": { "en": "Lakshmi Narayanan", "ta": "லட்சுமி நாராயணன்" }, "mobile": "94XXXXXX07", "description": "Garbage bin near the Kulam Street bus stop has not been cleared for three days.", "history": [{ "kind": "reminder", "hoursAgo": 6 }] },
+    { "no": 4711, "category": "streetlight", "ward": "W14", "street": "W14-S03", "ageHours": 40, "citizen": { "en": "Abdul Rahman", "ta": "அப்துல் ரஹ்மான்" }, "mobile": "90XXXXXX88", "description": "Entire stretch of Kambar Lane is dark; four lights are off since Tuesday.", "history": [{ "kind": "photo", "hoursAgo": 39 }] },
+    { "no": 4716, "category": "water", "ward": "W11", "street": "W11-S03", "ageHours": 52, "citizen": { "en": "Revathi S.", "ta": "ரேவதி சு." }, "mobile": "97XXXXXX15", "description": "Drinking water supply is muddy in the mornings on Ilango Road.", "history": [] },
+    { "no": 4719, "category": "toilets", "ward": "W16", "street": "W16-S04", "ageHours": 44, "citizen": { "en": "Joseph Antony", "ta": "ஜோசப் அந்தோணி" }, "mobile": "99XXXXXX63", "description": "Public toilet near Kaveri Street market has no water and the door lock is broken.", "history": [], "claimedBy": "ravi.k", "claimedHoursAgo": 20 },
+    { "no": 4723, "category": "trees", "ward": "W10", "street": "W10-S03", "ageHours": 60, "citizen": { "en": "Gowri Shankar", "ta": "கௌரி சங்கர்" }, "mobile": "93XXXXXX29", "description": "A large branch has fallen across the footpath on Kaveri Road after the rain.", "history": [{ "kind": "photo", "hoursAgo": 59 }] },
+    { "no": 4728, "category": "garbage", "ward": "W16", "street": "W16-S02", "ageHours": 3, "citizen": { "en": "Nirmala Devi", "ta": "நிர்மலா தேவி" }, "mobile": "95XXXXXX50", "description": "Construction debris dumped on the corner of Elango Extension.", "history": [] },
+    { "no": 4730, "category": "roads", "ward": "W14", "street": "W14-S02", "ageHours": 110, "citizen": { "en": "Prakash Venkat", "ta": "பிரகாஷ் வெங்கட்" }, "mobile": "98XXXXXX76", "description": "Road cut for the cable work on Ilango Street has not been restored.", "history": [{ "kind": "photo", "hoursAgo": 108 }], "claimedBy": "officer.selvi", "claimedHoursAgo": 26 },
+    { "no": 4734, "category": "drains", "ward": "W15", "street": "W15-S02", "ageHours": 6, "citizen": { "en": "Kavitha Raman", "ta": "கவிதா ராமன்" }, "mobile": "96XXXXXX12", "description": "Storm water drain cover is missing near the Kovil 1st Street school gate.", "history": [{ "kind": "photo", "hoursAgo": 5 }] },
+    { "no": 4737, "category": "mosquito", "ward": "W13", "street": "W13-S04", "ageHours": 50, "citizen": { "en": "Murugan T.", "ta": "முருகன் த." }, "mobile": "91XXXXXX34", "description": "Stagnant water in the vacant plot on Pavalam Extension; mosquitoes are breeding.", "history": [] },
+    { "no": 4741, "category": "animals", "ward": "W12", "street": "W12-S04", "ageHours": 30, "citizen": { "en": "Shanthi Mohan", "ta": "சாந்தி மோகன்" }, "mobile": "94XXXXXX81", "description": "A pack of stray dogs near Mullai 1st Street is chasing children going to school.", "history": [], "claimedBy": "fathima.m", "claimedHoursAgo": 4 },
+    { "no": 4744, "category": "mosquito", "ward": "W10", "street": "W10-S01", "ageHours": 2, "citizen": { "en": "Dinesh Babu", "ta": "தினேஷ் பாபு" }, "mobile": "90XXXXXX02", "description": "Fogging has not been done on Avvai 2nd Street this month.", "history": [] },
+    { "no": 4748, "category": "roads", "ward": "W09", "street": "W09-S04", "ageHours": 20, "citizen": { "en": "Anitha Selvam", "ta": "அனிதா செல்வம்" }, "mobile": "97XXXXXX58", "description": "Speed breaker on Thoppu Main Road has no paint and is not visible at night.", "history": [] },
+    { "no": 4752, "category": "encroachment", "ward": "W11", "street": "W11-S01", "ageHours": 100, "citizen": { "en": "Rajesh Kannan", "ta": "ராஜேஷ் கண்ணன்" }, "mobile": "99XXXXXX90", "description": "Shops on Arasu Lane have extended their sheds over the full width of the footpath.", "history": [{ "kind": "reminder", "hoursAgo": 12 }] }
+  ],
+  "incoming": [
+    { "no": 4757, "category": "streetlight", "ward": "W14", "street": "W14-S01", "citizen": { "en": "Vasanthi K.", "ta": "வசந்தி க." }, "mobile": "93XXXXXX66", "description": "Street light at the Arasu Extension junction flickers and switches off by 9 pm." },
+    { "no": 4759, "category": "drains", "ward": "W12", "street": "W12-S03", "citizen": { "en": "Imran Basha", "ta": "இம்ரான் பாஷா" }, "mobile": "95XXXXXX23", "description": "Sewer line on Malligai 2nd Street overflows every time it rains." },
+    { "no": 4762, "category": "animals", "ward": "W10", "street": "W10-S04", "citizen": { "en": "Padma Srinivasan", "ta": "பத்மா சீனிவாசன்" }, "mobile": "98XXXXXX37", "description": "Cattle are left to roam on Malai Extension and block the road in the evenings." }
+  ]
+}

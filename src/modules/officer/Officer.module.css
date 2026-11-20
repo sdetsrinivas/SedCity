@@ -1,0 +1,93 @@
+.who { margin: 0 0 14px; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
+.loading { color: var(--c-muted); margin: 0; }
+.count { margin: 4px 0 10px; font-weight: 600; }
+
+/* DRP-05: ward chips */
+.wardField { flex: 1 1 360px; max-width: 560px; margin-bottom: 8px; }
+.chipBox {
+  position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 42px; padding: 5px 36px 5px 8px;
+  border: 1px solid var(--c-border); border-radius: var(--radius); background: var(--c-surface); cursor: text;
+}
+.chipBox:focus-within { border-color: var(--c-primary); box-shadow: 0 0 0 3px var(--c-primary-soft); }
+.chips { display: contents; list-style: none; margin: 0; padding: 0; }
+.chip {
+  display: inline-flex; align-items: center; gap: 4px; padding: 2px 4px 2px 10px; border-radius: 999px;
+  background: var(--c-primary-soft); color: var(--c-primary); font-size: 0.85rem; font-weight: 600; white-space: nowrap;
+}
+.chipRemove { display: inline-grid; place-items: center; width: 22px; height: 22px; border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
+.chipRemove:hover { background: var(--c-surface); }
+.chipInput { flex: 1 1 120px; min-width: 120px; border: 0; outline: none; background: transparent; color: var(--c-text); font: inherit; padding: 4px 2px; }
+.chipChevron { position: absolute; right: 10px; top: 12px; color: var(--c-muted); pointer-events: none; }
+.wardList {
+  position: absolute; z-index: 60; top: calc(100% + 4px); left: 0; right: 0; max-height: 300px; overflow-y: auto;
+  margin: 0; padding: 4px; list-style: none; background: var(--c-surface); color: var(--c-text);
+  border: 1px solid var(--c-border); border-radius: var(--radius); box-shadow: var(--shadow-2); cursor: default;
+}
+.wardOption { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 4px; cursor: pointer; }
+.wardActive { background: var(--c-primary-soft); }
+.wardName { flex: 1; }
+.tick { display: inline-grid; place-items: center; width: 18px; height: 18px; flex: none; border: 1.5px solid var(--c-border); border-radius: 4px; }
+.tickOn { background: var(--c-primary); border-color: var(--c-primary); color: var(--c-primary-ink); }
+.noMatch {
+  position: absolute; z-index: 60; top: calc(100% + 4px); left: 0; right: 0; margin: 0; padding: 10px 12px;
+  background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); box-shadow: var(--shadow-2);
+  color: var(--c-muted); font-size: 0.92rem;
+}
+.clearWards { align-self: flex-start; }
+
+/* DLG-10: bulk actions */
+.bulk { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 16px; }
+.bulkCount { font-size: 0.9rem; color: var(--c-muted); margin-right: 4px; }
+
+/* DYN-07 / TBL-06: the queue */
+.tableWrap { overflow-x: auto; }
+.queue { min-width: 860px; }
+.queue tbody tr { background: var(--c-surface); }
+.queue td, .queue th { vertical-align: middle; }
+.selCell, .toggleCell { width: 1%; padding-right: 0 !important; }
+.selCell input { width: 18px; height: 18px; accent-color: var(--c-primary); }
+.toggle { display: inline-grid; place-items: center; width: 32px; height: 32px; border: 1px solid transparent; border-radius: var(--radius); background: none; color: var(--c-primary); cursor: pointer; }
+.toggle:hover { background: var(--c-primary-soft); }
+.chev, .chevOpen { transition: transform 0.15s ease; }
+.chevOpen { transform: rotate(90deg); }
+.queue th.refCell { background: none; text-transform: none; letter-spacing: 0; color: var(--c-text); font-size: 0.92rem; }
+.refCell { font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.nowrap { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.rowOpen > td, .rowOpen > th { border-bottom-color: transparent; }
+.fresh { animation: arrive 2.4s ease-out; }
+@keyframes arrive { from { background: var(--c-accent-soft); } to { background: var(--c-surface); } }
+.left { color: var(--c-text); }
+.soon { color: var(--c-warn); font-weight: 700; }
+.overdue { color: var(--c-danger); font-weight: 700; }
+.claimCell { white-space: nowrap; }
+.rowBtn { min-height: 32px; padding: 4px 14px; font-size: 0.88rem; }
+.claimMine { display: inline-flex; align-items: center; gap: 6px; }
+.you { font-weight: 700; color: var(--c-green); }
+
+.detailRow > td { background: var(--c-surface-2); padding: 14px 18px 18px; }
+.detail { display: grid; gap: 10px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px 20px; margin: 0; }
+.facts dt { font-size: 0.78rem; font-weight: 600; color: var(--c-muted); }
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+.factWide { grid-column: 1 / -1; }
+.historyTitle { font-size: 0.9rem; margin: 4px 0 0; }
+.history { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 0.9rem; }
+.history li { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.history time { color: var(--c-muted); font-variant-numeric: tabular-nums; }
+
+@media (max-width: 720px) {
+  .queue { min-width: 0; }
+  .queue thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .queue, .queue tbody { display: block; width: 100%; }
+  .queue tbody tr:not(.detailRow) { display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: center; padding: 10px 0; border-bottom: 1px solid var(--c-border); }
+  .queue tbody tr:not(.detailRow) > td, .queue tbody tr:not(.detailRow) > th { border: 0; padding: 3px 0; }
+  .queue [data-label] { grid-column: 1 / -1; display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 8px; white-space: normal; }
+  .queue [data-label]::before { content: attr(data-label); content: attr(data-label) / ""; font-size: 0.8rem; font-weight: 600; color: var(--c-muted); }
+  .queue th[data-label] { grid-column: 3; grid-template-columns: minmax(0, 1fr); }
+  .queue th[data-label]::before { display: none; }
+  .selCell { padding-right: 10px !important; }
+  .claimCell > * { justify-self: start; }
+  .detailRow { display: block; }
+  .detailRow > td { display: block; border-bottom: 1px solid var(--c-border); }
+}
