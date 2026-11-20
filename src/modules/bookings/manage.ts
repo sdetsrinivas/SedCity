@@ -48,20 +48,31 @@ function groupFits(g: SeedGroup, date: string, today: string, held: HeldSlots[])
   });
 }
 
+/** The booking number a seeded booking gets when it was made `bookedDaysAgo` days before `today`. */
+const seedRef = (today: string, seq: number, bookedDaysAgo: number) =>
+  `AMC/BK/${addDays(today, -bookedDaysAgo).slice(0, 4)}/${String(seq).padStart(6, "0")}`;
+
 /**
  * The seeded bookings of the demo citizens (`data.seeded`), placed relative to `today`: each group goes on
  * the first day from today + offset (searching forward, then back to the window's first day) on which every
  * venue of the group is open and the slots are free. A group's bookings share venue / date / time on purpose
  * (a lapsed booking and its rebooking). Bounded by the booking window, so this always returns.
+ *
+ * `saved` are the booking records saved in this browser. They stay on fixed dates while the seeds move with
+ * today, so their slots count as taken when placing a group (except a saved record that rewrites one of the
+ * group's own bookings, which replaces that booking anyway). The result depends only on `today` and `saved`.
  */
-export function seededBookings(today: string): Application[] {
+export function seededBookings(today: string, saved: Application[] = []): Application[] {
   const out: Application[] = [];
+  const savedHeld = toHeld(saved.filter((a) => a.service === "booking"));
   const held: HeldSlots[] = [];
   for (const g of data.seeded) {
+    const own = new Set(g.items.map((it) => seedRef(today, it.seq, it.bookedDaysAgo)));
+    const blocking = [...savedHeld.filter((h) => !own.has(h.ref ?? "")), ...held];
     const from = addDays(today, g.offset);
     let date: string | null = null;
-    for (let d = from; !date && d <= lastBookable(today); d = addDays(d, 1)) if (groupFits(g, d, today, held)) date = d;
-    for (let d = addDays(from, -1); !date && d >= firstBookable(today); d = addDays(d, -1)) if (groupFits(g, d, today, held)) date = d;
+    for (let d = from; !date && d <= lastBookable(today); d = addDays(d, 1)) if (groupFits(g, d, today, blocking)) date = d;
+    for (let d = addDays(from, -1); !date && d >= firstBookable(today); d = addDays(d, -1)) if (groupFits(g, d, today, blocking)) date = d;
     if (!date) continue;
     const user = users.find((u) => u.username === g.user)!;
     const slots = Array.from({ length: g.slots }, (_, i) => g.start + i * SLOT_HOURS);
@@ -71,7 +82,7 @@ export function seededBookings(today: string): Application[] {
       const bookedOn = addDays(today, -it.bookedDaysAgo);
       const [y, m, d] = bookedOn.split("-").map(Number);
       const app: Application = {
-        ref: `AMC/BK/${y}/${String(it.seq).padStart(6, "0")}`,
+        ref: seedRef(today, it.seq, it.bookedDaysAgo),
         service: "booking",
         title: `Booking of ${v.en} on ${formatDate(date)}`,
         submittedAt: new Date(y, m - 1, d, 10, 30).toISOString(),
@@ -96,7 +107,7 @@ export function seededBookings(today: string): Application[] {
 export function allBookings(stored: Application[], today: string): Application[] {
   const saved = stored.filter((a) => a.service === "booking");
   const refs = new Set(saved.map((a) => a.ref));
-  return [...saved, ...seededBookings(today).filter((a) => !refs.has(a.ref))];
+  return [...saved, ...seededBookings(today, saved).filter((a) => !refs.has(a.ref))];
 }
 
 // ── Moving ─────────────────────────────────────────────────────

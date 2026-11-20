@@ -55,8 +55,13 @@ export function BookingForm({ uid, session, heldVersion = 0, onBooked }: { uid: 
 
   const venue = venueById(d.venue);
 
-  // A booking moved in "My bookings" frees its old slots and holds new ones: read them again.
-  useEffect(() => { if (heldVersion) setHeld(heldSlots()); }, [heldVersion]);
+  // A booking moved in "My bookings" frees its old slots and holds new ones: read them again, and load the
+  // slot map again (OTH-21) so the day shown does not keep the old picture.
+  useEffect(() => {
+    if (!heldVersion) return;
+    setHeld(heldSlots());
+    setReload((n) => n + 1);
+  }, [heldVersion]);
 
   // OTH-21: availability for the chosen venue and day (BOOKING_SLOTS); an older answer is ignored.
   useEffect(() => {

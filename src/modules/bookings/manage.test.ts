@@ -47,6 +47,53 @@ describe("seeded bookings", () => {
     expect(all.length).toBe(6);
   });
 
+  /** Pairs of active bookings that hold the same slot (same venue, date and start hour). */
+  const clashes = (apps: Application[]) => {
+    const seen = new Map<string, string>();
+    const out: string[] = [];
+    for (const h of toHeld(apps)) for (const s of h.slots) {
+      const key = `${h.venue}|${h.date}|${s}`;
+      if (seen.has(key)) out.push(`${seen.get(key)} & ${h.ref} at ${key}`);
+      else seen.set(key, h.ref ?? "");
+    }
+    return out;
+  };
+
+  it("never take a slot held by a booking saved in this browser, for every today over two years", () => {
+    for (const today of todays(800)) {
+      // Bookings saved on an earlier day on exactly the slots the seeds would take today (the old collision).
+      const naive = seededBookings(today);
+      const saved: Application[] = naive.filter((a) => a.status !== "Rejected").map((a, i) => ({
+        ...a, ref: `AMC/BK/2026/${String(4801 + i).padStart(6, "0")}`, status: "Submitted",
+      }));
+      // A seeded booking moved a few days ago, to where it could go then (it keeps its number).
+      const c = moveCase(addDays(today, -3));
+      if (c.target) saved.push(movedBooking(c.booking, c.venue, c.target.date, c.target.hour, ""));
+
+      const seeds = seededBookings(today, saved);
+      expect(seededBookings(today, saved), today).toEqual(seeds); // deterministic
+      expect(seeds.length, today).toBe(6);
+      expect(seeds.some((a) => a.details.venue === "V01"), today).toBe(false);
+      const [lapsed, rebooked, park] = seeds;
+      expect([lapsed.details.venue, lapsed.details.date, lapsed.details.start]).toEqual([rebooked.details.venue, rebooked.details.date, rebooked.details.start]);
+      expect([park.details.date, park.details.start]).toEqual([rebooked.details.date, rebooked.details.start]);
+      for (const a of seeds) {
+        expect(a.details.date >= firstBookable(today) && a.details.date <= lastBookable(today), `${today} ${a.ref}`).toBe(true);
+        expect(dayStatus(venueById(a.details.venue)!, a.details.date, today), `${today} ${a.ref}`).not.toBe("closed");
+      }
+      expect(clashes(allBookings(saved, today)), today).toEqual([]);
+    }
+  }, 20_000);
+
+  it("stay where they are on the day a booking is made or moved", () => {
+    for (const today of todays(120)) {
+      const c = moveCase(today);
+      const moved = movedBooking(c.booking, c.venue, c.target!.date, c.target!.hour, "");
+      const others = (apps: Application[]) => apps.filter((a) => a.ref !== moved.ref);
+      expect(others(allBookings([moved], today)), today).toEqual(others(seededBookings(today)));
+    }
+  });
+
   it("sorts by date, time and number", () => {
     const sorted = sortBookings(seededBookings("2026-11-19"));
     for (let i = 1; i < sorted.length; i++) {

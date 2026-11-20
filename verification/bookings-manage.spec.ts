@@ -206,6 +206,27 @@ test.describe("My bookings and moving a booking", () => {
     expect(await storedDate(page, c.booking.ref)).toBe(t.date);
   });
 
+  test("[OTH-21][OTH-03] after a move the slot map of the day shown is loaded again", async ({ page }) => {
+    const { c, chip, cell, start } = await openBoard(page);
+    const t = c.target!;
+    // The booking form shows the booking's current day at its venue: its slots are booked.
+    await page.getByLabel("Venue", { exact: true }).selectOption({ value: c.venue.id });
+    await page.getByRole("button", { name: "Booking date" }).click();
+    const cal = page.getByRole("dialog", { name: "Choose the booking date" });
+    const name = new Date(`${start.date}T12:00:00`).toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    const day = cal.getByRole("button", { name, exact: true });
+    for (let i = 0; i < 3 && !(await day.isVisible()); i++) await cal.getByRole("button", { name: "Next month" }).click();
+    await day.click();
+    const slot = (state: string) =>
+      page.getByRole("group", { name: /^Time slots on/ }).getByRole("checkbox", { name: `${hhmm(start.hour)} – ${hhmm(start.hour + 2)}, ${state}` });
+    await expect(slot("booked")).toBeVisible();
+
+    await chip.dragTo(cell(t));
+    await expect(page.getByRole("status").filter({ hasText: `has been moved to ${ddmmyyyy(t.date)}` })).toBeVisible();
+    // Without choosing the day again, the freed slot is shown as available.
+    await expect(slot("available")).toBeVisible();
+  });
+
   test("[OTH-03] with every delay scaled to 0 the move still goes through", async ({ page, context }) => {
     await mockDelays(context, { scale: 0 });
     const { c, chip, cell } = await openBoard(page);

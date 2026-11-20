@@ -2,10 +2,12 @@ import { describe, expect, it } from "vitest";
 import { fireEvent, screen, waitFor, within } from "@testing-library/react";
 import { renderWithProviders } from "./render";
 import { MyBookings } from "@/modules/bookings/MyBookings";
+import { BookingForm } from "@/modules/bookings/BookingForm";
+import { useState } from "react";
 import { listApplications } from "@/lib/applications";
 import { listSms } from "@/lib/sms";
 import { formatDate, todayISO } from "@/lib/format";
-import { hhmm } from "@/modules/bookings/booking";
+import { hhmm, slotLabel } from "@/modules/bookings/booking";
 import type { Session } from "@/lib/session";
 import { moveCase } from "../../verification/booking-moves";
 
@@ -110,5 +112,49 @@ describe("My bookings", () => {
     expect(screen.getByText(new RegExp(`^${formatDate(t.date)}, ${hhmm(t.hour)} – .*: free$`))).toBeInTheDocument();
     fireEvent.keyDown(chip, { key: " " });
     await waitFor(() => expect(listApplications().find((a) => a.ref === c.booking.ref)?.details.date).toBe(t.date));
+  });
+
+  /** The booking form and "My bookings" wired as on the page: a move bumps the form's held version. */
+  function FormAndList() {
+    const [moved, setMoved] = useState(0);
+    return (
+      <div>
+        <BookingForm uid="t" session={session} heldVersion={moved} />
+        <MyBookings session={session} version={0} onMoved={() => setMoved((n) => n + 1)} />
+      </div>
+    );
+  }
+
+  /** Choose the venue and day in the booking form (paging the calendar to the day's month). */
+  async function showDay(venue: string, date: string) {
+    fireEvent.change(screen.getByLabelText("Venue"), { target: { value: venue } });
+    fireEvent.click(screen.getByRole("button", { name: "Booking date" }));
+    const cal = screen.getByRole("dialog", { name: "Choose the booking date" });
+    const label = new Date(`${date}T12:00:00`).toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    for (let i = 0; i < 3 && !within(cal).queryByRole("button", { name: label }); i++) fireEvent.click(within(cal).getByRole("button", { name: "Next month" }));
+    fireEvent.click(within(cal).getByRole("button", { name: label }));
+  }
+
+  it.each(["old", "new"] as const)("[OTH-21] after a move the slot map shown for the booking's %s day is loaded again", async (which) => {
+    renderWithProviders(<FormAndList />);
+    const c = moveCase(todayISO());
+    const t = c.target!;
+    const from = { date: c.booking.details.date, hour: Number(c.booking.details.slots.split(",")[0]) };
+    const at = which === "old" ? from : t;
+    await showDay(c.booking.details.venue, at.date);
+    const slot = (state: string) => screen.findByRole("checkbox", { name: `${slotLabel(at.hour)}, ${state}` });
+    await slot(which === "old" ? "booked" : "available");
+
+    const table = await screen.findByRole("table");
+    const row = within(table).getByRole("rowheader", { name: c.booking.ref }).closest("tr")!;
+    fireEvent.click(within(row).getByRole("button", { name: "Move" }));
+    const board = await screen.findByRole("region", { name: `Availability for the week of ${formatDate(c.monday)}` });
+    const dt = transfer();
+    dt.setData("text/plain", c.booking.ref);
+    fireEvent.drop(cell(board, c.monday, t.date, t.hour), { dataTransfer: dt });
+    await screen.findByText(new RegExp(`has been moved to ${formatDate(t.date)}`));
+
+    // The freed slot is free again and the newly held one is booked, without choosing the day again.
+    expect(await slot(which === "old" ? "available" : "booked")).toBeInTheDocument();
   });
 });
