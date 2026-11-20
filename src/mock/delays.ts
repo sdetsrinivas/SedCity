@@ -36,8 +36,8 @@ export const DELAYS = {
   TOAST_TTL: { spec: fixed(3000), page: "(global)", element: "Auto-dismissing toast", traps: ["DLG-09"] },
   HYDRATE_REGISTER: { spec: fixed(3000), page: "/register", element: "Terms & conditions checkbox", traps: ["CHK-09"] },
   REGISTER_SUBMIT: { spec: fixed(1200), page: "/register", element: "Create account button", traps: [] },
-  SESSION_WARN: { spec: fixed(240_000), page: "(signed-in pages)", element: "Session timeout warning modal (idle time before it opens)", traps: ["DLG-05"] },
-  SESSION_COUNTDOWN: { spec: fixed(60_000), page: "(signed-in pages)", element: "Session timeout modal countdown", traps: ["DLG-05"] },
+  SESSION_WARN: { spec: fixed(240_000), page: "(signed-in pages)", element: "Session timeout warning modal (idle time before it opens; a limit: `scale` does not apply, only a by-name override)", traps: ["DLG-05"] },
+  SESSION_COUNTDOWN: { spec: fixed(60_000), page: "(signed-in pages)", element: "Session timeout modal countdown (a limit: `scale` does not apply, only a by-name override)", traps: ["DLG-05"] },
   // ── Shared geography (zone → ward → street) ─────────────────────
   ZONE_LIST: { spec: fixed(800), page: "/services/electricity/new-connection", element: "Premises step → Zone dropdown options", traps: ["DRP-08"] },
   WARD_LIST: { spec: fixed(2000), page: "/services/electricity/new-connection", element: "Premises step → Ward dropdown options", traps: ["DRP-08"] },
@@ -77,6 +77,9 @@ export const DELAYS = {
   MAP_IFRAME: { spec: fixed(5000), page: "/directory/offices", element: "Offices on the map → 'Loading map…' placeholder, then the map <iframe> (no id or name) is inserted", traps: ["FRM-04"] },
   LOCATE_TIMEOUT: { spec: fixed(10_000), page: "/directory/offices", element: "Use my current location → longest wait for the browser to share the position (after permission) before 'Your location could not be found' (a limit: `scale` does not apply, only a by-name override)", traps: ["DLG-17"] },
   OFFICE_NEAREST: { spec: fixed(1000), page: "/directory/offices", element: "Use my current location → after the browser shares the position, 'Finding offices near you…' then the nearest-office message, the list ordered by distance and the nearest office selected", traps: ["DLG-17", "OTH-20"] },
+  // ── Bookings: find and book ─────────────────────────────────────
+  BOOKING_SLOTS: { spec: fixed(1200), page: "/bookings", element: "2. Time slots → 'Checking availability…' then the slot map (a new <svg>) after the venue or the date changes (chosen in the calendar)", traps: ["OTH-21", "DAT-02"] },
+  BOOKING_SUBMIT: { spec: fixed(1500), page: "/bookings", element: "Confirm your booking dialog → Confirm booking: the dialog closes, 'Booking…' on the Review and book button, then the acknowledgement with the booking number", traps: ["DLG-06"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },

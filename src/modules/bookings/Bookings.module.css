@@ -1,0 +1,110 @@
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 24px; align-items: start; }
+.form { min-width: 0; }
+.form > :global(.alert) { scroll-margin-top: 150px; }
+.section { margin-bottom: 20px; }
+.errList { margin: 6px 0 0; padding-left: 20px; }
+.aside { position: sticky; top: 110px; }
+.aside ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: 0.9rem; }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; max-width: 680px; }
+.short { max-width: 260px; }
+.wide { max-width: 560px; }
+.eventFields { display: grid; gap: 0; }
+.loading { color: var(--c-muted); margin: 0; }
+.actions { display: flex; justify-content: flex-end; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--c-border); }
+
+.venueFacts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px 16px; margin: 4px 0 0; padding: 12px 14px; border: 1px solid var(--c-border); border-radius: var(--radius); background: var(--c-surface-2); }
+.venueFacts dt { font-size: 0.78rem; color: var(--c-muted); }
+.venueFacts dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+
+/* DAT-02: date trigger and popover calendar */
+.calWrap { position: relative; }
+.dateBtn { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; max-width: 260px; padding: 9px 12px; border: 1px solid var(--c-border); border-radius: var(--radius); background: var(--c-surface); color: var(--c-text); font: inherit; text-align: left; cursor: pointer; font-variant-numeric: tabular-nums; }
+.dateBtn:hover:not(:disabled) { border-color: var(--c-primary); }
+.dateBtn:focus-visible { outline: none; border-color: var(--c-primary); box-shadow: 0 0 0 3px var(--c-primary-soft); }
+.dateBtn:disabled { background: var(--c-surface-2); color: var(--c-muted); cursor: not-allowed; }
+.dateBtn[aria-invalid="true"] { border-color: var(--c-danger); }
+.dateEmpty span { color: var(--c-muted); }
+.calPop { position: absolute; z-index: 60; top: calc(100% + 6px); left: 0; width: 300px; max-width: calc(100vw - 32px); padding: 10px; border: 1px solid var(--c-border); border-radius: var(--radius-lg); background: var(--c-surface); box-shadow: var(--shadow-2); }
+.calHead { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.calHead strong { text-transform: capitalize; }
+.calWeek { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; }
+.calWeek > span { padding: 4px 0; font-size: 0.75rem; font-weight: 700; text-align: center; color: var(--c-muted); }
+.day { height: 36px; padding: 0; border: 1px solid transparent; border-radius: var(--radius); background: transparent; color: var(--c-text); font: inherit; font-size: 0.9rem; font-variant-numeric: tabular-nums; cursor: pointer; }
+.day:hover:not(:disabled) { background: var(--c-primary-soft); }
+.day:focus { outline: none; }
+.day:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 0; }
+.day:disabled { color: var(--c-muted); opacity: 0.55; text-decoration: line-through; cursor: not-allowed; }
+.dayOther { color: var(--c-muted); }
+.dayToday { border-color: var(--c-border); }
+.daySel, .daySel:hover:not(:disabled) { background: var(--c-primary); color: var(--c-primary-ink); font-weight: 700; }
+.calNote { margin: 8px 0 0; }
+
+/* OTH-21: slot map */
+.slotScroll { overflow-x: auto; padding: 4px 0; border-radius: var(--radius); }
+.slotInvalid { outline: 2px solid var(--c-danger); outline-offset: 2px; }
+.slotSvg { display: block; width: 100%; min-width: 560px; height: auto; }
+.slot { fill: var(--c-surface); stroke: var(--c-border); stroke-width: 1.5; cursor: pointer; }
+.slot:hover { fill: var(--c-primary-soft); }
+.slot:focus { outline: none; }
+.slot:focus-visible { stroke: var(--c-focus); stroke-width: 4; }
+.slotOn, .slotOn:hover { fill: var(--c-primary); stroke: var(--c-primary-strong); }
+.slotTaken { cursor: not-allowed; }
+.hatchBg { fill: var(--c-surface-2); }
+.hatchLine { stroke: var(--c-border); stroke-width: 3; }
+.slotWord { font-size: 12px; font-weight: 700; text-anchor: middle; fill: var(--c-muted); pointer-events: none; }
+.slotWordOn { fill: var(--c-primary-ink); }
+.axis { stroke: var(--c-border); stroke-width: 1.5; }
+.tick { font-size: 13px; text-anchor: middle; fill: var(--c-muted); font-variant-numeric: tabular-nums; }
+.slotNote { min-height: 1.4em; margin: 8px 0 0; font-weight: 600; }
+.slotNoteWarn { color: var(--c-warn); }
+
+/* CHK-07: amenity tiles */
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+.tile { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto; gap: 2px 10px; align-items: center; padding: 12px; border: 1px solid var(--c-border); border-radius: var(--radius); background: var(--c-surface); cursor: pointer; user-select: none; }
+.tile:hover { border-color: var(--c-primary); }
+.tile:focus { outline: none; }
+.tile:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+.tileOn { border-color: var(--c-primary); background: var(--c-primary-soft); }
+.tileMark { grid-row: span 2; color: var(--c-primary); }
+.tileMark circle { fill: none; stroke: currentColor; stroke-width: 1.6; }
+.tileMark path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tileOn .tileMark circle { fill: var(--c-primary); }
+.tileOn .tileMark path { stroke: var(--c-primary-ink); }
+.tileName { font-weight: 600; font-size: 0.92rem; }
+.tileFee { font-size: 0.82rem; color: var(--c-muted); font-variant-numeric: tabular-nums; }
+
+/* Fees */
+.fees { display: grid; gap: 6px; max-width: 520px; margin: 0; }
+.fees > div { display: flex; justify-content: space-between; gap: 16px; }
+.fees dt { color: var(--c-muted); }
+.fees dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.feesTotal { padding-top: 8px; border-top: 1px solid var(--c-border); }
+.feesTotal dt { color: var(--c-text); font-weight: 700; }
+.feesTotal dd { font-size: 1.15rem; font-weight: 800; color: var(--c-primary); }
+
+/* DLG-06: native dialog */
+.dialog { width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 48px); padding: 20px 22px; border: 1px solid var(--c-border); border-radius: var(--radius-lg); background: var(--c-surface); color: var(--c-text); box-shadow: var(--shadow-2); }
+.dialog::backdrop { background: var(--c-overlay); }
+.dialogTitle { margin: 0 0 12px; font-size: 1.25rem; }
+.dialogTotal { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 12px; border: 1px solid var(--c-border); border-radius: var(--radius); background: var(--c-surface-2); font-weight: 600; }
+.dialogTotal strong { font-size: 1.15rem; color: var(--c-primary); font-variant-numeric: tabular-nums; }
+.dialogActions { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+/* Acknowledgement (and the dialog's summary) */
+.done { text-align: center; max-width: 680px; margin: 0 auto; }
+.doneIcon { display: inline-grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--c-green-soft); color: var(--c-green); margin-bottom: 12px; }
+.refBox { margin: 14px auto; padding: 14px 18px; border: 1px solid var(--c-border); border-radius: var(--radius-lg); background: var(--c-surface-2); display: inline-flex; flex-direction: column; gap: 6px; }
+.refNo { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 1.3rem; font-weight: 800; color: var(--c-primary); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px 16px; margin: 8px 0 16px; text-align: left; }
+.facts dt { font-size: 0.78rem; color: var(--c-muted); }
+.facts dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+.doneActions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .aside { position: static; }
+}
+@media (max-width: 560px) {
+  .pair { grid-template-columns: minmax(0, 1fr); }
+  .tiles { grid-template-columns: minmax(0, 1fr); }
+}
