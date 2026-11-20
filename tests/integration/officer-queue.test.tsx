@@ -94,4 +94,18 @@ describe("Officer work queue", () => {
     fireEvent.click(within(row(table, "4730")).getByRole("button", { name: "Hide details" }));
     expect(detail).not.toBeInTheDocument();
   });
+
+  it("reloads the details of a row reopened while its claim was running", async () => {
+    const table = await renderQueue();
+    document.cookie = `amc_mock=${encodeURIComponent(JSON.stringify({ scale: 0, delays: { TOAST_TTL: 3000, QUEUE_POLL: 600_000, QUEUE_CLAIM: 300 } }))}; path=/`;
+    const toggle = () => within(row(table, "4711")).getByRole("button", { name: /^(Show|Hide) details$/ });
+    fireEvent.click(toggle());
+    const detailId = toggle().getAttribute("aria-controls")!;
+    await waitFor(() => expect(document.getElementById(detailId)).not.toHaveTextContent("Loading details…"));
+    fireEvent.click(toggle());
+    fireEvent.doubleClick(within(row(table, "4711")).getByRole("button", { name: "Claim" }));
+    fireEvent.click(toggle());
+    await waitFor(() => expect(within(row(table, "4711")).getByRole("button", { name: "Release" })).toBeInTheDocument());
+    await waitFor(() => expect(within(document.getElementById(detailId)!).getByText("Claimed by Selvi Natarajan")).toBeInTheDocument());
+  });
 });

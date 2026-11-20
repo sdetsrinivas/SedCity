@@ -126,6 +126,7 @@ test.describe("Officer work queue", () => {
 
     // The first success goes while later toasts are still showing; the failure stays.
     await expect(toast(/004711 claimed\./)).toBeHidden({ timeout: 4000 });
+    await expect(toast(/^Claimed 2 of 4/)).toBeVisible();
     await expect(toast(/^Claimed 2 of 4/)).toBeHidden({ timeout: 4000 });
     await expect(failure).toBeVisible();
     await failure.getByRole("button", { name: "Dismiss notification" }).click();

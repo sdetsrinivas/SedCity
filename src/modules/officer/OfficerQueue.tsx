@@ -38,6 +38,8 @@ function QueueBoard({ session }: { session: Session }) {
   const [wards, setWards] = useState<string[]>([]);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  /** Mirrors `expanded` synchronously, so a claim that finishes later sees rows opened while it ran. */
+  const expandedRef = useRef<Set<string>>(expanded);
   const [details, setDetails] = useState<Record<string, DetailState>>({});
   const [busy, setBusy] = useState<Record<string, RowBusy>>({});
   const [fresh, setFresh] = useState<Set<string>>(new Set());
@@ -113,13 +115,14 @@ function QueueBoard({ session }: { session: Session }) {
 
   /** After a claim or release the history changed: reload open details, forget closed ones. */
   const historyChanged = useCallback((ref: string) => {
-    if (expanded.has(ref)) loadDetail(ref);
+    if (expandedRef.current.has(ref)) loadDetail(ref);
     else setDetails((cur) => { const next = { ...cur }; delete next[ref]; return next; });
-  }, [expanded, loadDetail]);
+  }, [loadDetail]);
 
   const toggleRow = (ref: string) => {
-    const opening = !expanded.has(ref);
-    setExpanded((cur) => toggleIn(cur, ref));
+    const opening = !expandedRef.current.has(ref);
+    expandedRef.current = toggleIn(expandedRef.current, ref);
+    setExpanded(expandedRef.current);
     if (opening && (!details[ref] || details[ref] === "error")) loadDetail(ref);
   };
 
