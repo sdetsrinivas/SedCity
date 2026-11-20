@@ -1,19 +1,16 @@
 import { call } from "../api";
-import { listApplications, type Application } from "@/lib/applications";
-import { takenSlots, venueById, venueSlots, type HeldSlots } from "@/modules/bookings/booking";
+import { listApplications, saveApplication, type Application } from "@/lib/applications";
+import { todayISO } from "@/lib/format";
+import { dayStatus, takenSlots, venueById, venueSlots, type DayStatus, type HeldSlots } from "@/modules/bookings/booking";
+import { allBookings, isMine, moveProblem, movedBooking, sortBookings, toHeld, weekOf, type MoveProblem } from "@/modules/bookings/manage";
 
-/** Statuses that no longer hold their slots. */
-const RELEASED: Application["status"][] = ["Rejected"];
-
-/** Slots held by the bookings saved in this browser (service "booking", details.slots like "8,10"). */
-export function heldSlots(apps: Application[] = listApplications()): HeldSlots[] {
-  return apps
-    .filter((a) => a.service === "booking" && !RELEASED.includes(a.status))
-    .map((a) => ({
-      venue: a.details.venue,
-      date: a.details.date,
-      slots: (a.details.slots ?? "").split(",").filter(Boolean).map(Number),
-    }));
+/**
+ * Slots held by bookings: the ones saved in this browser (service "booking", details.slots like "8,10")
+ * and the seeded bookings of the demo citizens that have not been rewritten here. A lapsed booking
+ * (status Rejected) holds nothing.
+ */
+export function heldSlots(apps: Application[] = listApplications(), today = todayISO()): HeldSlots[] {
+  return toHeld(allBookings(apps, today));
 }
 
 export interface SlotAvailability {
@@ -50,4 +47,51 @@ export const submitBooking = (p: BookingPayload) =>
     const taken = v ? takenSlots(v, p.date, heldSlots()) : [];
     if (!v || p.slots.some((h) => taken.includes(h))) return { ok: false as const, reason: "taken" as const };
     return { ok: true as const, payWithinDays: 3 };
+  });
+
+// ── My bookings (module 10 part B) ─────────────────────────────
+
+/** The signed-in citizen's bookings, by date and time (MY_BOOKINGS). */
+export const fetchMyBookings = (mobile: string) =>
+  call("MY_BOOKINGS", () => sortBookings(allBookings(listApplications(), todayISO()).filter((a) => isMine(a, mobile))));
+
+export interface BoardDay {
+  date: string;
+  /** Why the day cannot take a booking ("full" is shown through `taken`). */
+  status: Exclude<DayStatus, "full"> | null;
+  /** Start hours booked by others (the booking being moved does not count). */
+  taken: number[];
+}
+
+/** A week of the venue's availability for moving booking `ref` (BOOKING_WEEK). */
+export const fetchWeek = (venueId: string, monday: string, ref: string) =>
+  call("BOOKING_WEEK", (): BoardDay[] => {
+    const v = venueById(venueId);
+    const today = todayISO();
+    const held = heldSlots().filter((h) => h.ref !== ref);
+    return weekOf(monday).map((date) => {
+      const st = v ? dayStatus(v, date, today, held) : "outside";
+      const open = st === null || st === "full";
+      return { date, status: open ? null : st, taken: v && open ? takenSlots(v, date, held) : [] };
+    });
+  });
+
+export type MoveResult = { ok: true; booking: Application } | { ok: false; reason: MoveProblem | "missing" };
+
+/**
+ * Moves booking `ref` to `date`, starting at `start` and keeping its length (BOOKING_MOVE). The target is
+ * checked again here against every other booking; on success the same record (same ref) is rewritten.
+ */
+export const moveBooking = (ref: string, date: string, start: number, title: string) =>
+  call("BOOKING_MOVE", (): MoveResult => {
+    const today = todayISO();
+    const stored = listApplications();
+    const app = allBookings(stored, today).find((a) => a.ref === ref);
+    const v = app && venueById(app.details.venue);
+    if (!app || !v || app.status === "Rejected") return { ok: false, reason: "missing" };
+    const problem = moveProblem(v, app, date, start, today, heldSlots(stored, today).filter((h) => h.ref !== ref));
+    if (problem) return { ok: false, reason: problem };
+    const booking = movedBooking(app, v, date, start, title);
+    saveApplication(booking);
+    return { ok: true, booking };
   });

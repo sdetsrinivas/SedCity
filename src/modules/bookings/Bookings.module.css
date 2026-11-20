@@ -108,3 +108,69 @@
   .pair { grid-template-columns: minmax(0, 1fr); }
   .tiles { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* TBL-08: my bookings */
+.mineScroll { overflow-x: auto; margin-bottom: 8px; }
+.mine th[scope="row"] { background: transparent; font-size: inherit; text-transform: none; letter-spacing: 0; color: var(--c-text); }
+.mineRef { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-weight: 700; white-space: nowrap; }
+.mine td { vertical-align: top; }
+.mineNowrap { white-space: nowrap; }
+.mineAmount { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mineAction { text-align: right; }
+.mineBtn { min-height: 34px; padding: 0 14px; }
+.mineLapsed td, .mineLapsed th[scope="row"] { color: var(--c-muted); }
+.mineBadge { display: inline-block; padding: 2px 8px; border: 1px solid; border-radius: 999px; font-size: 0.78rem; font-weight: 700; white-space: nowrap; }
+.mine_due { color: var(--c-warn); background: var(--c-warn-soft); border-color: var(--c-warn); }
+.mine_paid { color: var(--c-green); background: var(--c-green-soft); border-color: var(--c-green); }
+.mine_lapsed { color: var(--c-muted); background: var(--c-surface-2); border-color: var(--c-border); }
+.minePay { display: block; margin-top: 4px; }
+
+/* OTH-03: move booking board */
+.board { scroll-margin-top: 140px; }
+.boardVenue { margin: 0 0 12px; font-weight: 600; }
+.boardTop { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: flex-start; }
+.boardHelp { flex: 1 1 260px; min-width: 0; }
+.boardHelp p { margin: 0 0 4px; }
+.chip { display: grid; gap: 2px; padding: 10px 14px; border: 1px solid var(--c-primary-strong); border-radius: var(--radius); background: var(--c-primary); color: var(--c-primary-ink); cursor: grab; user-select: none; font-variant-numeric: tabular-nums; }
+.chip strong { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+.chip:active { cursor: grabbing; }
+.chip:focus { outline: none; }
+.chip:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+.chipPicked { box-shadow: 0 0 0 3px var(--c-focus); }
+.chipBusy { opacity: 0.6; cursor: progress; }
+.boardStatus { min-height: 1.4em; margin: 12px 0; font-weight: 600; }
+.boardOk { color: var(--c-green); }
+.boardCursor { display: block; font-weight: 400; color: var(--c-text); }
+.weekNav { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.weekNav strong { font-variant-numeric: tabular-nums; }
+.boardScroll { overflow-x: auto; border: 1px solid var(--c-border); border-radius: var(--radius); }
+.boardScroll:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+.boardTable { width: 100%; min-width: 640px; border-collapse: collapse; table-layout: fixed; font-size: 0.85rem; }
+.boardTable th, .boardTable td { border: 1px solid var(--c-border); padding: 6px; text-align: center; }
+.boardTable thead th { background: var(--c-surface-2); font-weight: 700; }
+.boardTable thead th:first-child, .boardTable tbody th { width: 112px; }
+.boardTable tbody th { background: var(--c-surface-2); font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.boardTable thead span { display: block; }
+.dayDate { font-weight: 400; font-variant-numeric: tabular-nums; }
+.dayWhy { font-size: 0.72rem; font-weight: 600; color: var(--c-muted); }
+.dayOff { color: var(--c-muted); }
+.cell { height: 44px; background: var(--c-surface); color: var(--c-muted); font-weight: 600; font-size: 0.76rem; line-height: 1.2; overflow-wrap: anywhere; }
+.cellOff { background: var(--c-surface-2); }
+.cellTaken { background: repeating-linear-gradient(45deg, var(--c-surface-2) 0 6px, var(--c-surface) 6px 12px); }
+.cellOwn { background: var(--c-primary-soft); color: var(--c-primary); }
+.cellOk { box-shadow: inset 0 0 0 3px var(--c-green); background: var(--c-green-soft); color: var(--c-text); }
+.cellBad { box-shadow: inset 0 0 0 3px var(--c-danger); }
+.cellSame { box-shadow: inset 0 0 0 3px var(--c-primary); }
+
+@media (max-width: 640px) {
+  .mine thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .mine, .mine tbody, .mine tr, .mine th[scope="row"], .mine td { display: block; width: 100%; }
+  .mine tr { padding: 10px 0; border-bottom: 1px solid var(--c-border); }
+  .mine th[scope="row"], .mine td { border: 0; padding: 3px 0; }
+  .mine th[data-label], .mine td[data-label] { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 8px; }
+  .mine [data-label]::before { content: attr(data-label); content: attr(data-label) / ""; font-size: 0.8rem; font-weight: 600; color: var(--c-muted); }
+  .mineAction { text-align: left; padding-top: 6px; }
+  .mineAction:empty { display: none; }
+  .mineNowrap { white-space: normal; }
+  .weekNav strong { order: -1; width: 100%; }
+}

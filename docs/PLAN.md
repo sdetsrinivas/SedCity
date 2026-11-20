@@ -36,7 +36,7 @@ Hard rules from the brief:
 | 7 | Certificates (Birth / Trade Licence) | `/certificates/birth`, `/certificates/trade-license` | ✅ |
 | 8 | City News & Events | `/news`, `/news/events/[slug]` | ✅ |
 | 9 | Officials & Office Directory (table + virtualized vanilla view + geolocation) | `/directory/officials`, `/directory/offices` | ✅ |
-| 10 | Hall / Park Booking (part A find and book ✅, part B my bookings / move ⏳) | `/bookings` | ⏳ |
+| 10 | Hall / Park Booking (part A find and book, part B my bookings / move) | `/bookings` | ✅ |
 | 11 | My Dashboard (+ Officer work queue) | `/dashboard`, `/officer/queue` | ⏳ |
 | 12 | Help (shadow-DOM chatbot, FAQ, nested-iframe survey) | `/help`, `/help/survey` | ⏳ |
 | — | Trap registry completion, `npm run guide` → `docs/trap-guide.md` + `docs/Astheenapuram-Trap-Guide.pdf` (cover, TOC, section per element type, summary table; **not linked or served from the site**), full verification | | ⏳ |
@@ -54,7 +54,7 @@ Add each to `src/mock/delays.ts` with page, element and linked trap IDs when its
 | `SURVEY_INNER` | 2s | Nested survey iframe |
 | `STREAM_DASHBOARD` | 3s | Dashboard server streaming |
 
-Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`, `DIRECTORY_PAGE`, `DIRECTORY_EXPORT`, `MAP_IFRAME`, `LOCATE_TIMEOUT`, `OFFICE_NEAREST`, `BOOKING_SLOTS`, `BOOKING_SUBMIT`.
+Already registered: search debounce/suggest, `STREAM_ANNOUNCEMENTS`, `HYDRATE_HOME`, `CAROUSEL_ROTATE`, login/OTP/toast TTL, `HYDRATE_REGISTER`, `REGISTER_SUBMIT`, session warn/countdown, `ZONE_LIST`/`WARD_LIST`/`STREET_LIST`, `STEP_ANIMATION`, `REVIEW_BANNER`, `ELEC_SUBMIT`, `CONSUMER_LOOKUP`, `PAY_OVERLAY`, `GATEWAY_LOAD`, `GATEWAY_OTP_SEND`, `GATEWAY_OTP_VERIFY`, `GATEWAY_RETURN`, `ASSESSMENT_DEBOUNCE`, `ASSESSMENT_CHECK`, `LOCALITY_PAGE`, `GRIEVANCE_SUBMIT`, `GRIEVANCE_LOOKUP`, `GRIEVANCE_POLL`, `GRIEVANCE_STATUS`, `GRIEVANCE_UPDATE`, `BIRTH_SUBMIT`, `TRADE_FEE`, `TRADE_SUBMIT`, `NEWS_PAGE`, `HYDRATE_NEWS`, `EVENT_SEATS`, `EVENT_REGISTER`, `DIRECTORY_PAGE`, `DIRECTORY_EXPORT`, `MAP_IFRAME`, `LOCATE_TIMEOUT`, `OFFICE_NEAREST`, `BOOKING_SLOTS`, `BOOKING_SUBMIT`, `MY_BOOKINGS`, `BOOKING_WEEK`, `BOOKING_MOVE`.
 
 ## Seeded accounts (README only, never on the site)
 
@@ -66,7 +66,7 @@ Approved plan for the Astheenapuram Citizen Services Portal: a realistic municip
 
 Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ live · ⏳ planned.
 
-**131 traps · 100 live · 31 planned.** Difficulty mix: E 39 / M 51 / H 41.
+**131 traps · 102 live · 29 planned.** Difficulty mix: E 39 / M 51 / H 41.
 
 
 ## Checkbox (CHK)
@@ -210,7 +210,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 | TBL-05 | Editable cells | `/services/property-tax/assess: floors` | H | ✅ |
 | TBL-06 | Expandable rows | `/officer/queue` | M | ⏳ |
 | TBL-07 | Sticky header | `/grievances/track: my grievances` | E | ✅ |
-| TBL-08 | Duplicate text across rows | `/bookings: my bookings` | M | ⏳ |
+| TBL-08 | Duplicate text across rows | `/bookings: my bookings` | M | ✅ |
 
 ## Date & time (DAT)
 
@@ -240,7 +240,7 @@ Difficulty: E easy · M medium · H hard (target mix ≈30/40/30). Status: ✅ l
 |---|---|---|---|---|
 | OTH-01 | Native slider | `/services/property-tax/assess: building age` | E | ✅ |
 | OTH-02 | Custom slider | `/services/water/pay: partial payment` | H | ✅ |
-| OTH-03 | HTML5 drag-and-drop | `/bookings: move booking` | H | ⏳ |
+| OTH-03 | HTML5 drag-and-drop | `/bookings: move booking` | H | ✅ |
 | OTH-04 | Pointer-event drag-and-drop | `/dashboard: reorder widgets` | H | ⏳ |
 | OTH-05 | Canvas signature | `/certificates/trade-license` | H | ✅ |
 | OTH-06 | SVG needing local-name() XPath | `/grievances/new: ward map` | H | ✅ |

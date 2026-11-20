@@ -8,6 +8,34 @@
     { "id": "stage", "fee": 1000, "en": "Stage with backdrop", "ta": "பின்னணித் திரையுடன் மேடை" },
     { "id": "cleaning", "fee": 600, "en": "Cleaning after the event", "ta": "நிகழ்வுக்குப் பின் சுத்தம் செய்தல்" }
   ],
+  "seeded": [
+    {
+      "user": "meena.r", "offset": 12, "start": 18, "slots": 2,
+      "items": [
+        { "seq": 4702, "venue": "V02", "status": "Rejected", "bookedDaysAgo": 10, "amenities": ["sound", "chairs", "kitchen"], "purpose": "Daughter's wedding reception", "attendees": 350 },
+        { "seq": 4719, "venue": "V02", "status": "Submitted", "bookedDaysAgo": 1, "amenities": ["sound", "chairs", "kitchen"], "purpose": "Daughter's wedding reception", "attendees": 350 },
+        { "seq": 4744, "venue": "V03", "status": "Paid", "bookedDaysAgo": 6, "amenities": ["lighting", "sound"], "purpose": "Residents' association music evening", "attendees": 250 }
+      ]
+    },
+    {
+      "user": "meena.r", "offset": 20, "start": 18, "slots": 2,
+      "items": [
+        { "seq": 4731, "venue": "V02", "status": "Submitted", "bookedDaysAgo": 2, "amenities": ["sound", "stage"], "purpose": "Engagement ceremony", "attendees": 200 }
+      ]
+    },
+    {
+      "user": "meena.r", "offset": 27, "start": 10, "slots": 1,
+      "items": [
+        { "seq": 4756, "venue": "V06", "status": "Submitted", "bookedDaysAgo": 0, "amenities": [], "purpose": "Senior citizens' yoga session", "attendees": 40 }
+      ]
+    },
+    {
+      "user": "arul.k", "offset": 15, "start": 16, "slots": 2,
+      "items": [
+        { "seq": 4763, "venue": "V05", "status": "Paid", "bookedDaysAgo": 4, "amenities": ["lighting", "generator"], "purpose": "Ward cricket tournament final", "attendees": 800 }
+      ]
+    }
+  ],
   "venues": [
     {
       "id": "V01", "kind": "hall", "capacity": 300, "rate": 600, "deposit": 5000, "closedDay": 2, "open": 6, "close": 22,
