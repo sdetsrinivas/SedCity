@@ -10,6 +10,7 @@ import { encodeToken, newChallenge, verifyCaptcha, type Challenge } from "@/lib/
 import { maskMobile } from "@/lib/mask";
 import { pushSms } from "@/lib/sms";
 import { setSession, type Role } from "@/lib/session";
+import { recordSignIn } from "@/lib/signIns";
 import { Captcha } from "./Captcha";
 import s from "./Auth.module.css";
 
@@ -84,10 +85,12 @@ export function LoginForm({ next }: { next?: string }) {
     const ok = await verifyOtp(otpUser.username, otp);
     setBusy(false);
     if (!ok) { setError(t("login.otpInvalid")); return; }
+    const loginAt = new Date().toISOString();
+    recordSignIn(otpUser.username, loginAt);
     setSession({
       username: otpUser.username, name: otpUser.name, nameTa: otpUser.nameTa, role: otpUser.role,
       astheenId: otpUser.astheenId, mobile: otpUser.mobile, email: otpUser.email, ward: otpUser.ward,
-      loginAt: new Date().toISOString(), keepSignedIn: keepSignedIn.current,
+      loginAt, keepSignedIn: keepSignedIn.current,
     });
     const fallback = otpUser.role === "officer" ? "/officer/queue" : "/dashboard";
     router.push(next && next.startsWith("/") && !next.startsWith("//") ? next : fallback);

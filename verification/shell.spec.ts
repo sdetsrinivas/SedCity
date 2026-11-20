@@ -82,7 +82,7 @@ test.describe("Global shell", () => {
     await mockDelays(context, { delays: { SESSION_WARN: 1500, SESSION_COUNTDOWN: 3000 } });
     await seedSession(context, "meena");
     await page.goto("/dashboard");
-    await expect(page.getByRole("heading", { name: /Welcome, Meena/ })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: /, Meena Rajendran$/ })).toBeVisible();
 
     const dialog = page.getByRole("dialog", { name: "Your session is about to expire" });
     await expect(dialog).toBeVisible({ timeout: 5000 });

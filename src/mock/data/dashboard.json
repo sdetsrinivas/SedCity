@@ -1,0 +1,54 @@
+{
+  "notices": {
+    "meena.r": [
+      { "id": "NT-1041", "daysAgo": 0, "time": "08:15", "unread": true, "en": "Your water bill for consumer W02-014-00731 is ready. Pay before the due date to avoid the 2% late fee.", "ta": "நுகர்வோர் W02-014-00731-க்கான உங்கள் குடிநீர்க் கட்டணம் தயார். 2% தாமதக் கட்டணத்தைத் தவிர்க்கக் கடைசி நாளுக்குள் செலுத்தவும்." },
+      { "id": "NT-1037", "daysAgo": 1, "time": "17:40", "unread": true, "en": "Grievance AMC/GR/2026/004612: a site inspection has been scheduled.", "ta": "குறை AMC/GR/2026/004612: களஆய்வு திட்டமிடப்பட்டுள்ளது." },
+      { "id": "NT-1032", "daysAgo": 3, "time": "10:05", "unread": true, "en": "Property tax for the second half-year can now be paid online for assessment 014-002-00731.", "ta": "மதிப்பீடு 014-002-00731-க்கான இரண்டாம் அரையாண்டுச் சொத்து வரியை இப்போது இணையத்தில் செலுத்தலாம்." },
+      { "id": "NT-1026", "daysAgo": 6, "time": "12:30", "unread": false, "en": "Your hall booking is awaiting payment at the venue office.", "ta": "உங்கள் மண்டப முன்பதிவு, அரங்க அலுவலகத்தில் கட்டணம் செலுத்தக் காத்திருக்கிறது." },
+      { "id": "NT-1019", "daysAgo": 9, "time": "18:10", "unread": false, "en": "Scheduled water supply interruption in Ward 14 on Saturday from 6 am to 2 pm.", "ta": "வார்டு 14-இல் சனிக்கிழமை காலை 6 முதல் மதியம் 2 மணி வரை திட்டமிட்ட குடிநீர் நிறுத்தம்." },
+      { "id": "NT-1008", "daysAgo": 15, "time": "09:00", "unread": false, "en": "Your Astheen ID profile has been verified.", "ta": "உங்கள் அஸ்தீன் அடையாள விவரம் சரிபார்க்கப்பட்டது." }
+    ],
+    "arul.k": [
+      { "id": "NT-2014", "daysAgo": 0, "time": "09:20", "unread": true, "en": "Your trade licence is due for renewal within 30 days.", "ta": "உங்கள் வணிக உரிமம் 30 நாட்களுக்குள் புதுப்பிக்கப்பட வேண்டும்." },
+      { "id": "NT-2009", "daysAgo": 4, "time": "11:45", "unread": false, "en": "Property tax receipt for assessment 003-001-01208 is available in your documents.", "ta": "மதிப்பீடு 003-001-01208-க்கான சொத்து வரி ரசீது உங்கள் ஆவணங்களில் உள்ளது." },
+      { "id": "NT-2003", "daysAgo": 12, "time": "16:00", "unread": false, "en": "Scheduled water supply interruption in Ward 3 on Sunday from 7 am to 1 pm.", "ta": "வார்டு 3-இல் ஞாயிற்றுக்கிழமை காலை 7 முதல் மதியம் 1 மணி வரை திட்டமிட்ட குடிநீர் நிறுத்தம்." }
+    ]
+  },
+  "documents": {
+    "meena.r": [
+      { "id": "DOC-7731", "kind": "receipt", "daysAgo": 5, "sizeKb": 38, "ref": "AMC/PT/2026/003118", "en": "Property tax receipt – first half-year", "ta": "சொத்து வரி ரசீது – முதல் அரையாண்டு" },
+      { "id": "DOC-7729", "kind": "receipt", "daysAgo": 14, "sizeKb": 31, "ref": "AMC/WT/2026/003377", "en": "Water charges receipt", "ta": "குடிநீர்க் கட்டண ரசீது" },
+      { "id": "DOC-7716", "kind": "acknowledgement", "daysAgo": 10, "sizeKb": 24, "ref": "AMC/GR/2026/004612", "en": "Grievance acknowledgement", "ta": "குறை ஒப்புகை" },
+      { "id": "DOC-7702", "kind": "certificate", "daysAgo": 41, "sizeKb": 126, "ref": "AMC/BC/2026/001942", "en": "Birth certificate – Kavin M.", "ta": "பிறப்புச் சான்றிதழ் – கவின் எம்." },
+      { "id": "DOC-7688", "kind": "certificate", "daysAgo": 77, "sizeKb": 212, "ref": "AMC/BP/2026/000318", "en": "Building plan approval", "ta": "கட்டட வரைபட ஒப்புதல்" }
+    ],
+    "arul.k": [
+      { "id": "DOC-8120", "kind": "licence", "daysAgo": 330, "sizeKb": 88, "ref": "AMC/TL/2025/002281", "en": "Trade licence", "ta": "வணிக உரிமம்" },
+      { "id": "DOC-8131", "kind": "receipt", "daysAgo": 4, "sizeKb": 36, "ref": "AMC/PT/2026/003204", "en": "Property tax receipt", "ta": "சொத்து வரி ரசீது" }
+    ]
+  },
+  "payments": {
+    "meena.r": [
+      { "service": "water", "detail": "W02-014-00731", "method": "upi", "day": 6, "start": 0, "every": 1, "seq": 3377,
+        "amounts": [332.5, 296, 305, 327, 390, 438, 455, 402, 341, 298, 312, 286] },
+      { "service": "property-tax", "detail": "014-002-00731", "method": "netbanking", "day": 21, "start": 1, "every": 6, "seq": 3118,
+        "amounts": [4862, 4862] },
+      { "service": "booking", "detail": "V03", "method": "card", "day": 12, "start": 4, "every": 12, "seq": 4688,
+        "amounts": [3500] }
+    ],
+    "arul.k": [
+      { "service": "water", "detail": "W01-003-01208", "method": "card", "day": 9, "start": 0, "every": 2, "seq": 2264,
+        "amounts": [512, 498, 560, 610, 575, 530] },
+      { "service": "property-tax", "detail": "003-001-01208", "method": "upi", "day": 18, "start": 0, "every": 6, "seq": 3204,
+        "amounts": [3920, 3920] },
+      { "service": "trade", "detail": "AMC/TL/2025/002281", "method": "netbanking", "day": 3, "start": 11, "every": 12, "seq": 2281,
+        "amounts": [1700] }
+    ]
+  },
+  "updates": [
+    { "id": "SU-1", "inDays": 2, "kind": "water", "en": "Water supply interruption in Zone II (Wards 9–16), 6 am to 2 pm, for valve replacement.", "ta": "மண்டலம் II-இல் (வார்டுகள் 9–16) வால்வு மாற்றத்திற்காகக் காலை 6 முதல் மதியம் 2 மணி வரை குடிநீர் நிறுத்தம்." },
+    { "id": "SU-2", "inDays": 5, "kind": "health", "en": "Mosquito control fogging in all wards of Zone III, 5.30 pm to 7.30 pm.", "ta": "மண்டலம் III-இன் அனைத்து வார்டுகளிலும் மாலை 5.30 முதல் 7.30 மணி வரை கொசு ஒழிப்புப் புகை மருந்து." },
+    { "id": "SU-3", "inDays": 8, "kind": "camp", "en": "Property tax and water charges collection camp at Kalaivani Nagar ward office, 10 am to 5 pm.", "ta": "கலைவாணி நகர் வார்டு அலுவலகத்தில் காலை 10 முதல் மாலை 5 மணி வரை சொத்து வரி மற்றும் குடிநீர்க் கட்டண வசூல் முகாம்." },
+    { "id": "SU-4", "inDays": 12, "kind": "portal", "en": "Online services will be unavailable from 11 pm to 1 am for scheduled maintenance.", "ta": "திட்டமிட்ட பராமரிப்புக்காக இரவு 11 முதல் 1 மணி வரை இணையச் சேவைகள் கிடைக்காது." }
+  ]
+}

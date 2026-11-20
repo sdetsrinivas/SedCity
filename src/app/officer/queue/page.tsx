@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { OfficerHome } from "@/modules/auth/DashboardHome";
+import { OfficerHome } from "@/modules/auth/OfficerHome";
 
 export const metadata: Metadata = { title: "Work Queue" };
 
