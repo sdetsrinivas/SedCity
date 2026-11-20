@@ -82,3 +82,37 @@ describe("Chat with us (<amc-help-chat>)", () => {
     expect(root().querySelector("#chat-title")!.textContent).toBe("உதவி – மாநகராட்சி உதவியாளர்");
   });
 });
+
+describe("Satisfaction survey", () => {
+  it("reads the questions form and stores a response with a feedback reference", async () => {
+    const { surveyDocument, readSurveyForm, RATINGS, SURVEY_SERVICES } = await import("@/modules/help/surveyDoc");
+    const { submitSurvey } = await import("@/mock/endpoints/help");
+    const words = Object.fromEntries(["questionsTitle", "loading", "loadError", "retry", "service", "servicePick", "rating", "comments", "commentsHint", "submit", "sending", "needService", "needRating", "sendError", "thanksTitle", "thanksRef", "thanksBody"].map((k) => [k, k]));
+    const html = surveyDocument(
+      { kind: "form" },
+      { ...words, services: Object.fromEntries(SURVEY_SERVICES.map((id) => [id, id])), ratings: Object.fromEntries(RATINGS.map((n) => [n, String(n)])) } as never,
+      "en",
+      "light",
+    );
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const form = doc.getElementById("survey") as HTMLFormElement;
+    expect(readSurveyForm(form)).toEqual({ service: "", rating: null, comments: "" });
+    (doc.getElementById("service") as HTMLSelectElement).value = "booking";
+    (doc.querySelector("input[name=rating][value='4']") as HTMLInputElement).checked = true;
+    (doc.getElementById("comments") as HTMLTextAreaElement).value = "  More evening slots  ";
+    const answer = readSurveyForm(form);
+    expect(answer).toEqual({ service: "booking", rating: 4, comments: "  More evening slots  " });
+
+    localStorage.clear();
+    const overrides = { scale: 0 };
+    document.cookie = `amc_mock=${encodeURIComponent(JSON.stringify(overrides))}; path=/`;
+    const first = await submitSurvey({ service: "booking", rating: 4, comments: answer.comments, lang: "en" });
+    const second = await submitSurvey({ service: "water", rating: 2, comments: "", lang: "ta" });
+    document.cookie = "amc_mock=; max-age=0; path=/";
+    expect(first.ref).toMatch(/^AMC\/FB\/\d{4}\/\d{6}$/);
+    expect(Number(second.ref.slice(-6))).toBe(Number(first.ref.slice(-6)) + 1);
+    const stored = JSON.parse(localStorage.getItem("amc.surveyResponses")!);
+    expect(stored.map((r: { ref: string }) => r.ref)).toEqual([second.ref, first.ref]);
+    expect(stored[1]).toMatchObject({ service: "booking", rating: 4, comments: "More evening slots", lang: "en" });
+  });
+});
