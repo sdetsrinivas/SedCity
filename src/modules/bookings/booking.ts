@@ -38,6 +38,8 @@ export const slotLabel = (hour: number) => `${hhmm(hour)} – ${hhmm(hour + SLOT
 
 /** A booking already saved in this browser (from the applications store). */
 export interface HeldSlots {
+  /** Booking number, so a booking being moved can leave its own slots out. */
+  ref?: string;
   venue: string;
   date: string;
   slots: number[];

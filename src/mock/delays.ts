@@ -80,6 +80,10 @@ export const DELAYS = {
   // ── Bookings: find and book ─────────────────────────────────────
   BOOKING_SLOTS: { spec: fixed(1200), page: "/bookings", element: "2. Time slots → 'Checking availability…' then the slot map (a new <svg>) after the venue or the date changes (chosen in the calendar)", traps: ["OTH-21", "DAT-02"] },
   BOOKING_SUBMIT: { spec: fixed(1500), page: "/bookings", element: "Confirm your booking dialog → Confirm booking: the dialog closes, 'Booking…' on the Review and book button, then the acknowledgement with the booking number", traps: ["DLG-06"] },
+  // ── Bookings: my bookings and moving a booking ──────────────────
+  MY_BOOKINGS: { spec: fixed(1000), page: "/bookings", element: "My bookings → 'Loading your bookings…' then the table (on load and after a new booking is confirmed)", traps: ["TBL-08"] },
+  BOOKING_WEEK: { spec: fixed(800), page: "/bookings", element: "My bookings → Move → 'Checking availability…' then the week board (after opening it and after Previous week / Next week)", traps: ["OTH-03"] },
+  BOOKING_MOVE: { spec: fixed(1200), page: "/bookings", element: "Move booking board → after a drop (or Space) on a free time: 'Moving your booking…', then the confirmation and the row's new date and time in My bookings", traps: ["OTH-03", "TBL-08"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },

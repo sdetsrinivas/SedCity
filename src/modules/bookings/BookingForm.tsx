@@ -32,7 +32,7 @@ const FIELD_ORDER: BookingField[] = ["venue", "date", "slots", "purpose", "atten
  * (e.g. "kq3f9x2" + "c"), and the form's own classes are CSS-module names whose hash changes with every
  * build. Only the visible text, labels, placeholders and roles stay the same between loads.
  */
-export function BookingForm({ uid, session }: { uid: string; session: Session }) {
+export function BookingForm({ uid, session, heldVersion = 0, onBooked }: { uid: string; session: Session; heldVersion?: number; onBooked?: () => void }) {
   const { t, lang } = useT();
   const locale = lang === "ta" ? "ta-IN" : "en-IN";
   const ids = useMemo(() => {
@@ -54,6 +54,14 @@ export function BookingForm({ uid, session }: { uid: string; session: Session })
   const mobile = session.mobile.replace(/\D/g, "").slice(-10);
 
   const venue = venueById(d.venue);
+
+  // A booking moved in "My bookings" frees its old slots and holds new ones: read them again, and load the
+  // slot map again (OTH-21) so the day shown does not keep the old picture.
+  useEffect(() => {
+    if (!heldVersion) return;
+    setHeld(heldSlots());
+    setReload((n) => n + 1);
+  }, [heldVersion]);
 
   // OTH-21: availability for the chosen venue and day (BOOKING_SLOTS); an older answer is ignored.
   useEffect(() => {
@@ -138,6 +146,7 @@ export function BookingForm({ uid, session }: { uid: string; session: Session })
         },
       });
       setHeld(heldSlots());
+      onBooked?.();
       pushSms(mobile, t("bk.sms", { ref, venue: venueName, date: formatDate(d.date), time: timeText, total: formatINR(fees.total), payBy: formatDate(payBy) }));
       setAck({ ref, venue: venueName, date: d.date, time: timeText, amenities: amenityText, total: fees.total, payBy, mobile });
       window.scrollTo({ top: 0 });

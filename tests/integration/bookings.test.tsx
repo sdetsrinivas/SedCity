@@ -130,7 +130,8 @@ describe("Hall / park booking", () => {
       details: { venue: "V01", date: day, slots: String(slot), amenities: "sound", purpose: "Family get-together", attendees: "120", mobile: "9841023456" },
     });
     expect(app.ref).toMatch(/^AMC\/BK\/\d{4}\/\d{6}$/);
-    expect(heldSlots()).toEqual([{ venue: "V01", date: day, slots: [slot] }]);
+    // Seeded bookings of the demo citizens are at other venues; this one holds its slot at V01.
+    expect(heldSlots().filter((h) => h.venue === "V01")).toEqual([{ ref: app.ref, venue: "V01", date: day, slots: [slot] }]);
     expect(listSms()[0].body).toContain(app.ref);
   });
 
