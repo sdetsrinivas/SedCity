@@ -4,7 +4,7 @@ import { useT } from "@/i18n/client";
 import type { DictKey } from "@/i18n";
 import { askAssistant, sendTranscript } from "@/mock/endpoints/help";
 import { isEmail, offerable, START_TOPICS, TOPIC_LABEL, type TopicId } from "./chatBot";
-import { defineHelpChat, type ChatEndDetail, type ChatMessage, type ChatSendDetail, type ChatStrings, type ChatView } from "./chatElement";
+import { defineHelpChat, type ChatEndDetail, type ChatMessage, type ChatSendDetail, type ChatStrings, type ChatTranscriptDetail, type ChatView } from "./chatElement";
 import s from "./Help.module.css";
 
 type HelpChatElement = HTMLElement & { view: ChatView | null };
@@ -140,6 +140,10 @@ export function HelpChat() {
         },
       );
     };
+    // CHK-05: unticking the box drops a pending transcript error, so it does not reappear on the next update.
+    const onTranscript = (e: Event) => {
+      if (!(e as CustomEvent<ChatTranscriptDetail>).detail.checked) setError(null);
+    };
     const onRestart = () => {
       conversation.current++;
       nextId.current = 1;
@@ -150,10 +154,12 @@ export function HelpChat() {
       setPhase("open");
     };
     el.addEventListener("chat-send", onSend);
+    el.addEventListener("chat-transcript", onTranscript);
     el.addEventListener("chat-end", onEnd);
     el.addEventListener("chat-restart", onRestart);
     return () => {
       el.removeEventListener("chat-send", onSend);
+      el.removeEventListener("chat-transcript", onTranscript);
       el.removeEventListener("chat-end", onEnd);
       el.removeEventListener("chat-restart", onRestart);
     };

@@ -6,7 +6,7 @@
  *
  * The React wrapper (HelpChat.tsx) owns the conversation and sets the `view` property; the element owns
  * its form fields and reports what the citizen does with composed events:
- *   `chat-send` {text, topic?} · `chat-end` {transcript, email} · `chat-restart`.
+ *   `chat-send` {text, topic?} · `chat-transcript` {checked} · `chat-end` {transcript, email} · `chat-restart`.
  * Theme colours come in through inherited CSS custom properties (--c-*), the font and `lang` are inherited.
  */
 import { defineQuickReplies, QUICK_REPLIES_TAG, type QuickReply, type QuickReplyDetail } from "./quickRepliesElement";
@@ -51,6 +51,7 @@ export interface ChatView {
 
 export interface ChatSendDetail { text: string; topic?: string }
 export interface ChatEndDetail { transcript: boolean; email: string }
+export interface ChatTranscriptDetail { checked: boolean }
 
 const STYLE = `
 :host { display: block; color: var(--c-text, #1d2430); }
@@ -128,6 +129,8 @@ export function defineHelpChat(): void {
     #view: ChatView | null = null;
     #shown = 0;
     #phase: ChatView["phase"] = "open";
+    /** TXT-07: an `input` event has reached the question box since the last question was sent. */
+    #typed = false;
     readonly #root: ShadowRoot;
 
     constructor() {
@@ -138,14 +141,19 @@ export function defineHelpChat(): void {
       const input = this.#q<HTMLInputElement>("#chat-input");
       const box = this.#q<HTMLInputElement>("#chat-transcript");
 
-      // TXT-07: Send follows the `input` event; a value set from script without one leaves it disabled.
-      input.addEventListener("input", () => this.#syncSend());
+      // TXT-07: only a real `input` event arms Send (and Enter). A value set from script without one leaves
+      // it disabled, also across later re-renders (replies arriving, restart), which re-check the box.
+      input.addEventListener("input", () => {
+        this.#typed = true;
+        this.#syncSend();
+      });
       this.#q<HTMLFormElement>(".compose").addEventListener("submit", (e) => {
         e.preventDefault();
         const text = input.value.trim();
-        if (!text || !this.#canAsk()) return;
+        if (!text || !this.#typed || !this.#canAsk()) return;
         this.#emit<ChatSendDetail>("chat-send", { text });
         input.value = "";
+        this.#typed = false;
         this.#syncSend();
         input.focus();
       });
@@ -158,6 +166,8 @@ export function defineHelpChat(): void {
       box.addEventListener("change", () => {
         this.#q(".email").hidden = !box.checked;
         this.#q(".error").hidden = true;
+        // The wrapper clears its stored error too, so the next update does not bring it back.
+        this.#emit<ChatTranscriptDetail>("chat-transcript", { checked: box.checked });
       });
       this.#q(".end-chat").addEventListener("click", () => {
         this.#emit<ChatEndDetail>("chat-end", { transcript: box.checked, email: this.#q<HTMLInputElement>("#chat-email").value });
@@ -184,7 +194,8 @@ export function defineHelpChat(): void {
     }
 
     #syncSend() {
-      this.#q<HTMLButtonElement>(".send").disabled = !this.#q<HTMLInputElement>("#chat-input").value.trim() || !this.#canAsk();
+      const input = this.#q<HTMLInputElement>("#chat-input");
+      this.#q<HTMLButtonElement>(".send").disabled = !this.#typed || !input.value.trim() || !this.#canAsk();
     }
 
     #render() {
@@ -257,6 +268,7 @@ export function defineHelpChat(): void {
     /** A new conversation starts with empty fields. */
     #reset() {
       this.#q<HTMLInputElement>("#chat-input").value = "";
+      this.#typed = false;
       this.#q<HTMLInputElement>("#chat-transcript").checked = false;
       this.#q<HTMLInputElement>("#chat-email").value = "";
       this.#q(".email").hidden = true;

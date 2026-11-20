@@ -221,12 +221,29 @@ test.describe("Help centre", () => {
     // The text typed meanwhile is kept and can be sent now.
     await expect(input).toHaveValue("and property tax?");
     await send(page).click();
+    // A value set from script while the reply is on its way stays unarmed after the reply re-renders the chat.
+    await input.evaluate((el: HTMLInputElement) => { el.value = "water bill"; });
     await expect(messages(page).nth(4)).toContainText("assessment number", { timeout: 4000 });
+    await expect(typing(page)).toBeHidden();
+    await expect(input).toHaveValue("water bill");
+    await expect(send(page)).toBeDisabled();
+    await input.press("Enter");
+    await expect(messages(page)).toHaveCount(5);
 
     // Typed text that matches no topic gets the fallback answer.
+    await input.fill("");
     await input.pressSequentially("qwerty");
     await input.press("Enter");
     await expect(messages(page).nth(6)).toContainText("Sorry, I did not understand that", { timeout: 4000 });
+
+    // A scripted value also stays unarmed across a new chat.
+    await chat(page).getByRole("button", { name: "End chat" }).click();
+    await chat(page).getByRole("button", { name: "Start a new chat" }).click();
+    await expect(messages(page)).toHaveCount(1);
+    await input.evaluate((el: HTMLInputElement) => { el.value = "water bill"; });
+    await chip(page, "Book a hall or park").click(); // an unrelated update: a question and its reply
+    await expect(messages(page).nth(2)).toContainText("two-hour slots", { timeout: 4000 });
+    await expect(send(page)).toBeDisabled();
   });
 
   test("[SHD-02] quick replies are buttons three shadow roots deep; clicking one asks that question", async ({ page }) => {
@@ -280,6 +297,15 @@ test.describe("Help centre", () => {
     await email.fill("meena.r@example");
     await end.click();
     await expect(alert).toHaveText("Enter a valid email address, for example name@example.com.");
+    // Unticking drops the error; it does not come back on the next update (a question and its reply).
+    await box.uncheck();
+    await expect(alert).toBeHidden();
+    await question(page).fill("Where is the ward office?");
+    await question(page).press("Enter");
+    await expect(messages(page).nth(4)).toContainText("Saturday 10:00–13:00", { timeout: 4000 });
+    await expect(alert).toBeHidden();
+    await box.check();
+    await expect(alert).toBeHidden();
     await email.fill("meena.r@example.com");
     await end.click();
     await expect(chat(page).getByRole("button", { name: "Sending the copy…" })).toBeDisabled();
