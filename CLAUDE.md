@@ -28,7 +28,7 @@ Adding or changing a trap requires all of:
 - **Small PRs: one module (or smaller) per PR**, each with tests, registry entries and verification checks. Put shared infrastructure in its own PR first. The user asked for smaller PRs after the 117-file phase (a) PR.
 - **Branch every PR from `main`. Never stack PRs** (merging the base auto-closes the dependent PR).
 - Branch names: `phase-x/<module>` or `docs/<topic>`. Commit/PR attribution lines: follow the harness reminder.
-- Open the PR, wait for CI (`gh pr checks <n> --watch`), then report. **Only merge when the user asks.**
+- Open the PR, wait for CI (`gh pr checks <n> --watch`). **Merge only when the user asks, or inside the `module-loop` skill** (`.claude/skills/module-loop/`), where the user pre-authorised auto-merge on green CI after one review round. Orchestrator = Fable 5.2 medium (the session), developer = Opus 5.5 medium, reviewer = fresh Fable 5.2 medium.
 - Don't assume approval carries over; confirm outward-facing or hard-to-reverse actions.
 - After each module: run all tests, fix failures, then summarise what was built and which trap IDs are now live.
 - Verify UI changes visually (Playwright screenshots) at desktop, mobile (390px), dark mode and Tamil before opening a PR.
