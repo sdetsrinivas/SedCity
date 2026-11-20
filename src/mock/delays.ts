@@ -84,6 +84,11 @@ export const DELAYS = {
   MY_BOOKINGS: { spec: fixed(1000), page: "/bookings", element: "My bookings → 'Loading your bookings…' then the table (on load and after a new booking is confirmed)", traps: ["TBL-08"] },
   BOOKING_WEEK: { spec: fixed(800), page: "/bookings", element: "My bookings → Move → 'Checking availability…' then the week board (after opening it and after Previous week / Next week)", traps: ["OTH-03"] },
   BOOKING_MOVE: { spec: fixed(1200), page: "/bookings", element: "Move booking board → after a drop (or Space) on a free time: 'Moving your booking…', then the confirmation and the row's new date and time in My bookings", traps: ["OTH-03", "TBL-08"] },
+  // ── Citizen dashboard ───────────────────────────────────────────
+  SKELETON: { spec: fixed(2000), page: "/dashboard", element: "Notifications, My applications, Payment history and My documents cards → grey placeholder rows (the same list / grid elements, `aria-busy=true`) until the citizen's data arrives", traps: ["DYN-03", "CHK-06", "TBL-03", "BTN-08"] },
+  STREAM_DASHBOARD: { spec: fixed(3000), page: "/dashboard", element: "Service updates card (server-streamed): skeleton placeholder in the first HTML, replaced by the list when the stream completes", traps: ["DYN-03"] },
+  UNDO_WINDOW: { spec: fixed(6000), page: "/dashboard", element: "Notifications → Delete → snackbar with Undo; the deletion is saved when it closes (a limit: `scale` does not apply, only a by-name override)", traps: ["DLG-11"] },
+  PROFILE_SAVE: { spec: fixed(1000), page: "/dashboard", element: "My profile → Change email → Save email ('Saving…' then 'Your email address has been updated.')", traps: ["TXT-08"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },

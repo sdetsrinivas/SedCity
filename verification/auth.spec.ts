@@ -83,7 +83,7 @@ test.describe("Login", () => {
     await page.getByLabel("One-time password").fill(smsOtp);
     await page.getByRole("button", { name: "Verify & continue" }).click();
     await expect(page).toHaveURL(/\/dashboard$/);
-    await expect(page.getByRole("heading", { name: /Welcome, Meena Rajendran/ })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: /^Good (morning|afternoon|evening), Meena Rajendran$/ })).toBeVisible();
   });
 
   test("[OTH-26] role switch: officer label, role mismatch error, officer landing page", async ({ page }) => {
