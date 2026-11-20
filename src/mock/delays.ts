@@ -98,6 +98,9 @@ export const DELAYS = {
   // ── Help centre ─────────────────────────────────────────────────
   CHAT_REPLY: { spec: random(1000, 2000), page: "/help", element: "Chat with us (`<amc-help-chat>`, open shadow root) → 'Uthavi is typing…' after a question is sent (typed or a quick reply), then the reply and new quick replies; Send and the quick replies are disabled meanwhile", traps: ["TXT-07", "SHD-01", "SHD-02"] },
   CHAT_TRANSCRIPT: { spec: fixed(800), page: "/help", element: "Chat with us → End chat with 'Email me a copy of this chat' ticked → 'Sending the copy…' then the closing message naming the address", traps: ["CHK-05"] },
+  // ── Help centre: satisfaction survey ────────────────────────────
+  SURVEY_INNER: { spec: fixed(2000), page: "/help/survey", element: "Survey frame → inner questions frame (srcdoc): 'Loading the questions…' document, then the frame is re-navigated to the questions form", traps: ["FRM-02", "FRM-03"] },
+  SURVEY_SUBMIT: { spec: fixed(1000), page: "/help/survey", element: "Survey questions → Submit feedback → 'Sending…' then the thank-you document with the reference number (inner frame re-navigated again)", traps: ["FRM-03"] },
   // ── AstheenPay gateway (/pay/astheenpay/checkout, in an iframe or popup; used by water and property tax) ──
   GATEWAY_LOAD: { spec: fixed(1200), page: "/pay/astheenpay/checkout", element: "Checkout form (in the iframe or popup) after 'Connecting securely…'", traps: ["FRM-01", "DLG-15"] },
   GATEWAY_OTP_SEND: { spec: fixed(800), page: "/pay/astheenpay/checkout", element: "Pay button → OTP modal inside the iframe/popup", traps: ["DLG-08"] },

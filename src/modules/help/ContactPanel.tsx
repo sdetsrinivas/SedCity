@@ -26,6 +26,7 @@ export async function ContactPanel() {
         <li><Link href="/directory/offices">{t("help.contact.nearest")}</Link></li>
         <li><Link href="/grievances/new">{t("help.contact.grievance")}</Link></li>
         <li><Link href="/directory/officials">{t("help.contact.officials")}</Link></li>
+        <li><Link href="/help/survey">{t("help.contact.survey")}</Link></li>
       </ul>
     </div>
   );
