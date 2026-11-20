@@ -60,7 +60,7 @@ Live traps (122): CHK-01 CHK-02 CHK-03 CHK-04 CHK-06 CHK-07 CHK-08 CHK-09 · RAD
 
 ## Open questions for the user
 
-- Should Claude merge each PR itself once CI is green? So far the user has explicitly asked for merges (#1, then #2 and #4). Until told otherwise, open the PR, wait for CI, and ask/leave it.
+- Resolved 2026-11-16: the user authorised the `module-loop` skill (Opus dev → Fable review → fix → CI → auto-merge → next module).
 - Tamil copy has not been reviewed by a native speaker.
 
 ## Gotchas (learned the hard way)
